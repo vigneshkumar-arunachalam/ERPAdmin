@@ -1,0 +1,181 @@
+<div class="contents">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 mb-30">
+          <div class="card">
+            <div class="card-header color-dark fw-500">
+                User Management
+              <button type="button" class="btn btn-primary btn-default btn-squared" 
+               (click)="AddUserNavigation()">
+                Add User
+              </button>
+  
+            </div>
+            <div class="card-body">
+  
+  
+              <div class="userDatatable global-shadow border-0 bg-white w-100">
+                <div class="table-responsive">
+                  <table class="table mb-0 table-borderless">
+                    <thead>
+                      <tr class="userDatatable-header">
+                        <th style="display:none;">
+                          <span class="userDatatable-title">User Name</span>
+                        </th>
+  
+                        <th>
+                          <span class="userDatatable-title">Display Name</span>
+                        </th>
+                        <th>
+                          <span class="userDatatable-title">Last Name</span>
+                        </th>
+                       
+                        <th>
+                          <span class="userDatatable-title">Designation</span>
+                        </th>
+                        <th>
+                          <span class="userDatatable-title">SMS</span>
+                        </th>
+                        <th>
+                          <span class="userDatatable-title">	Phone Number</span>
+                        </th>
+                        <th>
+                          <span class="userDatatable-title"> Email</span>
+                        </th>
+                        <th>
+                          <span class="userDatatable-title">Email-ID</span>
+                        </th>
+                        
+                        <th>
+                          <span class="userDatatable-title">action</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let list of user_list; let i = index">
+                        <td style="display:none;">
+                          {{ list.userName }}
+                        </td>
+  
+                        <td>
+                          <span>{{ list.firstName }}</span>
+                        </td>
+                        <td>
+                          <span>{{ list.lastName}}</span>
+                        </td>
+                        
+                        <td>
+                          <span>{{ list.designation }}</span>
+                        </td>
+                        <td>
+                          <span>{{ list.smsNotification }}</span>
+                        </td>
+                        <td>
+                          <span>{{ list.phonenumber}}</span>
+                        </td>
+                        <td>
+                          <span> {{ list.emailNotification }}</span>
+                        </td>
+                        <td>
+                          <span>{{ list.emailId }}</span>
+                        </td>
+                       
+  
+                        <td>
+  
+                          <div class="page">
+  
+                            <div class="dropdown">
+                              <button class="btn1"><i class="fa fa-bars"></i></button>
+  
+  
+                              <ul class="dropdown__list">
+                                <li class="dropdown__item">
+                                  <a href="#" class="remove" title="View" data-toggle="modal"
+                                    data-target="#viewCustomerFormId">
+  
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round" class="feather feather-activity">
+                                      <circle cx="12" cy="12" r="10"></circle>
+                                      <line x1="12" y1="16" x2="12" y2="12"></line>
+                                      <line x1="12" y1="8" x2="12" y2="8"></line>
+                                    </svg>
+                                  </a>
+                                </li>
+                                <li class="dropdown__item">
+                                  <a href="#" class="view" title="Delete">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round" class="feather feather-activity">
+                                      <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
+                                      <line x1="18" y1="9" x2="12" y2="15"></line>
+                                      <line x1="12" y1="9" x2="18" y2="15"></line>
+                                    </svg>
+                                  </a>
+                                </li>
+                                <li class="dropdown__item">
+                                  <a href="#" class="remove" title="Edit" data-toggle="modal"
+                                    data-target="#editCustomerFormId">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round" class="feather feather-activity">
+                                      <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
+                                      <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+                                    </svg>
+                                  </a>
+                                </li>
+                                <li class="dropdown__item">
+                                  <a href="#" class="view" title="Special Edit" data-toggle="modal"
+                                    data-target="#specialEditCustomerFormId">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round" class="feather feather-activity">
+                                      <polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon>
+                                    </svg>
+                                  </a>
+                                </li>
+
+                              </ul>
+                            </div>
+  
+                          </div>
+  
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <nav class="atbd-page">
+                <ul class="atbd-pagination d-flex">
+                  <li class="atbd-pagination__item">
+                    <a href="#" class="atbd-pagination__link pagination-control"><span
+                        class="la la-angle-left"></span></a>
+                    <a href="#" class="atbd-pagination__link"><span class="page-number">1</span></a>
+                    <a href="#" class="atbd-pagination__link active"><span class="page-number">2</span></a>
+                    <a href="#" class="atbd-pagination__link"><span class="page-number">3</span></a>
+                    <a href="#" class="atbd-pagination__link pagination-control"><span class="page-number">...</span></a>
+                    <a href="#" class="atbd-pagination__link"><span class="page-number">12</span></a>
+                    <a href="#" class="atbd-pagination__link pagination-control"><span
+                        class="la la-angle-right"></span></a>
+                    <a href="#" class="atbd-pagination__option"> </a>
+                  </li>
+                  <li class="atbd-pagination__item">
+                    <div class="paging-option">
+                      <select name="page-number" class="page-selection">
+                        <option value="20">20/page</option>
+                        <option value="40">40/page</option>
+                        <option value="60">60/page</option>
+                      </select>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
