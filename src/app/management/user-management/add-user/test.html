@@ -1,0 +1,41 @@
+<div class="col-lg-4">
+    <label class="col-lg-12 col-form-label"> Quotation New Permission</label>
+</div>
+<div *ngFor="let dd of billerDetailsList;let i=index">
+
+            <button type="button" class="btn btn-outline-success btnalter mt-4"
+            [ngStyle]="{'background-color': dd.colorCodes}"
+                >{{dd.billerName}}</button>
+            <input class="switch ml-4" type="checkbox"
+            (change)="EditCHK_quotation_per(dd.billerId,$event)"
+            id="check_ids{{i}}">
+
+</div>
+
+//Permission - checkbox Group-Guru Details
+groupSelectCommonId_GuruDetails: any;
+checkbox_value_GuruDetails: any;
+edit_array_GuruDetails: any = [];
+
+
+EditCHK_GuruDetails(data: any, event: any) {
+    console.log("List - CheckBox ID", data);
+    this.groupSelectCommonId_GuruDetails = data;
+    this.checkbox_value_GuruDetails = event.target.checked;
+    console.log(this.checkbox_value_GuruDetails)
+    if (this.checkbox_value_GuruDetails) {
+
+      this.edit_array_GuruDetails.push(data);
+      this.edit_array_GuruDetails.join(',');
+      console.log("Final Checkbox After checkbox selected list", this.edit_array_GuruDetails);
+    }
+    else {
+      const index = this.edit_array_GuruDetails.findIndex((el: any) => el === data)
+      if (index > -1) {
+        this.edit_array_GuruDetails.splice(index, 1);
+      }
+      console.log("Final Checkbox After Deselected selected list", this.edit_array_GuruDetails)
+
+    }
+  
+}
