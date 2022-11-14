@@ -375,7 +375,7 @@
                                                     <div class="form-group row">
 
                                                         <div class="col-lg-12">
-                                                            <input type="date" class="form-control"
+                                                            <input type="text" class="form-control"
                                                                 formControlName="MS_salaryAmt" />
                                                         </div>
                                                     </div>
@@ -390,7 +390,7 @@
                                                     <div class="form-group row">
 
                                                         <div class="col-lg-12">
-                                                            <input type="date" class="form-control"
+                                                            <input type="text" class="form-control"
                                                                 formControlName="MS_perDayAmt" />
                                                         </div>
                                                     </div>
@@ -404,7 +404,7 @@
                                                     <div class="form-group row">
 
                                                         <div class="col-lg-12">
-                                                            <input type="date" class="form-control"
+                                                            <input type="text" class="form-control"
                                                                 formControlName="MS_employerAmt" />
                                                         </div>
                                                     </div>
@@ -417,7 +417,7 @@
                                                     <div class="form-group row">
 
                                                         <div class="col-lg-12">
-                                                            <input type="date" class="form-control"
+                                                            <input type="text" class="form-control"
                                                                 formControlName="MS_employeeAmt" />
                                                         </div>
                                                     </div>
@@ -431,7 +431,7 @@
                                                     <div class="form-group row">
 
                                                         <div class="col-lg-12">
-                                                            <input type="date" class="form-control"
+                                                            <input type="text" class="form-control"
                                                                 formControlName="MS_contribution1" />
                                                         </div>
                                                     </div>
@@ -444,7 +444,7 @@
                                                 <div class="form-group row">
 
                                                     <div class="col-lg-12">
-                                                        <input type="date" class="form-control"
+                                                        <input type="text" class="form-control"
                                                             formControlName="MS_contribution2" />
                                                     </div>
                                                 </div>
@@ -616,7 +616,7 @@
                         <label for="file_ids{{j}}" class="col-lg-12 col-form-label">{{flist}}</label>
                     </div>
                     <div class="col-lg-8">
-                        <input type="file" class="form-control" id="file_ids{{j}}" />
+                        <input type="file" class="form-control" id="file_ids{{j}}" formControlName="Signature"/>
 
                     </div>
                 </div>
@@ -3766,6 +3766,21 @@
         <div class="col-lg-6">
             <div class="form-group row">
                 <div class="col-lg-4">
+                    <label for="	IndividualPettyCashandFromDate" class="col-lg-12 col-form-label">
+                        Individual Petty Cash and From Date</label>
+                </div>
+                <div class="col-lg-8">
+                    <input class="switch" type="checkbox" id="IndividualPettyCashandFromDate"
+                        formControlName="IndividualPettyCashandFromDate_cb"
+                        (change)="CB_IndividualPettyCashandFromDate($event)">
+                    <input  type="date"  formControlName="IndividualPettyCashandFromDate_date" >
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group row">
+                <div class="col-lg-4">
                     <label for="IndividualPettyCashCreditPersonSelect" class="col-lg-12 col-form-label">Individual Petty
                         Cash Credit Person Select</label>
                 </div>
@@ -5170,7 +5185,7 @@
 
     </form>
    
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" (click)="save()">Submit</button>
 
 
 </div>

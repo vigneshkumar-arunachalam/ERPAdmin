@@ -3,6 +3,8 @@ import { FormGroup, FormControl, FormBuilder, FormArray, Validators, ValidatorFn
 import { ServerService } from 'src/app/services/server.service';
 import { Router } from '@angular/router';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+declare var iziToast: any;
+declare var $:any;
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -398,6 +400,7 @@ edit_array_GuruDetails: any = [];
   pettyCashColorList: any;
   columntest:any;
   rowtest:any;
+  BillerID:any;
 
   addUserForm1: FormGroup;
   addUserForm2: FormGroup;
@@ -408,7 +411,178 @@ edit_array_GuruDetails: any = [];
   addUserForm7: FormGroup;
   addUserForm8: FormGroup;
   addUserFormTableData: FormGroup;
-
+  //checkbox declarartion
+  
+  checkboxCB_InProbation:boolean=false
+  checkboxCB_EPFCPFStatus:boolean=false
+checkboxCB_Sinda:boolean=false
+checkboxCB_Socso:boolean=false
+checkboxCB_SMSNotifications:boolean=false
+checkboxCB_EmailNotifications:boolean=false
+checkboxCB_Staff:boolean=false
+checkboxCB_TransDepositApproval: boolean = false;
+checkboxCB_TransCommissionApproval:boolean=false
+checkboxCB_TransWithdrawalApproval:boolean=false
+checkboxCB_TransPurchaseApproval:boolean=false
+checkboxCB_TransVendorApproval:boolean=false
+checkboxCB_TransInvoiceApproval:boolean=false
+checkboxCB_TransQuotationFilterApproval:boolean=false
+checkboxCB_ApprovalFilter:boolean=false
+checkboxCB_InvoiceIndividualFilter:boolean=false
+checkboxCB_TransApprovalTab:boolean=false
+checkboxCB_TransApprovalMain:boolean=false
+checkboxCB_TransApprovalProduct:boolean=false
+checkboxCB_TransApprovalDIDNumber:boolean=false
+checkboxCB_TransApprovalSmallTask:boolean=false
+checkboxCB_TransApprovalInvPayment:boolean=false
+checkboxCB_TransApprovalOnlineShop:boolean=false
+checkboxCB_TransApprovalDIDDemo:boolean=false
+checkboxCB_TransApprovalRMAIssues:boolean=false
+checkboxCB_TransApprovalOther:boolean=false
+checkboxCB_TransApprovalHRA:boolean=false
+checkboxCB_QuotationSentAppName:boolean=false
+checkboxCB_TransactionApprovalShare:boolean=false
+checkboxCB_TransactionApprovalIndividualFilter:boolean=false
+checkboxCB_CustomerMasterApptoval:boolean=false
+checkboxCB_WriteOffInvoice:boolean=false
+checkboxCB_DIDInvoice:boolean=false
+checkboxCB_CMSLogin:boolean=false
+checkboxCB_QuotationTemplate:boolean=false
+checkboxCB_ResellerManagement:boolean=false
+checkboxCB_CallLogs:boolean=false
+checkboxCB_PictureGallery:boolean=false
+checkboxCB_InternalTickets:boolean=false
+checkboxCB_PettyCashReport:boolean=false
+checkboxCB_WidthdrawlReport:boolean=false
+checkboxCB_PriceCategory:boolean=false
+checkboxCB_EnquiryForm:boolean=false
+checkboxCB_CMSCountry:boolean=false
+checkboxCB_DIDNumberCatalog:boolean=false
+checkboxCB_DIDProvider:boolean=false
+checkboxCB_DIDTrunkName:boolean=false
+checkboxCB_DepositMgt:boolean=false
+checkboxCB_SmallTask:boolean=false
+checkboxCB_ProductCategory:boolean=false
+checkboxCB_ProductQuotation:boolean=false
+checkboxCB_StockInventoryReport:boolean=false
+checkboxCB_RateCatelog:boolean=false
+checkboxCB_StockinventoryEntry:boolean=false
+checkboxCB_DIDInventoryEntry:boolean=false
+checkboxCB_SucuriipAccess:boolean=false
+checkboxCB_MrvoipLicenseKey:boolean=false
+checkboxCB_SoftPhoneLicense:boolean=false
+checkboxCB_APIToken:boolean=false
+checkboxCB_PurchaseEntry:boolean=false
+checkboxCB_PurchaseEntryYearly:boolean=false
+checkboxCB_PurchaseEntryyearlyEdit:boolean=false
+checkboxCB_PurchaseEntryVoipTrendChart:boolean=false
+checkboxCB_PurchaseentryMrvoipTrendEntry:boolean=false
+checkboxCB_PurchaseentryMrvoipTrendChart:boolean=false
+checkboxCB_PurchaseentryCall4telTrendEntry:boolean=false
+checkboxCB_PurchaseentryCall4telTrendChart:boolean=false
+checkboxCB_PurchaseEntryWaiting:boolean=false
+checkboxCB_NonTradePurchaseEntry:boolean=false
+checkboxCB_NewCustomerApproval:boolean=false
+checkboxCB_ResellerPaymentMenu:boolean=false
+checkboxCB_ResellerPaymentAll:boolean=false
+checkboxCB_MrvoipCalncall_callacloudMenu:boolean=false
+checkboxCB_MrvoipPackagePrice:boolean=false
+checkboxCB_MrvoipLeftProductMenu:boolean=false
+checkboxCB_MrvoipIndustries:boolean=false
+checkboxCB_MrvoipCaseStudies:boolean=false
+checkboxCB_MrvoipContactDetails:boolean=false
+checkboxCB_ERPUserMgt:boolean=false
+checkboxCB_ExternalBlog:boolean=false
+checkboxCB_InternalBlog:boolean=false
+checkboxCB_NX32SerialNumber:boolean=false
+checkboxCB_NX32DocumentUpload:boolean=false
+checkboxCB_DynamicExcel:boolean=false
+checkboxCB_RevenueReport:boolean=false
+checkboxCB_MGOrderList:boolean=false
+checkboxCB_YGOrderList:boolean=false
+checkboxCB_CustomerInvoiceShare:boolean=false
+checkboxCB_IPAllowedRule:boolean=false
+checkboxCB_RenewalReminder:boolean=false
+checkboxCB_WebrtcIP:boolean=false
+checkboxCB_AttendanceReports:boolean=false
+checkboxCB_CPFContribution:boolean=false
+checkboxCB_WebsiteSubscribeEmail:boolean=false
+checkboxCB_Buy3cxLicensePage:boolean=false
+checkboxCB_Buy3cxpermisUser:boolean=false
+checkboxCB_Call4telAddressLogoshowPartner:boolean=false
+checkboxCB_MrvoipAddressLogoshowPartner:boolean=false
+checkboxCB_MconnectAddressLogoshowPartner:boolean=false
+checkboxCB_RecurringCheckerList:boolean=false
+checkboxCB_EnquiryDetails:boolean=false
+checkboxCB_OverduePaymentsNotification:boolean=false
+checkboxCB_Cal4CarePteLtdOverdue:boolean=false
+checkboxCB_DCARETechnologiesIndiaPvtLtdOverdue:boolean=false
+checkboxCB_RecurringDateUpdate:boolean=false
+checkboxCB_StockPreApproval:boolean=false
+checkboxCB_WebSiteEnquiry:boolean=false
+checkboxCB_PaymentFollowInvoice:boolean=false
+checkboxCB_TransactionApproval:boolean=false
+checkboxCB_InCompletesTaskList:boolean=false
+checkboxCB_Cal4careSdnBhdOverdue:boolean=false
+checkboxCB_MarshalSystemConsultancyOverdue:boolean=false
+checkboxCB_PurchaseEntryTrend:boolean=false
+checkboxCB_Verfication2ds:boolean=false
+checkboxcheckboxStatus:boolean=false
+checkboxCB_Cal4careSdnBhdGSTRpt:boolean=false
+checkboxCB_AllPaymentFollowInvoice:boolean=false
+checkboxCB_SendtoPostal:boolean=false
+checkboxCB_Cal4CareJapanCoLtdOverdue:boolean=false
+checkboxCB_CloudRenewalLicKeyPopup:boolean=false
+checkboxCB_AllMEnquiry:boolean=false
+checkboxCB_Assigned3cxEnquiry:boolean=false
+checkboxCB_Cal4careThailandCoLtdOverdue:boolean=false
+checkboxCB_CustomSearchIconshow:boolean=false
+checkboxCB_CustomerSerach:boolean=false
+checkboxCB_Invoice:boolean=false
+checkboxCB_LicenseKey:boolean=false
+checkboxCB_VsProvisioning:boolean=false
+checkboxCB_QuotationSerach:boolean=false
+checkboxCB_CreditNote:boolean=false
+checkboxCB_DIDNumber:boolean=false
+checkboxCB_AllPage:boolean=false
+checkboxCB_ProformaInvoice:boolean=false
+checkboxCB_PrepaidNote:boolean=false
+checkboxCB_CustomerProjects:boolean=false
+checkboxCB_VOIPCreditManager:boolean=false
+checkboxCB_VOIPSuspendAccount:boolean=false
+checkboxCB_ProductStockReportUpdate:boolean=false
+checkboxCB_CurrenctStockShow:boolean=false
+checkboxCB_RateCatelogShow:boolean=false
+checkboxCB_ActPurchasePriceShow:boolean=false  
+checkboxCB_DefaultMenuShow:boolean=false
+checkboxCB_ConsolidatedOverdue:false;
+checkboxCB_TransPettyCashApproval:boolean=false
+checkboxCB_TransApprovalDataCenter:boolean=false
+checkboxCB_DcareTechnologiesPteLtdOverdue:boolean=false
+checkboxCB_DefaultMenuShowLowLevel:boolean=false
+checkboxCB_CalncallMenuShow:boolean=false
+checkboxCB_ResellerShoppingMenu:boolean=false
+checkboxCB_PublicTaskManager:boolean=false
+checkboxCB_PersonalTaskManager:boolean=false
+checkboxCB_DailyWorkReport:boolean=false
+checkboxCB_Mailer:boolean=false
+checkboxCB_HelpDesk:boolean=false
+checkboxCB_C4CTurnOverMap:boolean=false
+checkboxCB_SpecialLogin:boolean=false
+checkboxCB_LeftSideTurnOverChart:boolean=false
+checkboxCB_IndividualPettyCashCreditPersonSelect:boolean=false
+checkboxCB_IndividualPettyCashandFromDate:false;
+checkboxCB_ApprovalDelete:boolean=false
+checkboxCB_CreditMgtDetails:boolean=false
+checkboxCB_BankReports:boolean=false
+checkboxCB_LedgerReports:boolean=false
+checkboxCB_DashBoard:boolean=false
+checkboxCB_InvoiceReports:boolean=false
+checkboxCB_CallLogReports:boolean=false
+checkboxCB_SendMail:boolean=false
+checkboxCB_PettyCash:boolean=false
+checkboxCB_Logistics:boolean=false
+checkboxCB_test:boolean=false
   constructor(private serverService: ServerService, private fb: FormBuilder, private router: Router) {
     this.addUserForm2 = this.fb.group({
       addresses: this.fb.array([this.createAddress()])
@@ -496,6 +670,7 @@ edit_array_GuruDetails: any = [];
       'cmsAlternativeSupportWebsite': new FormControl,
       'bccEmailID': new FormControl,
       'pettyCashColorCode': new FormControl,
+      'Signature': new FormControl,
       'Staff': new FormControl,
       'ProbationIn': new FormControl,
       'permissionAs': new FormControl,
@@ -665,6 +840,8 @@ edit_array_GuruDetails: any = [];
       'SpecialLogin': new FormControl,
       'LeftSideTurnOverChart': new FormControl,
       'IndividualPettyCashCreditPersonSelect': new FormControl,
+      'IndividualPettyCashandFromDate_cb': new FormControl,
+      'IndividualPettyCashandFromDate_date': new FormControl,
       'ApprovalDelete': new FormControl,
 
     });
@@ -748,854 +925,859 @@ edit_array_GuruDetails: any = [];
     this.checkboxStatus = event.target.checked;
     console.log("this.checkboxStatus", this.checkboxStatus)
   }
-  checkboxCB_InProbation: any;
+
   CB_InProbation(event: any) {
     this.checkboxCB_InProbation = event.target.checked;
     console.log(" this.checkboxCB_InProbation", this.checkboxCB_InProbation)
   }
-  checkboxCB_EPFCPFStatus: any;
+ 
   CB_EPFCPFStatus(event: any) {
     this.checkboxCB_EPFCPFStatus = event.target.checked;
     console.log("this.checkboxCB_EPFCPFStatus", this.checkboxCB_EPFCPFStatus)
   }
-  checkboxCB_Sinda: any;
+
   CB_Sinda(event: any) {
     this.checkboxCB_Sinda = event.target.checked;
     console.log("this.checkboxCB_Sinda", this.checkboxCB_Sinda)
   }
-  checkboxCB_Socso: any;
+  
   CB_Socso(event: any) {
     this.checkboxCB_Socso = event.target.checked;
     console.log("this.checkboxCB_Socso", this.checkboxCB_Socso)
   }
-  checkboxCB_SMSNotifications: any;
+
   CB_SMSNotification(event: any) {
     this.checkboxCB_SMSNotifications = event.target.checked;
     console.log("this.checkboxCB_SMSNotifications", this.checkboxCB_SMSNotifications)
   }
-  checkboxCB_EmailNotifications: any;
+
   CB_EmailNotification(event: any) {
     this.checkboxCB_EmailNotifications = event.target.checked;
     console.log("this.checkboxCB_EmailNotifications", this.checkboxCB_EmailNotifications)
   }
-  checkboxCB_Staff: any;
+
   CB_Staff(event: any) {
     this.checkboxCB_Staff = event.target.checked;
     console.log("this.checkboxCB_Staff ", this.checkboxCB_Staff)
   }
-  checkboxCB_TransDepositApproval: any;
+ 
   CB_TransDepositApproval(event: any) {
     this.checkboxCB_TransDepositApproval = event.target.checked;
     console.log("this.checkboxCB_TransDepositApproval", this.checkboxCB_TransDepositApproval)
   }
-  checkboxCB_TransCommissionApproval: any;
+
   CB_TransCommissionApproval(event: any) {
     this.checkboxCB_TransCommissionApproval = event.target.checked;
     console.log("this.checkboxCB_TransCommissionApproval", this.checkboxCB_TransCommissionApproval)
   }
-  checkboxCB_TransWithdrawalApproval: any;
+ 
   CB_TransWithdrawalApproval(event: any) {
     this.checkboxCB_TransWithdrawalApproval = event.target.checked;
     console.log("this.checkboxCB_TransWithdrawalApproval", this.checkboxCB_TransWithdrawalApproval)
   }
-  checkboxCB_TransPurchaseApproval: any;
+ 
   CB_TransPurchaseApproval(event: any) {
     this.checkboxCB_TransPurchaseApproval = event.target.checked;
     console.log(" this.checkboxCB_TransPurchaseApproval ", this.checkboxCB_TransPurchaseApproval)
   }
-  checkboxCB_TransPettyCashApproval: any;
+
   CB_TransPettyCashApproval(event: any) {
     this.checkboxCB_TransPettyCashApproval = event.target.checked;
     console.log("this.checkboxCB_TransPettyCashApproval", this.checkboxCB_TransPettyCashApproval)
   }
-  checkboxCB_TransVendorApproval: any;
+
   CB_TransVendorApproval(event: any) {
     this.checkboxCB_TransVendorApproval = event.target.checked;
     console.log("this.checkboxCB_TransVendorApproval", this.checkboxCB_TransVendorApproval)
   }
-  checkboxCB_TransInvoiceApproval: any;
+
   CB_TransInvoiceApproval(event: any) {
     this.checkboxCB_TransInvoiceApproval = event.target.checked;
     console.log("this.checkboxCB_TransInvoiceApproval", this.checkboxCB_TransInvoiceApproval)
   }
-  checkboxCB_TransQuotationFilterApproval: any;
+  
   CB_TransQuotationFilterApproval(event: any) {
     this.checkboxCB_TransQuotationFilterApproval = event.target.checked;
     console.log("this.checkboxCB_TransQuotationFilterApproval", this.checkboxCB_TransQuotationFilterApproval)
   }
-  checkboxCB_ApprovalFilter: any;
+
   CB_ApprovalFilter(event: any) {
     this.checkboxCB_ApprovalFilter = event.target.checked;
     console.log(" this.checkboxCB_ApprovalFilter", this.checkboxCB_ApprovalFilter)
   }
-  checkboxCB_InvoiceIndividualFilter: any;
+ 
   CB_InvoiceIndividualFilter(event: any) {
     this.checkboxCB_InvoiceIndividualFilter = event.target.checked;
     console.log("this.checkboxCB_InvoiceIndividualFilter ", this.checkboxCB_InvoiceIndividualFilter)
   }
-  checkboxCB_TransApprovalTab: any;
+
   CB_TransApprovalTab(event: any) {
     this.checkboxCB_TransApprovalTab = event.target.checked;
     console.log(" this.checkboxCB_TransApprovalTab", this.checkboxCB_TransApprovalTab)
   }
-  checkboxCB_TransApprovalMain: any;
+ 
   CB_TransApprovalMain(event: any) {
     this.checkboxCB_TransApprovalMain = event.target.checked;
     console.log("this.checkboxCB_TransApprovalMain", this.checkboxCB_TransApprovalMain)
   }
-  checkboxCB_TransApprovalProduct: any;
+
   CB_TransApprovalProduct(event: any) {
     this.checkboxCB_TransApprovalProduct = event.target.checked;
     console.log("this.checkboxCB_TransApprovalProduct", this.checkboxCB_TransApprovalProduct)
   }
-  checkboxCB_TransApprovalDIDNumber: any;
+ 
   CB_TransApprovalDIDNumber(event: any) {
     this.checkboxCB_TransApprovalDIDNumber = event.target.checked;
     console.log("this.checkboxCB_TransApprovalDIDNumber", this.checkboxCB_TransApprovalDIDNumber)
   }
-  checkboxCB_TransApprovalSmallTask: any;
+
   CB_TransApprovalSmallTask(event: any) {
     this.checkboxCB_TransApprovalSmallTask = event.target.checked;
     console.log(" this.checkboxCB_TransApprovalSmallTask", this.checkboxCB_TransApprovalSmallTask)
   }
-  checkboxCB_TransApprovalInvPayment: any;
+
   CB_TransApprovalInvPayment(event: any) {
     this.checkboxCB_TransApprovalInvPayment = event.target.checked;
     console.log(" this.checkboxCB_TransApprovalInvPayment", this.checkboxCB_TransApprovalInvPayment)
   }
-  checkboxCB_TransApprovalOnlineShop: any;
+
   CB_TransApprovalOnlineShop(event: any) {
     this.checkboxCB_TransApprovalOnlineShop = event.target.checked;
     console.log(" this.checkboxCB_TransApprovalOnlineShop", this.checkboxCB_TransApprovalOnlineShop)
   }
-  checkboxCB_TransApprovalDIDDemo: any;
+
   CB_TransApprovalDIDDemo(event: any) {
     this.checkboxCB_TransApprovalDIDDemo = event.target.checked;
     console.log("this.checkboxCB_TransApprovalDIDDemo", this.checkboxCB_TransApprovalDIDDemo)
   }
-  checkboxCB_TransApprovalRMAIssues: any;
+  
   CB_TransApprovalRMAIssues(event: any) {
     this.checkboxCB_TransApprovalRMAIssues = event.target.checked;
     console.log("this.checkboxCB_TransApprovalRMAIssues", this.checkboxCB_TransApprovalRMAIssues)
   }
-  checkboxCB_TransApprovalOther: any;
+ 
   CB_TransApprovalOther(event: any) {
     this.checkboxCB_TransApprovalOther = event.target.checked;
     console.log(" this.checkboxCB_TransApprovalOther", this.checkboxCB_TransApprovalOther)
   }
-  checkboxCB_TransApprovalHRA: any;
+  
   CB_TransApprovalHRA(event: any) {
     this.checkboxCB_TransApprovalHRA = event.target.checked;
     console.log("this.checkboxCB_TransApprovalHRA", this.checkboxCB_TransApprovalHRA)
   }
-  checkboxCB_TransApprovalDataCenter: any;
+
   CB_TransApprovalDataCenter(event: any) {
     this.checkboxCB_TransApprovalDataCenter = event.target.checked;
     console.log(" this.checkboxCB_TransApprovalDataCenter ", this.checkboxCB_TransApprovalDataCenter)
   }
-  checkboxCB_QuotationSentAppName: any;
+
   CB_QuotationSentAppName(event: any) {
     this.checkboxCB_QuotationSentAppName = event.target.checked;
     console.log(" this.checkboxCB_QuotationSentAppNam", this.checkboxCB_QuotationSentAppName)
   }
-  checkboxCB_TransactionApprovalShare: any;
+
   CB_TransactionApprovalShare(event: any) {
     this.checkboxCB_TransactionApprovalShare = event.target.checked;
     console.log("  this.checkboxCB_TransactionApprovalShare", this.checkboxCB_TransactionApprovalShare)
   }
-  checkboxCB_TransactionApprovalIndividualFilter: any;
+
   CB_TransactionApprovalIndividualFilter(event: any) {
     this.checkboxCB_TransactionApprovalIndividualFilter = event.target.checked;
     console.log("this.checkboxCB_TransactionApprovalIndividualFilter", this.checkboxCB_TransactionApprovalIndividualFilter)
   }
-  checkboxCB_CustomerMasterApptoval: any;
+
   CB_CustomerMasterApptoval(event: any) {
     this.checkboxCB_CustomerMasterApptoval = event.target.checked;
     console.log(" this.checkboxCB_CustomerMasterApptoval", this.checkboxCB_CustomerMasterApptoval)
   }
-  checkboxCB_DIDInvoice: any;
+
   CB_DIDInvoice(event: any) {
     this.checkboxCB_DIDInvoice = event.target.checked;
     console.log("this.checkboxCB_DIDInvoice", this.checkboxCB_DIDInvoice)
   }
-  checkboxCB_WriteOffInvoice: any;
+
   CB_WriteOffInvoice(event: any) {
     this.checkboxCB_WriteOffInvoice = event.target.checked;
     console.log("this.checkboxCB_WriteOffInvoice ", this.checkboxCB_WriteOffInvoice)
   }
-  checkboxCB_CMSLogin: any;
+
   CB_CMSLogin(event: any) {
     this.checkboxCB_CMSLogin = event.target.checked;
     console.log(" this.checkboxCB_CMSLogin", this.checkboxCB_CMSLogin)
   }
-  checkboxCB_QuotationTemplate: any;
+
   CB_QuotationTemplate(event: any) {
     this.checkboxCB_QuotationTemplate = event.target.checked;
     console.log("this.checkboxCB_QuotationTemplate", this.checkboxCB_QuotationTemplate)
   }
-  checkboxCB_ResellerManagement: any;
+  
 
   CB_ResellerManagement(event: any) {
     this.checkboxCB_ResellerManagement = event.target.checked;
     console.log("this.checkboxCB_ResellerManagement", this.checkboxCB_ResellerManagement)
   }
-  checkboxCB_CallLogs: any;
+ 
   CB_CallLogs(event: any) {
     this.checkboxCB_CallLogs = event.target.checked;
     console.log("this.checkboxCB_CallLogs", this.checkboxCB_CallLogs)
   }
-  checkboxCB_PictureGallery: any;
+  
   CB_PictureGallery(event: any) {
     this.checkboxCB_PictureGallery = event.target.checked;
     console.log(" this.checkboxCB_PictureGallery", this.checkboxCB_PictureGallery)
   }
-  checkboxCB_InternalTickets: any;
+
   CB_InternalTickets(event: any) {
     this.checkboxCB_InternalTickets = event.target.checked;
     console.log("this.checkboxCB_InternalTickets", this.checkboxCB_InternalTickets)
   }
-  checkboxCB_PettyCashReport: any;
+  
   CB_PettyCashReport(event: any) {
     this.checkboxCB_PettyCashReport = event.target.checked;
     console.log("this.checkboxCB_PettyCashReport", this.checkboxCB_PettyCashReport)
   }
-  checkboxCB_WidthdrawlReport: any;
+
   CB_WidthdrawlReport(event: any) {
     this.checkboxCB_WidthdrawlReport = event.target.checked;
     console.log("this.checkboxCB_WidthdrawlReport ", this.checkboxCB_WidthdrawlReport)
   }
-  checkboxCB_PriceCategory: any;
+
 
   CB_PriceCategory(event: any) {
     this.checkboxCB_PriceCategory = event.target.checked;
     console.log("this.checkboxCB_PriceCategory", this.checkboxCB_PriceCategory)
   }
-  checkboxCB_EnquiryForm: any;
+
   CB_EnquiryForm(event: any) {
     this.checkboxCB_EnquiryForm = event.target.checked;
     console.log(" this.checkboxCB_EnquiryForm", this.checkboxCB_EnquiryForm)
   }
-  checkboxCB_CMSCountry: any;
+
   CB_CMSCountry(event: any) {
     this.checkboxCB_CMSCountry = event.target.checked;
     console.log("this.checkboxCB_CMSCountry", this.checkboxCB_CMSCountry)
   }
-  checkboxCB_DIDNumberCatalog: any;
+ 
   CB_DIDNumberCatalog(event: any) {
     this.checkboxCB_DIDNumberCatalog = event.target.checked;
     console.log(" this.checkboxCB_DIDNumberCatalog", this.checkboxCB_DIDNumberCatalog)
   }
-  checkboxCB_DIDProvider: any;
+
   CB_DIDProvider(event: any) {
     this.checkboxCB_DIDProvider = event.target.checked;
     console.log("this.checkboxCB_DIDProvider", this.checkboxCB_DIDProvider)
   }
-  checkboxCB_DIDTrunkName: any;
+
   CB_DIDTrunkName(event: any) {
     this.checkboxCB_DIDTrunkName = event.target.checked;
     console.log("this.checkboxCB_DIDTrunkName", this.checkboxCB_DIDTrunkName)
   }
-  checkboxCB_DepositMgt: any;
+ 
   CB_DepositMgt(event: any) {
     this.checkboxCB_DepositMgt = event.target.checked;
     console.log(" this.checkboxCB_DepositMgt", this.checkboxCB_DepositMgt)
   }
-  checkboxCB_SmallTask: any;
+
   CB_SmallTask(event: any) {
     this.checkboxCB_SmallTask = event.target.checked;
     console.log("this.checkboxCB_SmallTask ", this.checkboxCB_SmallTask)
   }
-  checkboxCB_ProductCategory: any;
+
   CB_ProductCategory(event: any) {
     this.checkboxCB_ProductCategory = event.target.checked;
     console.log("this.checkboxCB_ProductCategory", this.checkboxCB_ProductCategory)
   }
-  checkboxCB_ProductQuotation: any;
+ 
   CB_ProductQuotation(event: any) {
     this.checkboxCB_ProductQuotation = event.target.checked;
     console.log("this.checkboxCB_ProductQuotation", this.checkboxCB_ProductQuotation)
   }
-  checkboxCB_StockInventoryReport: any;
+
   CB_StockInventoryReport(event: any) {
     this.checkboxCB_StockInventoryReport = event.target.checked;
     console.log("this.checkboxCB_StockInventoryReport", this.checkboxCB_StockInventoryReport)
   }
-  checkboxCB_RateCatelog: any;
+
   CB_RateCatelog(event: any) {
     this.checkboxCB_RateCatelog = event.target.checked;
     console.log("this.checkboxCB_RateCatelog", this.checkboxCB_RateCatelog)
   }
-  checkboxCB_StockinventoryEntry: any;
+ 
   CB_StockinventoryEntry(event: any) {
     this.checkboxCB_StockinventoryEntry = event.target.checked;
     console.log("this.checkboxCB_StockinventoryEntry", this.checkboxCB_StockinventoryEntry)
   }
-  checkboxCB_DIDInventoryEntry: any;
+
   CB_DIDInventoryEntry(event: any) {
     this.checkboxCB_DIDInventoryEntry = event.target.checked;
     console.log(" this.checkboxCB_DIDInventoryEntry", this.checkboxCB_DIDInventoryEntry)
   }
-  checkboxCB_SucuriipAccess: any;
+
   CB_SucuriipAccess(event: any) {
     this.checkboxCB_SucuriipAccess = event.target.checked;
     console.log("this.checkboxCB_SucuriipAccess", this.checkboxCB_SucuriipAccess)
   }
-  checkboxCB_MrvoipLicenseKey: any;
+  
   CB_MrvoipLicenseKey(event: any) {
     this.checkboxCB_MrvoipLicenseKey = event.target.checked;
     console.log("  this.checkboxCB_MrvoipLicenseKey", this.checkboxCB_MrvoipLicenseKey)
   }
-  checkboxCB_SoftPhoneLicense: any;
+
   CB_SoftPhoneLicense(event: any) {
     this.checkboxCB_SoftPhoneLicense = event.target.checked;
     console.log("this.checkboxCB_SoftPhoneLicense", this.checkboxCB_SoftPhoneLicense)
   }
-  checkboxCB_APIToken: any;
+
   CB_APIToken(event: any) {
     this.checkboxCB_APIToken = event.target.checked;
     console.log("this.checkboxCB_APIToken", this.checkboxCB_APIToken)
   }
-  checkboxCB_PurchaseEntry: any;
+ 
   CB_PurchaseEntry(event: any) {
     this.checkboxCB_PurchaseEntry = event.target.checked;
     console.log("this.checkboxCB_PurchaseEntry", this.checkboxCB_PurchaseEntry)
   }
-  checkboxCB_PurchaseEntryYearly: any;
+
   CB_PurchaseEntryYearly(event: any) {
     this.checkboxCB_PurchaseEntryYearly = event.target.checked;
     console.log(" this.checkboxCB_PurchaseEntryYearly", this.checkboxCB_PurchaseEntryYearly)
   }
-  checkboxCB_PurchaseEntryyearlyEdit: any;
+
   CB_PurchaseEntryyearlyEdit(event: any) {
     this.checkboxCB_PurchaseEntryyearlyEdit = event.target.checked;
     console.log("this.checkboxCB_PurchaseEntryyearlyEdit", this.checkboxCB_PurchaseEntryyearlyEdit)
   }
-  checkboxCB_PurchaseEntryVoipTrendChart: any;
+
   CB_PurchaseEntryVoipTrendChart(event: any) {
     this.checkboxCB_PurchaseEntryVoipTrendChart = event.target.checked;
     console.log("this.checkboxCB_PurchaseEntryVoipTrendChar", this.checkboxCB_PurchaseEntryVoipTrendChart)
   }
-  checkboxCB_PurchaseentryMrvoipTrendEntry: any;
+
   CB_PurchaseentryMrvoipTrendEntry(event: any) {
     this.checkboxCB_PurchaseentryMrvoipTrendEntry = event.target.checked;
     console.log(" this.checkboxCB_PurchaseentryMrvoipTrendEntry", this.checkboxCB_PurchaseentryMrvoipTrendEntry)
   }
-  checkboxCB_PurchaseentryMrvoipTrendChart: any;
+
   CB_PurchaseentryMrvoipTrendChart(event: any) {
     this.checkboxCB_PurchaseentryMrvoipTrendChart = event.target.checked;
     console.log(" this.checkboxCB_PurchaseentryMrvoipTrendChart", this.checkboxCB_PurchaseentryMrvoipTrendChart)
   }
-  checkboxCB_PurchaseentryCall4telTrendEntry: any;
+  
   CB_PurchaseentryCall4telTrendEntry(event: any) {
     this.checkboxCB_PurchaseentryCall4telTrendEntry = event.target.checked;
     console.log("this.checkboxCB_PurchaseentryCall4telTrendEntry", this.checkboxCB_PurchaseentryCall4telTrendEntry)
   }
-  checkboxCB_PurchaseentryCall4telTrendChart: any;
+ 
   CB_PurchaseentryCall4telTrendChart(event: any) {
     this.checkboxCB_PurchaseentryCall4telTrendChart = event.target.checked;
     console.log("this.checkboxCB_PurchaseentryCall4telTrendChart", this.checkboxCB_PurchaseentryCall4telTrendChart)
   }
-  checkboxCB_PurchaseEntryWaiting: any;
+ 
   CB_PurchaseEntryWaiting(event: any) {
     this.checkboxCB_PurchaseEntryWaiting = event.target.checked;
     console.log("this.checkboxCB_PurchaseEntryWaiting", this.checkboxCB_PurchaseEntryWaiting)
   }
-  checkboxCB_NonTradePurchaseEntry: any;
+ 
   CB_NonTradePurchaseEntry(event: any) {
     this.checkboxCB_NonTradePurchaseEntry = event.target.checked;
     console.log("this.checkboxCB_NonTradePurchaseEntry", this.checkboxCB_NonTradePurchaseEntry)
   }
-  checkboxCB_NewCustomerApproval: any;
+ 
   CB_NewCustomerApproval(event: any) {
     this.checkboxCB_NewCustomerApproval = event.target.checked;
     console.log("this.checkboxCB_NewCustomerApproval", this.checkboxCB_NewCustomerApproval)
   }
-  checkboxCB_ResellerPaymentMenu: any;
+
   CB_ResellerPaymentMenu(event: any) {
     this.checkboxCB_ResellerPaymentMenu = event.target.checked;
     console.log("this.checkboxCB_ResellerPaymentMenu", this.checkboxCB_ResellerPaymentMenu)
   }
-  checkboxCB_ResellerPaymentAll: any;
+ 
   CB_ResellerPaymentAll(event: any) {
     this.checkboxCB_ResellerPaymentAll = event.target.checked;
     console.log(" this.checkboxCB_ResellerPaymentAll", this.checkboxCB_ResellerPaymentAll)
   }
-  checkboxCB_MrvoipCalncall_callacloudMenu: any;
+
   CB_MrvoipCalncall_callacloudMenu(event: any) {
     this.checkboxCB_MrvoipCalncall_callacloudMenu = event.target.checked;
     console.log("this.checkboxCB_MrvoipCalncall_callacloudMenu ", this.checkboxCB_MrvoipCalncall_callacloudMenu)
   }
-  checkboxCB_MrvoipPackagePrice: any;
+
   CB_MrvoipPackagePrice(event: any) {
     this.checkboxCB_MrvoipPackagePrice = event.target.checked;
     console.log(" this.checkboxCB_MrvoipPackagePrice", this.checkboxCB_MrvoipPackagePrice)
   }
-  checkboxCB_MrvoipLeftProductMenu: any;
+ 
   CB_MrvoipLeftProductMenu(event: any) {
     this.checkboxCB_MrvoipLeftProductMenu = event.target.checked;
     console.log("this.checkboxCB_MrvoipLeftProductMenu", this.checkboxCB_MrvoipLeftProductMenu)
   }
-  checkboxCB_MrvoipIndustries: any;
+ 
   CB_MrvoipIndustries(event: any) {
     this.checkboxCB_MrvoipIndustries = event.target.checked;
     console.log(" this.checkboxCB_MrvoipIndustries", this.checkboxCB_MrvoipIndustries)
   }
-  checkboxCB_MrvoipCaseStudies: any;
+ 
   CB_MrvoipCaseStudies(event: any) {
     this.checkboxCB_MrvoipCaseStudies = event.target.checked;
     console.log(" this.checkboxCB_MrvoipCaseStudies", this.checkboxCB_MrvoipCaseStudies)
   }
-  checkboxCB_MrvoipContactDetails: any;
+
   CB_MrvoipContactDetails(event: any) {
     this.checkboxCB_MrvoipContactDetails = event.target.checked;
     console.log("this.checkboxCB_MrvoipContactDetails ", this.checkboxCB_MrvoipContactDetails)
   }
-  checkboxCB_ERPUserMgt: any;
+ 
   CB_ERPUserMgt(event: any) {
     this.checkboxCB_ERPUserMgt = event.target.checked;
     console.log("this.checkboxCB_ERPUserMgt ", this.checkboxCB_ERPUserMgt)
   }
-  checkboxCB_ExternalBlog: any;
+  
   CB_ExternalBlog(event: any) {
     this.checkboxCB_ExternalBlog = event.target.checked;
     console.log("this.checkboxCB_ExternalBlog", this.checkboxCB_ExternalBlog)
   }
-  checkboxCB_InternalBlog: any;
+
   CB_InternalBlog(event: any) {
     this.checkboxCB_InternalBlog = event.target.checked;
     console.log(" this.checkboxCB_InternalBlog ", this.checkboxCB_InternalBlog)
   }
-  checkboxCB_NX32SerialNumber: any;
+  
   CB_NX32SerialNumber(event: any) {
     this.checkboxCB_NX32SerialNumber = event.target.checked;
     console.log("this.checkboxCB_NX32SerialNumber", this.checkboxCB_NX32SerialNumber)
   }
-  checkboxCB_NX32DocumentUpload: any;
+  
   CB_NX32DocumentUpload(event: any) {
     this.checkboxCB_NX32DocumentUpload = event.target.checked;
     console.log("this.checkboxCB_NX32DocumentUpload", this.checkboxCB_NX32DocumentUpload)
   }
-  checkboxCB_DynamicExcel: any;
+ 
   CB_DynamicExcel(event: any) {
     this.checkboxCB_DynamicExcel = event.target.checked;
     console.log(" this.checkboxCB_DynamicExcel ", this.checkboxCB_DynamicExcel)
   }
-  checkboxCB_RevenueReport: any;
+
   CB_RevenueReport(event: any) {
     this.checkboxCB_RevenueReport = event.target.checked;
     console.log("this.checkboxCB_RevenueReport ", this.checkboxCB_RevenueReport)
   }
-  checkboxCB_MGOrderList: any;
+
   CB_MGOrderList(event: any) {
     this.checkboxCB_MGOrderList = event.target.checked;
     console.log("this.checkboxCB_MGOrderList", this.checkboxCB_MGOrderList)
   }
-  checkboxCB_YGOrderList: any;
+  
   CB_YGOrderList(event: any) {
     this.checkboxCB_YGOrderList = event.target.checked;
     console.log(" this.checkboxCB_YGOrderList", this.checkboxCB_YGOrderList)
   }
-  checkboxCB_CustomerInvoiceShare: any;
+
   CB_CustomerInvoiceShare(event: any) {
     this.checkboxCB_CustomerInvoiceShare = event.target.checked;
     console.log("this.checkboxCB_CustomerInvoiceShare", this.checkboxCB_CustomerInvoiceShare)
   }
-  checkboxCB_IPAllowedRule: any;
+
   CB_IPAllowedRule(event: any) {
     this.checkboxCB_IPAllowedRule = event.target.checked;
     console.log("this.checkboxCB_IPAllowedRule", this.checkboxCB_IPAllowedRule)
   }
-  checkboxCB_RenewalReminder: any;
+
   CB_RenewalReminder(event: any) {
     this.checkboxCB_RenewalReminder = event.target.checked;
     console.log("this.checkboxCB_RenewalReminder", this.checkboxCB_RenewalReminder)
   }
-  checkboxCB_WebrtcIP: any;
+
   CB_WebrtcIP(event: any) {
     this.checkboxCB_WebrtcIP = event.target.checked;
     console.log("this.checkboxCB_WebrtcIP ", this.checkboxCB_WebrtcIP)
   }
-  checkboxCB_AttendanceReports: any;
+ 
   CB_AttendanceReports(event: any) {
     this.checkboxCB_AttendanceReports = event.target.checked;
     console.log("this.checkboxCB_AttendanceReports", this.checkboxCB_AttendanceReports)
   }
-  checkboxCB_CPFContribution: any;
+  
   CB_CPFContribution(event: any) {
     this.checkboxCB_CPFContribution = event.target.checked;
     console.log("this.checkboxCB_CPFContribution", this.checkboxCB_CPFContribution)
   }
-  checkboxCB_WebsiteSubscribeEmail: any;
+ 
   CB_WebsiteSubscribeEmail(event: any) {
     this.checkboxCB_WebsiteSubscribeEmail = event.target.checked;
     console.log("this.checkboxCB_WebsiteSubscribeEmail", this.checkboxCB_WebsiteSubscribeEmail)
   }
-  checkboxCB_Buy3cxLicensePage: any;
+ 
   CB_Buy3cxLicensePage(event: any) {
     this.checkboxCB_Buy3cxLicensePage = event.target.checked;
     console.log("this.checkboxCB_Buy3cxLicensePage", this.checkboxCB_Buy3cxLicensePage)
   }
-  checkboxCB_Buy3cxpermisUser: any;
+ 
   CB_Buy3cxpermisUser(event: any) {
     this.checkboxCB_Buy3cxpermisUser = event.target.checked;
     console.log("this.checkboxCB_Buy3cxpermisUser", this.checkboxCB_Buy3cxpermisUser)
   }
-  checkboxCB_Call4telAddressLogoshowPartner: any;
+ 
   CB_Call4telAddressLogoshowPartner(event: any) {
     this.checkboxCB_Call4telAddressLogoshowPartner = event.target.checked;
     console.log(" this.checkboxCB_Call4telAddressLogoshowPartner", this.checkboxCB_Call4telAddressLogoshowPartner)
   }
-  checkboxCB_MrvoipAddressLogoshowPartner: any;
+
   CB_MrvoipAddressLogoshowPartner(event: any) {
     this.checkboxCB_MrvoipAddressLogoshowPartner = event.target.checked;
     console.log(" this.checkboxCB_MrvoipAddressLogoshowPartner", this.checkboxCB_MrvoipAddressLogoshowPartner)
   }
-  checkboxCB_MconnectAddressLogoshowPartner: any;
+
   CB_MconnectAddressLogoshowPartner(event: any) {
     this.checkboxCB_MconnectAddressLogoshowPartner = event.target.checked;
     console.log("this.checkboxCB_MconnectAddressLogoshowPartner", this.checkboxCB_MconnectAddressLogoshowPartner)
   }
-  checkboxCB_RecurringCheckerList: any;
+ 
 
   CB_RecurringCheckerList(event: any) {
     this.checkboxCB_RecurringCheckerList = event.target.checked;
     console.log("this.checkboxCB_RecurringCheckerList", this.checkboxCB_RecurringCheckerList)
   }
-  checkboxCB_EnquiryDetails: any;
+ 
   CB_EnquiryDetails(event: any) {
     this.checkboxCB_EnquiryDetails = event.target.checked;
     console.log("this.checkboxCB_EnquiryDetails", this.checkboxCB_EnquiryDetails)
   }
-  checkboxCB_OverduePaymentsNotification: any;
+
   CB_OverduePaymentsNotification(event: any) {
     this.checkboxCB_OverduePaymentsNotification = event.target.checked;
     console.log("this.checkboxCB_OverduePaymentsNotification", this.checkboxCB_OverduePaymentsNotification)
   }
-  checkboxCB_Cal4CarePteLtdOverdue: any;
+
   CB_Cal4CarePteLtdOverdue(event: any) {
     this.checkboxCB_Cal4CarePteLtdOverdue = event.target.checked;
     console.log(" this.checkboxCB_Cal4CarePteLtdOverdue", this.checkboxCB_Cal4CarePteLtdOverdue)
   }
-  checkboxCB_DCARETechnologiesIndiaPvtLtdOverdue: any;
+ 
   CB_DCARETechnologiesIndiaPvtLtdOverdue(event: any) {
     this.checkboxCB_DCARETechnologiesIndiaPvtLtdOverdue = event.target.checked;
     console.log("this.checkboxCB_DCARETechnologiesIndiaPvtLtdOverdue", this.checkboxCB_DCARETechnologiesIndiaPvtLtdOverdue)
   }
-  checkboxCB_RecurringDateUpdate: any;
+
   CB_RecurringDateUpdate(event: any) {
     this.checkboxCB_RecurringDateUpdate = event.target.checked;
     console.log("this.checkboxCB_RecurringDateUpdate", this.checkboxCB_RecurringDateUpdate)
   }
-  checkboxCB_StockPreApproval: any;
+  
   CB_StockPreApproval(event: any) {
     this.checkboxCB_StockPreApproval = event.target.checked;
     console.log("this.checkboxCB_StockPreApproval", this.checkboxCB_StockPreApproval)
   }
-  checkboxCB_WebSiteEnquiry: any;
+
   CB_WebSiteEnquiry(event: any) {
     this.checkboxCB_WebSiteEnquiry = event.target.checked;
     console.log("this.checkboxCB_WebSiteEnquiry ", this.checkboxCB_WebSiteEnquiry)
   }
-  checkboxCB_ConsolidatedOverdue: any;
+
   CB_ConsolidatedOverdue(event: any) {
     this.checkboxCB_ConsolidatedOverdue = event.target.checked;
     console.log("this.checkboxCB_ConsolidatedOverdue", this.checkboxCB_ConsolidatedOverdue)
   }
-  checkboxCB_PaymentFollowInvoice: any;
+
 
   CB_PaymentFollowInvoice(event: any) {
     this.checkboxCB_PaymentFollowInvoice = event.target.checked;
     console.log(" this.checkboxCB_PaymentFollowInvoice", this.checkboxCB_PaymentFollowInvoice)
   }
-  checkboxCB_TransactionApproval: any;
+
   CB_TransactionApproval(event: any) {
     this.checkboxCB_TransactionApproval = event.target.checked;
     console.log("this.checkboxCB_TransactionApproval", this.checkboxCB_TransactionApproval)
   }
-  checkboxCB_InCompletesTaskList: any;
+  
   CB_InCompletesTaskList(event: any) {
     this.checkboxCB_InCompletesTaskList = event.target.checked;
     console.log("this.checkboxCB_InCompletesTaskList", this.checkboxCB_InCompletesTaskList)
   }
-  checkboxCB_Cal4careSdnBhdOverdue: any;
+
   CB_Cal4careSdnBhdOverdue(event: any) {
     this.checkboxCB_Cal4careSdnBhdOverdue = event.target.checked;
     console.log("this.checkboxCB_Cal4careSdnBhdOverdue", this.checkboxCB_Cal4careSdnBhdOverdue)
   }
-  checkboxCB_MarshalSystemConsultancyOverdue: any;
+
   CB_MarshalSystemConsultancyOverdue(event: any) {
     this.checkboxCB_MarshalSystemConsultancyOverdue = event.target.checked;
     console.log("this.checkboxCB_MarshalSystemConsultancyOverdue", this.checkboxCB_MarshalSystemConsultancyOverdue)
   }
-  checkboxCB_PurchaseEntryTrend: any;
+
   CB_PurchaseEntryTrend(event: any) {
     this.checkboxCB_PurchaseEntryTrend = event.target.checked;
     console.log("this.checkboxCB_PurchaseEntryTrend", this.checkboxCB_PurchaseEntryTrend)
   }
-  checkboxCB_Verfication2ds: any;
+
   CB_Verfication2ds(event: any) {
     this.checkboxCB_Verfication2ds = event.target.checked;
     console.log("this.checkboxCB_Verfication2ds", this.checkboxCB_Verfication2ds)
   }
-  checkboxcheckboxStatus: any;
+
 
   CB_Enquiry3cx(event: any) {
     this.checkboxcheckboxStatus = event.target.checked;
     console.log("this.checkboxcheckboxStatus", this.checkboxcheckboxStatus)
   }
-  checkboxCB_Cal4careSdnBhdGSTRpt: any;
+
   CB_Cal4careSdnBhdGSTRpt(event: any) {
     this.checkboxCB_Cal4careSdnBhdGSTRpt = event.target.checked;
     console.log("this.checkboxCB_Cal4careSdnBhdGSTRpt", this.checkboxCB_Cal4careSdnBhdGSTRpt)
   }
-  checkboxCB_AllPaymentFollowInvoice: any;
+  
   CB_AllPaymentFollowInvoice(event: any) {
     this.checkboxCB_AllPaymentFollowInvoice = event.target.checked;
     console.log("this.checkboxCB_AllPaymentFollowInvoice", this.checkboxCB_AllPaymentFollowInvoice)
   }
-  checkboxCB_SendtoPostal: any;
+ 
   CB_SendtoPostal(event: any) {
     this.checkboxCB_SendtoPostal = event.target.checked;
     console.log("this.checkboxCB_SendtoPostal", this.checkboxCB_SendtoPostal)
   }
-  checkboxCB_DcareTechnologiesPteLtdOverdue: any;
+ 
   CB_DcareTechnologiesPteLtdOverdue(event: any) {
     this.checkboxCB_DcareTechnologiesPteLtdOverdue = event.target.checked;
     console.log("this.checkboxCB_DcareTechnologiesPteLtdOverdue", this.checkboxCB_DcareTechnologiesPteLtdOverdue)
   }
-  checkboxCB_Cal4CareJapanCoLtdOverdue: any;
+ 
   CB_Cal4CareJapanCoLtdOverdue(event: any) {
     this.checkboxCB_Cal4CareJapanCoLtdOverdue = event.target.checked;
     console.log("this.checkboxCB_Cal4CareJapanCoLtdOverdue", this.checkboxCB_Cal4CareJapanCoLtdOverdue)
   }
-  checkboxCB_CloudRenewalLicKeyPopup: any;
+
   CB_CloudRenewalLicKeyPopup(event: any) {
     this.checkboxCB_CloudRenewalLicKeyPopup = event.target.checked;
     console.log("this.checkboxCB_CloudRenewalLicKeyPopup", this.checkboxCB_CloudRenewalLicKeyPopup)
   }
-  checkboxCB_AllMEnquiry: any;
+ 
   CB_AllMEnquiry(event: any) {
     this.checkboxStatus = event.target.checked;
     console.log("this.checkboxCB_AllMEnquiry", this.checkboxCB_AllMEnquiry)
   }
-  checkboxCB_Assigned3cxEnquiry: any;
+
   CB_Assigned3cxEnquiry(event: any) {
     this.checkboxStatus = event.target.checked;
     console.log("this.checkboxCB_Assigned3cxEnquiry", this.checkboxCB_Assigned3cxEnquiry)
   }
-  checkboxCB_Cal4careThailandCoLtdOverdue: any;
+ 
   CB_Cal4careThailandCoLtdOverdue(event: any) {
     this.checkboxCB_Cal4careThailandCoLtdOverdue = event.target.checked;
     console.log("this.checkboxCB_Cal4careThailandCoLtdOverdue", this.checkboxCB_Cal4careThailandCoLtdOverdue)
   }
-  checkboxCB_CustomSearchIconshow: any;
+
   CB_CustomSearchIconshow(event: any) {
     this.checkboxCB_CustomSearchIconshow = event.target.checked;
     console.log(" this.checkboxCB_CustomSearchIconshow", this.checkboxCB_CustomSearchIconshow)
   }
-  checkboxCB_CustomerSerach: any;
+
   CB_CustomerSerach(event: any) {
     this.checkboxCB_CustomerSerach = event.target.checked;
     console.log(" this.checkboxCB_CustomerSerach ", this.checkboxCB_CustomerSerach)
   }
-  checkboxCB_Invoice: any;
+ 
   CB_Invoice(event: any) {
     this.checkboxCB_Invoice = event.target.checked;
     console.log("this.checkboxCB_Invoice ", this.checkboxCB_Invoice)
   }
-  checkboxCB_LicenseKey: any;
+ 
   CB_LicenseKey(event: any) {
     this.checkboxCB_LicenseKey = event.target.checked;
     console.log("this.checkboxCB_LicenseKey", this.checkboxCB_LicenseKey)
   }
-  checkboxCB_VsProvisioning: any;
+
   CB_VsProvisioning(event: any) {
     this.checkboxCB_VsProvisioning = event.target.checked;
     console.log(" this.checkboxCB_VsProvisioning ", this.checkboxCB_VsProvisioning)
   }
-  checkboxCB_QuotationSerach: any;
+
   CB_QuotationSerach(event: any) {
     this.checkboxCB_QuotationSerach = event.target.checked;
     console.log("this.checkboxCB_QuotationSerach", this.checkboxCB_QuotationSerach)
   }
-  checkboxCB_CreditNote: any;
+
   CB_CreditNote(event: any) {
     this.checkboxCB_CreditNote = event.target.checked;
     console.log("this.checkboxCB_CreditNote", this.checkboxCB_CreditNote)
   }
-  checkboxCB_DIDNumber: any;
+
   CB_DIDNumber(event: any) {
     this.checkboxCB_DIDNumber = event.target.checked;
     console.log("this.checkboxCB_DIDNumber", this.checkboxCB_DIDNumber)
   }
-  checkboxCB_AllPage: any;
+
   CB_AllPage(event: any) {
     this.checkboxCB_AllPage = event.target.checked;
     console.log("this.checkboxCB_AllPage", this.checkboxCB_AllPage)
   }
-  checkboxCB_ProformaInvoice: any;
+
   CB_ProformaInvoice(event: any) {
     this.checkboxCB_ProformaInvoice = event.target.checked;
     console.log("this.checkboxStatus", this.checkboxStatus)
   }
-  checkboxCB_PrepaidNote: any;
+
   CB_PrepaidNote(event: any) {
     this.checkboxCB_PrepaidNote = event.target.checked;
     console.log("this.checkboxCB_PrepaidNote", this.checkboxCB_PrepaidNote)
   }
-  checkboxCB_CustomerProjects: any;
+ 
   CB_CustomerProjects(event: any) {
     this.checkboxCB_CustomerProjects = event.target.checked;
     console.log("this.checkboxCB_CustomerProjects", this.checkboxCB_CustomerProjects)
   }
-  checkboxCB_VOIPCreditManager: any;
+ 
   CB_VOIPCreditManager(event: any) {
     this.checkboxCB_VOIPCreditManager = event.target.checked;
     console.log("this.checkboxCB_VOIPCreditManager", this.checkboxCB_VOIPCreditManager)
   }
-  checkboxCB_VOIPSuspendAccount: any;
+
   CB_VOIPSuspendAccount(event: any) {
     this.checkboxCB_VOIPSuspendAccount = event.target.checked;
     console.log("this.checkboxCB_VOIPSuspendAccount", this.checkboxCB_VOIPSuspendAccount)
   }
-  checkboxCB_ProductStockReportUpdate: any;
+
   CB_ProductStockReportUpdate(event: any) {
     this.checkboxCB_ProductStockReportUpdate = event.target.checked;
     console.log("this.checkboxCB_ProductStockReportUpdate", this.checkboxCB_ProductStockReportUpdate)
   }
-  checkboxCB_CurrenctStockShow: any;
+ 
   CB_CurrenctStockShow(event: any) {
     this.checkboxCB_CurrenctStockShow = event.target.checked;
     console.log("this.checkboxCB_CurrenctStockShow", this.checkboxCB_CurrenctStockShow)
   }
-  checkboxCB_RateCatelogShow: any;
+
   CB_RateCatelogShow(event: any) {
     this.checkboxCB_RateCatelogShow = event.target.checked;
     console.log("this.checkboxCB_RateCatelogShow", this.checkboxCB_RateCatelogShow)
   }
-  checkboxCB_ActPurchasePriceShow: any;
+
   CB_ActPurchasePriceShow(event: any) {
     this.checkboxCB_ActPurchasePriceShow = event.target.checked;
     console.log("this.checkboxCB_ActPurchasePriceShow ", this.checkboxCB_ActPurchasePriceShow)
   }
-  checkboxCB_DefaultMenuShow: any;
+
   CB_DefaultMenuShow(event: any) {
     this.checkboxCB_DefaultMenuShow = event.target.checked;
     console.log("this.checkboxCB_DefaultMenuShow ", this.checkboxCB_DefaultMenuShow)
   }
-  checkboxCB_DefaultMenuShowLowLevel: any;
+
   CB_DefaultMenuShowLowLevel(event: any) {
     this.checkboxCB_DefaultMenuShowLowLevel = event.target.checked;
     console.log("this.checkboxCB_DefaultMenuShowLowLevel", this.checkboxCB_DefaultMenuShowLowLevel)
   }
-  checkboxCB_CalncallMenuShow: any;
+ 
   CB_CalncallMenuShow(event: any) {
     this.checkboxCB_CalncallMenuShow = event.target.checked;
     console.log("this.checkboxCB_CalncallMenuShow", this.checkboxCB_CalncallMenuShow)
   }
-  checkboxCB_ResellerShoppingMenu: any;
+  
   CB_ResellerShoppingMenu(event: any) {
     this.checkboxCB_ResellerShoppingMenu = event.target.checked;
     console.log("this.checkboxCB_ResellerShoppingMenu", this.checkboxCB_ResellerShoppingMenu)
   }
-  checkboxCB_PublicTaskManager: any;
+ 
   CB_PublicTaskManager(event: any) {
     this.checkboxCB_PublicTaskManager = event.target.checked;
     console.log("this.checkboxCB_PublicTaskManager ", this.checkboxCB_PublicTaskManager)
   }
-  checkboxCB_PersonalTaskManager: any;
+
   CB_PersonalTaskManager(event: any) {
     this.checkboxCB_PersonalTaskManager = event.target.checked;
     console.log(" this.checkboxCB_PersonalTaskManager ", this.checkboxCB_PersonalTaskManager)
   }
-  checkboxCB_DailyWorkReport: any;
+  
   CB_DailyWorkReport(event: any) {
     this.checkboxCB_DailyWorkReport = event.target.checked;
     console.log("this.checkboxCB_DailyWorkReport ", this.checkboxCB_DailyWorkReport)
   }
-  checkboxCB_Mailer: any;
+
   CB_Mailer(event: any) {
     this.checkboxCB_Mailer = event.target.checked;
     console.log("this.checkboxCB_Mailer", this.checkboxCB_Mailer)
   }
-  checkboxCB_HelpDesk: any;
+
   CB_HelpDesk(event: any) {
     this.checkboxCB_HelpDesk = event.target.checked;
     console.log("this.checkboxCB_HelpDesk", this.checkboxCB_HelpDesk)
   }
-  checkboxCB_C4CTurnOverMap: any;
+ 
   CB_C4CTurnOverMap(event: any) {
     this.checkboxCB_C4CTurnOverMap = event.target.checked;
     console.log(" this.checkboxCB_C4CTurnOverMap", this.checkboxCB_C4CTurnOverMap)
   }
-  checkboxCB_SpecialLogin: any;
+
   CB_SpecialLogin(event: any) {
     this.checkboxCB_SpecialLogin = event.target.checked;
     console.log("this.checkboxCB_SpecialLogin", this.checkboxCB_SpecialLogin)
   }
-  checkboxCB_LeftSideTurnOverChart: any;
+ 
   CB_LeftSideTurnOverChart(event: any) {
     this.checkboxCB_LeftSideTurnOverChart = event.target.checked;
     console.log("this.checkboxCB_LeftSideTurnOverChart", this.checkboxCB_LeftSideTurnOverChart)
   }
-  checkboxCB_IndividualPettyCashCreditPersonSelect: any;
+  
   CB_IndividualPettyCashCreditPersonSelect(event: any) {
     this.checkboxCB_IndividualPettyCashCreditPersonSelect = event.target.checked;
     console.log("this.checkboxCB_IndividualPettyCashCreditPersonSelect", this.checkboxCB_IndividualPettyCashCreditPersonSelect)
   }
-  checkboxCB_ApprovalDelete: any;
+
+  CB_IndividualPettyCashandFromDate(event: any) {
+    this.checkboxCB_IndividualPettyCashandFromDate = event.target.checked;
+    console.log("this.checkboxCB_IndividualPettyCashandFromDate", this.checkboxCB_IndividualPettyCashandFromDate)
+  }
+
   CB_ApprovalDelete(event: any) {
     this.checkboxCB_ApprovalDelete = event.target.checked;
     console.log("this.checkboxCB_ApprovalDelete", this.checkboxCB_ApprovalDelete)
   }
-  checkboxCB_CreditMgtDetails: any;
+ 
   CB_CreditMgtDetails(event: any) {
     this.checkboxCB_CreditMgtDetails = event.target.checked;
     console.log("this.checkboxCB_CreditMgtDetails", this.checkboxCB_CreditMgtDetails)
   }
-  checkboxCB_BankReports: any;
+
 
   CB_BankReports(event: any) {
     this.checkboxCB_BankReports = event.target.checked;
     console.log(" this.checkboxCB_BankReports ", this.checkboxCB_BankReports)
   }
-  checkboxCB_LedgerReports: any;
+
   CB_LedgerReports(event: any) {
     this.checkboxCB_LedgerReports = event.target.checked;
     console.log("this.checkboxCB_LedgerReports ", this.checkboxCB_LedgerReports)
   }
-  checkboxCB_DashBoard: any;
+
   CB_DashBoard(event: any) {
     this.checkboxCB_DashBoard = event.target.checked;
     console.log("this.checkboxCB_DashBoard", this.checkboxCB_DashBoard)
   }
-  checkboxCB_InvoiceReports: any;
+
   CB_InvoiceReports(event: any) {
     this.checkboxCB_InvoiceReports = event.target.checked;
     console.log(" this.checkboxCB_InvoiceReports", this.checkboxCB_InvoiceReports)
   }
-  checkboxCB_CallLogReports: any;
+  
   CB_CallLogReports(event: any) {
     this.checkboxCB_CallLogReports = event.target.checked;
     console.log("this.checkboxCB_CallLogReports", this.checkboxCB_CallLogReports)
   }
-  checkboxCB_SendMail: any;
+
   CB_SendMail(event: any) {
     this.checkboxCB_SendMail = event.target.checked;
     console.log("this.checkboxCB_SendMail", this.checkboxCB_SendMail)
   }
-  checkboxCB_PettyCash: any;
+
   CB_PettyCash(event: any) {
     this.checkboxCB_PettyCash = event.target.checked;
     console.log("this.checkboxCB_PettyCash", this.checkboxCB_PettyCash)
   }
-  checkboxCB_Logistics: any;
+
 
   CB_Logistics(event: any) {
     this.checkboxStatus = event.target.checked;
     console.log("this.checkboxStatus", this.checkboxStatus)
   }
-  checkboxCB_test: any;
+
   getChekboxVal(event: any) {
     this.checkboxCB_test = event;
     console.log("checkboxCB_test", this.checkboxCB_test)
@@ -2403,6 +2585,7 @@ EditCHK_GuruDetails(data: any, event: any) {
     api_req.element_data = apiLoad_req;
 
     this.serverService.sendServer(api_req).subscribe((response: any) => {
+      console.log("this.checkboxCB_TransDepositApproval",this.checkboxCB_TransDepositApproval)
       console.log("admin/user_add_details", response)
 
       if (response.status != '') {
@@ -2420,9 +2603,186 @@ EditCHK_GuruDetails(data: any, event: any) {
   }
   handleChange(data:any,evt: any) {
     var id=data;
+    this.BillerID=id;
     console.log(id, "biller ID");
     var xyz = evt.target.id;
     console.log(xyz, "target");
+  }
+  save(){
+    let api_req: any = new Object();
+    let addUser_req: any = new Object();
+    api_req.moduleType = "customer";
+    api_req.api_url = "customer/save";
+    api_req.api_type = "web";
+    api_req.access_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJhdWQiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJpYXQiOjE2NTQ2NjQ0MzksIm5iZiI6MTY1NDY2NDQzOSwiZXhwIjoxNjU0NjgyNDM5LCJhY2Nlc3NfZGF0YSI6eyJ0b2tlbl9hY2Nlc3NJZCI6IjIiLCJ0b2tlbl9hY2Nlc3NOYW1lIjoidGVzdGluZzA0MDYyMDIyIiwidG9rZW5fYWNjZXNzVHlwZSI6IjIifX0.NaymQDSiON2R3tKICGNpj6hsQfg9DGwEcZzrJcvsqbI";
+    addUser_req.action = "customer_save";
+    addUser_req.userId = localStorage.getItem('user_id');
+    addUser_req.userName = this.addUserForm1.value.userName;
+    addUser_req.password = this.addUserForm1.value.password;
+    addUser_req.firstName = this.addUserForm1.value.firstName;
+    addUser_req.lastName = this.addUserForm1.value.lastName;
+    addUser_req.department = this.addUserForm1.value.department;
+    addUser_req.designation= this.addUserForm1.value.designation;
+    addUser_req.fin_number = this.addUserForm1.value.FIN;
+    addUser_req.bank_acc_no = this.addUserForm1.value.bankAccountNO;
+    addUser_req.emp_address = this.addUserForm1.value.address;
+    addUser_req.dob= this.addUserForm1.value.dob;
+    addUser_req.smsNotification = this.addUserForm1.value.smsNotif;
+    addUser_req.phonenumber = this.addUserForm1.value.phoneNumber;
+    addUser_req.emailNotification = this.addUserForm1.value.emailNotif;
+    addUser_req.emailId= this.addUserForm1.value.emailID;
+    addUser_req.signatureFilename = this.addUserForm1.value.Signature;
+    addUser_req.monthlySalary = this.addUserForm2.value.addresses;
+    addUser_req.main_contactus = this.addUserForm1.value.cmsContactPhone;
+    addUser_req.alternate_contactus = this.addUserForm1.value.cmsAlternativeContactPhone;
+    addUser_req.alternate_support_mail = this.addUserForm1.value.cmsAlternativeSupportMail;
+    addUser_req.alternate_website = this.addUserForm1.value.cmsAlternativeSupportWebsite;
+    addUser_req.email_group_id = this.addUserForm1.value.bccEmailID;
+    addUser_req.petty_color_code = this.addUserForm1.value.pettyCashColorCode;
+    
+    //unknown starts
+    addUser_req.firstName_salary = this.addUserForm1.value.Fihytdf;
+    addUser_req.monthly_salary = this.addUserForm1.value.Fihytdf;
+    addUser_req.per_day_salary = this.addUserForm1.value.Fihytdf;
+    addUser_req.pf_status = this.addUserForm1.value.Fihytdf;
+    addUser_req.callEmailId = this.addUserForm1.value.Fihytdf;
+    addUser_req.values = this.addUserForm2.value.addresses;
+    addUser_req.profile_image = this.addUserForm1.value.Fihytdf;
+    addUser_req.billerId = this.BillerID;
+    addUser_req.pwd_username = this.addUserForm1.value.Fihytdf;
+    addUser_req.pwd_password = this.addUserForm1.value.Fihytdf;
+    addUser_req.pwd_logout_time = this.addUserForm1.value.Fihytdf;
+    addUser_req.inv_shared_userid = this.addUserForm1.value.Fihytdf;
+    addUser_req.reseller_shop_id = this.addUserForm1.value.Fihytdf;
+    addUser_req.reseller_pay_id = this.addUserForm1.value.Fihytdf;
+    addUser_req.hr_group_id = this.addUserForm1.value.Fihytdf;
+    
+    addUser_req.emailNotification_per = this.addUserForm1.value.Fihytdf;
+    addUser_req.pettycash_mail = this.addUserForm1.value.Fihytdf;
+    addUser_req.call_log_per = this.addUserForm1.value.Fihytdf;
+    addUser_req.time_booking_per= this.addUserForm1.value.Fihytdf;
+    addUser_req.helpdesk_per = this.addUserForm1.value.Fihytdf;
+    addUser_req.erp_app_per = this.addUserForm1.value.Fihytdf;
+    addUser_req.checkin_status = this.addUserForm1.value.Fihytdf;
+    addUser_req.present_list_status = this.addUserForm1.value.Fihytdf;
+    addUser_req.notification_status = this.addUserForm1.value.Fihytdf;
+    addUser_req.group_notification = this.addUserForm1.value.Fihytdf;
+    addUser_req.con1 = this.addUserForm1.value.Fihytdf;
+    addUser_req.con2 = this.addUserForm1.value.Fihytdf;
+    addUser_req.temperature = this.addUserForm1.value.Fihytdf;
+    addUser_req.from_dt_bill = this.addUserForm1.value.Fihytdf;
+    addUser_req.to_dt_bill = this.addUserForm1.value.Fihytdf;
+    addUser_req.filter_month_val = this.addUserForm1.value.Fihytdf;
+    addUser_req.department_type = this.addUserForm1.value.Fihytdf;
+    
+    //unknown ends
+    //single checkbox permission unknown
+    addUser_req.trans_app_other_all= this.addUserForm1.value.Fihytdf;
+    addUser_req.callLogViewState = this.addUserForm1.value.Fihytdf;
+    addUser_req.helpdesk_user = this.addUserForm1.value.Fihytdf;
+    addUser_req.helpdesk_pass = this.addUserForm1.value.Fihytdf;
+    addUser_req.helpdesk_status = this.addUserForm1.value.Fihytdf;
+    addUser_req.infinity_login = this.addUserForm1.value.Fihytdf;
+    addUser_req.google_authenticator = this.addUserForm1.value.Fihytdf;
+    addUser_req.user_personal_leave = this.addUserForm1.value.Fihytdf;
+    addUser_req.user_medical_leave = this.addUserForm1.value.Fihytdf;
+    addUser_req.staffStatus = this.addUserForm1.value.Fihytdf;
+    addUser_req.slack_user_id = this.addUserForm1.value.Fihytdf;
+    addUser_req.slack_user_name = this.addUserForm1.value.Fihytdf;
+    addUser_req.slack_display_name = this.addUserForm1.value.Fihytdf;
+    addUser_req.slack_user_channel = this.addUserForm1.value.Fihytdf;
+    addUser_req.slack_token = this.addUserForm1.value.Fihytdf;
+    addUser_req.slack_update_dt = this.addUserForm1.value.Fihytdf;
+    addUser_req.force_logout_erp= this.addUserForm1.value.Fihytdf;
+    addUser_req.device_token = this.addUserForm1.value.Fihytdf;
+    addUser_req.ext_no= this.addUserForm1.value.Fihytdf;
+    addUser_req.sip_user = this.addUserForm1.value.Fihytdf;
+    addUser_req.sip_pass = this.addUserForm1.value.Fihytdf;
+    addUser_req.short_name = this.addUserForm1.value.Fihytdf;
+    addUser_req.friendly_name = this.addUserForm1.value.Fihytdf;
+    addUser_req.country = this.addUserForm1.value.Fihytdf;
+    addUser_req.timezone_id= this.addUserForm1.value.Fihytdf;
+    
+    //permission starts
+    addUser_req.biller_per = this.edit_array_BillerAll;
+    addUser_req.quotation_per = this.edit_array_quotation_per;
+    addUser_req.quotation_per_old = this.edit_array_Quotation;
+    addUser_req.purchaseOrder_per = this.edit_array_PurchaseOrder;
+    addUser_req.creditNote_per = this.edit_array_CreditNote;
+    addUser_req.purchaseEntry_per = this.edit_array_PurchaseEntry;
+    addUser_req.dc_per = this.edit_array_DeliveryChelan;
+    addUser_req.dash_per = this.edit_array_Dashboard;
+    addUser_req.crmEnquiry_per = this.edit_array_CRMEnquiry;
+    addUser_req.customer_leads_per = this.edit_array_CustomerLeads;
+    addUser_req.contract_per = this.edit_array_ContractBiller;
+    addUser_req.deposit_per = this.edit_array_Deposits;
+    addUser_req.withdrawal_per = this.edit_array_Withdrawal;
+    addUser_req.nontrade_purchase_per = this.edit_array_NonTradePurchaseEntry;
+    addUser_req.salary_per = this.edit_array_TransactionSalary;
+    addUser_req.pettycash_per = this.edit_array_TransactionPettyCash;
+    addUser_req.trans_entry_per = this.edit_array_TransactionEntry;
+    addUser_req.trans_approve_per = this.edit_array_TransactionApproval;
+    addUser_req.trans_approve_data_center_per = this.edit_array_TransApprovalDataCenter;
+    addUser_req.license_key_per = this.edit_array_LicenseKey;
+    addUser_req.vs_provisioning_per = this.edit_array_VSProvisioning;
+    addUser_req.product_stock_per = this.edit_array_ProductStock;
+    addUser_req.reseller_prod_price_per = this.edit_array_ResellerProduct;
+    addUser_req.product_transfer_per = this.edit_array_ProductStockTransferAlet;
+    addUser_req.stock_pre_approval_per = this.edit_array_StockPreApproval;
+    addUser_req.did_product_per = this.edit_array_DIDInventoryProduct;
+    addUser_req.customer_projects_per = this.edit_array_CustomerProject;
+    addUser_req.recurring_date_per = this.edit_array_RecurringCheckerList;
+    addUser_req.customer_mst_per = this.edit_array_CustomerMaster;
+    addUser_req.calendar_template_per = this.edit_array_CalendarTemplate;
+    addUser_req.guru_details_biller = this.edit_array_GuruDetails;
+    //permission end
+    
+    //single checkbox permission starts
+    addUser_req.trans_app_dep = this.checkboxCB_TransDepositApproval;
+    addUser_req.trans_app_comm = this.checkboxCB_TransCommissionApproval;
+    addUser_req.trans_app_with = this.checkboxCB_TransWithdrawalApproval;
+    addUser_req.trans_app_pur = this.checkboxCB_TransPurchaseApproval;
+    addUser_req.trans_app_petty = this.checkboxCB_TransPettyCashApproval;
+    addUser_req.trans_app_vendor = this.checkboxCB_TransVendorApproval;
+    addUser_req.trans_app_inv = this.checkboxCB_TransInvoiceApproval;
+    addUser_req.trans_app_quot = this.checkboxCB_TransQuotationFilterApproval;
+    addUser_req.defaults_biller_id = this.BillerID;;
+    addUser_req.user_auth = this.checkboxCB_Verfication2ds;
+    addUser_req.fin_chk_auth = this.addUserForm1.value.Fihytdf;
+    addUser_req.qr_chk_auth= this.addUserForm1.value.Fihytdf;
+    addUser_req.otp = this.addUserForm1.value.Fihytdf;
+    addUser_req.omni_login_token = this.addUserForm1.value.Fihytdf;
+    addUser_req.carry_forward = this.addUserForm1.value.Fihytdf;
+    addUser_req.is_staff = this.checkboxCB_Staff;
+    addUser_req.probation = this.checkboxCB_InProbation;
+    addUser_req.ind_petty_cash = this.checkboxCB_IndividualPettyCashandFromDate;
+    addUser_req.ind_petty_dt = this.addUserForm7.value.IndividualPettyCashandFromDate_date;
+    
+    //single checkbox permission ends
+    
+    api_req.element_data = addUser_req;
+    this.serverService.sendServer(api_req).subscribe((response: any) => {
+      console.log(response);
+      var add_result = response;
+      console.log("add", add_result);
+      if (response.status == true) {
+
+        $('#addCustomerFormId').modal('hide');
+        iziToast.success({
+          message: "Customer Added successfully",
+          position: 'topRight'
+        });
+
+        
+
+      }
+      else {
+        iziToast.warning({
+          message: "Customer not updated. Please try again",
+          position: 'topRight'
+        });
+      }
+    });
   }
 
  
