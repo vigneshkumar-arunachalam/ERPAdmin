@@ -22,7 +22,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { ManagementComponent } from './management/management.component';
 import { UserManagementComponent } from './management/user-management/user-management.component';
 import { AddUserComponent } from './management/user-management/add-user/add-user.component';
-
+import { EditUserComponent } from './management/user-management/edit-user/edit-user.component';
 
 const routes: Routes = [
   {
@@ -31,6 +31,9 @@ const routes: Routes = [
   
   {
     path: 'adduser', component: AddUserComponent
+  },
+  {
+    path: 'edituser', component: EditUserComponent
   },
   {
     path: 'usermanagements', component: ManagementComponent

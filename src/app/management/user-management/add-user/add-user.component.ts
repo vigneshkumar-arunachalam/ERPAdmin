@@ -141,98 +141,109 @@ edit_array_GuruDetails: any = [];
 
 
 
-  //Transaction
-  Transaction_left = ['Add New', 'Edit', 'Delete', 'List', 'Search', 'Show All'];
+//Transaction
+  //Transaction_left = ['Add New', 'Edit', 'Delete', 'List', 'Search', 'Show All'];
+  Transaction_left = [{'name':'Add New','id':'1101'}, {'name':'Edit','id':'1102'}, {'name':'Delete','id':'1103'}, {'name':'List','id':'1104'}, {'name':'Search','id':'1105'}, {'Show All':'Search','id':'1106'}];
+  
   Transaction_Right = [];
   //TransactionApproval
-  TransactionApproval_Left = ['Reject', 'Task Approval', 'List', 'Quotation', 'Approval'];
+  // TransactionApproval_Left = ['Reject', 'Task Approval', 'List', 'Quotation', 'Approval'];
+  TransactionApproval_Left = [{'name':'Approval','id':'1201'}, {'name':'Reject','id':'1202'}, {'name':'Task Approval','id':'1204'}, {'name':'List','id':'1203'}, {'name':'Quotation','id':'1205'}];
   TransactionApproval_Right = [];
   //TransactionDeposit
-  TransactionDeposit_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  TransactionDeposit_Left = [{'name':'Add New','id':'1211'}, {'name':'Edit','id':'1212'}, {'name':'Delete','id':'1213'}, {'name':'List','id':'1214'}, {'name':'Search','id':'1215'}];
   TransactionDeposit_Right = [];
   //TransactionCommission
-  TransactionCommission_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  TransactionCommission_Left = [{'name':'Add New','id':'1291'}, {'name':'Edit','id':'1292'}, {'name':'Delete','id':'1293'}, {'name':'List','id':'1294'}, {'name':'Search','id':'1295'}];
   TransactionCommission_Right = [];
   //TransactionWithdrawal
-  TransactionWithdrawal_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  TransactionWithdrawal_Left = [{'name':'Add New','id':'1221'}, {'name':'Edit','id':'1222'}, {'name':'Delete','id':'1223'}, {'name':'List','id':'1224'}, {'name':'Search','id':'1225'}];
   TransactionWithdrawal_Right = [];
   //TransactionPurchaseEntry
-  TransactionPurchaseEntry_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  TransactionPurchaseEntry_Left = [{'name':'Add New','id':'1231'}, {'name':'Edit','id':'1232'}, {'name':'Delete','id':'1233'}, {'name':'List','id':'1234'}, {'name':'Search','id':'1235'}];
   TransactionPurchaseEntry_Right = [];
   //Transactionsalary
-  Transactionsalary_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  Transactionsalary_Left = [{'name':'Add New','id':'1241'}, {'name':'Edit','id':'1242'}, {'name':'Delete','id':'1243'}, {'name':'List','id':'1244'}, {'name':'Search','id':'1245'}];
   Transactionsalary_Right = [];
   //TransactionPettyCash
-  TransactionPettyCash_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search', 'Credit'];
+  TransactionPettyCash_Left = [{'name':'Add New','id':'1251'}, {'name':'Edit','id':'1252'}, {'name':'Delete','id':'1253'}, {'name':'List','id':'1254'}, {'name':'Search','id':'1255'}, {'name':'Credit','id':'1256'}];
+  
   TransactionPettyCash_Right = [];
   //Transaction Vendor Order
-  TransactionVendorOrder_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  TransactionVendorOrder_Left = [{'name':'Add New','id':'1261'}, {'name':'Edit','id':'1262'}, {'name':'Delete','id':'1263'}, {'name':'List','id':'1264'}, {'name':'Search','id':'1265'}];
   TransactionVendorOrder_Right = [];
   //Transaction invoice Payment
-  TransactionInvoicePayment_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  TransactionInvoicePayment_Left = [{'name':'Add New','id':'1271'}, {'name':'Edit','id':'1272'}, {'name':'Delete','id':'1273'}, {'name':'List','id':'1274'}, {'name':'Search','id':'1275'}];
   TransactionInvoicePayment_Right = [];
   //Transaction Others
-  TransactionOthers_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  TransactionOthers_Left = [{'name':'Add New','id':'1281'}, {'name':'Edit','id':'1282'}, {'name':'Delete','id':'1283'}, {'name':'List','id':'1284'}, {'name':'Search','id':'1285'}];
   TransactionOthers_Right = [];
   //bottom
   //Deposits
-  Deposits_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  Deposits_Left = [{'name':'Add New','id':'1001'}, {'name':'Edit','id':'1002'}, {'name':'Delete','id':'1003'}, {'name':'List','id':'1004'}, {'name':'Search','id':'1005'}];
   Deposits_Right = [];
 
   //issue
-  Issues_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  Issues_Left = [{'name':'Add New','id':'2001'}, {'name':'Edit','id':'2002'}, {'name':'Delete','id':'2003'}, {'name':'List','id':'2004'}, {'name':'Search','id':'2005'}];
   Issues_Right = [];
   //Customer
-  Customer_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search', 'Show All', 'Share', 'Cut Mail', 'Spl Edit', 'Cust Details', 'Bill code'];
+  Customer_Left = [{'name':'Add New','id':'5001'}, {'name':'Edit','id':'5002'}, {'name':'Delete','id':'5003'}, {'name':'List','id':'5004'}, {'name':'Search','id':'5005'},{'name':'Show All','id':'5006'}, {'name':'Share','id':'5007'}, {'name':'Cut Mail','id':'5008'}, {'name':'Spl Edit','id':'5009'}, {'name':'Cust Details','id':'3211'}, {'name':'Bill code','id':'3212'}];  
   Customer_Right = [];
   //Customer Contract
-  CustomerContract_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search', 'User Att', 'Oth Att', 'Inv Show', 'Biller Show'];
+  CustomerContract_Left =  [{'name':'Add New','id':'5011'}, {'name':'Edit','id':'5012'}, {'name':'Delete','id':'5013'}, {'name':'List','id':'5014'}, {'name':'Search','id':'5015'},{'name':'User Att','id':'5016'}, {'name':'Oth Att','id':'5017'}, {'name':'Inv Show','id':'5018'}, {'name':'Biller Show','id':'5019'}];  
+ 
   CustomerContract_Right = [];
   //Contract Name Management
-  CustomerNameMgmt_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  CustomerNameMgmt_Left = [{'name':'Add New','id':'5031'}, {'name':'Edit','id':'5032'}, {'name':'Delete','id':'5033'}, {'name':'List','id':'5034'}, {'name':'Search','id':'5035'}];
   CustomerNameMgmt_Right = [];
   //Contract Classification
-  ContractClassification_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  ContractClassification_Left = [{'name':'Add New','id':'5041'}, {'name':'Edit','id':'5042'}, {'name':'Delete','id':'5043'}, {'name':'List','id':'5044'}, {'name':'Search','id':'5045'}];
   ContractClassification_Right = [];
   //Customer Leads
-  CustomerLeads_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search', 'Lead Conv', 'Main Tab'];
+  CustomerLeads_Left = [{'name':'Add New','id':'5051'}, {'name':'Edit','id':'5052'}, {'name':'Delete','id':'5053'}, {'name':'List','id':'5054'}, {'name':'Search','id':'5055'}, {'name':'Lead Conv','id':'5056'}, {'name':'Main Tab','id':'5057'}];
+  
   CustomerLeads_Right = [];
   //3cx CRM Admin
-  c3xCRMAdmin_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  c3xCRMAdmin_Left = [{'name':'Add New','id':'5061'}, {'name':'Edit','id':'5062'}, {'name':'Delete','id':'5063'}, {'name':'List','id':'5064'}, {'name':'Search','id':'5065'}];
   c3xCRMAdmin_Right = [];
   //Mrvoip Package
-  MrvoipPackage_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  MrvoipPackage_Left = [{'name':'Add New','id':'5021'}, {'name':'Edit','id':'5022'}, {'name':'Delete','id':'5023'}, {'name':'List','id':'5024'}, {'name':'Search','id':'5025'}];
   MrvoipPackage_Right = [];
   //CRM(Enquiry)
-  CRMEnquiry_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search', 'Cmts', 'Send Mail', 'Mail View', 'CSV Export', 'Spec Per View',
-    'Spec Per Filter', '3cx', 'Reseller', 'Nx32', 'User Ass'];
+  CRMEnquiry_Left = [{'name':'Add New','id':'5501'}, {'name':'Edit','id':'5502'}, {'name':'Delete','id':'5503'}, {'name':'List','id':'5504'}, {'name':'Search','id':'5505'}, {'name':'Cmts','id':'5506'}, {'name':'Send Mail','id':'5507'}, {'name':'Mail View','id':'5508'}, {'name':'CSV Export','id':'5509'}, {'name':'Spec Per View','id':'5510'}, {'name':'Spec Per Filter','id':'5511'}, {'name':'3cx','id':'5512'}, {'name':'Reseller','id':'5513'}, {'name':'Nx32','id':'5514'}, {'name':'User Ass','id':'5515'}];
+
+    
+
+
   CRMEnquiry_Right = [];
   //	CRM Template
-  CRMTemplate_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  CRMTemplate_Left = [{'name':'Add New','id':'5601'}, {'name':'Edit','id':'5602'}, {'name':'Delete','id':'5603'}, {'name':'List','id':'5604'}, {'name':'Search','id':'5605'}];
   CRMTemplate_Right = [];
   //	Calendar Template
-  CalendarTemplate_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  CalendarTemplate_Left = [{'name':'Add New','id':'5621'}, {'name':'Edit','id':'5622'}, {'name':'Delete','id':'5623'}, {'name':'List','id':'5624'}, {'name':'Search','id':'5625'}];
   CalendarTemplate_Right = [];
   //	Vendor
-  vendor_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  vendor_Left = [{'name':'Add New','id':'9801'}, {'name':'Edit','id':'9802'}, {'name':'Delete','id':'9803'}, {'name':'List','id':'9804'}, {'name':'Search','id':'9805'}];
   vendor_Right = [];
   //Product Category
-  ProductCategory_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search', 'Pur % Update'];
+  ProductCategory_Left = [{'name':'Add New','id':'6081'}, {'name':'Edit','id':'6082'}, {'name':'Delete','id':'6083'}, {'name':'List','id':'6084'}, {'name':'Search','id':'6085'}, {'name':'Pur % Update','id':'6086'}];
+  
   ProductCategory_Right = [];
   //Reseller Product Category
-  ResellerProductCategory_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  ResellerProductCategory_Left = [{'name':'Add New','id':'6087'}, {'name':'Edit','id':'6088'}, {'name':'Delete','id':'6089'}, {'name':'List','id':'16084'}, {'name':'Search','id':'6090'}];
   ResellerProductCategory_Right = [];
   //	Product 
-  Product_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  Product_Left = [{'name':'Add New','id':'6001'}, {'name':'Edit','id':'6002'}, {'name':'Delete','id':'6003'}, {'name':'List','id':'6004'}, {'name':'Search','id':'5605'}];
   Product_Right = [];
   //	Reseller Product 
-  ResellerProduct_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  ResellerProduct_Left = [{'name':'Add New','id':'6006'}, {'name':'Edit','id':'6007'}, {'name':'Delete','id':'6008'}, {'name':'List','id':'6009'}, {'name':'Search','id':'6010'}];
   ResellerProduct_Right = [];
   //	Product Stock(Stock Menu)
-  ProductStock_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search', 'P-->Tran', 'A<--P', 'P-->I', 'P <--I', 'Reset', 'RMA Re-Iss', '	Pri Upd'];
+  ProductStock_Left = [{'name':'P-->Tran','id':'6091'}, {'name':'Edit','id':'6092'}, {'name':'Delete','id':'6093'}, {'name':'List','id':'6094'}, {'name':'Search','id':'6095'},{'name':'Search','id':'6096'},, {'name':'A<--P','id':'6097'}, {'name':'P-->I','id':'6098'}, {'name':'P <--I','id':'6099'},{'name':'Reset','id':'7029'},{'name':'RMA Re-Iss','id':'7030'},{'name':'Pri Upd','id':'7031'}];
+  
   ProductStock_Right = [];
   //	DID Inventory
-  DIDInventory_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search', 'P-->Tran', 'A<--P', 'P-->I', 'P <--I'];
+  DIDInventory_Left = [{'name':'Add New','id':'7091'}, {'name':'Edit','id':'7092'}, {'name':'Delete','id':'7093'}, {'name':'List','id':'7094'}, {'name':'Search','id':'7095'},{'name':'P-->Tran','id':'7096'}, {'name':'A<--P','id':'7097'}, {'name':'P-->I','id':'7098'}, {'name':'P <--I','id':'7099'}];  
   DIDInventory_Right = [];
   //3cx API Credit Report
   API3cxCreditReport_Left = ['List', 'Cal4care', 'Dcare'];
@@ -246,117 +257,131 @@ edit_array_GuruDetails: any = [];
 
 
   //License Category
-  LicenseCategory_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  LicenseCategory_Left = [{'name':'Add New','id':'6011'}, {'name':'Edit','id':'6012'}, {'name':'Delete','id':'6013'}, {'name':'List','id':'6014'}, {'name':'Search','id':'6015'}];
   LicenseCategory_Right = [];
   //License Product
-  LicenseProduct_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  LicenseProduct_Left = [{'name':'Add New','id':'6021'}, {'name':'Edit','id':'6022'}, {'name':'Delete','id':'6023'}, {'name':'List','id':'6024'}, {'name':'Search','id':'6025'}];
   LicenseProduct_Right = [];
   //License Key
-  LicenseKey_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search',
-    'Send Mail', 'Issue Key', 'Exp Date', 'Buy Lic', 'AV <- P', 'P -> AS', 'P <- AS', 'Lic Grp Del', 'AV Tab', 'Pool Tab', 'Ass Tab', 'Cld Tab', 'Res Tab'];
+  LicenseKey_Left = [{'name':'Add New','id':'6031'}, {'name':'Edit','id':'6032'}, {'name':'Delete','id':'6033'}, {'name':'List','id':'6034'}, {'name':'Search','id':'6035'}, {'name':'Send Mail','id':'6036'}, {'name':'Issue Key','id':'6037'}, {'name':'Exp Date','id':'6038'}, {'name':'Buy Lic','id':'6039'}, {'name':'AV <- P','id':'6051'} , {'name':'P -> AS','id':'6052'}, {'name':'P <- AS','id':'6053'}, {'name':'Lic Grp Del','id':'6055'}, {'name':'AV Tab','id':'6054'}, {'name':'Pool Tab','id':'6057'} , {'name':'Ass Tab','id':'6058'}, {'name':'Cld Tab','id':'6059'}, {'name':'Res Tab','id':'6060'}];
+
+    
+
   LicenseKey_Right = [];
 
   //Customer Projects Details
-  CustomerProjectsDetails_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search',
-    'Send Mail', 'Team Pwd', 'Back Upload', 'Back Down', 'Back Delete', 'Show All'];
+  CustomerProjectsDetails_Left = [{'name':'Add New','id':'6041'}, {'name':'Edit','id':'6042'}, {'name':'Delete','id':'6043'}, {'name':'List','id':'6044'}, {'name':'Search','id':'6045'} , {'name':'Send Mail','id':'6046'}, {'name':'Team Pwd','id':'6047'}, {'name':'Back Upload','id':'6048'}, {'name':'Back Down','id':'6049'}, {'name':'Back Delete','id':'6050'}, {'name':'Show All','id':'6056'}];
+    
   CustomerProjectsDetails_Right = [];
   //Vendor Product
-  VendorProduct_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  VendorProduct_Left = [{'name':'Add New','id':'9901'}, {'name':'Edit','id':'9902'}, {'name':'Delete','id':'9903'}, {'name':'List','id':'9904'}, {'name':'Search','id':'9905'}];
   VendorProduct_Right = [];
   //Courier
-  Courier_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  Courier_Left = [{'name':'Add New','id':'7001'}, {'name':'Edit','id':'7002'}, {'name':'Delete','id':'7003'}, {'name':'List','id':'7004'}, {'name':'Search','id':'7005'}];
   Courier_Right = [];
 
   // Password Mgt Details
-  PasswordMgtDetails_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search', 'Spec Per View'];
+  PasswordMgtDetails_Left = [{'name':'Add New','id':'7011'}, {'name':'Edit','id':'7012'}, {'name':'Delete','id':'7013'}, {'name':'List','id':'7014'}, {'name':'Search','id':'7015'}, {'name':'Spec Per View','id':'7016'}];
   PasswordMgtDetails_Right = [];
   // PurchaseEntry
-  PurchaseEntry_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  PurchaseEntry_Left = [{'name':'Add New','id':'9931'}, {'name':'Edit','id':'9932'}, {'name':'Delete','id':'9933'}, {'name':'List','id':'9934'}, {'name':'Search','id':'9935'}];
   PurchaseEntry_Right = [];
   // Non Trade Purchase Entry
-  NonTradePurchaseEntry_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  NonTradePurchaseEntry_Left = [{'name':'Add New','id':'9941'}, {'name':'Edit','id':'9942'}, {'name':'Delete','id':'9943'}, {'name':'List','id':'9944'}, {'name':'Search','id':'9945'}];
   NonTradePurchaseEntry_Right = [];
   // Stock Entry
-  StockEntry_Left = ['Add New', 'Edit', 'Delete', 'List'];
+  StockEntry_Left = [{'name':'Add New','id':'911'}, {'name':'Edit','id':'912'}, {'name':'Delete','id':'913'}, {'name':'List','id':'914'}];
   StockEntry_Right = [];
   // Salary Entry
-  SalaryEntry_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  SalaryEntry_Left = [{'name':'Add New','id':'9951'}, {'name':'Edit','id':'9952'}, {'name':'Delete','id':'9953'}, {'name':'List','id':'9954'}, {'name':'Search','id':'9955'}];
   SalaryEntry_Right = [];
 
   // Billing
-  Billing_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search',
-    'Mail', 'Pay', ' View', 'Pay Link', 'Land View', 'All Bills', 'Sp Per',
-    'Rec', 'Sale Rep', 'Alert', 'Spl Edit', ' P.I', 'Gr.Del', ' S->PI', 'R Comm',
-    'F Attch', 'T Chart', 'Act-Pri Share', '1-10 Edit Per', 'All Tax', 'Duplicate',
-    'Send PO', 'Term Con', 'Inv RV', 'Inv Type', 'Quot Conv', 'Shared', 'Inv to DID Conv',
-    'Coupon', 'DO Conv', 'Set Previous', ' Sus-Inv-List', 'Export-local',
-    '[From-to Date Filter] From dt', 'To dt', ' Filter Month'];
+  Billing_Left = [{'name':'Add New','id':'3001'}, {'name':'Edit','id':'3002'}, {'name':'Delete','id':'3003'}, {'name':'List','id':'3004'}, {'name':'Search','id':'3005'}
+  , {'name':'Mail','id':'3006'}, {'name':'Pay','id':'3007'}, {'name':'View','id':'3008'}, {'name':'Pay Link','id':'3009'}, {'name':'Land View','id':'3010'}
+  , {'name':'All Bills','id':'3011'}, {'name':'Sp Per','id':'3012'}, {'name':'Rec','id':'3013'}, {'name':'Sale Rep','id':'3015'}, {'name':'Alert','id':'3014'}
+  , {'name':'Spl Edit','id':'3016'}, {'name':'P.I Gr.Del','id':'3017'},{'name':'S->PI','id':'3018'}, {'name':'R Comm','id':'3019'}
+  , {'name':'F Attch','id':'3020'}, {'name':'T Chart','id':'3022'}, {'name':'Act-Pri Share','id':'3021'}, {'name':'1-10 Edit Per','id':'3023'}, {'name':'All Tax','id':'3024'}
+  , {'name':'Duplicate','id':'3025'}, {'name':'Send PO','id':'3026'}, {'name':'Term Con','id':'3027'}, {'name':'Inv RV','id':'3028'}, {'name':'Inv Type','id':'3029'}, {'name':'Quot Conv','id':'3030'}
+  , {'name':'Shared','id':'3031'}, {'name':'Inv to DID Conv','id':'3032'}, {'name':'Coupon','id':'3033'}, {'name':'DO Conv','id':'3034'}, {'name':'Set Previous','id':'3036'}, {'name':'Sus-Inv-List','id':'3037'}
+  , {'name':'Export-local','id':'3035'}, {'name':'[From-to Date Filter] From dt','id':'3038'}];
+    
+  
   Billing_Right = [];
 
   // Profama Invoice
-  ProfamaInvoice_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search',
-    'Mail', 'Pay', 'View', 'Land Mail', 'Land View', 'All Bills', 'Sp Per', 'Rec', 'Sale Rep', 'Alert', 'Spl Edit',
-    'P.I Gr.Del', 'PI->S', 'I->D'];
+  ProfamaInvoice_Left =  [{'name':'Add New','id':'3101'}, {'name':'Edit','id':'3102'}, {'name':'Delete','id':'3103'}, {'name':'List','id':'3104'},{'name':'Search','id':'3105'}
+  ,{'name':'Mail','id':'3106'},{'name':'Pay','id':'3107'},{'name':'View','id':'3108'},{'name':'Land Mail','id':'3109'},{'name':'Land View','id':'3110'},{'name':'All Bills','id':'3111'}
+  ,{'name':'Sp Per','id':'3112'},{'name':'Rec','id':'3113'},{'name':'Sale Rep','id':'3115'},{'name':'Alert','id':'3114'},{'name':'Spl Edit','id':'3116'}
+  ,{'name':'P.I Gr.Del','id':'3117'},{'name':'PI->S','id':'3119'},{'name':'I->D','id':'3120'}];
+   
   ProfamaInvoice_Right = [];
 
   // Quotation
-  Quotation_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search', 'Mail', 'View'];
+  Quotation_Left = [{'name':'Add New','id':'9521'}, {'name':'Edit','id':'9522'}, {'name':'Delete','id':'9523'}, {'name':'List','id':'9524'}, {'name':'Search','id':'9525'}, {'name':'Mail','id':'9526'}, {'name':'View','id':'9527'}];
+  
+  
   Quotation_Right = [];
 
   // Quotation New
-  QuotationNew_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search', 'Mail', 'View',
-    'Sales Rep', 'Show All User', 'Share Per', 'Act-Pri Share'];
+  QuotationNew_Left = [{'name':'Add New','id':'9501'}, {'name':'Edit','id':'9502'}, {'name':'Delete','id':'9503'}, {'name':'List','id':'9504'}, {'name':'Search','id':'9505'}, {'name':'Mail','id':'9506'}, {'name':'View','id':'9507'}
+  , {'name':'Sales Rep','id':'9508'}, {'name':'Show All User','id':'9509'}, {'name':'Share Per','id':'9510'}, {'name':'Act-Pri Share','id':'9511'}];
+    
   QuotationNew_Right = [];
 
   // Purchase Order
-  PurchaseOrder_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  PurchaseOrder_Left = [{'name':'Add New','id':'9601'}, {'name':'Edit','id':'9602'}, {'name':'Delete','id':'9603'}, {'name':'List','id':'9604'}, {'name':'Search','id':'9605'}];
   PurchaseOrder_Right = [];
 
   // Credit Note
-  CreditNote_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  CreditNote_Left = [{'name':'Add New','id':'9611'}, {'name':'Edit','id':'9612'}, {'name':'Delete','id':'9613'}, {'name':'List','id':'9614'}, {'name':'Search','id':'9615'}];
   CreditNote_Right = [];
   // 	Delivery Challan
-  DeliveryChallan_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  DeliveryChallan_Left = [{'name':'Add New','id':'9701'}, {'name':'Edit','id':'9702'}, {'name':'Delete','id':'9703'}, {'name':'List','id':'9704'}, {'name':'Search','id':'9705'}];
   DeliveryChallan_Right = [];
   // Delivery Order
-  DeliveryOrder_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  DeliveryOrder_Left = [{'name':'Add New','id':'9711'}, {'name':'Edit','id':'9712'}, {'name':'Delete','id':'9713'}, {'name':'List','id':'9714'}, {'name':'Search','id':'9715'}];
   DeliveryOrder_Right = [];
   // VS Provisioning
-  VSProvisioning_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  VSProvisioning_Left = [{'name':'Add New','id':'9961'}, {'name':'Edit','id':'9962'}, {'name':'Delete','id':'9963'}, {'name':'List','id':'9964'}, {'name':'Search','id':'9965'}];
   VSProvisioning_Right = [];
   // 	Rate File Upload
-  RateFileUpload_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  RateFileUpload_Left = [{'name':'Add New','id':'9971'}, {'name':'Edit','id':'9972'}, {'name':'Delete','id':'9973'}, {'name':'List','id':'9974'}, {'name':'Search','id':'9975'}];
   RateFileUpload_Right = [];
   // 	Coupon Details
-  CouponDetails_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  CouponDetails_Left = [{'name':'Add New','id':'6061'}, {'name':'Edit','id':'6062'}, {'name':'Delete','id':'6063'}, {'name':'List','id':'6064'}, {'name':'Search','id':'6065'}];
   CouponDetails_Right = [];
 
   // 		Calncall Shopping Master
-  CalncallShoppingMaster_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  CalncallShoppingMaster_Left = [{'name':'Add New','id':'6071'}, {'name':'Edit','id':'6072'}, {'name':'Delete','id':'6073'}, {'name':'List','id':'6074'}, {'name':'Search','id':'6075'}];
   CalncallShoppingMaster_Right = [];
   // 	Reseller Shopping Master
-  ResellerShoppingMaster_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  ResellerShoppingMaster_Left = [{'name':'Add New','id':'7051'}, {'name':'Edit','id':'7052'}, {'name':'Delete','id':'7053'}, {'name':'List','id':'7054'}, {'name':'Search','id':'7055'}];
   ResellerShoppingMaster_Right = [];
   // 		Document Preparation list
-  DocumentPreparationlist_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  DocumentPreparationlist_Left = [{'name':'Add New','id':'7121'}, {'name':'Edit','id':'7122'}, {'name':'Delete','id':'7123'}, {'name':'List','id':'7124'}, {'name':'Search','id':'7125'}];
   DocumentPreparationlist_Right = [];
   // 	Payment Link Access list
-  PaymentLinkAccessList_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  PaymentLinkAccessList_Left = [{'name':'Add New','id':'7131'}, {'name':'Edit','id':'7132'}, {'name':'Delete','id':'7133'}, {'name':'List','id':'7134'}, {'name':'Search','id':'7135'}];
   PaymentLinkAccessList_Right = [];
   // 	Data Center Request
-  DataCenterRequest_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search'];
+  DataCenterRequest_Left = [{'name':'Add New','id':'7081'}, {'name':'Edit','id':'7082'}, {'name':'Delete','id':'7083'}, {'name':'List','id':'7084'}, {'name':'Search','id':'7085'}];
   DataCenterRequest_Right = [];
   // 	Data Center Masters
-  DataCenterMasters_Left = ['Delete', 'List', 'Approve'];
+  DataCenterMasters_Left = [{'name':'Delete','id':'7086'}, {'name':'List','id':'7087'}, {'name':'Approve','id':'7088'}];
+  
   DataCenterMasters_Right = [];
   // 	Dynamic Excel
-  DynamicExcel_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search', 'History', 'Share'];
+  DynamicExcel_Left = [{'name':'Add New','id':'7141'}, {'name':'Edit','id':'7142'}, {'name':'Delete','id':'7143'}, {'name':'List','id':'7144'}, {'name':'Search','id':'7145'}, {'name':'History','id':'7146'}, {'name':'Share','id':'7147'}];
+  
   DynamicExcel_Right = [];
   // 		Price List
-  PriceList_Left = ['Add New', 'Edit', 'Delete', 'List', 'Search', 'Share', 'History'];
+  PriceList_Left = [{'name':'Add New','id':'7071'}, {'name':'Edit','id':'7072'}, {'name':'Delete','id':'7073'}, {'name':'List','id':'7074'}, {'name':'Search','id':'7075'}, {'name':'History','id':'7077'}, {'name':'Share','id':'7076'}];
+  
   PriceList_Right = [];
   // 		Call Logs
-  CallLogs_Left = ['Add New', 'Rating', 'Call Assigned By Me', 'Comments'];
+  CallLogs_Left = [{'name':'Add New','id':'4001'}, {'name':'Rating','id':'4002'}, {'name':'Call Assigned By Me','id':'4003'}, {'name':'Comments','id':'4004'}];
+  
   CallLogs_Right = [];
 
 
@@ -369,9 +394,7 @@ edit_array_GuruDetails: any = [];
 
 
 
-
-
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: { previousContainer: { data: any[]; }; container: { data: any[]; }; previousIndex: number; currentIndex: number; }) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -382,6 +405,18 @@ edit_array_GuruDetails: any = [];
         event.currentIndex,
       );
     }
+    let text_name_arr = [];
+    this.Courier_Right.forEach(element => {
+      const str = element.id;
+      text_name_arr.push(str);
+    });
+
+    this.PasswordMgtDetails_Right.forEach(element => {
+      const str = element.id;
+      text_name_arr.push(str);
+    });
+
+
   }
   checkboxList: any;
   fileList: any;
@@ -401,6 +436,7 @@ edit_array_GuruDetails: any = [];
   columntest:any;
   rowtest:any;
   BillerID:any;
+  dynamicRadio:any;
 
   addUserForm1: FormGroup;
   addUserForm2: FormGroup;
@@ -420,169 +456,10 @@ checkboxCB_Socso:boolean=false
 checkboxCB_SMSNotifications:boolean=false
 checkboxCB_EmailNotifications:boolean=false
 checkboxCB_Staff:boolean=false
-checkboxCB_TransDepositApproval: boolean = false;
-checkboxCB_TransCommissionApproval:boolean=false
-checkboxCB_TransWithdrawalApproval:boolean=false
-checkboxCB_TransPurchaseApproval:boolean=false
-checkboxCB_TransVendorApproval:boolean=false
-checkboxCB_TransInvoiceApproval:boolean=false
-checkboxCB_TransQuotationFilterApproval:boolean=false
-checkboxCB_ApprovalFilter:boolean=false
-checkboxCB_InvoiceIndividualFilter:boolean=false
-checkboxCB_TransApprovalTab:boolean=false
-checkboxCB_TransApprovalMain:boolean=false
-checkboxCB_TransApprovalProduct:boolean=false
-checkboxCB_TransApprovalDIDNumber:boolean=false
-checkboxCB_TransApprovalSmallTask:boolean=false
-checkboxCB_TransApprovalInvPayment:boolean=false
-checkboxCB_TransApprovalOnlineShop:boolean=false
-checkboxCB_TransApprovalDIDDemo:boolean=false
-checkboxCB_TransApprovalRMAIssues:boolean=false
-checkboxCB_TransApprovalOther:boolean=false
-checkboxCB_TransApprovalHRA:boolean=false
-checkboxCB_QuotationSentAppName:boolean=false
-checkboxCB_TransactionApprovalShare:boolean=false
-checkboxCB_TransactionApprovalIndividualFilter:boolean=false
-checkboxCB_CustomerMasterApptoval:boolean=false
-checkboxCB_WriteOffInvoice:boolean=false
-checkboxCB_DIDInvoice:boolean=false
-checkboxCB_CMSLogin:boolean=false
-checkboxCB_QuotationTemplate:boolean=false
-checkboxCB_ResellerManagement:boolean=false
-checkboxCB_CallLogs:boolean=false
-checkboxCB_PictureGallery:boolean=false
-checkboxCB_InternalTickets:boolean=false
-checkboxCB_PettyCashReport:boolean=false
-checkboxCB_WidthdrawlReport:boolean=false
-checkboxCB_PriceCategory:boolean=false
-checkboxCB_EnquiryForm:boolean=false
-checkboxCB_CMSCountry:boolean=false
-checkboxCB_DIDNumberCatalog:boolean=false
-checkboxCB_DIDProvider:boolean=false
-checkboxCB_DIDTrunkName:boolean=false
-checkboxCB_DepositMgt:boolean=false
-checkboxCB_SmallTask:boolean=false
-checkboxCB_ProductCategory:boolean=false
-checkboxCB_ProductQuotation:boolean=false
-checkboxCB_StockInventoryReport:boolean=false
-checkboxCB_RateCatelog:boolean=false
-checkboxCB_StockinventoryEntry:boolean=false
-checkboxCB_DIDInventoryEntry:boolean=false
-checkboxCB_SucuriipAccess:boolean=false
-checkboxCB_MrvoipLicenseKey:boolean=false
-checkboxCB_SoftPhoneLicense:boolean=false
-checkboxCB_APIToken:boolean=false
-checkboxCB_PurchaseEntry:boolean=false
-checkboxCB_PurchaseEntryYearly:boolean=false
-checkboxCB_PurchaseEntryyearlyEdit:boolean=false
-checkboxCB_PurchaseEntryVoipTrendChart:boolean=false
-checkboxCB_PurchaseentryMrvoipTrendEntry:boolean=false
-checkboxCB_PurchaseentryMrvoipTrendChart:boolean=false
-checkboxCB_PurchaseentryCall4telTrendEntry:boolean=false
-checkboxCB_PurchaseentryCall4telTrendChart:boolean=false
-checkboxCB_PurchaseEntryWaiting:boolean=false
-checkboxCB_NonTradePurchaseEntry:boolean=false
-checkboxCB_NewCustomerApproval:boolean=false
-checkboxCB_ResellerPaymentMenu:boolean=false
-checkboxCB_ResellerPaymentAll:boolean=false
-checkboxCB_MrvoipCalncall_callacloudMenu:boolean=false
-checkboxCB_MrvoipPackagePrice:boolean=false
-checkboxCB_MrvoipLeftProductMenu:boolean=false
-checkboxCB_MrvoipIndustries:boolean=false
-checkboxCB_MrvoipCaseStudies:boolean=false
-checkboxCB_MrvoipContactDetails:boolean=false
-checkboxCB_ERPUserMgt:boolean=false
-checkboxCB_ExternalBlog:boolean=false
-checkboxCB_InternalBlog:boolean=false
-checkboxCB_NX32SerialNumber:boolean=false
-checkboxCB_NX32DocumentUpload:boolean=false
-checkboxCB_DynamicExcel:boolean=false
-checkboxCB_RevenueReport:boolean=false
-checkboxCB_MGOrderList:boolean=false
-checkboxCB_YGOrderList:boolean=false
-checkboxCB_CustomerInvoiceShare:boolean=false
-checkboxCB_IPAllowedRule:boolean=false
-checkboxCB_RenewalReminder:boolean=false
-checkboxCB_WebrtcIP:boolean=false
-checkboxCB_AttendanceReports:boolean=false
-checkboxCB_CPFContribution:boolean=false
-checkboxCB_WebsiteSubscribeEmail:boolean=false
-checkboxCB_Buy3cxLicensePage:boolean=false
-checkboxCB_Buy3cxpermisUser:boolean=false
-checkboxCB_Call4telAddressLogoshowPartner:boolean=false
-checkboxCB_MrvoipAddressLogoshowPartner:boolean=false
-checkboxCB_MconnectAddressLogoshowPartner:boolean=false
-checkboxCB_RecurringCheckerList:boolean=false
-checkboxCB_EnquiryDetails:boolean=false
-checkboxCB_OverduePaymentsNotification:boolean=false
-checkboxCB_Cal4CarePteLtdOverdue:boolean=false
-checkboxCB_DCARETechnologiesIndiaPvtLtdOverdue:boolean=false
-checkboxCB_RecurringDateUpdate:boolean=false
-checkboxCB_StockPreApproval:boolean=false
-checkboxCB_WebSiteEnquiry:boolean=false
-checkboxCB_PaymentFollowInvoice:boolean=false
-checkboxCB_TransactionApproval:boolean=false
-checkboxCB_InCompletesTaskList:boolean=false
-checkboxCB_Cal4careSdnBhdOverdue:boolean=false
-checkboxCB_MarshalSystemConsultancyOverdue:boolean=false
-checkboxCB_PurchaseEntryTrend:boolean=false
-checkboxCB_Verfication2ds:boolean=false
-checkboxcheckboxStatus:boolean=false
-checkboxCB_Cal4careSdnBhdGSTRpt:boolean=false
-checkboxCB_AllPaymentFollowInvoice:boolean=false
-checkboxCB_SendtoPostal:boolean=false
-checkboxCB_Cal4CareJapanCoLtdOverdue:boolean=false
-checkboxCB_CloudRenewalLicKeyPopup:boolean=false
-checkboxCB_AllMEnquiry:boolean=false
-checkboxCB_Assigned3cxEnquiry:boolean=false
-checkboxCB_Cal4careThailandCoLtdOverdue:boolean=false
-checkboxCB_CustomSearchIconshow:boolean=false
-checkboxCB_CustomerSerach:boolean=false
-checkboxCB_Invoice:boolean=false
-checkboxCB_LicenseKey:boolean=false
-checkboxCB_VsProvisioning:boolean=false
-checkboxCB_QuotationSerach:boolean=false
-checkboxCB_CreditNote:boolean=false
-checkboxCB_DIDNumber:boolean=false
-checkboxCB_AllPage:boolean=false
-checkboxCB_ProformaInvoice:boolean=false
-checkboxCB_PrepaidNote:boolean=false
-checkboxCB_CustomerProjects:boolean=false
-checkboxCB_VOIPCreditManager:boolean=false
-checkboxCB_VOIPSuspendAccount:boolean=false
-checkboxCB_ProductStockReportUpdate:boolean=false
-checkboxCB_CurrenctStockShow:boolean=false
-checkboxCB_RateCatelogShow:boolean=false
-checkboxCB_ActPurchasePriceShow:boolean=false  
-checkboxCB_DefaultMenuShow:boolean=false
-checkboxCB_ConsolidatedOverdue:false;
-checkboxCB_TransPettyCashApproval:boolean=false
-checkboxCB_TransApprovalDataCenter:boolean=false
-checkboxCB_DcareTechnologiesPteLtdOverdue:boolean=false
-checkboxCB_DefaultMenuShowLowLevel:boolean=false
-checkboxCB_CalncallMenuShow:boolean=false
-checkboxCB_ResellerShoppingMenu:boolean=false
-checkboxCB_PublicTaskManager:boolean=false
-checkboxCB_PersonalTaskManager:boolean=false
-checkboxCB_DailyWorkReport:boolean=false
-checkboxCB_Mailer:boolean=false
-checkboxCB_HelpDesk:boolean=false
-checkboxCB_C4CTurnOverMap:boolean=false
-checkboxCB_SpecialLogin:boolean=false
-checkboxCB_LeftSideTurnOverChart:boolean=false
-checkboxCB_IndividualPettyCashCreditPersonSelect:boolean=false
-checkboxCB_IndividualPettyCashandFromDate:false;
-checkboxCB_ApprovalDelete:boolean=false
-checkboxCB_CreditMgtDetails:boolean=false
-checkboxCB_BankReports:boolean=false
-checkboxCB_LedgerReports:boolean=false
-checkboxCB_DashBoard:boolean=false
-checkboxCB_InvoiceReports:boolean=false
-checkboxCB_CallLogReports:boolean=false
-checkboxCB_SendMail:boolean=false
-checkboxCB_PettyCash:boolean=false
-checkboxCB_Logistics:boolean=false
-checkboxCB_test:boolean=false
+
+
+
+
   constructor(private serverService: ServerService, private fb: FormBuilder, private router: Router) {
     this.addUserForm2 = this.fb.group({
       addresses: this.fb.array([this.createAddress()])
@@ -591,6 +468,174 @@ checkboxCB_test:boolean=false
 
   ngOnInit(): void {
     this.onLoadGet();
+    this.dynamicRadio = [
+
+      { name: 'Trans Deposit Approval', selected: false, id: 2011 },
+  { name: 'Trans Commission Approval', selected: false, id: 2012 },
+  { name: 'Trans Withdrawal Approval', selected: false, id: 2013 },
+  { name: 'Trans Purchase Approval', selected: false, id: 2014 },
+  { name: 'Trans Petty Cash Approval', selected: false, id: 2015 },
+  { name: 'Trans Vendor Approval', selected: false, id: 2016 },
+  { name: 'Trans Invoice Approval', selected: false, id:  2017},
+  { name: 'Trans Quotation Filter Approval', selected: false, id:2018  },
+  { name: 'Invoice individual filter', selected: false, id: 2019 },
+  { name: 'Approval filter', selected: false, id: 2020 },
+  { name: 'Trans Approval Main', selected: false, id: 2021 },
+  { name: 'Trans Approval Product', selected: false, id:2022  },
+  { name: 'Trans Approval DID Number', selected: false, id: 2023 },
+  { name: 'Trans Approval Small Task', selected: false, id:2024  },
+  { name: 'Trans Approval Inv Payment', selected: false, id: 2025 },
+  { name: 'Trans Approval Online Shop', selected: false, id: 2026 },
+  { name: 'Trans Approval DID Demo', selected: false, id: 2027 },
+  { name: 'Trans Approval RMA Issues', selected: false, id:2028  },
+  { name: 'Trans Approval Other', selected: false, id: 2029 },
+  { name: 'Trans Approval HRA', selected: false, id: 2030 },
+  { name: 'Trans Approval Data Center', selected: false, id: 2031 },
+  { name: 'Quotation Sent App Name', selected: false, id:2032  },
+  { name: 'Transaction Approval Share', selected: false, id: 2033 },
+  { name: 'Transaction Approval Individual filter', selected: false, id: 2034 },
+  { name: 'Customer Master Apptoval', selected: false, id: 2035 },
+  { name: 'DID Invoice', selected: false, id: 2036 },
+  { name: 'Write Off Invoice', selected: false, id:2037  },
+  { name: 'CMS Login', selected: false, id:2038  },
+  { name: 'Quotation Template', selected: false, id: 2039 },
+  { name: 'Reseller Management', selected: false, id:2040  },
+  { name: 'Call logs', selected: false, id:2041  },
+  { name: 'Picture gallery', selected: false, id: 2042 },
+  { name: 'Internal tickets', selected: false, id:2043  },
+  { name: 'Petty cash report', selected: false, id:2044  },
+  { name: 'Widthdrawl report', selected: false, id:2045  },
+  { name: 'Price category', selected: false, id: 2046 },
+  { name: 'Enquiry form', selected: false, id: 2047 },
+  { name: 'CMS country', selected: false, id: 2048 },
+  { name: 'DID number catalog', selected: false, id:2049  },
+  { name: 'DID provider', selected: false, id:2050  },
+  { name: 'DID trunk name', selected: false, id:2051  },
+  { name: 'Deposit mgt', selected: false, id: 2052  },
+  { name: 'Small task', selected: false, id:2053   },
+  { name: 'Product category', selected: false, id:2054   },
+  { name: 'Product quotation', selected: false, id: 2055  },
+  { name: 'Stock inventory report', selected: false, id:2056   },
+  { name: 'Rate catelog', selected: false, id:2057   },
+  { name: 'Stock inventory Entry', selected: false, id: 2058  },
+  { name: 'DID inventory entry', selected: false, id:2059   },
+  { name: 'Sucuri ip Access', selected: false, id:2060  },
+  { name: 'Mrvoip license key', selected: false, id: 2061 },
+  { name: 'Soft Phone License', selected: false, id:2062  },
+  { name: 'API token', selected: false, id:2063  },
+  { name: 'Purchase entry', selected: false, id:2064  },
+  { name: 'Purchase entry yearly', selected: false, id: 2065 },
+  { name: 'Purchase entry yearly-Edit', selected: false, id: 2094},
+  { name: 'Purchase entry - Voip Trend Chart', selected: false, id: 2076 },
+  { name: 'Purchase entry - Mrvoip Trend Entry', selected: false, id: 2095 },
+  { name: 'Purchase entry - Mrvoip Trend Chart', selected: false, id:2096  },
+  { name: 'Purchase entry - Call4tel Trend Entry', selected: false, id: 2103 },
+  { name: 'Purchase entry - Call4tel Trend Chart', selected: false, id:2104  },
+  
+  { name: 'Purchase entry waiting', selected: false, id:2066  },
+  { name: 'Non trade Purchase Entry', selected: false, id: 2067 },
+  { name: 'New Customer Approval', selected: false, id: 2068 },
+  { name: 'Reseller Payment Menu', selected: false, id: 2077 },
+  { name: 'Reseller Payment All', selected: false, id: 2078 },
+  { name: 'Mrvoip calncall_callacloud Menu', selected: false, id: 2075 },
+  { name: 'Mrvoip package price', selected: false, id: 2069 },
+  { name: 'Mrvoip left product menu', selected: false, id: 2071 },
+  { name: 'Mrvoip Industries', selected: false, id:  2072},
+  { name: 'Mrvoip case studies', selected: false, id: 2073 },
+  { name: 'Mrvoip contact details', selected: false, id: 2074 },
+  { name: 'ERP - User Mgt', selected: false, id: 2079 },
+  { name: 'External Blog', selected: false, id: 2070 },
+  { name: 'Internal Blog', selected: false, id:2080  },
+  { name: 'NX32 Serial Number', selected: false, id: 2081 },
+  { name: 'NX32 Document Upload', selected: false, id:2082  },
+  { name: 'Dynamic Excel', selected: false, id:2083  },
+  { name: 'Revenue Report', selected: false, id:2084  },
+  { name: 'MG Order List', selected: false, id:  2085},
+  { name: 'YG Order List', selected: false, id: 2086 },
+  { name: 'Customer invoice share', selected: false, id:2087  },
+  { name: 'IP-Allowed Rule', selected: false, id: 2088 },
+  { name: 'Renewal Reminder', selected: false, id: 2089 },
+  { name: 'Webrtc-IP', selected: false, id:  2090},
+  { name: 'Fgw', selected: false, id: 2091 },
+  { name: 'Attendance Reports', selected: false, id: 2092 },
+  { name: 'CPF Contribution', selected: false, id:2093  },
+  { name: 'Website Subscribe Email', selected: false, id: 2097 },
+  { name: '3cx Buy License Page', selected: false, id:  2098},
+  { name: '3cx Buy permis for user', selected: false, id: 2099 },
+  { name: 'Call4tel Address and Logo show in partner', selected: false, id:2100  },
+  { name: 'Mrvoip Address and Logo show in partner', selected: false, id:2101  },
+  { name: 'Mconnect Address and Logo show in partner', selected: false, id:2102  },
+  { name: 'Recurring Checker List ', selected: false, id: 1121},
+  { name: 'Enquiry Details ', selected: false, id: 1124},
+  { name: 'Overdue Payments Notification ', selected: false, id:1127 },
+  { name: 'Cal4Care Pte Ltd Overdue ', selected: false, id: 1130},
+  { name: 'DCARE Technologies India Pvt Ltd Overdue ', selected: false, id: 1133},
+  { name: 'Recurring Date Update ', selected: false, id:1136 },
+  { name: 'Stock Pre Approval ', selected: false, id:1139 },
+  { name: 'WebSite Enquiry ', selected: false, id:1162 },
+  { name: 'Consolidated Overdue', selected: false, id:1165 },
+  { name: 'Payment Follow Invoice ', selected: false, id: 1122},
+  { name: 'Transaction Approval ', selected: false, id:1125 },
+  { name: 'In-completes Task List', selected: false, id: 1128},
+  { name: 'Cal4care Sdn. Bhd Overdue ', selected: false, id:1131 },
+  { name: 'Marshal System Consultancy Overdue ', selected: false, id:1134 },
+  { name: 'Purchase Entry-Trend', selected: false, id: 1137},
+  { name: '2ds Verfication ', selected: false, id:1 },
+  { name: '3cx Enquiry', selected: false, id:1163 },
+  { name: 'Cal4care Sdn Bhd GST Rpt ', selected: false, id:1135 },
+  { name: 'All Payment Follow Invoice ', selected: false, id:1123 },
+  { name: 'Call Log Comments ', selected: false, id:1126 },
+  { name: 'Send to Postal ', selected: false, id:1129 },
+  { name: 'Dcare Technologies Pte Ltd Overdue ', selected: false, id:1132 },
+  { name: 'Cal4Care Japan Co., Ltd Overdue ', selected: false, id: 1140},
+  { name: 'Cloud Renewal Lic Key Popup ', selected: false, id:1138 },
+  { name: 'All(M) Enquiry) ', selected: false, id: 1161},
+  { name: '3cx Assigned Enquiry ', selected: false, id: 1164},
+  { name: 'Cal4care (Thailand) Co., Ltd. Overdue ', selected: false, id: 1166},
+  { name: 'Custom Search Icon show', selected: false, id:1148  },
+  { name: 'Customer Serach', selected: false, id:1141  },
+  { name: 'Invoice', selected: false, id: 1144 },
+  { name: 'License Key', selected: false, id: 1147 },
+  { name: 'Vs Provisioning', selected: false, id: 1151 },
+  { name: 'Quotation Serach', selected: false, id: 1142 },
+  { name: 'Credit Note', selected: false, id:1145  },
+  { name: 'DID Number', selected: false, id:1149  },
+  { name: 'All Page', selected: false, id:  1152},
+  { name: 'Proforma Invoice', selected: false, id: 1143 },
+  { name: 'Prepaid Note', selected: false, id:1146  },  
+  { name: 'Customer Projects', selected: false, id:1150  },
+  { name: 'VOIP Credit Manager', selected: false, id:  6114},
+  { name: 'VOIP Suspend Account', selected: false, id: 6124 },
+  { name: 'VOIP Gateway Settings', selected: false, id:6134  },
+  { name: 'Product Stock Report (Update)', selected: false, id:8008  },
+  { name: 'Currenct Stock Show', selected: false, id: 7006 },
+  { name: 'Rate Catelog Show', selected: false, id: 7007 },
+  { name: 'Act Purchase Price Show', selected: false, id:7008  },
+  { name: 'Default Menu Show', selected: false, id: 7009 },
+  { name: 'Default Menu Show (low level)', selected: false, id:7010  },
+  { name: 'Calncall Menu Show', selected: false, id: 7028 },
+  { name: 'Reseller Shopping Menu', selected: false, id: 7032 },  
+  { name: 'Public Task Manager', selected: false, id: 7021 },
+  { name: 'Personal Task Manager', selected: false, id:7022  },  
+  { name: 'Daily Work Report', selected: false, id: 7023 },
+  { name: 'Mailer', selected: false, id:  7024},  
+  { name: 'Help Desk', selected: false, id:7025  },
+  { name: 'C4C Turn Over(Map)', selected: false, id: 7026 },  
+  { name: 'Special Login', selected: false, id: 7041 },
+  { name: 'Left Side TurnOver Chart', selected: false, id:  7042},  
+  { name: 'Individual Petty Cash Credit Person Select', selected: false, id:7046  },
+  { name: 'Approval Delete', selected: false, id:  7045},  
+  { name: 'Credit Mgt Details', selected: false, id:7017  },
+  { name: 'Bank Reports', selected: false, id:8001  },  
+  { name: 'Ledger Reports', selected: false, id:8001  },
+  { name: 'DashBoard', selected: false, id: 9956 },  
+  { name: 'Invoice Reports', selected: false, id: 9913 },
+  { name: 'Call Log Reports', selected: false, id:8002  },
+  { name: 'Send Mail', selected: false, id: 9911 },
+  { name: 'Petty Cash', selected: false, id:9912  },
+  { name: 'Logistics', selected: false, id: 9914 },
+    ];
+
     this.checkboxList = ["Trans Deposit Approval", "	Trans Commission Approval", "Trans Withdrawal Approval", "Trans Purchase Approval", "Trans Petty Cash Approval",
       "Trans Vendor Approval", "Trans Invoice Approval", "Trans Quotation Filter Approval", " 	Invoice individual filter", "	Approval filter", " 	Trans Approval Tab",
       "Trans Approval Main", "Trans Approval Product", "Trans Approval DID Number", "	Trans Approval Small Task", "Trans Approval Inv Payment", "Trans Approval Online Shop",
@@ -652,7 +697,8 @@ checkboxCB_test:boolean=false
       'age': new FormControl,
       'epfcpfStatus': new FormControl,
       'sinda': new FormControl,
-      'socso': new FormControl
+      'socso': new FormControl,
+      
 
 
     },
@@ -674,152 +720,16 @@ checkboxCB_test:boolean=false
       'Staff': new FormControl,
       'ProbationIn': new FormControl,
       'permissionAs': new FormControl,
-
-
-    });
-    this.addUserForm4 = new FormGroup({
-
-      'TransDepositApproval': new FormControl,
-      'TransCommissionApproval': new FormControl,
-      'TransWithdrawalApproval': new FormControl,
-      'TransPurchaseApproval': new FormControl,
-      'TransPettyCashApproval': new FormControl,
-      'TransVendorApproval': new FormControl,
-      'TransInvoiceApproval': new FormControl,
-      'TransQuotationFilterApproval': new FormControl,
-      'InvoiceIndividualFilter': new FormControl,
-      'ApprovalFilter': new FormControl,
-      'TransApprovalTab': new FormControl,
-      'TransApprovalMain': new FormControl,
-      'TransApprovalProduct': new FormControl,
-      'TransApprovalDIDNumber': new FormControl,
-      'TransApprovalSmallTask': new FormControl,
-      'TransApprovalInvPayment': new FormControl,
-      'TransApprovalOnlineShop': new FormControl,
-      'TransApprovalDIDDemo': new FormControl,
-      'TransApprovalRMAIssues': new FormControl,
-      'TransApprovalOther': new FormControl,
-      'TransApprovalHRA': new FormControl,
-      'TransApprovalDataCenter': new FormControl,
-      'QuotationSentAppName': new FormControl,
-      'TransactionApprovalShare': new FormControl,
-      'TransactionApprovalIndividualFilter': new FormControl,
-      'CustomerMasterApptoval': new FormControl,
-      'DIDInvoice': new FormControl,
-      'WriteOffInvoice': new FormControl,
-      'CMSLogin': new FormControl,
-      'QuotationTemplate': new FormControl,
-      'ResellerManagement': new FormControl,
-      'CallLogs': new FormControl,
-      'PictureGallery': new FormControl,
-      'InternalTickets': new FormControl,
-      'PettyCashReport': new FormControl,
-      'WidthdrawlReport': new FormControl,
-      'PriceCategory': new FormControl,
-      'EnquiryForm': new FormControl,
-      'CMSCountry': new FormControl,
-      'DIDNumberCatalog': new FormControl,
-      'DIDProvider': new FormControl,
-      'DIDTrunkName': new FormControl,
-      'DepositMgt': new FormControl,
-      'SmallTask': new FormControl,
-      'ProductCategory': new FormControl,
-      'ProductQuotation': new FormControl,
-      'StockInventoryReport': new FormControl,
-      'RateCatelog': new FormControl,
-      'StockinventoryEntry': new FormControl,
-      'DIDInventoryEntry': new FormControl,
-      'SucuriipAccess': new FormControl,
-      'MrvoipLicenseKey': new FormControl,
-      'SoftPhoneLicense': new FormControl,
-      'APIToken': new FormControl,
-      'PurchaseEntry': new FormControl,
-      'PurchaseEntryYearly': new FormControl,
-      'PurchaseEntryyearlyEdit': new FormControl,
-      'PurchaseEntryVoipTrendChart': new FormControl,
-      'PurchaseentryMrvoipTrendEntry': new FormControl,
-      'PurchaseentryMrvoipTrendChart': new FormControl,
-      'PurchaseentryCall4telTrendEntry': new FormControl,
-      'PurchaseentryCall4telTrendChart': new FormControl,
-      'PurchaseEntryWaiting': new FormControl,
-      'NonTradePurchaseEntry': new FormControl,
-      'NewCustomerApproval': new FormControl,
-      'ResellerPaymentMenu': new FormControl,
-      'ResellerPaymentAll': new FormControl,
-      'MrvoipCalncall_callacloudMenu': new FormControl,
-      'MrvoipPackagePrice': new FormControl,
-      'MrvoipLeftProductMenu': new FormControl,
-      'MrvoipIndustries': new FormControl,
-      'MrvoipCaseStudies': new FormControl,
-      'MrvoipContactDetails': new FormControl,
-      'ERPUserMgt': new FormControl,
-      'ExternalBlog': new FormControl,
-      'InternalBlog': new FormControl,
-      'NX32SerialNumber': new FormControl,
-      'NX32DocumentUpload': new FormControl,
-      'DynamicExcel': new FormControl,
-      'RevenueReport': new FormControl,
-      'MGOrderList': new FormControl,
-      'YGOrderList': new FormControl,
-      'CustomerInvoiceShare': new FormControl,
-      'IPAllowedRule': new FormControl,
-      'RenewalReminder': new FormControl,
-      'WebrtcIP': new FormControl,
-      'AttendanceReports': new FormControl,
-      'CPFContribution': new FormControl,
-      'WebsiteSubscribeEmail': new FormControl,
-      'Buy3cxLicensePage': new FormControl,
-      'Buy3cxpermisUser': new FormControl,
-      'Call4telAddressLogoshowPartner': new FormControl,
-      'MrvoipAddressLogoshowPartner': new FormControl,
-      'MconnectAddressLogoshowPartner': new FormControl,
-
-
+      'oneInputControl': new FormControl,
 
     });
+   
     this.addUserForm5 = new FormGroup({
       'RecurringCheckerList': new FormControl,
-      'EnquiryDetails': new FormControl,
-      'OverduePaymentsNotification': new FormControl,
-      'Cal4CarePteLtdOverdue': new FormControl,
-      'DCARETechnologiesIndiaPvtLtdOverdue': new FormControl,
-      'RecurringDateUpdate': new FormControl,
-      'StockPreApproval': new FormControl,
-      'WebSiteEnquiry': new FormControl,
-      'ConsolidatedOverdue': new FormControl,
-      'PaymentFollowInvoice': new FormControl,
-      'TransactionApproval': new FormControl,
-      'InCompletesTaskList': new FormControl,
-      'Cal4careSdnBhdOverdue': new FormControl,
-      'MarshalSystemConsultancyOverdue': new FormControl,
-      'PurchaseEntryTrend': new FormControl,
-      'Verfication2ds': new FormControl,
-      'Enquiry3cx': new FormControl,
-      'Cal4careSdnBhdGSTRpt': new FormControl,
-      'AllPaymentFollowInvoice': new FormControl,
-      'SendtoPostal': new FormControl,
-      'DcareTechnologiesPteLtdOverdue': new FormControl,
-      'Cal4CareJapanCoLtdOverdue': new FormControl,
-      'CloudRenewalLicKeyPopup': new FormControl,
-      'AllMEnquiry': new FormControl,
-      'Assigned3cxEnquiry': new FormControl,
-      'Cal4careThailandCoLtdOverdue': new FormControl
-    });
-    this.addUserForm6 = new FormGroup({
-      'CustomSearchIconshow': new FormControl,
-      'CustomerSerach': new FormControl,
-      'Invoice': new FormControl,
-      'LicenseKey': new FormControl,
-      'VsProvisioning': new FormControl,
-      'QuotationSerach': new FormControl,
-      'CreditNote': new FormControl,
-      'DIDNumber': new FormControl,
-      'AllPage': new FormControl,
-      'ProformaInvoice': new FormControl,
-      'PrepaidNote': new FormControl,
-      'CustomerProjects': new FormControl
+       'StockPreApproval': new FormControl,
 
     });
+
     this.addUserForm7 = new FormGroup({
       'VOIPCreditManager': new FormControl,
       'VOIPSuspendAccount': new FormControl,
@@ -846,18 +756,7 @@ checkboxCB_test:boolean=false
 
     });
     this.addUserForm8 = new FormGroup({
-      'CreditMgtDetails': new FormControl,
-      'BankReports': new FormControl,
-      'LedgerReports': new FormControl,
-      'DashBoard': new FormControl,
-      'InvoiceReports': new FormControl,
-      'CallLogReports': new FormControl,
-      'SendMail': new FormControl,
-      'PettyCash': new FormControl,
-      'Logistics': new FormControl,
-
-
-
+          'DashBoard': new FormControl,
     });
     this.addUserFormTableData = new FormGroup({
       'billerAll_Cal4CareSG': new FormControl,
@@ -904,6 +803,9 @@ checkboxCB_test:boolean=false
       this.test[index] = true;
 
     });
+  }
+  removeAddress(i: number) {
+    this.addresses.removeAt(i);
   }
 
   createAddress(): FormGroup {
@@ -960,945 +862,7 @@ checkboxCB_test:boolean=false
     this.checkboxCB_Staff = event.target.checked;
     console.log("this.checkboxCB_Staff ", this.checkboxCB_Staff)
   }
- 
-  CB_TransDepositApproval(event: any) {
-    this.checkboxCB_TransDepositApproval = event.target.checked;
-    console.log("this.checkboxCB_TransDepositApproval", this.checkboxCB_TransDepositApproval)
-  }
 
-  CB_TransCommissionApproval(event: any) {
-    this.checkboxCB_TransCommissionApproval = event.target.checked;
-    console.log("this.checkboxCB_TransCommissionApproval", this.checkboxCB_TransCommissionApproval)
-  }
- 
-  CB_TransWithdrawalApproval(event: any) {
-    this.checkboxCB_TransWithdrawalApproval = event.target.checked;
-    console.log("this.checkboxCB_TransWithdrawalApproval", this.checkboxCB_TransWithdrawalApproval)
-  }
- 
-  CB_TransPurchaseApproval(event: any) {
-    this.checkboxCB_TransPurchaseApproval = event.target.checked;
-    console.log(" this.checkboxCB_TransPurchaseApproval ", this.checkboxCB_TransPurchaseApproval)
-  }
-
-  CB_TransPettyCashApproval(event: any) {
-    this.checkboxCB_TransPettyCashApproval = event.target.checked;
-    console.log("this.checkboxCB_TransPettyCashApproval", this.checkboxCB_TransPettyCashApproval)
-  }
-
-  CB_TransVendorApproval(event: any) {
-    this.checkboxCB_TransVendorApproval = event.target.checked;
-    console.log("this.checkboxCB_TransVendorApproval", this.checkboxCB_TransVendorApproval)
-  }
-
-  CB_TransInvoiceApproval(event: any) {
-    this.checkboxCB_TransInvoiceApproval = event.target.checked;
-    console.log("this.checkboxCB_TransInvoiceApproval", this.checkboxCB_TransInvoiceApproval)
-  }
-  
-  CB_TransQuotationFilterApproval(event: any) {
-    this.checkboxCB_TransQuotationFilterApproval = event.target.checked;
-    console.log("this.checkboxCB_TransQuotationFilterApproval", this.checkboxCB_TransQuotationFilterApproval)
-  }
-
-  CB_ApprovalFilter(event: any) {
-    this.checkboxCB_ApprovalFilter = event.target.checked;
-    console.log(" this.checkboxCB_ApprovalFilter", this.checkboxCB_ApprovalFilter)
-  }
- 
-  CB_InvoiceIndividualFilter(event: any) {
-    this.checkboxCB_InvoiceIndividualFilter = event.target.checked;
-    console.log("this.checkboxCB_InvoiceIndividualFilter ", this.checkboxCB_InvoiceIndividualFilter)
-  }
-
-  CB_TransApprovalTab(event: any) {
-    this.checkboxCB_TransApprovalTab = event.target.checked;
-    console.log(" this.checkboxCB_TransApprovalTab", this.checkboxCB_TransApprovalTab)
-  }
- 
-  CB_TransApprovalMain(event: any) {
-    this.checkboxCB_TransApprovalMain = event.target.checked;
-    console.log("this.checkboxCB_TransApprovalMain", this.checkboxCB_TransApprovalMain)
-  }
-
-  CB_TransApprovalProduct(event: any) {
-    this.checkboxCB_TransApprovalProduct = event.target.checked;
-    console.log("this.checkboxCB_TransApprovalProduct", this.checkboxCB_TransApprovalProduct)
-  }
- 
-  CB_TransApprovalDIDNumber(event: any) {
-    this.checkboxCB_TransApprovalDIDNumber = event.target.checked;
-    console.log("this.checkboxCB_TransApprovalDIDNumber", this.checkboxCB_TransApprovalDIDNumber)
-  }
-
-  CB_TransApprovalSmallTask(event: any) {
-    this.checkboxCB_TransApprovalSmallTask = event.target.checked;
-    console.log(" this.checkboxCB_TransApprovalSmallTask", this.checkboxCB_TransApprovalSmallTask)
-  }
-
-  CB_TransApprovalInvPayment(event: any) {
-    this.checkboxCB_TransApprovalInvPayment = event.target.checked;
-    console.log(" this.checkboxCB_TransApprovalInvPayment", this.checkboxCB_TransApprovalInvPayment)
-  }
-
-  CB_TransApprovalOnlineShop(event: any) {
-    this.checkboxCB_TransApprovalOnlineShop = event.target.checked;
-    console.log(" this.checkboxCB_TransApprovalOnlineShop", this.checkboxCB_TransApprovalOnlineShop)
-  }
-
-  CB_TransApprovalDIDDemo(event: any) {
-    this.checkboxCB_TransApprovalDIDDemo = event.target.checked;
-    console.log("this.checkboxCB_TransApprovalDIDDemo", this.checkboxCB_TransApprovalDIDDemo)
-  }
-  
-  CB_TransApprovalRMAIssues(event: any) {
-    this.checkboxCB_TransApprovalRMAIssues = event.target.checked;
-    console.log("this.checkboxCB_TransApprovalRMAIssues", this.checkboxCB_TransApprovalRMAIssues)
-  }
- 
-  CB_TransApprovalOther(event: any) {
-    this.checkboxCB_TransApprovalOther = event.target.checked;
-    console.log(" this.checkboxCB_TransApprovalOther", this.checkboxCB_TransApprovalOther)
-  }
-  
-  CB_TransApprovalHRA(event: any) {
-    this.checkboxCB_TransApprovalHRA = event.target.checked;
-    console.log("this.checkboxCB_TransApprovalHRA", this.checkboxCB_TransApprovalHRA)
-  }
-
-  CB_TransApprovalDataCenter(event: any) {
-    this.checkboxCB_TransApprovalDataCenter = event.target.checked;
-    console.log(" this.checkboxCB_TransApprovalDataCenter ", this.checkboxCB_TransApprovalDataCenter)
-  }
-
-  CB_QuotationSentAppName(event: any) {
-    this.checkboxCB_QuotationSentAppName = event.target.checked;
-    console.log(" this.checkboxCB_QuotationSentAppNam", this.checkboxCB_QuotationSentAppName)
-  }
-
-  CB_TransactionApprovalShare(event: any) {
-    this.checkboxCB_TransactionApprovalShare = event.target.checked;
-    console.log("  this.checkboxCB_TransactionApprovalShare", this.checkboxCB_TransactionApprovalShare)
-  }
-
-  CB_TransactionApprovalIndividualFilter(event: any) {
-    this.checkboxCB_TransactionApprovalIndividualFilter = event.target.checked;
-    console.log("this.checkboxCB_TransactionApprovalIndividualFilter", this.checkboxCB_TransactionApprovalIndividualFilter)
-  }
-
-  CB_CustomerMasterApptoval(event: any) {
-    this.checkboxCB_CustomerMasterApptoval = event.target.checked;
-    console.log(" this.checkboxCB_CustomerMasterApptoval", this.checkboxCB_CustomerMasterApptoval)
-  }
-
-  CB_DIDInvoice(event: any) {
-    this.checkboxCB_DIDInvoice = event.target.checked;
-    console.log("this.checkboxCB_DIDInvoice", this.checkboxCB_DIDInvoice)
-  }
-
-  CB_WriteOffInvoice(event: any) {
-    this.checkboxCB_WriteOffInvoice = event.target.checked;
-    console.log("this.checkboxCB_WriteOffInvoice ", this.checkboxCB_WriteOffInvoice)
-  }
-
-  CB_CMSLogin(event: any) {
-    this.checkboxCB_CMSLogin = event.target.checked;
-    console.log(" this.checkboxCB_CMSLogin", this.checkboxCB_CMSLogin)
-  }
-
-  CB_QuotationTemplate(event: any) {
-    this.checkboxCB_QuotationTemplate = event.target.checked;
-    console.log("this.checkboxCB_QuotationTemplate", this.checkboxCB_QuotationTemplate)
-  }
-  
-
-  CB_ResellerManagement(event: any) {
-    this.checkboxCB_ResellerManagement = event.target.checked;
-    console.log("this.checkboxCB_ResellerManagement", this.checkboxCB_ResellerManagement)
-  }
- 
-  CB_CallLogs(event: any) {
-    this.checkboxCB_CallLogs = event.target.checked;
-    console.log("this.checkboxCB_CallLogs", this.checkboxCB_CallLogs)
-  }
-  
-  CB_PictureGallery(event: any) {
-    this.checkboxCB_PictureGallery = event.target.checked;
-    console.log(" this.checkboxCB_PictureGallery", this.checkboxCB_PictureGallery)
-  }
-
-  CB_InternalTickets(event: any) {
-    this.checkboxCB_InternalTickets = event.target.checked;
-    console.log("this.checkboxCB_InternalTickets", this.checkboxCB_InternalTickets)
-  }
-  
-  CB_PettyCashReport(event: any) {
-    this.checkboxCB_PettyCashReport = event.target.checked;
-    console.log("this.checkboxCB_PettyCashReport", this.checkboxCB_PettyCashReport)
-  }
-
-  CB_WidthdrawlReport(event: any) {
-    this.checkboxCB_WidthdrawlReport = event.target.checked;
-    console.log("this.checkboxCB_WidthdrawlReport ", this.checkboxCB_WidthdrawlReport)
-  }
-
-
-  CB_PriceCategory(event: any) {
-    this.checkboxCB_PriceCategory = event.target.checked;
-    console.log("this.checkboxCB_PriceCategory", this.checkboxCB_PriceCategory)
-  }
-
-  CB_EnquiryForm(event: any) {
-    this.checkboxCB_EnquiryForm = event.target.checked;
-    console.log(" this.checkboxCB_EnquiryForm", this.checkboxCB_EnquiryForm)
-  }
-
-  CB_CMSCountry(event: any) {
-    this.checkboxCB_CMSCountry = event.target.checked;
-    console.log("this.checkboxCB_CMSCountry", this.checkboxCB_CMSCountry)
-  }
- 
-  CB_DIDNumberCatalog(event: any) {
-    this.checkboxCB_DIDNumberCatalog = event.target.checked;
-    console.log(" this.checkboxCB_DIDNumberCatalog", this.checkboxCB_DIDNumberCatalog)
-  }
-
-  CB_DIDProvider(event: any) {
-    this.checkboxCB_DIDProvider = event.target.checked;
-    console.log("this.checkboxCB_DIDProvider", this.checkboxCB_DIDProvider)
-  }
-
-  CB_DIDTrunkName(event: any) {
-    this.checkboxCB_DIDTrunkName = event.target.checked;
-    console.log("this.checkboxCB_DIDTrunkName", this.checkboxCB_DIDTrunkName)
-  }
- 
-  CB_DepositMgt(event: any) {
-    this.checkboxCB_DepositMgt = event.target.checked;
-    console.log(" this.checkboxCB_DepositMgt", this.checkboxCB_DepositMgt)
-  }
-
-  CB_SmallTask(event: any) {
-    this.checkboxCB_SmallTask = event.target.checked;
-    console.log("this.checkboxCB_SmallTask ", this.checkboxCB_SmallTask)
-  }
-
-  CB_ProductCategory(event: any) {
-    this.checkboxCB_ProductCategory = event.target.checked;
-    console.log("this.checkboxCB_ProductCategory", this.checkboxCB_ProductCategory)
-  }
- 
-  CB_ProductQuotation(event: any) {
-    this.checkboxCB_ProductQuotation = event.target.checked;
-    console.log("this.checkboxCB_ProductQuotation", this.checkboxCB_ProductQuotation)
-  }
-
-  CB_StockInventoryReport(event: any) {
-    this.checkboxCB_StockInventoryReport = event.target.checked;
-    console.log("this.checkboxCB_StockInventoryReport", this.checkboxCB_StockInventoryReport)
-  }
-
-  CB_RateCatelog(event: any) {
-    this.checkboxCB_RateCatelog = event.target.checked;
-    console.log("this.checkboxCB_RateCatelog", this.checkboxCB_RateCatelog)
-  }
- 
-  CB_StockinventoryEntry(event: any) {
-    this.checkboxCB_StockinventoryEntry = event.target.checked;
-    console.log("this.checkboxCB_StockinventoryEntry", this.checkboxCB_StockinventoryEntry)
-  }
-
-  CB_DIDInventoryEntry(event: any) {
-    this.checkboxCB_DIDInventoryEntry = event.target.checked;
-    console.log(" this.checkboxCB_DIDInventoryEntry", this.checkboxCB_DIDInventoryEntry)
-  }
-
-  CB_SucuriipAccess(event: any) {
-    this.checkboxCB_SucuriipAccess = event.target.checked;
-    console.log("this.checkboxCB_SucuriipAccess", this.checkboxCB_SucuriipAccess)
-  }
-  
-  CB_MrvoipLicenseKey(event: any) {
-    this.checkboxCB_MrvoipLicenseKey = event.target.checked;
-    console.log("  this.checkboxCB_MrvoipLicenseKey", this.checkboxCB_MrvoipLicenseKey)
-  }
-
-  CB_SoftPhoneLicense(event: any) {
-    this.checkboxCB_SoftPhoneLicense = event.target.checked;
-    console.log("this.checkboxCB_SoftPhoneLicense", this.checkboxCB_SoftPhoneLicense)
-  }
-
-  CB_APIToken(event: any) {
-    this.checkboxCB_APIToken = event.target.checked;
-    console.log("this.checkboxCB_APIToken", this.checkboxCB_APIToken)
-  }
- 
-  CB_PurchaseEntry(event: any) {
-    this.checkboxCB_PurchaseEntry = event.target.checked;
-    console.log("this.checkboxCB_PurchaseEntry", this.checkboxCB_PurchaseEntry)
-  }
-
-  CB_PurchaseEntryYearly(event: any) {
-    this.checkboxCB_PurchaseEntryYearly = event.target.checked;
-    console.log(" this.checkboxCB_PurchaseEntryYearly", this.checkboxCB_PurchaseEntryYearly)
-  }
-
-  CB_PurchaseEntryyearlyEdit(event: any) {
-    this.checkboxCB_PurchaseEntryyearlyEdit = event.target.checked;
-    console.log("this.checkboxCB_PurchaseEntryyearlyEdit", this.checkboxCB_PurchaseEntryyearlyEdit)
-  }
-
-  CB_PurchaseEntryVoipTrendChart(event: any) {
-    this.checkboxCB_PurchaseEntryVoipTrendChart = event.target.checked;
-    console.log("this.checkboxCB_PurchaseEntryVoipTrendChar", this.checkboxCB_PurchaseEntryVoipTrendChart)
-  }
-
-  CB_PurchaseentryMrvoipTrendEntry(event: any) {
-    this.checkboxCB_PurchaseentryMrvoipTrendEntry = event.target.checked;
-    console.log(" this.checkboxCB_PurchaseentryMrvoipTrendEntry", this.checkboxCB_PurchaseentryMrvoipTrendEntry)
-  }
-
-  CB_PurchaseentryMrvoipTrendChart(event: any) {
-    this.checkboxCB_PurchaseentryMrvoipTrendChart = event.target.checked;
-    console.log(" this.checkboxCB_PurchaseentryMrvoipTrendChart", this.checkboxCB_PurchaseentryMrvoipTrendChart)
-  }
-  
-  CB_PurchaseentryCall4telTrendEntry(event: any) {
-    this.checkboxCB_PurchaseentryCall4telTrendEntry = event.target.checked;
-    console.log("this.checkboxCB_PurchaseentryCall4telTrendEntry", this.checkboxCB_PurchaseentryCall4telTrendEntry)
-  }
- 
-  CB_PurchaseentryCall4telTrendChart(event: any) {
-    this.checkboxCB_PurchaseentryCall4telTrendChart = event.target.checked;
-    console.log("this.checkboxCB_PurchaseentryCall4telTrendChart", this.checkboxCB_PurchaseentryCall4telTrendChart)
-  }
- 
-  CB_PurchaseEntryWaiting(event: any) {
-    this.checkboxCB_PurchaseEntryWaiting = event.target.checked;
-    console.log("this.checkboxCB_PurchaseEntryWaiting", this.checkboxCB_PurchaseEntryWaiting)
-  }
- 
-  CB_NonTradePurchaseEntry(event: any) {
-    this.checkboxCB_NonTradePurchaseEntry = event.target.checked;
-    console.log("this.checkboxCB_NonTradePurchaseEntry", this.checkboxCB_NonTradePurchaseEntry)
-  }
- 
-  CB_NewCustomerApproval(event: any) {
-    this.checkboxCB_NewCustomerApproval = event.target.checked;
-    console.log("this.checkboxCB_NewCustomerApproval", this.checkboxCB_NewCustomerApproval)
-  }
-
-  CB_ResellerPaymentMenu(event: any) {
-    this.checkboxCB_ResellerPaymentMenu = event.target.checked;
-    console.log("this.checkboxCB_ResellerPaymentMenu", this.checkboxCB_ResellerPaymentMenu)
-  }
- 
-  CB_ResellerPaymentAll(event: any) {
-    this.checkboxCB_ResellerPaymentAll = event.target.checked;
-    console.log(" this.checkboxCB_ResellerPaymentAll", this.checkboxCB_ResellerPaymentAll)
-  }
-
-  CB_MrvoipCalncall_callacloudMenu(event: any) {
-    this.checkboxCB_MrvoipCalncall_callacloudMenu = event.target.checked;
-    console.log("this.checkboxCB_MrvoipCalncall_callacloudMenu ", this.checkboxCB_MrvoipCalncall_callacloudMenu)
-  }
-
-  CB_MrvoipPackagePrice(event: any) {
-    this.checkboxCB_MrvoipPackagePrice = event.target.checked;
-    console.log(" this.checkboxCB_MrvoipPackagePrice", this.checkboxCB_MrvoipPackagePrice)
-  }
- 
-  CB_MrvoipLeftProductMenu(event: any) {
-    this.checkboxCB_MrvoipLeftProductMenu = event.target.checked;
-    console.log("this.checkboxCB_MrvoipLeftProductMenu", this.checkboxCB_MrvoipLeftProductMenu)
-  }
- 
-  CB_MrvoipIndustries(event: any) {
-    this.checkboxCB_MrvoipIndustries = event.target.checked;
-    console.log(" this.checkboxCB_MrvoipIndustries", this.checkboxCB_MrvoipIndustries)
-  }
- 
-  CB_MrvoipCaseStudies(event: any) {
-    this.checkboxCB_MrvoipCaseStudies = event.target.checked;
-    console.log(" this.checkboxCB_MrvoipCaseStudies", this.checkboxCB_MrvoipCaseStudies)
-  }
-
-  CB_MrvoipContactDetails(event: any) {
-    this.checkboxCB_MrvoipContactDetails = event.target.checked;
-    console.log("this.checkboxCB_MrvoipContactDetails ", this.checkboxCB_MrvoipContactDetails)
-  }
- 
-  CB_ERPUserMgt(event: any) {
-    this.checkboxCB_ERPUserMgt = event.target.checked;
-    console.log("this.checkboxCB_ERPUserMgt ", this.checkboxCB_ERPUserMgt)
-  }
-  
-  CB_ExternalBlog(event: any) {
-    this.checkboxCB_ExternalBlog = event.target.checked;
-    console.log("this.checkboxCB_ExternalBlog", this.checkboxCB_ExternalBlog)
-  }
-
-  CB_InternalBlog(event: any) {
-    this.checkboxCB_InternalBlog = event.target.checked;
-    console.log(" this.checkboxCB_InternalBlog ", this.checkboxCB_InternalBlog)
-  }
-  
-  CB_NX32SerialNumber(event: any) {
-    this.checkboxCB_NX32SerialNumber = event.target.checked;
-    console.log("this.checkboxCB_NX32SerialNumber", this.checkboxCB_NX32SerialNumber)
-  }
-  
-  CB_NX32DocumentUpload(event: any) {
-    this.checkboxCB_NX32DocumentUpload = event.target.checked;
-    console.log("this.checkboxCB_NX32DocumentUpload", this.checkboxCB_NX32DocumentUpload)
-  }
- 
-  CB_DynamicExcel(event: any) {
-    this.checkboxCB_DynamicExcel = event.target.checked;
-    console.log(" this.checkboxCB_DynamicExcel ", this.checkboxCB_DynamicExcel)
-  }
-
-  CB_RevenueReport(event: any) {
-    this.checkboxCB_RevenueReport = event.target.checked;
-    console.log("this.checkboxCB_RevenueReport ", this.checkboxCB_RevenueReport)
-  }
-
-  CB_MGOrderList(event: any) {
-    this.checkboxCB_MGOrderList = event.target.checked;
-    console.log("this.checkboxCB_MGOrderList", this.checkboxCB_MGOrderList)
-  }
-  
-  CB_YGOrderList(event: any) {
-    this.checkboxCB_YGOrderList = event.target.checked;
-    console.log(" this.checkboxCB_YGOrderList", this.checkboxCB_YGOrderList)
-  }
-
-  CB_CustomerInvoiceShare(event: any) {
-    this.checkboxCB_CustomerInvoiceShare = event.target.checked;
-    console.log("this.checkboxCB_CustomerInvoiceShare", this.checkboxCB_CustomerInvoiceShare)
-  }
-
-  CB_IPAllowedRule(event: any) {
-    this.checkboxCB_IPAllowedRule = event.target.checked;
-    console.log("this.checkboxCB_IPAllowedRule", this.checkboxCB_IPAllowedRule)
-  }
-
-  CB_RenewalReminder(event: any) {
-    this.checkboxCB_RenewalReminder = event.target.checked;
-    console.log("this.checkboxCB_RenewalReminder", this.checkboxCB_RenewalReminder)
-  }
-
-  CB_WebrtcIP(event: any) {
-    this.checkboxCB_WebrtcIP = event.target.checked;
-    console.log("this.checkboxCB_WebrtcIP ", this.checkboxCB_WebrtcIP)
-  }
- 
-  CB_AttendanceReports(event: any) {
-    this.checkboxCB_AttendanceReports = event.target.checked;
-    console.log("this.checkboxCB_AttendanceReports", this.checkboxCB_AttendanceReports)
-  }
-  
-  CB_CPFContribution(event: any) {
-    this.checkboxCB_CPFContribution = event.target.checked;
-    console.log("this.checkboxCB_CPFContribution", this.checkboxCB_CPFContribution)
-  }
- 
-  CB_WebsiteSubscribeEmail(event: any) {
-    this.checkboxCB_WebsiteSubscribeEmail = event.target.checked;
-    console.log("this.checkboxCB_WebsiteSubscribeEmail", this.checkboxCB_WebsiteSubscribeEmail)
-  }
- 
-  CB_Buy3cxLicensePage(event: any) {
-    this.checkboxCB_Buy3cxLicensePage = event.target.checked;
-    console.log("this.checkboxCB_Buy3cxLicensePage", this.checkboxCB_Buy3cxLicensePage)
-  }
- 
-  CB_Buy3cxpermisUser(event: any) {
-    this.checkboxCB_Buy3cxpermisUser = event.target.checked;
-    console.log("this.checkboxCB_Buy3cxpermisUser", this.checkboxCB_Buy3cxpermisUser)
-  }
- 
-  CB_Call4telAddressLogoshowPartner(event: any) {
-    this.checkboxCB_Call4telAddressLogoshowPartner = event.target.checked;
-    console.log(" this.checkboxCB_Call4telAddressLogoshowPartner", this.checkboxCB_Call4telAddressLogoshowPartner)
-  }
-
-  CB_MrvoipAddressLogoshowPartner(event: any) {
-    this.checkboxCB_MrvoipAddressLogoshowPartner = event.target.checked;
-    console.log(" this.checkboxCB_MrvoipAddressLogoshowPartner", this.checkboxCB_MrvoipAddressLogoshowPartner)
-  }
-
-  CB_MconnectAddressLogoshowPartner(event: any) {
-    this.checkboxCB_MconnectAddressLogoshowPartner = event.target.checked;
-    console.log("this.checkboxCB_MconnectAddressLogoshowPartner", this.checkboxCB_MconnectAddressLogoshowPartner)
-  }
- 
-
-  CB_RecurringCheckerList(event: any) {
-    this.checkboxCB_RecurringCheckerList = event.target.checked;
-    console.log("this.checkboxCB_RecurringCheckerList", this.checkboxCB_RecurringCheckerList)
-  }
- 
-  CB_EnquiryDetails(event: any) {
-    this.checkboxCB_EnquiryDetails = event.target.checked;
-    console.log("this.checkboxCB_EnquiryDetails", this.checkboxCB_EnquiryDetails)
-  }
-
-  CB_OverduePaymentsNotification(event: any) {
-    this.checkboxCB_OverduePaymentsNotification = event.target.checked;
-    console.log("this.checkboxCB_OverduePaymentsNotification", this.checkboxCB_OverduePaymentsNotification)
-  }
-
-  CB_Cal4CarePteLtdOverdue(event: any) {
-    this.checkboxCB_Cal4CarePteLtdOverdue = event.target.checked;
-    console.log(" this.checkboxCB_Cal4CarePteLtdOverdue", this.checkboxCB_Cal4CarePteLtdOverdue)
-  }
- 
-  CB_DCARETechnologiesIndiaPvtLtdOverdue(event: any) {
-    this.checkboxCB_DCARETechnologiesIndiaPvtLtdOverdue = event.target.checked;
-    console.log("this.checkboxCB_DCARETechnologiesIndiaPvtLtdOverdue", this.checkboxCB_DCARETechnologiesIndiaPvtLtdOverdue)
-  }
-
-  CB_RecurringDateUpdate(event: any) {
-    this.checkboxCB_RecurringDateUpdate = event.target.checked;
-    console.log("this.checkboxCB_RecurringDateUpdate", this.checkboxCB_RecurringDateUpdate)
-  }
-  
-  CB_StockPreApproval(event: any) {
-    this.checkboxCB_StockPreApproval = event.target.checked;
-    console.log("this.checkboxCB_StockPreApproval", this.checkboxCB_StockPreApproval)
-  }
-
-  CB_WebSiteEnquiry(event: any) {
-    this.checkboxCB_WebSiteEnquiry = event.target.checked;
-    console.log("this.checkboxCB_WebSiteEnquiry ", this.checkboxCB_WebSiteEnquiry)
-  }
-
-  CB_ConsolidatedOverdue(event: any) {
-    this.checkboxCB_ConsolidatedOverdue = event.target.checked;
-    console.log("this.checkboxCB_ConsolidatedOverdue", this.checkboxCB_ConsolidatedOverdue)
-  }
-
-
-  CB_PaymentFollowInvoice(event: any) {
-    this.checkboxCB_PaymentFollowInvoice = event.target.checked;
-    console.log(" this.checkboxCB_PaymentFollowInvoice", this.checkboxCB_PaymentFollowInvoice)
-  }
-
-  CB_TransactionApproval(event: any) {
-    this.checkboxCB_TransactionApproval = event.target.checked;
-    console.log("this.checkboxCB_TransactionApproval", this.checkboxCB_TransactionApproval)
-  }
-  
-  CB_InCompletesTaskList(event: any) {
-    this.checkboxCB_InCompletesTaskList = event.target.checked;
-    console.log("this.checkboxCB_InCompletesTaskList", this.checkboxCB_InCompletesTaskList)
-  }
-
-  CB_Cal4careSdnBhdOverdue(event: any) {
-    this.checkboxCB_Cal4careSdnBhdOverdue = event.target.checked;
-    console.log("this.checkboxCB_Cal4careSdnBhdOverdue", this.checkboxCB_Cal4careSdnBhdOverdue)
-  }
-
-  CB_MarshalSystemConsultancyOverdue(event: any) {
-    this.checkboxCB_MarshalSystemConsultancyOverdue = event.target.checked;
-    console.log("this.checkboxCB_MarshalSystemConsultancyOverdue", this.checkboxCB_MarshalSystemConsultancyOverdue)
-  }
-
-  CB_PurchaseEntryTrend(event: any) {
-    this.checkboxCB_PurchaseEntryTrend = event.target.checked;
-    console.log("this.checkboxCB_PurchaseEntryTrend", this.checkboxCB_PurchaseEntryTrend)
-  }
-
-  CB_Verfication2ds(event: any) {
-    this.checkboxCB_Verfication2ds = event.target.checked;
-    console.log("this.checkboxCB_Verfication2ds", this.checkboxCB_Verfication2ds)
-  }
-
-
-  CB_Enquiry3cx(event: any) {
-    this.checkboxcheckboxStatus = event.target.checked;
-    console.log("this.checkboxcheckboxStatus", this.checkboxcheckboxStatus)
-  }
-
-  CB_Cal4careSdnBhdGSTRpt(event: any) {
-    this.checkboxCB_Cal4careSdnBhdGSTRpt = event.target.checked;
-    console.log("this.checkboxCB_Cal4careSdnBhdGSTRpt", this.checkboxCB_Cal4careSdnBhdGSTRpt)
-  }
-  
-  CB_AllPaymentFollowInvoice(event: any) {
-    this.checkboxCB_AllPaymentFollowInvoice = event.target.checked;
-    console.log("this.checkboxCB_AllPaymentFollowInvoice", this.checkboxCB_AllPaymentFollowInvoice)
-  }
- 
-  CB_SendtoPostal(event: any) {
-    this.checkboxCB_SendtoPostal = event.target.checked;
-    console.log("this.checkboxCB_SendtoPostal", this.checkboxCB_SendtoPostal)
-  }
- 
-  CB_DcareTechnologiesPteLtdOverdue(event: any) {
-    this.checkboxCB_DcareTechnologiesPteLtdOverdue = event.target.checked;
-    console.log("this.checkboxCB_DcareTechnologiesPteLtdOverdue", this.checkboxCB_DcareTechnologiesPteLtdOverdue)
-  }
- 
-  CB_Cal4CareJapanCoLtdOverdue(event: any) {
-    this.checkboxCB_Cal4CareJapanCoLtdOverdue = event.target.checked;
-    console.log("this.checkboxCB_Cal4CareJapanCoLtdOverdue", this.checkboxCB_Cal4CareJapanCoLtdOverdue)
-  }
-
-  CB_CloudRenewalLicKeyPopup(event: any) {
-    this.checkboxCB_CloudRenewalLicKeyPopup = event.target.checked;
-    console.log("this.checkboxCB_CloudRenewalLicKeyPopup", this.checkboxCB_CloudRenewalLicKeyPopup)
-  }
- 
-  CB_AllMEnquiry(event: any) {
-    this.checkboxStatus = event.target.checked;
-    console.log("this.checkboxCB_AllMEnquiry", this.checkboxCB_AllMEnquiry)
-  }
-
-  CB_Assigned3cxEnquiry(event: any) {
-    this.checkboxStatus = event.target.checked;
-    console.log("this.checkboxCB_Assigned3cxEnquiry", this.checkboxCB_Assigned3cxEnquiry)
-  }
- 
-  CB_Cal4careThailandCoLtdOverdue(event: any) {
-    this.checkboxCB_Cal4careThailandCoLtdOverdue = event.target.checked;
-    console.log("this.checkboxCB_Cal4careThailandCoLtdOverdue", this.checkboxCB_Cal4careThailandCoLtdOverdue)
-  }
-
-  CB_CustomSearchIconshow(event: any) {
-    this.checkboxCB_CustomSearchIconshow = event.target.checked;
-    console.log(" this.checkboxCB_CustomSearchIconshow", this.checkboxCB_CustomSearchIconshow)
-  }
-
-  CB_CustomerSerach(event: any) {
-    this.checkboxCB_CustomerSerach = event.target.checked;
-    console.log(" this.checkboxCB_CustomerSerach ", this.checkboxCB_CustomerSerach)
-  }
- 
-  CB_Invoice(event: any) {
-    this.checkboxCB_Invoice = event.target.checked;
-    console.log("this.checkboxCB_Invoice ", this.checkboxCB_Invoice)
-  }
- 
-  CB_LicenseKey(event: any) {
-    this.checkboxCB_LicenseKey = event.target.checked;
-    console.log("this.checkboxCB_LicenseKey", this.checkboxCB_LicenseKey)
-  }
-
-  CB_VsProvisioning(event: any) {
-    this.checkboxCB_VsProvisioning = event.target.checked;
-    console.log(" this.checkboxCB_VsProvisioning ", this.checkboxCB_VsProvisioning)
-  }
-
-  CB_QuotationSerach(event: any) {
-    this.checkboxCB_QuotationSerach = event.target.checked;
-    console.log("this.checkboxCB_QuotationSerach", this.checkboxCB_QuotationSerach)
-  }
-
-  CB_CreditNote(event: any) {
-    this.checkboxCB_CreditNote = event.target.checked;
-    console.log("this.checkboxCB_CreditNote", this.checkboxCB_CreditNote)
-  }
-
-  CB_DIDNumber(event: any) {
-    this.checkboxCB_DIDNumber = event.target.checked;
-    console.log("this.checkboxCB_DIDNumber", this.checkboxCB_DIDNumber)
-  }
-
-  CB_AllPage(event: any) {
-    this.checkboxCB_AllPage = event.target.checked;
-    console.log("this.checkboxCB_AllPage", this.checkboxCB_AllPage)
-  }
-
-  CB_ProformaInvoice(event: any) {
-    this.checkboxCB_ProformaInvoice = event.target.checked;
-    console.log("this.checkboxStatus", this.checkboxStatus)
-  }
-
-  CB_PrepaidNote(event: any) {
-    this.checkboxCB_PrepaidNote = event.target.checked;
-    console.log("this.checkboxCB_PrepaidNote", this.checkboxCB_PrepaidNote)
-  }
- 
-  CB_CustomerProjects(event: any) {
-    this.checkboxCB_CustomerProjects = event.target.checked;
-    console.log("this.checkboxCB_CustomerProjects", this.checkboxCB_CustomerProjects)
-  }
- 
-  CB_VOIPCreditManager(event: any) {
-    this.checkboxCB_VOIPCreditManager = event.target.checked;
-    console.log("this.checkboxCB_VOIPCreditManager", this.checkboxCB_VOIPCreditManager)
-  }
-
-  CB_VOIPSuspendAccount(event: any) {
-    this.checkboxCB_VOIPSuspendAccount = event.target.checked;
-    console.log("this.checkboxCB_VOIPSuspendAccount", this.checkboxCB_VOIPSuspendAccount)
-  }
-
-  CB_ProductStockReportUpdate(event: any) {
-    this.checkboxCB_ProductStockReportUpdate = event.target.checked;
-    console.log("this.checkboxCB_ProductStockReportUpdate", this.checkboxCB_ProductStockReportUpdate)
-  }
- 
-  CB_CurrenctStockShow(event: any) {
-    this.checkboxCB_CurrenctStockShow = event.target.checked;
-    console.log("this.checkboxCB_CurrenctStockShow", this.checkboxCB_CurrenctStockShow)
-  }
-
-  CB_RateCatelogShow(event: any) {
-    this.checkboxCB_RateCatelogShow = event.target.checked;
-    console.log("this.checkboxCB_RateCatelogShow", this.checkboxCB_RateCatelogShow)
-  }
-
-  CB_ActPurchasePriceShow(event: any) {
-    this.checkboxCB_ActPurchasePriceShow = event.target.checked;
-    console.log("this.checkboxCB_ActPurchasePriceShow ", this.checkboxCB_ActPurchasePriceShow)
-  }
-
-  CB_DefaultMenuShow(event: any) {
-    this.checkboxCB_DefaultMenuShow = event.target.checked;
-    console.log("this.checkboxCB_DefaultMenuShow ", this.checkboxCB_DefaultMenuShow)
-  }
-
-  CB_DefaultMenuShowLowLevel(event: any) {
-    this.checkboxCB_DefaultMenuShowLowLevel = event.target.checked;
-    console.log("this.checkboxCB_DefaultMenuShowLowLevel", this.checkboxCB_DefaultMenuShowLowLevel)
-  }
- 
-  CB_CalncallMenuShow(event: any) {
-    this.checkboxCB_CalncallMenuShow = event.target.checked;
-    console.log("this.checkboxCB_CalncallMenuShow", this.checkboxCB_CalncallMenuShow)
-  }
-  
-  CB_ResellerShoppingMenu(event: any) {
-    this.checkboxCB_ResellerShoppingMenu = event.target.checked;
-    console.log("this.checkboxCB_ResellerShoppingMenu", this.checkboxCB_ResellerShoppingMenu)
-  }
- 
-  CB_PublicTaskManager(event: any) {
-    this.checkboxCB_PublicTaskManager = event.target.checked;
-    console.log("this.checkboxCB_PublicTaskManager ", this.checkboxCB_PublicTaskManager)
-  }
-
-  CB_PersonalTaskManager(event: any) {
-    this.checkboxCB_PersonalTaskManager = event.target.checked;
-    console.log(" this.checkboxCB_PersonalTaskManager ", this.checkboxCB_PersonalTaskManager)
-  }
-  
-  CB_DailyWorkReport(event: any) {
-    this.checkboxCB_DailyWorkReport = event.target.checked;
-    console.log("this.checkboxCB_DailyWorkReport ", this.checkboxCB_DailyWorkReport)
-  }
-
-  CB_Mailer(event: any) {
-    this.checkboxCB_Mailer = event.target.checked;
-    console.log("this.checkboxCB_Mailer", this.checkboxCB_Mailer)
-  }
-
-  CB_HelpDesk(event: any) {
-    this.checkboxCB_HelpDesk = event.target.checked;
-    console.log("this.checkboxCB_HelpDesk", this.checkboxCB_HelpDesk)
-  }
- 
-  CB_C4CTurnOverMap(event: any) {
-    this.checkboxCB_C4CTurnOverMap = event.target.checked;
-    console.log(" this.checkboxCB_C4CTurnOverMap", this.checkboxCB_C4CTurnOverMap)
-  }
-
-  CB_SpecialLogin(event: any) {
-    this.checkboxCB_SpecialLogin = event.target.checked;
-    console.log("this.checkboxCB_SpecialLogin", this.checkboxCB_SpecialLogin)
-  }
- 
-  CB_LeftSideTurnOverChart(event: any) {
-    this.checkboxCB_LeftSideTurnOverChart = event.target.checked;
-    console.log("this.checkboxCB_LeftSideTurnOverChart", this.checkboxCB_LeftSideTurnOverChart)
-  }
-  
-  CB_IndividualPettyCashCreditPersonSelect(event: any) {
-    this.checkboxCB_IndividualPettyCashCreditPersonSelect = event.target.checked;
-    console.log("this.checkboxCB_IndividualPettyCashCreditPersonSelect", this.checkboxCB_IndividualPettyCashCreditPersonSelect)
-  }
-
-  CB_IndividualPettyCashandFromDate(event: any) {
-    this.checkboxCB_IndividualPettyCashandFromDate = event.target.checked;
-    console.log("this.checkboxCB_IndividualPettyCashandFromDate", this.checkboxCB_IndividualPettyCashandFromDate)
-  }
-
-  CB_ApprovalDelete(event: any) {
-    this.checkboxCB_ApprovalDelete = event.target.checked;
-    console.log("this.checkboxCB_ApprovalDelete", this.checkboxCB_ApprovalDelete)
-  }
- 
-  CB_CreditMgtDetails(event: any) {
-    this.checkboxCB_CreditMgtDetails = event.target.checked;
-    console.log("this.checkboxCB_CreditMgtDetails", this.checkboxCB_CreditMgtDetails)
-  }
-
-
-  CB_BankReports(event: any) {
-    this.checkboxCB_BankReports = event.target.checked;
-    console.log(" this.checkboxCB_BankReports ", this.checkboxCB_BankReports)
-  }
-
-  CB_LedgerReports(event: any) {
-    this.checkboxCB_LedgerReports = event.target.checked;
-    console.log("this.checkboxCB_LedgerReports ", this.checkboxCB_LedgerReports)
-  }
-
-  CB_DashBoard(event: any) {
-    this.checkboxCB_DashBoard = event.target.checked;
-    console.log("this.checkboxCB_DashBoard", this.checkboxCB_DashBoard)
-  }
-
-  CB_InvoiceReports(event: any) {
-    this.checkboxCB_InvoiceReports = event.target.checked;
-    console.log(" this.checkboxCB_InvoiceReports", this.checkboxCB_InvoiceReports)
-  }
-  
-  CB_CallLogReports(event: any) {
-    this.checkboxCB_CallLogReports = event.target.checked;
-    console.log("this.checkboxCB_CallLogReports", this.checkboxCB_CallLogReports)
-  }
-
-  CB_SendMail(event: any) {
-    this.checkboxCB_SendMail = event.target.checked;
-    console.log("this.checkboxCB_SendMail", this.checkboxCB_SendMail)
-  }
-
-  CB_PettyCash(event: any) {
-    this.checkboxCB_PettyCash = event.target.checked;
-    console.log("this.checkboxCB_PettyCash", this.checkboxCB_PettyCash)
-  }
-
-
-  CB_Logistics(event: any) {
-    this.checkboxStatus = event.target.checked;
-    console.log("this.checkboxStatus", this.checkboxStatus)
-  }
-
-  getChekboxVal(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  CB_billerAll_Cal4CareSG(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-  CB_billerAll_MARSHAL(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-  CB_billerAll_CC(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  CB_billerAll_DCSG(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  billerAll_DCCBE(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  CB_billerAll_Cal4CareJB(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  CB_billerAll_CALNCALL(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  CB_billerAll_ITCare(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  CB_billerAll_Seatech(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-  CB_billerAll_Cal4CareJP(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  CB_billerAll_CCLOUD(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  CB_billerAll_HelpDeskGuru(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-
-  CB_billerAll_Cal4careTH(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  CB_billerAll_1MSBMY(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  CB_billerAll_MRVOIP(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  CB_billerAll_Mconnects(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  CB_billerAll_CloudNippon(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  CB_billerAll_CCLEAR(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  CB_billerAll_C4TEL(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-  
-  CB_billerAll_Cal4careUSA(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  CB_billerAll_Virditech(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-  CB_billerAll_Cloudbharat(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  CB_billerAll_connectviet(event: any) {
-    this.checkboxCB_test = event;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
-
-  checkboxArray_QuotationNewPermission(event: any){
-    this.checkboxCB_test = event.target.checked;
-    console.log("checkboxCB_test", this.checkboxCB_test)
-  }
   EditCHK_quotation_per(data: any, event: any) {
     console.log("List - CheckBox ID", data);
     this.groupSelectCommonId_quotation_per = data;
@@ -2556,24 +1520,6 @@ EditCHK_GuruDetails(data: any, event: any) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   onLoadGet() {
     let api_req: any = new Object();
     let apiLoad_req: any = new Object();
@@ -2585,7 +1531,7 @@ EditCHK_GuruDetails(data: any, event: any) {
     api_req.element_data = apiLoad_req;
 
     this.serverService.sendServer(api_req).subscribe((response: any) => {
-      console.log("this.checkboxCB_TransDepositApproval",this.checkboxCB_TransDepositApproval)
+      // console.log("this.checkboxCB_TransDepositApproval",this.checkboxCB_TransDepositApproval)
       console.log("admin/user_add_details", response)
 
       if (response.status != '') {
@@ -2738,16 +1684,16 @@ EditCHK_GuruDetails(data: any, event: any) {
     //permission end
     
     //single checkbox permission starts
-    addUser_req.trans_app_dep = this.checkboxCB_TransDepositApproval;
-    addUser_req.trans_app_comm = this.checkboxCB_TransCommissionApproval;
-    addUser_req.trans_app_with = this.checkboxCB_TransWithdrawalApproval;
-    addUser_req.trans_app_pur = this.checkboxCB_TransPurchaseApproval;
-    addUser_req.trans_app_petty = this.checkboxCB_TransPettyCashApproval;
-    addUser_req.trans_app_vendor = this.checkboxCB_TransVendorApproval;
-    addUser_req.trans_app_inv = this.checkboxCB_TransInvoiceApproval;
-    addUser_req.trans_app_quot = this.checkboxCB_TransQuotationFilterApproval;
+    // addUser_req.trans_app_dep = this.checkboxCB_TransDepositApproval;
+    // addUser_req.trans_app_comm = this.checkboxCB_TransCommissionApproval;
+    // addUser_req.trans_app_with = this.checkboxCB_TransWithdrawalApproval;
+    // addUser_req.trans_app_pur = this.checkboxCB_TransPurchaseApproval;
+    // addUser_req.trans_app_petty = this.checkboxCB_TransPettyCashApproval;
+    // addUser_req.trans_app_vendor = this.checkboxCB_TransVendorApproval;
+    // addUser_req.trans_app_inv = this.checkboxCB_TransInvoiceApproval;
+    // addUser_req.trans_app_quot = this.checkboxCB_TransQuotationFilterApproval;
     addUser_req.defaults_biller_id = this.BillerID;;
-    addUser_req.user_auth = this.checkboxCB_Verfication2ds;
+    // addUser_req.user_auth = this.checkboxCB_Verfication2ds;
     addUser_req.fin_chk_auth = this.addUserForm1.value.Fihytdf;
     addUser_req.qr_chk_auth= this.addUserForm1.value.Fihytdf;
     addUser_req.otp = this.addUserForm1.value.Fihytdf;
@@ -2755,7 +1701,7 @@ EditCHK_GuruDetails(data: any, event: any) {
     addUser_req.carry_forward = this.addUserForm1.value.Fihytdf;
     addUser_req.is_staff = this.checkboxCB_Staff;
     addUser_req.probation = this.checkboxCB_InProbation;
-    addUser_req.ind_petty_cash = this.checkboxCB_IndividualPettyCashandFromDate;
+    // addUser_req.ind_petty_cash = this.checkboxCB_IndividualPettyCashandFromDate;
     addUser_req.ind_petty_dt = this.addUserForm7.value.IndividualPettyCashandFromDate_date;
     
     //single checkbox permission ends
@@ -2784,7 +1730,30 @@ EditCHK_GuruDetails(data: any, event: any) {
       }
     });
   }
-
+  groupSelectRadioCommonId:any;
+  Radiobox_value:any;
+  edit_array_Radio: any = [];
+  Edit_Radio(data: any, event: any) {
+    console.log("List - Radio ID", data);
+    this.groupSelectRadioCommonId = data;
+    this.Radiobox_value= event.target.checked;
+    console.log(this.Radiobox_value)
+    if (this.Radiobox_value) {
+  
+      this.edit_array_Radio.push(data);
+      this.edit_array_Radio.join(',');
+      console.log("Final radio After checkbox selected list", this.edit_array_Radio);
+    }
+    else {
+      const index = this.edit_array_Radio.findIndex((el: any) => el === data)
+      if (index > -1) {
+        this.edit_array_Radio.splice(index, 1);
+      }
+      console.log("Final radio After Deselected selected list", this.edit_array_Radio)
+  
+    }
+  
+  }
  
 
 }

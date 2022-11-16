@@ -1,0 +1,214 @@
+<form [formGroup]="addUserForm2">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group row">
+
+
+                <h2 style="color: black;background-color: #EFF0F3;font-size: larger;text-align: center;"
+                    class="col-lg-12 col-form-label">Monthly Salary</h2>
+            </div>
+        </div>
+        <div class="col-12">
+
+            <section formArrayName="addresses">
+
+                <div [formGroupName]="i">
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- <h3 style="text-align:center;color:rgb(141, 87, 129);font-weight: 500;">
+                                        Product Group {{i +
+                                        1}}</h3>&nbsp;&nbsp; -->
+                        </div>
+
+                    </div>
+                    <div class="table-responsive">
+                        <table class="add-contact-table-section">
+                            <thead>
+                                <tr class="userDatatable-header">
+                                    <th> <span class="userDatatable-title">Designation</span>
+                                    </th>
+                                    <th><span class="userDatatable-title">From Date</span></th>
+                                    <th><span class="userDatatable-title">To Date</span></th>
+                                    <th><span class="userDatatable-title"> Salary Amt</span>
+                                    </th>
+                                    <th><span class="userDatatable-title">Per/Day Amt</span></th>
+                                    <th><span class="userDatatable-title">Employer Amt</span></th>
+                                    <th><span class="userDatatable-title">Employee Amt</span></th>
+                                    <th><span class="userDatatable-title">Contribution 1</span></th>
+                                    <th><span class="userDatatable-title">Contribution 2</span></th>
+
+                                    <th style="width:20px">
+                                        <span class="userDatatable-title">Action</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                <tr *ngFor="let address of addressControls.controls; let i = index;"
+                                    >
+                                    <td>
+                                        <div class="userDatatable-content">
+                                            <div>
+                                                <div class="form-group ">
+
+                                                    <div>
+                                                        <select name="enqFormValue" id="cmp_name"
+                                                            class="form-control" formControlName="MS_designation">
+                                                            <option [ngValue]="null" selected disabled>Select
+                                                                Designation</option>
+                                                            <option *ngFor="let des of designationDetailsList"
+                                                                value="{{des.designation_type_id}}">
+                                                                {{des.designation_type_name}}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="userDatatable-content">
+
+                                            <div>
+                                                <div class="form-group ">
+
+                                                    <div>
+                                                        <input type="date" class="form-control"
+                                                            formControlName="MS_FromDate" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                    <td>
+                                        <div class="userDatatable-content">
+                                            <div>
+                                                <div class="form-group ">
+
+                                                    <div>
+                                                        <input type="date" class="form-control"
+                                                            formControlName="MS_ToDate" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="userDatatable-content">
+
+                                            <div>
+                                                <div class="form-group ">
+
+                                                    <div>
+                                                        <input type="text" class="form-control"
+                                                            formControlName="MS_salaryAmt" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="userDatatable-content">
+
+                                            <div>
+                                                <div class="form-group ">
+
+                                                    <div>
+                                                        <input type="text" class="form-control"
+                                                            formControlName="MS_perDayAmt" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="userDatatable-content">
+                                            <div>
+                                                <div class="form-group ">
+
+                                                    <div>
+                                                        <input type="text" class="form-control"
+                                                            formControlName="MS_employerAmt" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="userDatatable-content">
+                                            <div>
+                                                <div class="form-group ">
+
+                                                    <div>
+                                                        <input type="text" class="form-control"
+                                                            formControlName="MS_employeeAmt" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="userDatatable-content">
+
+                                            <div>
+                                                <div class="form-group ">
+
+                                                    <div>
+                                                        <input type="text" class="form-control"
+                                                            formControlName="MS_contribution1" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="userDatatable-content">
+
+                                            <div class="form-group ">
+
+                                                <div>
+                                                    <input type="text" class="form-control"
+                                                        formControlName="MS_contribution2" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+									   <td *ngIf="i>0">
+                                        <div class="userDatatable-content d-inline-block">
+                                            <button type="button" class="btn btn-danger btn-sm"
+                                            (click)=" removeAddress(i)">X</button>
+
+                                        </div>
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+
+
+
+                </div>
+            </section>
+
+            <div class="text-right">
+
+
+                <button type="button" class="btn btn-dark btn-default btn-squared mt-4" (click)="addAddress()"
+                    style="margin-right: 10px;"><i class="fas fa-plus" style="margin-right:0;"> Add Product</i>
+                </button>
+            </div>
+
+        </div>
+
+
+    </div>
+</form>

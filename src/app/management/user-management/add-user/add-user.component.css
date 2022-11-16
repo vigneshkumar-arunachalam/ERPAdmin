@@ -126,15 +126,38 @@ input.switch {
 
 .btnalter{
   border-radius: 20px !important;
-  width: 300px !important;
-  height: 50px !important;
+  width: 100% !important;
+  height: 35px !important;
   color:#0a0a0a !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 0px 14px;
+  border-bottom: 1px solid #333!important;
 }
-.switchcss{
-  
+.btnalter:hover{
+  background-color: #20c997!important;
+  border-color: #20c997!important;
+}
+.btnalter p{
+  margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 55px;
 }
 
-
+.license-key{
+  margin-bottom: 10px;
+}
+.col-lg-2.license-key{
+  max-width: 13.66667%;
+  padding: 0px 4px;
+}
+.userDatatable-header th:first-child{width: 250px;display: block;}
 
 
 
