@@ -141,13 +141,14 @@ input.switch {
 .btnalter:hover{
   background-color: #20c997!important;
   border-color: #20c997!important;
+  cursor: pointer;
 }
 .btnalter p{
   margin-bottom: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 55px;
+  width: 60px;
 }
 
 .license-key{
@@ -159,7 +160,22 @@ input.switch {
 }
 .userDatatable-header th:first-child{width: 250px;display: block;}
 
+.license-key1{
+  margin-bottom: 10px;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
 
-
+.row.no-gutters.license-key-list {
+  margin-bottom: 20px;
+}
+label {
+  font-weight: 500;
+  color: rgb(14, 56, 112);
+  font-size: 16px;
+  margin-bottom: 20px;
+}
 
 

@@ -239,21 +239,23 @@ edit_array_GuruDetails: any = [];
   ResellerProduct_Left = [{'name':'Add New','id':'6006'}, {'name':'Edit','id':'6007'}, {'name':'Delete','id':'6008'}, {'name':'List','id':'6009'}, {'name':'Search','id':'6010'}];
   ResellerProduct_Right = [];
   //	Product Stock(Stock Menu)
-  ProductStock_Left = [{'name':'P-->Tran','id':'6091'}, {'name':'Edit','id':'6092'}, {'name':'Delete','id':'6093'}, {'name':'List','id':'6094'}, {'name':'Search','id':'6095'},{'name':'Search','id':'6096'},, {'name':'A<--P','id':'6097'}, {'name':'P-->I','id':'6098'}, {'name':'P <--I','id':'6099'},{'name':'Reset','id':'7029'},{'name':'RMA Re-Iss','id':'7030'},{'name':'Pri Upd','id':'7031'}];
+  ProductStock_Left = [{'name':'P-->Tran','id':'6091'}, {'name':'Edit','id':'6092'}, {'name':'Delete','id':'6093'}, {'name':'List','id':'6094'}, {'name':'Search','id':'6095'}, {'name':'A<--P','id':'6097'}, {'name':'P-->I','id':'6098'}, {'name':'P <--I','id':'6099'},{'name':'Reset','id':'7029'},{'name':'RMA Re-Iss','id':'7030'},{'name':'Pri Upd','id':'7031'}];
   
   ProductStock_Right = [];
   //	DID Inventory
   DIDInventory_Left = [{'name':'Add New','id':'7091'}, {'name':'Edit','id':'7092'}, {'name':'Delete','id':'7093'}, {'name':'List','id':'7094'}, {'name':'Search','id':'7095'},{'name':'P-->Tran','id':'7096'}, {'name':'A<--P','id':'7097'}, {'name':'P-->I','id':'7098'}, {'name':'P <--I','id':'7099'}];  
   DIDInventory_Right = [];
   //3cx API Credit Report
-  API3cxCreditReport_Left = ['List', 'Cal4care', 'Dcare'];
+  API3cxCreditReport_Left = [{'name':'List','id':'6115'}, {'name':'Cal4care','id':'6116'}, {'name':'Dcare','id':'6117'}];  
   API3cxCreditReport_Right = [];
   //Recurring Date List
-  RecurringDateList_Left = ['View', 'Update'];
+  RecurringDateList_Left = [{'name':'View','id':'7043'}, {'name':'Update','id':'7044'}];  
+  
   RecurringDateList_Right = [];
   //	Individual Petty Cash and From Date
-  IndividualPettyCashandFromDate_Left = ['View'];
-  IndividualPettyCashandFromDate_Right = [];
+  /* IndividualPettyCashandFromDate_Left = ['View'];
+  [{'name':'View','id':'7043'}];
+  IndividualPettyCashandFromDate_Right = []; */
 
 
   //License Category
@@ -405,16 +407,329 @@ edit_array_GuruDetails: any = [];
         event.currentIndex,
       );
     }
-    let text_name_arr = [];
-    this.Courier_Right.forEach(element => {
-      const str = element.id;
-      text_name_arr.push(str);
-    });
+    let role_drop_arr = [];
+    
 
-    this.PasswordMgtDetails_Right.forEach(element => {
-      const str = element.id;
-      text_name_arr.push(str);
-    });
+      
+   this.Transaction_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.TransactionApproval_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.TransactionDeposit_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.TransactionCommission_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.TransactionWithdrawal_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.TransactionPurchaseEntry_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.Transactionsalary_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.TransactionPettyCash_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.TransactionVendorOrder_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.TransactionInvoicePayment_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.TransactionOthers_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.Deposits_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.Issues_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.Customer_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.CustomerContract_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.CustomerNameMgmt_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.ContractClassification_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.CustomerLeads_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.c3xCRMAdmin_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.MrvoipPackage_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.CRMEnquiry_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.CRMTemplate_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.CalendarTemplate_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.vendor_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.ProductCategory_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.ResellerProductCategory_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.Product_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.ResellerProduct_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.ProductStock_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.DIDInventory_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.API3cxCreditReport_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.RecurringDateList_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+  // this.IndividualPettyCashandFromDate_Right.forEach(element => {
+  //   const str = element.id;
+  //   role_drop_arr.push(str);
+  // });
+ 
+ this.LicenseCategory_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.LicenseProduct_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.LicenseKey_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.CustomerProjectsDetails_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.VendorProduct_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.Courier_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.PasswordMgtDetails_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.PurchaseEntry_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.NonTradePurchaseEntry_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.StockEntry_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.SalaryEntry_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.Billing_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.ProfamaInvoice_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.Quotation_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.QuotationNew_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.PurchaseOrder_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.CreditNote_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.DeliveryChallan_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.DeliveryOrder_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.VSProvisioning_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.RateFileUpload_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.CouponDetails_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.CalncallShoppingMaster_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.ResellerShoppingMaster_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.DocumentPreparationlist_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.PaymentLinkAccessList_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.DataCenterRequest_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.DataCenterMasters_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.DynamicExcel_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.PriceList_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
+
+ this.CallLogs_Right.forEach(element => {
+    const str = element.id;
+    role_drop_arr.push(str);
+  });
 
 
   }
@@ -449,13 +764,14 @@ edit_array_GuruDetails: any = [];
   addUserFormTableData: FormGroup;
   //checkbox declarartion
   
-  checkboxCB_InProbation:boolean=false
-  checkboxCB_EPFCPFStatus:boolean=false
-checkboxCB_Sinda:boolean=false
-checkboxCB_Socso:boolean=false
-checkboxCB_SMSNotifications:boolean=false
-checkboxCB_EmailNotifications:boolean=false
-checkboxCB_Staff:boolean=false
+  checkboxCB_InProbation:boolean=false;
+  checkboxCB_EPFCPFStatus:boolean=false;
+  checkboxCB_Sinda:boolean=false;
+  checkboxCB_Socso:boolean=false;
+  checkboxCB_SMSNotifications:boolean=false;
+  checkboxCB_EmailNotifications:boolean=false;
+  checkboxCB_Staff:boolean=false;
+  checkboxCB_IndividualPettyCashFromDate:boolean=false;
 
 
 
@@ -721,6 +1037,12 @@ checkboxCB_Staff:boolean=false
       'ProbationIn': new FormControl,
       'permissionAs': new FormControl,
       'oneInputControl': new FormControl,
+    
+
+    });
+    this.addUserForm4 = new FormGroup({
+ 
+     
 
     });
    
@@ -753,7 +1075,11 @@ checkboxCB_Staff:boolean=false
       'IndividualPettyCashandFromDate_cb': new FormControl,
       'IndividualPettyCashandFromDate_date': new FormControl,
       'ApprovalDelete': new FormControl,
-
+      'billingFromDt': new FormControl,
+      'billingToDt': new FormControl,
+      'billingFilterMonth': new FormControl,
+      'IndividualPettyCashFromDate_TextBox': new FormControl,
+      'IndividualPettyCashFromDate_Date': new FormControl,
     });
     this.addUserForm8 = new FormGroup({
           'DashBoard': new FormControl,
@@ -861,6 +1187,10 @@ checkboxCB_Staff:boolean=false
   CB_Staff(event: any) {
     this.checkboxCB_Staff = event.target.checked;
     console.log("this.checkboxCB_Staff ", this.checkboxCB_Staff)
+  }
+  CB_IndividualPettyCashFromDate(event:any){
+    this.checkboxCB_IndividualPettyCashFromDate = event.target.checked;
+    console.log("this.checkboxCB_IndividualPettyCashFromDate ", this.checkboxCB_IndividualPettyCashFromDate)
   }
 
   EditCHK_quotation_per(data: any, event: any) {
@@ -1538,7 +1868,7 @@ EditCHK_GuruDetails(data: any, event: any) {
         this.designationDetailsList = response.designation_details;
         this.userDetailsList = response.user_det;
         this.billerDetailsList = response.biller_det;
-        this.pettyCashColorList = response.petty_cash_color_arr
+        this.pettyCashColorList = response.petty_cash_color_arr;
       }
       else {
 
