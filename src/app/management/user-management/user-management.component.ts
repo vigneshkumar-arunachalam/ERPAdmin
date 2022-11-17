@@ -19,7 +19,11 @@ export class UserManagementComponent implements OnInit {
     offset_count = 0;
     //userlist
     user_list:any;
+    //group checkbox
 
+    groupSelectCommonId:any;
+    checkbox_value:any;
+    edit_array:any=[];
 
   constructor(public serverService: ServerService, private router: Router,) { }
 
@@ -27,7 +31,46 @@ export class UserManagementComponent implements OnInit {
     this.userList({})
   }
 
+  selectAll(event: any) {
+console.log(event.target.checked)
+    if (event.target.checked == true) {
+  
+      this.user_list.forEach((element: any, index: any) => {
+      
+        $("#check-grp1-" + index).prop('checked', true);
+      });
+    } else {
+      this.user_list.forEach((element: any, index: any) => {
+   
+        $("#check-grp1-" + index).prop('checked', false);
+      });
 
+    }
+
+  }
+
+
+
+  EditCHK(data: any, event: any) {
+    console.log("List - CheckBox ID", data);
+    this.groupSelectCommonId = data;
+    this.checkbox_value = event.target.checked;
+    console.log(this.checkbox_value)
+    if (this.checkbox_value) {
+
+      this.edit_array.push(data);
+      this.edit_array.join(',');
+      console.log("Final Checkbox After checkbox selected list", this.edit_array);
+    }
+    else {
+      const index = this.edit_array.findIndex((el: any) => el === data)
+      if (index > -1) {
+        this.edit_array.splice(index, 1);
+      }
+      console.log("Final Checkbox After Deselected selected list", this.edit_array)
+
+    }
+  }
 userList(data: any) {
 
 
@@ -85,5 +128,8 @@ AddUserNavigation() {
   this.router.navigate(['/adduser']);
 
   // $('#addNewQuotationFormId').modal('hide');
+}
+EditUserNavigation(){
+  this.router.navigate(['/edituser']);
 }
 }

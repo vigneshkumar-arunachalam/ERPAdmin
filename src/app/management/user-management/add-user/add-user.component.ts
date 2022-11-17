@@ -751,7 +751,11 @@ edit_array_GuruDetails: any = [];
   columntest:any;
   rowtest:any;
   BillerID:any;
-  dynamicRadio:any;
+  dynamicCheckboxwithKey:any;
+ //checkbox
+ groupSelectCheckCommonId :any;
+ Checkbox_value:any;
+ edit_array_Check: any = [];
 
   addUserForm1: FormGroup;
   addUserForm2: FormGroup;
@@ -764,6 +768,7 @@ edit_array_GuruDetails: any = [];
   addUserFormTableData: FormGroup;
   //checkbox declarartion
   
+ 
   checkboxCB_InProbation:boolean=false;
   checkboxCB_EPFCPFStatus:boolean=false;
   checkboxCB_Sinda:boolean=false;
@@ -784,7 +789,7 @@ edit_array_GuruDetails: any = [];
 
   ngOnInit(): void {
     this.onLoadGet();
-    this.dynamicRadio = [
+    this.dynamicCheckboxwithKey = [
 
       { name: 'Trans Deposit Approval', selected: false, id: 2011 },
   { name: 'Trans Commission Approval', selected: false, id: 2012 },
@@ -1014,14 +1019,6 @@ edit_array_GuruDetails: any = [];
       'epfcpfStatus': new FormControl,
       'sinda': new FormControl,
       'socso': new FormControl,
-      
-
-
-    },
-      { validators: [passwordMatchingValidatior, passwordMatchingValidatior123] }
-    );
-
-    this.addUserForm3 = new FormGroup({
       'smsNotif': new FormControl,
       'phoneNumber': new FormControl,
       'emailNotif': new FormControl,
@@ -1036,6 +1033,17 @@ edit_array_GuruDetails: any = [];
       'Staff': new FormControl,
       'ProbationIn': new FormControl,
       'permissionAs': new FormControl,
+      'ExtensionNumber': new FormControl,
+      'ShortName': new FormControl,
+      'FriendlyName': new FormControl,
+      'HRGroup': new FormControl,
+ 
+    },
+      { validators: [passwordMatchingValidatior, passwordMatchingValidatior123] }
+    );
+
+    this.addUserForm3 = new FormGroup({
+   
       'oneInputControl': new FormControl,
     
 
@@ -1153,6 +1161,7 @@ edit_array_GuruDetails: any = [];
     this.checkboxStatus = event.target.checked;
     console.log("this.checkboxStatus", this.checkboxStatus)
   }
+   
 
   CB_InProbation(event: any) {
     this.checkboxCB_InProbation = event.target.checked;
@@ -2060,26 +2069,24 @@ EditCHK_GuruDetails(data: any, event: any) {
       }
     });
   }
-  groupSelectRadioCommonId:any;
-  Radiobox_value:any;
-  edit_array_Radio: any = [];
-  Edit_Radio(data: any, event: any) {
-    console.log("List - Radio ID", data);
-    this.groupSelectRadioCommonId = data;
-    this.Radiobox_value= event.target.checked;
-    console.log(this.Radiobox_value)
-    if (this.Radiobox_value) {
   
-      this.edit_array_Radio.push(data);
-      this.edit_array_Radio.join(',');
-      console.log("Final radio After checkbox selected list", this.edit_array_Radio);
+  Edit_CheckboxValues(data: any, event: any) {
+    console.log("List - Checkbox ID", data);
+    this.groupSelectCheckCommonId = data;
+    this. Checkbox_value= event.target.checked;
+    console.log(this. Checkbox_value)
+    if (this.Checkbox_value) {
+  
+      this.edit_array_Check.push(data);
+      this.edit_array_Check.join(',');
+      console.log("Final check After checkbox selected list", this.edit_array_Check);
     }
     else {
-      const index = this.edit_array_Radio.findIndex((el: any) => el === data)
+      const index = this.edit_array_Check.findIndex((el: any) => el === data)
       if (index > -1) {
-        this.edit_array_Radio.splice(index, 1);
+        this.edit_array_Check.splice(index, 1);
       }
-      console.log("Final radio After Deselected selected list", this.edit_array_Radio)
+      console.log("Final check After Deselected selected list", this.edit_array_Check)
   
     }
   

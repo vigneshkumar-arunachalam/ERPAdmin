@@ -88,16 +88,6 @@
     "menuId":2,
     "IDs": [7043, 7044, 1201, 1202, 1203, 1204, 3001, 3002, 3003, 3004, 3005, 3101, 3102, 3103, 3104, 3105, 9501, 9502, 9503, 9504, 9505, 9521, 9522, 9523, 9524, 9525, 9601, 9602, 9603, 9604, 9605, 9701, 9702, 9703, 9704, 9705, 9711, 9712, 9713, 9714, 9715, 7043, 7044, 1201, 1202, 1203, 1204, 3001, 3002, 3003, 3004, 3005, 3101, 3102, 3103, 3104, 3105, 9501, 9502, 9503, 9504, 9505, 9521, 9522, 9523, 9524, 9525, 9601, 9602, 9603, 9604, 9605, 9701, 9702, 9703, 9704, 9705, 9711, 9712, 9713, 9714, 9715],
     "Type": "Main Menu",
-    "children": [],
-    "isVisible": true,
-    "value": "/billing"
- }, {
-    "name": "Biller",
-    "icon": "codepen",
-    "isActive": false,
-    "menuId":3,
-    "IDs": [5501, 5502, 5503, 5504, 5505, 5601, 5602, 5603, 5604, 5605, 7024],
-    "Type": "Main Menu",
     "children": [
         {
             "name": "Currency",
@@ -110,16 +100,16 @@
         },
         {
             "name": "Tax",
-            "icon": "aperture",
+            "icon": "inbox",
             "IDs": [5001, 5002, 5003, 5004, 5005],
             "Type": "Sub Menu",
             "subchild": [],
             "isVisible": true,
-            "value": "/customer"
+            "value": "/usermanagement"
         },
         {
             "name": "Ship By",
-            "icon": "grid",
+            "icon": "info",
             "IDs": [5001, 5002, 5003, 5004, 5005],
             "Type": "Sub Menu",
             "subchild": [],
@@ -128,7 +118,7 @@
         },
         {
             "name": "Payment Type",
-            "icon": "aperture",
+            "icon": "link-2",
             "IDs": [5001, 5002, 5003, 5004, 5005],
             "Type": "Sub Menu",
             "subchild": [],
@@ -137,31 +127,132 @@
         },
         {
             "name": "Purchase Tax Provider",
-            "icon": "grid",
+            "icon": "package",
             "IDs": [5001, 5002, 5003, 5004, 5005],
             "Type": "Sub Menu",
             "subchild": [],
             "isVisible": true,
             "value": "/customer"
-        },{
+        },
+        {
             "name": "3CX Reseller ID",
-            "icon": "aperture",
+            "icon": "radio",
             "IDs": [5001, 5002, 5003, 5004, 5005],
             "Type": "Sub Menu",
             "subchild": [],
             "isVisible": true,
             "value": "/customer"
-        },{
-            "name": "3CX API Key",
-            "icon": "grid",
+        },
+        {
+            "name": "3Cx API Key",
+            "icon": "rewind",
             "IDs": [5001, 5002, 5003, 5004, 5005],
             "Type": "Sub Menu",
             "subchild": [],
             "isVisible": true,
             "value": "/customer"
-        },{
+        },
+        {
             "name": "Customer 3CX Master Admin",
-            "icon": "aperture",
+            "icon": "inbox",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        }
+    ],
+    "isVisible": true,
+    "value": "/billing"
+ }, {
+    "name": "Biller",
+    "icon": "codepen",
+    "isActive": false,
+    "menuId":3,
+    "IDs": [5501, 5502, 5503, 5504, 5505, 5601, 5602, 5603, 5604, 5605, 7024],
+    "Type": "Main Menu",
+    "children": [
+        {
+            "name": "Billers",
+            "icon": "rewind",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "Payment Via",
+            "icon": "package",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "SMTP Details",
+            "icon": "info",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "Contact Country",
+            "icon": "inbox",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        }
+
+    ],
+    "isVisible": true,
+    "value": "/crm"
+ },
+  {
+    "name": "Contract",
+    "icon": "cpu",
+    "isActive": false,
+    "menuId":4,
+    "IDs": [7043, 7044, 1201, 1202, 1203, 1204, 3001, 3002, 3003, 3004, 3005, 3101, 3102, 3103, 3104, 3105, 9501, 9502, 9503, 9504, 9505, 9521, 9522, 9523, 9524, 9525, 9601, 9602, 9603, 9604, 9605, 9701, 9702, 9703, 9704, 9705, 9711, 9712, 9713, 9714, 9715, 7043, 7044, 1201, 1202, 1203, 1204, 3001, 3002, 3003, 3004, 3005, 3101, 3102, 3103, 3104, 3105, 9501, 9502, 9503, 9504, 9505, 9521, 9522, 9523, 9524, 9525, 9601, 9602, 9603, 9604, 9605, 9701, 9702, 9703, 9704, 9705, 9711, 9712, 9713, 9714, 9715],
+    "Type": "Main Menu",
+    "children": [
+        {
+            "name": "Contract Name Mgmt",
+            "icon": "info",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "Contact Classification",
+            "icon": "inbox",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        }
+    ],
+    "isVisible": true,
+    "value": "/billing"
+ }, {
+    "name": "Blog",
+    "icon": "film",
+    "isActive": false,
+    "menuId":5,
+    "IDs": [5501, 5502, 5503, 5504, 5505, 5601, 5602, 5603, 5604, 5605, 7024],
+    "Type": "Main Menu",
+    "children": [
+        {
+            "name": "Other Service Domain",
+            "icon": "info",
             "IDs": [5001, 5002, 5003, 5004, 5005],
             "Type": "Sub Menu",
             "subchild": [],
@@ -171,106 +262,326 @@
     ],
     "isVisible": true,
     "value": "/crm"
- },
-  {
-    "name": "Contract",
-    "icon": "aperture",
-    "isActive": false,
-    "menuId":2,
-    "IDs": [7043, 7044, 1201, 1202, 1203, 1204, 3001, 3002, 3003, 3004, 3005, 3101, 3102, 3103, 3104, 3105, 9501, 9502, 9503, 9504, 9505, 9521, 9522, 9523, 9524, 9525, 9601, 9602, 9603, 9604, 9605, 9701, 9702, 9703, 9704, 9705, 9711, 9712, 9713, 9714, 9715, 7043, 7044, 1201, 1202, 1203, 1204, 3001, 3002, 3003, 3004, 3005, 3101, 3102, 3103, 3104, 3105, 9501, 9502, 9503, 9504, 9505, 9521, 9522, 9523, 9524, 9525, 9601, 9602, 9603, 9604, 9605, 9701, 9702, 9703, 9704, 9705, 9711, 9712, 9713, 9714, 9715],
-    "Type": "Main Menu",
-    "children": [],
-    "isVisible": true,
-    "value": "/billing"
- }, {
-    "name": "Blog",
-    "icon": "codepen",
-    "isActive": false,
-    "menuId":3,
-    "IDs": [5501, 5502, 5503, 5504, 5505, 5601, 5602, 5603, 5604, 5605, 7024],
-    "Type": "Main Menu",
-    "children": [],
-    "isVisible": true,
-    "value": "/crm"
  }, {
     "name": "Reseller",
-    "icon": "aperture",
+    "icon": "layout",
     "isActive": false,
-    "menuId":2,
+    "menuId":6,
     "IDs": [7043, 7044, 1201, 1202, 1203, 1204, 3001, 3002, 3003, 3004, 3005, 3101, 3102, 3103, 3104, 3105, 9501, 9502, 9503, 9504, 9505, 9521, 9522, 9523, 9524, 9525, 9601, 9602, 9603, 9604, 9605, 9701, 9702, 9703, 9704, 9705, 9711, 9712, 9713, 9714, 9715, 7043, 7044, 1201, 1202, 1203, 1204, 3001, 3002, 3003, 3004, 3005, 3101, 3102, 3103, 3104, 3105, 9501, 9502, 9503, 9504, 9505, 9521, 9522, 9523, 9524, 9525, 9601, 9602, 9603, 9604, 9605, 9701, 9702, 9703, 9704, 9705, 9711, 9712, 9713, 9714, 9715],
     "Type": "Main Menu",
-    "children": [],
+    "children": [
+        {
+            "name": "Reseller Billers",
+            "icon": "info",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        }
+    ],
     "isVisible": true,
     "value": "/billing"
  }, {
     "name": "License",
-    "icon": "codepen",
+    "icon": "sun",
     "isActive": false,
-    "menuId":3,
+    "menuId":7,
     "IDs": [5501, 5502, 5503, 5504, 5505, 5601, 5602, 5603, 5604, 5605, 7024],
     "Type": "Main Menu",
-    "children": [],
+    "children": [
+        {
+            "name": "Cloud Note",
+            "icon": "slack",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "Primary Customer",
+            "icon": "info",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        }
+    ],
     "isVisible": true,
     "value": "/crm"
  }
  , {
     "name": "Payment Gateway",
-    "icon": "aperture",
+    "icon": "disc",
     "isActive": false,
-    "menuId":2,
+    "menuId":8,
     "IDs": [7043, 7044, 1201, 1202, 1203, 1204, 3001, 3002, 3003, 3004, 3005, 3101, 3102, 3103, 3104, 3105, 9501, 9502, 9503, 9504, 9505, 9521, 9522, 9523, 9524, 9525, 9601, 9602, 9603, 9604, 9605, 9701, 9702, 9703, 9704, 9705, 9711, 9712, 9713, 9714, 9715, 7043, 7044, 1201, 1202, 1203, 1204, 3001, 3002, 3003, 3004, 3005, 3101, 3102, 3103, 3104, 3105, 9501, 9502, 9503, 9504, 9505, 9521, 9522, 9523, 9524, 9525, 9601, 9602, 9603, 9604, 9605, 9701, 9702, 9703, 9704, 9705, 9711, 9712, 9713, 9714, 9715],
     "Type": "Main Menu",
-    "children": [],
+    "children": [
+        {
+        "name": "Payment Gateway Type",
+        "icon": "slack",
+        "IDs": [5001, 5002, 5003, 5004, 5005],
+        "Type": "Sub Menu",
+        "subchild": [],
+        "isVisible": true,
+        "value": "/customer"
+    }
+     ],
     "isVisible": true,
     "value": "/billing"
  }, {
     "name": "Purchase",
-    "icon": "codepen",
+    "icon": "shopping-bag",
     "isActive": false,
-    "menuId":3,
+    "menuId":9,
     "IDs": [5501, 5502, 5503, 5504, 5505, 5601, 5602, 5603, 5604, 5605, 7024],
     "Type": "Main Menu",
-    "children": [],
+    "children": [
+        {
+            "name": "Purchase Type",
+            "icon": "info",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "Purchase Entry(Vendor)",
+            "icon": "package",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        }
+    ],
     "isVisible": true,
     "value": "/crm"
  } , {
     "name": "HR",
-    "icon": "aperture",
+    "icon": "user-check",
     "isActive": false,
-    "menuId":2,
+    "menuId":10,
     "IDs": [7043, 7044, 1201, 1202, 1203, 1204, 3001, 3002, 3003, 3004, 3005, 3101, 3102, 3103, 3104, 3105, 9501, 9502, 9503, 9504, 9505, 9521, 9522, 9523, 9524, 9525, 9601, 9602, 9603, 9604, 9605, 9701, 9702, 9703, 9704, 9705, 9711, 9712, 9713, 9714, 9715, 7043, 7044, 1201, 1202, 1203, 1204, 3001, 3002, 3003, 3004, 3005, 3101, 3102, 3103, 3104, 3105, 9501, 9502, 9503, 9504, 9505, 9521, 9522, 9523, 9524, 9525, 9601, 9602, 9603, 9604, 9605, 9701, 9702, 9703, 9704, 9705, 9711, 9712, 9713, 9714, 9715],
     "Type": "Main Menu",
-    "children": [],
+    "children": [
+        {
+            "name": "Billers Policy",
+            "icon": "info",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "Staff Contribution",
+            "icon": "package",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "Public Leave",
+            "icon": "aperture",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        }
+
+    ],
     "isVisible": true,
     "value": "/billing"
  }, {
     "name": "VS Provisioning",
-    "icon": "codepen",
+    "icon": "toggle-left",
     "isActive": false,
-    "menuId":3,
+    "menuId":11,
     "IDs": [5501, 5502, 5503, 5504, 5505, 5601, 5602, 5603, 5604, 5605, 7024],
     "Type": "Main Menu",
-    "children": [],
+    "children": [
+        {
+            "name": "White IP",
+            "icon": "info",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "SIP Server Name",
+            "icon": "package",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "Filmware Server Path",
+            "icon": "aperture",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "Config Server Path",
+            "icon": "plus-circle",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "Type of Phone Name",
+            "icon": "pen-tool",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        }
+    ],
     "isVisible": true,
     "value": "/crm"
  }, {
     "name": "Data Center",
-    "icon": "aperture",
+    "icon": "check-circle",
     "isActive": false,
-    "menuId":2,
+    "menuId":12,
     "IDs": [7043, 7044, 1201, 1202, 1203, 1204, 3001, 3002, 3003, 3004, 3005, 3101, 3102, 3103, 3104, 3105, 9501, 9502, 9503, 9504, 9505, 9521, 9522, 9523, 9524, 9525, 9601, 9602, 9603, 9604, 9605, 9701, 9702, 9703, 9704, 9705, 9711, 9712, 9713, 9714, 9715, 7043, 7044, 1201, 1202, 1203, 1204, 3001, 3002, 3003, 3004, 3005, 3101, 3102, 3103, 3104, 3105, 9501, 9502, 9503, 9504, 9505, 9521, 9522, 9523, 9524, 9525, 9601, 9602, 9603, 9604, 9605, 9701, 9702, 9703, 9704, 9705, 9711, 9712, 9713, 9714, 9715],
     "Type": "Main Menu",
-    "children": [],
+    "children": [{
+        "name": "Operating System",
+        "icon": "info",
+        "IDs": [5001, 5002, 5003, 5004, 5005],
+        "Type": "Sub Menu",
+        "subchild": [],
+        "isVisible": true,
+        "value": "/customer"
+    },
+    {
+        "name": "Desk Space",
+        "icon": "package",
+        "IDs": [5001, 5002, 5003, 5004, 5005],
+        "Type": "Sub Menu",
+        "subchild": [],
+        "isVisible": true,
+        "value": "/customer"
+    },
+    {
+        "name": "Base Server Name",
+        "icon": "aperture",
+        "IDs": [5001, 5002, 5003, 5004, 5005],
+        "Type": "Sub Menu",
+        "subchild": [],
+        "isVisible": true,
+        "value": "/customer"
+    },
+    {
+        "name": "Location",
+        "icon": "pen-tool",
+        "IDs": [5001, 5002, 5003, 5004, 5005],
+        "Type": "Sub Menu",
+        "subchild": [],
+        "isVisible": true,
+        "value": "/customer"
+    },
+    {
+        "name": "Ram Size",
+        "icon": "plus-circle",
+        "IDs": [5001, 5002, 5003, 5004, 5005],
+        "Type": "Sub Menu",
+        "subchild": [],
+        "isVisible": true,
+        "value": "/customer"
+    },
+    {
+        "name": "Logout",
+        "icon": "command",
+        "IDs": [5001, 5002, 5003, 5004, 5005],
+        "Type": "Sub Menu",
+        "subchild": [],
+        "isVisible": true,
+        "value": "/customer"
+    }],
     "isVisible": true,
     "value": "/billing"
  }, {
     "name": "Others",
-    "icon": "codepen",
+    "icon": "target",
     "isActive": false,
-    "menuId":3,
+    "menuId":13,
     "IDs": [5501, 5502, 5503, 5504, 5505, 5601, 5602, 5603, 5604, 5605, 7024],
     "Type": "Main Menu",
-    "children": [],
+    "children": [
+        {
+            "name": "Bank Reports",
+            "icon": "info",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "Call Logs",
+            "icon": "package",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "Group Name(Mail)",
+            "icon": "aperture",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "Quotation Templates",
+            "icon": "pen-tool",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "Revenue Type",
+            "icon": "plus-circle",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        },
+        {
+            "name": "Designation Type",
+            "icon": "film",
+            "IDs": [5001, 5002, 5003, 5004, 5005],
+            "Type": "Sub Menu",
+            "subchild": [],
+            "isVisible": true,
+            "value": "/customer"
+        }
+    ],
     "isVisible": true,
     "value": "/crm"
  }
