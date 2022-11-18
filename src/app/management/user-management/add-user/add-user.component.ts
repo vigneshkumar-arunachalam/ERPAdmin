@@ -755,8 +755,8 @@ edit_array_GuruDetails: any = [];
   BillerID:any;
   dynamicCheckboxwithKey:any;
   HRGroupList:any;
-  file: File;
-
+  // file: File;
+  file:string [] = [];
  //checkbox
  groupSelectCheckCommonId :any;
  Checkbox_value:any;
@@ -764,6 +764,7 @@ edit_array_GuruDetails: any = [];
  edit_array_Radio: any = [];
  //file
  signature_billerid: any = [];
+ files_Signature=[];
 
 
   addUserForm1: FormGroup;
@@ -1142,9 +1143,24 @@ edit_array_GuruDetails: any = [];
 
   }
   showPreviewImage(billerid:any,event: any) {
-    this.signature_billerid=billerid;
-    console.log("this.signature_billerid",this.signature_billerid)
-    this.file = event.target.files[0];
+    // this.signature_billerid=billerid;
+    // console.log("this.signature_billerid",this.signature_billerid)
+
+    for (let i = 0; i < event.target.files.length; i++) {
+      // this.file = event.target.files[i];
+      // console.log("krishna test",$("#uploaded-img"+[i]).val());
+      // var l = $("#uploaded-img"+[i]).val();
+
+      // console.log("krishna test123",event.target.files[i])
+      // this.file.push(event.target.files[i]);
+      let bill
+      let file = event.target.files[i]
+      this.files_Signature.push(file);
+      console.log(this.files_Signature);
+      this.signature_billerid.push(billerid)
+      console.log("push_billerid(signature)",this.signature_billerid);
+    }
+    
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
       reader.onload = (event: any) => {
@@ -1153,6 +1169,9 @@ edit_array_GuruDetails: any = [];
       reader.readAsDataURL(event.target.files[0]);
     }
 
+  }
+  get_b(){
+    
   }
   handleCheckboxChange(event: any) {
     this.checkboxStatus = event.target.checked;
@@ -1893,182 +1912,170 @@ EditCHK_GuruDetails(data: any, event: any) {
     console.log(xyz, "target");
   }
   save(){
-    let api_req: any = new Object();
-    let addUser_req: any = new Object();
-    api_req.moduleType = "customer";
-    api_req.api_url = "customer/save";
-    api_req.api_type = "web";
-    api_req.access_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJhdWQiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJpYXQiOjE2NTQ2NjQ0MzksIm5iZiI6MTY1NDY2NDQzOSwiZXhwIjoxNjU0NjgyNDM5LCJhY2Nlc3NfZGF0YSI6eyJ0b2tlbl9hY2Nlc3NJZCI6IjIiLCJ0b2tlbl9hY2Nlc3NOYW1lIjoidGVzdGluZzA0MDYyMDIyIiwidG9rZW5fYWNjZXNzVHlwZSI6IjIifX0.NaymQDSiON2R3tKICGNpj6hsQfg9DGwEcZzrJcvsqbI";
-    addUser_req.action = "admin/user_details_save";
-    addUser_req.userId = localStorage.getItem('user_id');
-    addUser_req.userName = this.addUserForm1.value.userName;
-    addUser_req.password = this.addUserForm1.value.password;
-    addUser_req.firstName = this.addUserForm1.value.firstName;
-    addUser_req.lastName = this.addUserForm1.value.lastName;
-    addUser_req.department = this.addUserForm1.value.department;
-    addUser_req.designation= this.addUserForm1.value.designation;
-    addUser_req.fin_number = this.addUserForm1.value.FIN;
-    addUser_req.bank_acc_no = this.addUserForm1.value.bankAccountNO;
-    addUser_req.emp_address = this.addUserForm1.value.address;
-    addUser_req.dob= this.addUserForm1.value.dob;
-    addUser_req.smsNotification = this.addUserForm1.value.smsNotif;
-    addUser_req.phonenumber = this.addUserForm1.value.phoneNumber;
-    addUser_req.emailNotification = this.addUserForm1.value.emailNotif;
-    addUser_req.emailId= this.addUserForm1.value.emailID;
-    addUser_req.signatureFilename = this.addUserForm1.value.Signature;
-    addUser_req.monthlySalary = this.addUserForm2.value.addresses;
-    addUser_req.main_contactus = this.addUserForm1.value.cmsContactPhone;
-    addUser_req.alternate_contactus = this.addUserForm1.value.cmsAlternativeContactPhone;
-    addUser_req.alternate_support_mail = this.addUserForm1.value.cmsAlternativeSupportMail;
-    addUser_req.alternate_website = this.addUserForm1.value.cmsAlternativeSupportWebsite;
-    addUser_req.email_group_id = this.addUserForm1.value.bccEmailID;
-    addUser_req.petty_color_code = this.addUserForm1.value.pettyCashColorCode;
-    
-    //unknown starts
-    addUser_req.firstName_salary = this.addUserForm1.value.Fihytdf;
-    addUser_req.monthly_salary = this.addUserForm1.value.Fihytdf;
-    addUser_req.per_day_salary = this.addUserForm1.value.Fihytdf;
-    addUser_req.pf_status = this.addUserForm1.value.Fihytdf;
-    addUser_req.callEmailId = this.addUserForm1.value.Fihytdf;
-    addUser_req.values = this.addUserForm2.value.addresses;
-    addUser_req.profile_image = this.addUserForm1.value.Fihytdf;
-    addUser_req.billerId = this.BillerID;
-    addUser_req.pwd_username = this.addUserForm1.value.Fihytdf;
-    addUser_req.pwd_password = this.addUserForm1.value.Fihytdf;
-    addUser_req.pwd_logout_time = this.addUserForm1.value.Fihytdf;
-    addUser_req.inv_shared_userid = this.addUserForm1.value.Fihytdf;
-    addUser_req.reseller_shop_id = this.addUserForm1.value.Fihytdf;
-    addUser_req.reseller_pay_id = this.addUserForm1.value.Fihytdf;
-    addUser_req.hr_group_id = this.addUserForm1.value.Fihytdf;
-    
-    addUser_req.emailNotification_per = this.addUserForm1.value.Fihytdf;
-    addUser_req.pettycash_mail = this.addUserForm1.value.Fihytdf;
-    addUser_req.call_log_per = this.addUserForm1.value.Fihytdf;
-    addUser_req.time_booking_per= this.addUserForm1.value.Fihytdf;
-    addUser_req.helpdesk_per = this.addUserForm1.value.Fihytdf;
-    addUser_req.erp_app_per = this.addUserForm1.value.Fihytdf;
-    addUser_req.checkin_status = this.addUserForm1.value.Fihytdf;
-    addUser_req.present_list_status = this.addUserForm1.value.Fihytdf;
-    addUser_req.notification_status = this.addUserForm1.value.Fihytdf;
-    addUser_req.group_notification = this.addUserForm1.value.Fihytdf;
-    addUser_req.con1 = this.addUserForm1.value.Fihytdf;
-    addUser_req.con2 = this.addUserForm1.value.Fihytdf;
-    addUser_req.temperature = this.addUserForm1.value.Fihytdf;
-    addUser_req.from_dt_bill = this.addUserForm1.value.Fihytdf;
-    addUser_req.to_dt_bill = this.addUserForm1.value.Fihytdf;
-    addUser_req.filter_month_val = this.addUserForm1.value.Fihytdf;
-    addUser_req.department_type = this.addUserForm1.value.Fihytdf;
+    console.log("this.files_Signature;",this.files_Signature)
+    console.log("this.signature_billerid;",this.signature_billerid)
+    var data = new FormData();
+   
+
+    data.append('userName', this.addUserForm1.value.userName);
+    data.append('password', this.addUserForm1.value.password);
+    data.append('firstName', this.addUserForm1.value.firstName);
+    data.append('lastName', this.addUserForm1.value.lastName);
+    data.append('department', this.addUserForm1.value.department);
+    data.append('designation', this.addUserForm1.value.designation);
+    data.append('fin_number', this.addUserForm1.value.FIN);
+    data.append('bank_acc_no', this.addUserForm1.value.bankAccountNO);
+    data.append('emp_address', this.addUserForm1.value.address);
+    data.append('dob', this.addUserForm1.value.dob);
+    data.append('smsNotification', this.addUserForm1.value.smsNotif);
+    data.append('phonenumber', this.addUserForm1.value.phoneNumber);
+    data.append('emailNotification', this.addUserForm1.value.emailNotif);
+    data.append('emailId', this.addUserForm1.value.emailID);
+    data.append('signatureFilename', this.addUserForm1.value.Signature);
+    data.append('monthlySalary', this.addUserForm2.value.addresses);
+    data.append('main_contactus', this.addUserForm1.value.cmsContactPhone);
+    data.append('alternate_contactus', this.addUserForm1.value.cmsAlternativeContactPhone);
+    data.append('alternate_support_mail', this.addUserForm1.value.cmsAlternativeSupportMail);
+    data.append('alternate_website', this.addUserForm1.value.cmsAlternativeSupportWebsite);
+    data.append('email_group_id', this.addUserForm1.value.bccEmailID);
+    data.append('petty_color_code', this.addUserForm1.value.pettyCashColorCode);
+    data.append('billerSignature_billerId', this.signature_billerid);
+    data.append('alternate_website', this.addUserForm1.value.cmsAlternativeSupportWebsite);
+    data.append('firstName_salary', this.addUserForm1.value.Fihytdf);
+    data.append('monthly_salary', this.addUserForm1.value.Fihytdf);
+    data.append('per_day_salary', this.addUserForm1.value.Fihytdf);
+    data.append('pf_status', this.addUserForm1.value.Fihytdf);
+    data.append('callEmailId', this.addUserForm1.value.Fihytdf);
+    data.append('profile_image', this.addUserForm1.value.Fihytdf);
+    data.append('billerId', this.BillerID);
+    data.append('pwd_username', this.addUserForm1.value.Fihytdf);
+    data.append('pwd_password', this.addUserForm1.value.Fihytdf);
+    data.append('pwd_logout_time', this.addUserForm1.value.Fihytdf);
+    data.append('inv_shared_userid', this.addUserForm1.value.Fihytdf);
+    data.append('reseller_shop_id', this.addUserForm1.value.Fihytdf);
+    data.append('reseller_pay_id', this.addUserForm1.value.Fihytdf);
+    data.append('hr_group_id', this.addUserForm1.value.Fihytdf);
+        data.append('emailNotification_per', this.addUserForm1.value.Fihytdf);
+    data.append('pettycash_mail', this.addUserForm1.value.Fihytdf);
+    data.append('call_log_per', this.addUserForm1.value.Fihytdf);
+    data.append('time_booking_per', this.addUserForm1.value.Fihytdf);
+    data.append('helpdesk_per', this.addUserForm1.value.Fihytdf);
+    data.append('erp_app_per', this.addUserForm1.value.Fihytdf);
+    data.append('checkin_status', this.addUserForm1.value.Fihytdf);
+    data.append('present_list_status', this.addUserForm1.value.Fihytdf);
+    data.append('notification_status', this.addUserForm1.value.Fihytdf);
+    data.append('group_notification', this.addUserForm1.value.Fihytdf);
+    data.append('con1', this.addUserForm1.value.Fihytdf);
+    data.append('con2', this.addUserForm1.value.Fihytdf);
+    data.append('temperature', this.addUserForm1.value.Fihytdf);
+    data.append('from_dt_bill', this.addUserForm1.value.Fihytdf);
+    data.append('to_dt_bill', this.addUserForm1.value.Fihytdf);
+    data.append('filter_month_val', this.addUserForm1.value.Fihytdf);
+    data.append('department_type', this.addUserForm1.value.Fihytdf);
     
     //unknown ends
     //single checkbox permission unknown
-    addUser_req.trans_app_other_all= this.addUserForm1.value.Fihytdf;
-    addUser_req.callLogViewState = this.addUserForm1.value.Fihytdf;
-    addUser_req.helpdesk_user = this.addUserForm1.value.Fihytdf;
-    addUser_req.helpdesk_pass = this.addUserForm1.value.Fihytdf;
-    addUser_req.helpdesk_status = this.addUserForm1.value.Fihytdf;
-    addUser_req.infinity_login = this.addUserForm1.value.Fihytdf;
-    addUser_req.google_authenticator = this.addUserForm1.value.Fihytdf;
-    addUser_req.user_personal_leave = this.addUserForm1.value.Fihytdf;
-    addUser_req.user_medical_leave = this.addUserForm1.value.Fihytdf;
-    addUser_req.staffStatus = this.addUserForm1.value.Fihytdf;
-    addUser_req.slack_user_id = this.addUserForm1.value.Fihytdf;
-    addUser_req.slack_user_name = this.addUserForm1.value.Fihytdf;
-    addUser_req.slack_display_name = this.addUserForm1.value.Fihytdf;
-    addUser_req.slack_user_channel = this.addUserForm1.value.Fihytdf;
-    addUser_req.slack_token = this.addUserForm1.value.Fihytdf;
-    addUser_req.slack_update_dt = this.addUserForm1.value.Fihytdf;
-    addUser_req.force_logout_erp= this.addUserForm1.value.Fihytdf;
-    addUser_req.device_token = this.addUserForm1.value.Fihytdf;
-    addUser_req.ext_no= this.addUserForm1.value.Fihytdf;
-    addUser_req.sip_user = this.addUserForm1.value.Fihytdf;
-    addUser_req.sip_pass = this.addUserForm1.value.Fihytdf;
-    addUser_req.short_name = this.addUserForm1.value.Fihytdf;
-    addUser_req.friendly_name = this.addUserForm1.value.Fihytdf;
-    addUser_req.country = this.addUserForm1.value.Fihytdf;
-    addUser_req.timezone_id= this.addUserForm1.value.Fihytdf;
+    data.append('trans_app_other_all', this.addUserForm1.value.Fihytdf);
+    data.append('callLogViewState', this.addUserForm1.value.Fihytdf);
+    data.append('helpdesk_user', this.addUserForm1.value.Fihytdf);
+    data.append('helpdesk_pass', this.addUserForm1.value.Fihytdf);
+    data.append('helpdesk_status', this.addUserForm1.value.Fihytdf);
+    data.append('infinity_login', this.addUserForm1.value.Fihytdf);
+    data.append('google_authenticator', this.addUserForm1.value.Fihytdf);
+    data.append('user_personal_leave', this.addUserForm1.value.Fihytdf);
+    data.append('user_medical_leave', this.addUserForm1.value.Fihytdf);
+    data.append('staffStatus', this.addUserForm1.value.Fihytdf);
+    data.append('slack_user_id', this.addUserForm1.value.Fihytdf);
+    data.append('slack_user_name', this.addUserForm1.value.Fihytdf);
+    data.append('slack_display_name', this.addUserForm1.value.Fihytdf);
+    data.append('slack_user_channel', this.addUserForm1.value.Fihytdf);
+    data.append('slack_token', this.addUserForm1.value.Fihytdf);
+    data.append('slack_update_dt', this.addUserForm1.value.Fihytdf);
+    data.append('force_logout_erp', this.addUserForm1.value.Fihytdf);
+    data.append('device_token', this.addUserForm1.value.Fihytdf);
+    data.append('ext_no', this.addUserForm1.value.Fihytdf);
+    data.append('sip_user', this.addUserForm1.value.Fihytdf);
+    data.append('sip_pass', this.addUserForm1.value.Fihytdf);
+    data.append('short_name', this.addUserForm1.value.Fihytdf);
+    data.append('friendly_name', this.addUserForm1.value.Fihytdf);
+    data.append('country', this.addUserForm1.value.Fihytdf);
+    data.append('timezone_id', this.addUserForm1.value.Fihytdf);
     
     //permission starts
-    addUser_req.biller_per = this.edit_array_BillerAll;
-    addUser_req.quotation_per = this.edit_array_quotation_per;
-    addUser_req.quotation_per_old = this.edit_array_Quotation;
-    addUser_req.purchaseOrder_per = this.edit_array_PurchaseOrder;
-    addUser_req.creditNote_per = this.edit_array_CreditNote;
-    addUser_req.purchaseEntry_per = this.edit_array_PurchaseEntry;
-    addUser_req.dc_per = this.edit_array_DeliveryChelan;
-    addUser_req.dash_per = this.edit_array_Dashboard;
-    addUser_req.crmEnquiry_per = this.edit_array_CRMEnquiry;
-    addUser_req.customer_leads_per = this.edit_array_CustomerLeads;
-    addUser_req.contract_per = this.edit_array_ContractBiller;
-    addUser_req.deposit_per = this.edit_array_Deposits;
-    addUser_req.withdrawal_per = this.edit_array_Withdrawal;
-    addUser_req.nontrade_purchase_per = this.edit_array_NonTradePurchaseEntry;
-    addUser_req.salary_per = this.edit_array_TransactionSalary;
-    addUser_req.pettycash_per = this.edit_array_TransactionPettyCash;
-    addUser_req.trans_entry_per = this.edit_array_TransactionEntry;
-    addUser_req.trans_approve_per = this.edit_array_TransactionApproval;
-    addUser_req.trans_approve_data_center_per = this.edit_array_TransApprovalDataCenter;
-    addUser_req.license_key_per = this.edit_array_LicenseKey;
-    addUser_req.vs_provisioning_per = this.edit_array_VSProvisioning;
-    addUser_req.product_stock_per = this.edit_array_ProductStock;
-    addUser_req.reseller_prod_price_per = this.edit_array_ResellerProduct;
-    addUser_req.product_transfer_per = this.edit_array_ProductStockTransferAlet;
-    addUser_req.stock_pre_approval_per = this.edit_array_StockPreApproval;
-    addUser_req.did_product_per = this.edit_array_DIDInventoryProduct;
-    addUser_req.customer_projects_per = this.edit_array_CustomerProject;
-    addUser_req.recurring_date_per = this.edit_array_RecurringCheckerList;
-    addUser_req.customer_mst_per = this.edit_array_CustomerMaster;
-    addUser_req.calendar_template_per = this.edit_array_CalendarTemplate;
-    addUser_req.guru_details_biller = this.edit_array_GuruDetails;
+    data.append('biller_per', this.edit_array_BillerAll);
+    data.append('quotation_per', this.edit_array_quotation_per);
+    data.append('quotation_per_old', this.edit_array_Quotation);
+    data.append('purchaseOrder_per', this.edit_array_PurchaseOrder);
+    data.append('creditNote_per', this.edit_array_CreditNote);
+    data.append('purchaseEntry_per', this.edit_array_PurchaseEntry);
+    data.append('dc_per', this.edit_array_DeliveryChelan);
+    data.append('dash_per', this.edit_array_Dashboard);
+    data.append('crmEnquiry_per', this.edit_array_CRMEnquiry);
+    data.append('customer_leads_per', this.edit_array_CustomerLeads);
+    data.append('contract_per', this.edit_array_ContractBiller);
+    data.append('deposit_per', this.edit_array_Deposits);
+    data.append('withdrawal_per', this.edit_array_Withdrawal);
+    data.append('nontrade_purchase_per', this.edit_array_NonTradePurchaseEntry);
+    data.append('salary_per', this.edit_array_TransactionSalary);
+    data.append('pettycash_per', this.edit_array_TransactionPettyCash);
+    data.append('trans_entry_per', this.edit_array_TransactionEntry);
+    data.append('trans_approve_per', this.edit_array_TransactionApproval);
+    data.append('trans_approve_data_center_per', this.edit_array_TransApprovalDataCenter);
+    data.append('license_key_per', this.edit_array_LicenseKey);
+    data.append('vs_provisioning_per', this.edit_array_VSProvisioning);
+    data.append('product_stock_per', this.edit_array_ProductStock);
+    data.append('reseller_prod_price_per', this.edit_array_ResellerProduct);
+    data.append('product_transfer_per', this.edit_array_ProductStockTransferAlet);
+    data.append('stock_pre_approval_per', this.edit_array_StockPreApproval);
+    data.append('did_product_per', this.edit_array_DIDInventoryProduct);
+    data.append('customer_projects_per', this.edit_array_CustomerProject);
+    data.append('recurring_date_per', this.edit_array_RecurringCheckerList);
+    data.append('customer_mst_per', this.edit_array_CustomerMaster);
+    data.append('calendar_template_per', this.edit_array_CalendarTemplate);
+    data.append('guru_details_biller', this.edit_array_GuruDetails);
     //permission end
     
     //single checkbox permission starts
-    // addUser_req.trans_app_dep = this.checkboxCB_TransDepositApproval;
-    // addUser_req.trans_app_comm = this.checkboxCB_TransCommissionApproval;
-    // addUser_req.trans_app_with = this.checkboxCB_TransWithdrawalApproval;
-    // addUser_req.trans_app_pur = this.checkboxCB_TransPurchaseApproval;
-    // addUser_req.trans_app_petty = this.checkboxCB_TransPettyCashApproval;
-    // addUser_req.trans_app_vendor = this.checkboxCB_TransVendorApproval;
-    // addUser_req.trans_app_inv = this.checkboxCB_TransInvoiceApproval;
-    // addUser_req.trans_app_quot = this.checkboxCB_TransQuotationFilterApproval;
-    addUser_req.defaults_biller_id = this.BillerID;;
-    // addUser_req.user_auth = this.checkboxCB_Verfication2ds;
-    addUser_req.fin_chk_auth = this.addUserForm1.value.Fihytdf;
-    addUser_req.qr_chk_auth= this.addUserForm1.value.Fihytdf;
-    addUser_req.otp = this.addUserForm1.value.Fihytdf;
-    addUser_req.omni_login_token = this.addUserForm1.value.Fihytdf;
-    addUser_req.carry_forward = this.addUserForm1.value.Fihytdf;
-    addUser_req.is_staff = this.checkboxCB_Staff;
-    addUser_req.probation = this.checkboxCB_InProbation;
-    addUser_req.role_check = this.edit_array_Radio;
-    addUser_req.role_drop = this.role_drop_val;
-    // addUser_req.ind_petty_cash = this.checkboxCB_IndividualPettyCashandFromDate;
-    addUser_req.ind_petty_dt = this.addUserForm7.value.IndividualPettyCashandFromDate_date;
-    
-    //single checkbox permission ends
-    
-    api_req.element_data = addUser_req;
-    this.serverService.sendServer(api_req).subscribe((response: any) => {
-      console.log(response);
-      var add_result = response;
-      console.log("add", add_result);
-      if (response.status == true) {
-
-        $('#addCustomerFormId').modal('hide');
-        iziToast.success({
-          message: "Customer Added successfully",
-          position: 'topRight'
-        });
-
-        
-
+    // data.append('trans_app_dep', this.checkboxCB_TransDepositApproval);
+    // data.append('trans_app_comm', this.checkboxCB_TransCommissionApproval);
+    // data.append('trans_app_with', this.checkboxCB_TransWithdrawalApproval);
+    // data.append('trans_app_pur', this.checkboxCB_TransPurchaseApproval);
+    // data.append('trans_app_petty', this.checkboxCB_TransPettyCashApproval);
+    // data.append('trans_app_vendor', this.checkboxCB_TransVendorApproval);
+    // data.append('trans_app_inv', this.checkboxCB_TransInvoiceApproval);
+    // data.append('trans_app_quot', this.checkboxCB_TransQuotationFilterApproval);
+    data.append('defaults_biller_id', this.BillerID);
+    // data.append('user_auth', this.checkboxCB_Verfication2ds);
+    data.append('fin_chk_auth', this.addUserForm1.value.Fihytdf);
+    data.append('qr_chk_auth', this.addUserForm1.value.Fihytdf);
+    data.append('otp', this.addUserForm1.value.Fihytdf);
+    data.append('omni_login_token', this.addUserForm1.value.Fihytdf);
+    data.append('carry_forward', this.addUserForm1.value.Fihytdf);
+    // data.append('is_staff', this.checkboxCB_Staff);
+    // data.append('probation', this.checkboxCB_InProbation);
+    data.append('role_check', this.edit_array_Radio);
+    data.append('role_drop', this.role_drop_val);
+    // data.append('ind_petty_cash', this.checkboxCB_IndividualPettyCashandFromDate);
+    data.append('ind_petty_dt', this.addUserForm7.value.IndividualPettyCashandFromDate_date);
+   
+    $.ajax({
+      type: 'POST',
+      url: 'admin/user_details_save',
+      cache: false,
+      contentType: false,
+      processData: false,
+      data: data,
+      success: function (result: any) {
+        if (result.status == true) {
+         console.log("success")
+        }
+      },
+      error: function (err: any) {
+        console.log(err);
       }
-      else {
-        iziToast.warning({
-          message: "Customer not updated. Please try again",
-          position: 'topRight'
-        });
-      }
-    });
+    })
+    
+   
   }
   
   Edit_CheckboxValues(data: any, event: any) {

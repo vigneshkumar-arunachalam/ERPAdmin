@@ -31,7 +31,9 @@
                       <th style="display:none;">
                         <span class="userDatatable-title">User Name</span>
                       </th>
-
+                      <th>
+                        <span class="userDatatable-title">S.No</span>
+                      </th>
                       <th>
                         <span class="userDatatable-title">Display Name</span>
                       </th>
@@ -64,26 +66,27 @@
                     <tr *ngFor="let list of user_list; let i = index">
                       <td>
                         <div class="d-flex">
-                            <div class="userDatatable__imgWrapper d-flex align-items-center">
-                                <div class="checkbox-group-wrapper">
-                                    <div class="checkbox-group d-flex">
-                                        <div
-                                            class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
-                                            <input class="checkbox" type="checkbox"
-                                                id="check-grp1-{{i}}"
-                                                (change)="EditCHK(list.userId,$event)">
-                                            <label for="check-grp1-{{i}}"></label>
-                                        </div>
-                                    </div>
+                          <div class="userDatatable__imgWrapper d-flex align-items-center">
+                            <div class="checkbox-group-wrapper">
+                              <div class="checkbox-group d-flex">
+                                <div class="checkbox-theme-default custom-checkbox checkbox-group__single d-flex">
+                                  <input class="checkbox" type="checkbox" id="check-grp1-{{i}}"
+                                    (change)="EditCHK(list.userId,$event)">
+                                  <label for="check-grp1-{{i}}"></label>
                                 </div>
+                              </div>
                             </div>
+                          </div>
 
                         </div>
-                    </td>
+                      </td>
+
                       <td style="display:none;">
                         {{ list.userName }}
                       </td>
-
+                      <td>
+                        <span>{{ i+1}}</span>
+                      </td>
                       <td>
                         <span>{{ list.firstName }}</span>
                       </td>
@@ -142,8 +145,7 @@
                                 </a>
                               </li>
                               <li class="dropdown__item">
-                                <a href="javascript:void(0)" class="remove" title="Edit" 
-                                (click)="EditUserNavigation()">
+                                <a href="javascript:void(0)" class="remove" title="Edit" (click)="EditUserNavigation()">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="feather feather-activity">
@@ -152,14 +154,40 @@
                                   </svg>
                                 </a>
                               </li>
-                              <li class="dropdown__item">
-                                <a href="#" class="view" title="Special Edit" data-toggle="modal"
-                                  data-target="#specialEditCustomerFormId">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-activity">
-                                    <polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon>
-                                  </svg>
+                              <li class="dropdown__item" *ngIf="(this.userEnableDisableStatus=='1')">
+                                <a href="#" class="view" title="Enable Disable" 
+                                  (click)="userEnableDisable(list.userId)" >
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+                                </a>
+                              </li>
+                              <li class="dropdown__item" *ngIf="(this.userEnableDisableStatus=='0')" >
+                                <a href="#" class="view" title="Enable Disable" 
+                                  (click)="userEnableDisable(list.userId)" >
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="red" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+                                </a>
+                              </li>
+
+                              <li class="dropdown__item"  >
+                                <a href="#" class="view" title="password reset" 
+                                  (click)="passwordReset(list.userId)" >
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-power"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg>
+                                </a>
+                              </li>
+                              <li class="dropdown__item"  >
+                                <a href="#" class="view" title="Product Permission" 
+                                data-toggle="modal"
+                                data-target="#ProductPermissionID"
+                                  (click)="ProductPermission(list.userId)" >
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                  height="24" viewBox="0 0 24 24" fill="none"
+                                  stroke="#009688" stroke-width="2"
+                                  stroke-linecap="round" stroke-linejoin="round"
+                                  class="feather feather-check-circle">
+                                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14">
+                                  </path>
+                                  <polyline points="22 4 12 14.01 9 11.01">
+                                  </polyline>
+                              </svg>
                                 </a>
                               </li>
 
@@ -205,3 +233,43 @@
     </div>
   </div>
 </div>
+
+<!----------Modal Pop Up (BEGIN)  for password permission in user management------------------>
+<div class="modal fade" id="ProductPermissionID" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="invoiceAttachModalLongTitle">
+                  Select Category and Product</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form >
+
+
+                    <div class="form-group row">
+                        <label for="temp1" class="col-lg-6 col-form-label">Template Name</label>
+                        <div class="col-lg-6">
+                            <input type="text" class="form-control" formControlName="txt_templateName" id="temp1" />
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary">
+                    Save
+                </button>
+                <button type="button" class="btn btn-dark" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!----------Modal Pop Up (END)  for password permission in user management------------------->
