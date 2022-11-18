@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-header" id="faqhead1">
                         <a href="#" class="btn btn-header-link" data-toggle="collapse" data-target="#faq1"
-                            aria-expanded="true" aria-controls="faq1">S.S.S</a>
+                            aria-expanded="true" aria-controls="faq1">User Details</a>
                     </div>
                     <div id="faq1" class="collapse show" aria-labelledby="faqhead1" data-parent="#faq">
                         <div class="card-body">
@@ -391,15 +391,14 @@
                                             <div class="col-lg-12">
 
                                                 <select id="HRGroupq" class="form-control"
-                                                    aria-label="Default select example"
-                                                    formControlName="HRGroup">
+                                                    aria-label="Default select example" formControlName="HRGroup">
 
                                                     <option value="0">HR Group</option>
 
-                                                    <!-- <option *ngFor="let lis of HRGroupList"
-                                                        value="{{cash.color_code}}">
-                                                        {{cash.color_name}}
-                                                    </option> -->
+                                                    <option *ngFor="let list of HRGroupList"
+                                                        value="{{list.hr_group_id}}">
+                                                        {{list.hr_group_name}}
+                                                    </option>
                                                 </select>
                                             </div>
                                         </div>
@@ -447,7 +446,7 @@
                                         </div>
                                     </div>
 
-                          
+
                                     <div class="col-lg-6">
                                         <div class="form-group row" style="align-items: center;">
 
@@ -549,23 +548,36 @@
                                     <div class="col-lg-12">
                                         <div class="form-group row">
                                             <div class="col-lg-12">
-                                                <label for="signat" class="col-form-label"> Signature </label>
+                                                <label for="signat" class="col-form-label"> Signature: </label>
                                             </div>
                                             <!-- <div class="row"> -->
-                                                <div class="col-lg-6" *ngFor="let flist of billerDetailsList;let j=index">
-                                                    <div class="form-group row">
+                                            <div class="col-lg-6" *ngFor="let flist of billerDetailsList;let j=index">
+                                                <div class="form-group row">
 
-                                                        <div class="col-lg-12">
-                                                            <label for="file_ids{{j}}" class="col-form-label">
-                                                                {{flist.billerName}}</label>
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                            <input type="file" class="form-control" id="file_ids{{j}}"
-                                                                formControlName="Signature" />
-
-                                                        </div>
+                                                    <div class="col-lg-12">
+                                                        <label for="file_ids{{j}}" class="col-form-label"
+                                                            style="color:#c30;font-weight: 400;">
+                                                            {{flist.billerName}}</label>
                                                     </div>
+                                                    <!-- <div>
+                                                        <input required type="file" name="uploaded-img" id="uploaded-img"
+                                                            formControlName="contract_file" 
+                                                            (change)="showPreviewImage(flist.billerId,$event)">
+                                                    </div> -->
+                                                      <div class="col-lg-12">
+                                                        <input required type="file" class="form-control" 
+                                                        name="uploaded-img" id="uploaded-img{{j}}"
+                                                            formControlName="Signature"
+                                                            (change)="showPreviewImage(flist.billerId,$event)" />
+
+                                                    </div>
+                                                    <!-- <div class="col-lg-12">
+                                                        <input required type="file" class="form-control" id="file_ids{{j}}"
+                                                            formControlName="Signature"  />
+
+                                                    </div> -->
                                                 </div>
+                                            </div>
 
                                             <!-- </div> -->
                                         </div>
@@ -580,7 +592,7 @@
                 <div class="card">
                     <div class="card-header" id="faqhead2">
                         <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq2"
-                            aria-expanded="true" aria-controls="faq2">S.S.S</a>
+                            aria-expanded="true" aria-controls="faq2">Salary Details</a>
                     </div>
 
                     <div id="faq2" class="collapse" aria-labelledby="faqhead2" data-parent="#faq">
@@ -609,32 +621,43 @@
 
                                                 </div>
                                                 <div class="table-responsive">
-                                                    <table class="add-contact-table-section">
-                                                        <thead>
-                                                            <tr class="userDatatable-header">
-                                                                <th> <span
-                                                                        class="userDatatable-title">Designation</span>
-                                                                </th>
-                                                                <th><span class="userDatatable-title">From Date</span>
-                                                                </th>
-                                                                <th><span class="userDatatable-title">To Date</span>
-                                                                </th>
-                                                                <th><span class="userDatatable-title"> Salary Amt</span>
-                                                                </th>
-                                                                <th><span class="userDatatable-title">Per/Day Amt</span>
-                                                                </th>
-                                                                <th><span class="userDatatable-title">Employer
-                                                                        Amt</span></th>
-                                                                <th><span class="userDatatable-title">Employee
-                                                                        Amt</span></th>
-                                                                <th><span class="userDatatable-title">Contribution
-                                                                        1</span></th>
-                                                                <th><span class="userDatatable-title">Contribution
-                                                                        2</span></th>
 
-                                                                <th style="width:20px">
-                                                                    <span class="userDatatable-title">Action</span>
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>
+                                                                    Designation
                                                                 </th>
+                                                                <th>
+                                                                    From_Date
+                                                                </th>
+                                                                <th>
+                                                                    To_Date
+                                                                </th>
+                                                                <th>
+                                                                    Salary_Amt
+                                                                </th>
+                                                                <th>
+                                                                    Per/Day_Amt
+                                                                </th>
+                                                                <th>
+                                                                    Employer_Amt
+                                                                </th>
+                                                                <th>
+                                                                    Employee_Amt
+                                                                </th>
+                                                                <th>
+                                                                    Contribution1
+                                                                </th>
+
+                                                                <th>
+                                                                    Contribution2
+                                                                </th>
+
+                                                                <th>
+                                                                    Action
+                                                                </th>
+
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -643,11 +666,11 @@
                                                             <tr *ngFor="let address of addressControls.controls; let i = index;"
                                                                 [formGroupName]="i">
                                                                 <td>
-                                                                    <div class="userDatatable-content">
+                                                                    <div>
                                                                         <div>
                                                                             <div class="form-group ">
 
-                                                                                <div>
+                                                                                <div style="width:250px ;">
                                                                                     <select name="enqFormValue"
                                                                                         id="cmp_name"
                                                                                         class="form-control"
@@ -668,12 +691,12 @@
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div class="userDatatable-content">
+                                                                    <div>
 
                                                                         <div>
                                                                             <div class="form-group ">
 
-                                                                                <div>
+                                                                                <div style="width:100px ;">
                                                                                     <input type="date"
                                                                                         class="form-control"
                                                                                         formControlName="MS_FromDate" />
@@ -684,11 +707,11 @@
 
                                                                 </td>
                                                                 <td>
-                                                                    <div class="userDatatable-content">
+                                                                    <div>
                                                                         <div>
                                                                             <div class="form-group ">
 
-                                                                                <div>
+                                                                                <div style="width:100px ;">
                                                                                     <input type="date"
                                                                                         class="form-control"
                                                                                         formControlName="MS_ToDate" />
@@ -699,12 +722,12 @@
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div class="userDatatable-content">
+                                                                    <div>
 
                                                                         <div>
                                                                             <div class="form-group ">
 
-                                                                                <div>
+                                                                                <div style="width:150px ;">
                                                                                     <input type="text"
                                                                                         class="form-control"
                                                                                         formControlName="MS_salaryAmt" />
@@ -715,12 +738,12 @@
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div class="userDatatable-content">
+                                                                    <div>
 
                                                                         <div>
                                                                             <div class="form-group ">
 
-                                                                                <div>
+                                                                                <div style="width:150px ;">
                                                                                     <input type="text"
                                                                                         class="form-control"
                                                                                         formControlName="MS_perDayAmt" />
@@ -731,11 +754,11 @@
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div class="userDatatable-content">
+                                                                    <div>
                                                                         <div>
                                                                             <div class="form-group ">
 
-                                                                                <div>
+                                                                                <div style="width:150px ;">
                                                                                     <input type="text"
                                                                                         class="form-control"
                                                                                         formControlName="MS_employerAmt" />
@@ -745,11 +768,11 @@
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div class="userDatatable-content">
+                                                                    <div>
                                                                         <div>
                                                                             <div class="form-group ">
 
-                                                                                <div>
+                                                                                <div style="width:150px ;">
                                                                                     <input type="text"
                                                                                         class="form-control"
                                                                                         formControlName="MS_employeeAmt" />
@@ -759,12 +782,12 @@
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div class="userDatatable-content">
+                                                                    <div>
 
                                                                         <div>
                                                                             <div class="form-group ">
 
-                                                                                <div>
+                                                                                <div style="width:100px ;">
                                                                                     <input type="text"
                                                                                         class="form-control"
                                                                                         formControlName="MS_contribution1" />
@@ -774,11 +797,11 @@
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    <div class="userDatatable-content">
+                                                                    <div>
 
                                                                         <div class="form-group ">
 
-                                                                            <div>
+                                                                            <div style="width:100px ;">
                                                                                 <input type="text" class="form-control"
                                                                                     formControlName="MS_contribution2" />
                                                                             </div>
@@ -786,7 +809,7 @@
                                                                     </div>
                                                                 </td>
                                                                 <td *ngIf="i>0">
-                                                                    <div class="userDatatable-content ">
+                                                                    <div>
                                                                         <button type="button"
                                                                             class="btn btn-danger btn-sm"
                                                                             (click)=" removeAddress(i)">X</button>
@@ -826,17 +849,17 @@
                 <div class="card">
                     <div class="card-header" id="faqhead3">
                         <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq3"
-                            aria-expanded="true" aria-controls="faq3">S.S.S</a>
+                            aria-expanded="true" aria-controls="faq3">Common Permission</a>
                     </div>
 
                     <div id="faq3" class="collapse" aria-labelledby="faqhead3" data-parent="#faq">
                         <div class="card-body">
                             <form [formGroup]="addUserForm3" class="row">
                                 <!-- <div class=""> -->
-                                    <div class="col-lg-6" *ngFor="let item of dynamicCheckboxwithKey;let i=index">
-                                        <div class="row">
-                                            <label class="col-lg-8">{{item.name }}</label>
-                                        
+                                <div class="col-lg-6" *ngFor="let item of dynamicCheckboxwithKey;let i=index">
+                                    <div class="row">
+                                        <label class="col-lg-8">{{item.name }}</label>
+
                                         <div class="col-lg-4">
                                             <input class="switch" type="checkbox" formControlName="oneInputControl"
                                                 id="{{ item.id }}" [value]="item.id"
@@ -844,7 +867,7 @@
 
                                         </div>
                                     </div>
-                                    </div>
+                                </div>
                                 <!-- </div> -->
                             </form>
 
@@ -854,7 +877,7 @@
                 <div class="card">
                     <div class="card-header" id="faqhead4">
                         <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq4"
-                            aria-expanded="true" aria-controls="faq3">S.S.S</a>
+                            aria-expanded="true" aria-controls="faq3">Permission With Biller</a>
                     </div>
 
                     <div id="faq4" class="collapse" aria-labelledby="faqhead4" data-parent="#faq">
@@ -899,7 +922,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Transaction_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of Transaction_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -945,7 +968,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionApproval_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of TransactionApproval_Right" cdkDrag>
                                                         {{item.name}}
@@ -993,7 +1016,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionDeposit_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of TransactionDeposit_Right" cdkDrag>
                                                         {{item.name}}
@@ -1029,7 +1052,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionCommission_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of TransactionCommission_Right" cdkDrag>
                                                         {{item.name}}
@@ -1077,7 +1100,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionWithdrawal_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of TransactionWithdrawal_Right" cdkDrag>
                                                         {{item.name}}
@@ -1111,7 +1134,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionPurchaseEntry_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  TransactionPurchaseEntry_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -1158,7 +1181,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Transactionsalary_Right "
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of Transactionsalary_Right " cdkDrag>
                                                         {{item.name}}
@@ -1206,9 +1229,9 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionPettyCash_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
-                                                        *ngFor="let item of TransactionPettyCash_Right" cdkDrag>{{item}}
+                                                        *ngFor="let item of TransactionPettyCash_Right" cdkDrag>{{item.name}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -1240,7 +1263,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionVendorOrder_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  TransactionVendorOrder_Right" cdkDrag>
                                                         {{item.name}}
@@ -1274,7 +1297,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionInvoicePayment_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  TransactionInvoicePayment_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -1307,7 +1330,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionOthers_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  TransactionOthers_Right" cdkDrag>
                                                         {{item.name}}
@@ -1369,7 +1392,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Deposits_Right" class="example-list"
-                                                    (cdkDropListDropped)="drop($event)">
+                                                    (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  Deposits_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1399,7 +1422,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Issues_Right" class="example-list"
-                                                    (cdkDropListDropped)="drop($event)">
+                                                    (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  Issues_Right" cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
@@ -1443,7 +1466,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Customer_Right" class="example-list"
-                                                    (cdkDropListDropped)="drop($event)">
+                                                    (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  Customer_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1487,7 +1510,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CustomerContract_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  CustomerContract_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -1519,7 +1542,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CustomerNameMgmt_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  CustomerNameMgmt_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -1553,7 +1576,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ContractClassification_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  ContractClassification_Right" cdkDrag>
                                                         {{item.name}}
@@ -1600,7 +1623,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CustomerLeads_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  CustomerLeads_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1631,7 +1654,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="c3xCRMAdmin_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of c3xCRMAdmin_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1662,7 +1685,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="MrvoipPackage_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  MrvoipPackage_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1706,7 +1729,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CRMEnquiry_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:900px'>
                                                     <div class="example-box" *ngFor="let item of  CRMEnquiry_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1738,7 +1761,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionOthers_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  TransactionOthers_Right" cdkDrag>
                                                         {{item.name}}
@@ -1785,7 +1808,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionOthers_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  TransactionOthers_Right" cdkDrag>
                                                         {{item.name}}
@@ -1819,7 +1842,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionOthers_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  TransactionOthers_Right" cdkDrag>
                                                         {{item.name}}
@@ -1853,7 +1876,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ProductCategory_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of    ProductCategory_Right" cdkDrag>
                                                         {{item.name}}
@@ -1887,7 +1910,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ResellerProductCategory_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of   ResellerProductCategory_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -1918,7 +1941,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Product_Right" class="example-list"
-                                                    (cdkDropListDropped)="drop($event)">
+                                                    (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  Product_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1962,7 +1985,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ResellerProduct_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  ResellerProduct_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2006,7 +2029,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ProductStock_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of   ProductStock_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2050,7 +2073,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DIDInventory_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  DIDInventory_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2066,7 +2089,7 @@
                 <div class="card">
                     <div class="card-header" id="faqhead5">
                         <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq5"
-                            aria-expanded="true" aria-controls="faq3">S.S.S</a>
+                            aria-expanded="true" aria-controls="faq3">Common Biller Permission</a>
                     </div>
 
                     <div id="faq5" class="collapse" aria-labelledby="faqhead5" data-parent="#faq">
@@ -2097,7 +2120,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="API3cxCreditReport_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of API3cxCreditReport_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -2131,7 +2154,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="RecurringDateList_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of RecurringDateList_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -2183,7 +2206,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="LicenseCategory_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  LicenseCategory_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2215,7 +2238,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DIDInventory_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  DIDInventory_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2260,7 +2283,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="LicenseKey_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:800px'>
                                                     <div class="example-box" *ngFor="let item of  LicenseKey_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2307,7 +2330,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]=" CustomerProjectsDetails_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:400px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of   CustomerProjectsDetails_Right" cdkDrag>
                                                         {{item.name}}
@@ -2341,7 +2364,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="VendorProduct_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  VendorProduct_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2372,7 +2395,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Courier_Right" class="example-list"
-                                                    (cdkDropListDropped)="drop($event)">
+                                                    (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  Courier_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2418,7 +2441,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="PasswordMgtDetails_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  PasswordMgtDetails_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -2464,7 +2487,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="PurchaseEntry_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  PurchaseEntry_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2511,7 +2534,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="NonTradePurchaseEntry_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  NonTradePurchaseEntry_Right" cdkDrag>
                                                         {{item.name}}
@@ -2545,7 +2568,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="StockEntry_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  StockEntry_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2577,7 +2600,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="SalaryEntry_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  SalaryEntry_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2623,7 +2646,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Billing_Right" class="example-list"
-                                                    (cdkDropListDropped)="drop($event)">
+                                                    (cdkDropListDropped)="drop($event)"  style='height:1600px'>
                                                     <div class="example-box" *ngFor="let item of  Billing_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2633,17 +2656,17 @@
 
                                 </div>
                                 <div class="col-lg-12" style="display:inline-flex;">
-                                    <label for="FromDtBilling" class="col-lg-4 col-form-label"> From Dt</label>
+                                    <label for="FromDtBilling" class="col-lg-2 col-form-label"> From Dt</label>
                                     <input type="text" class="form-control" formControlName="billingFromDt"
                                         id="FromDtBilling" />
 
 
-                                    <label for="ToDtBilling" class="col-lg-4 col-form-label"> To Dt</label>
+                                    <label for="ToDtBilling" class="col-lg-2 col-form-label"> To Dt</label>
                                     <input type="text" class="form-control" formControlName="billingToDt"
                                         id="ToDtBilling" />
 
 
-                                    <label for="FilterMonthBilling" class="col-lg-4 col-form-label"> Filter
+                                    <label for="FilterMonthBilling" class="col-lg-2 col-form-label"> Filter
                                         Month</label>
                                     <input type="text" class="form-control" formControlName="billingFilterMonth"
                                         id="FilterMonthBilling" />
@@ -2663,7 +2686,7 @@
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
                                                     <div class="example-box" *ngFor="let item of   ProfamaInvoice_Left"
-                                                        cdkDrag>{{item}}</div>
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
 
@@ -2671,7 +2694,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ProfamaInvoice_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:800px'>
                                                     <div class="example-box" *ngFor="let item of  ProfamaInvoice_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2715,7 +2738,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Quotation_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  Quotation_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2775,7 +2798,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="QuotationNew_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:500px'>
                                                     <div class="example-box" *ngFor="let item of  QuotationNew_Right"
                                                         cdkDrag>
                                                         {{item.name}}</div>
@@ -2824,7 +2847,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="PurchaseOrder_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  PurchaseOrder_Right"
                                                         cdkDrag>{{item.name}}
                                                     </div>
@@ -2870,7 +2893,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CreditNote_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  CreditNote_Right"
                                                         cdkDrag>{{item.name}}
                                                     </div>
@@ -2903,7 +2926,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DeliveryChallan_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  DeliveryChallan_Right"
                                                         cdkDrag>
                                                         {{item.name}}</div>
@@ -2951,7 +2974,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DeliveryOrder_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  DeliveryOrder_Right"
                                                         cdkDrag>
                                                         {{item.name}}</div>
@@ -2997,7 +3020,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="VSProvisioning_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  VSProvisioning_Right"
                                                         cdkDrag>
                                                         {{item.name}}</div>
@@ -3030,7 +3053,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="RateFileUpload_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  RateFileUpload_Right"
                                                         cdkDrag>
                                                         {{item.name}}</div>
@@ -3063,7 +3086,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CouponDetails_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  CouponDetails_Right"
                                                         cdkDrag>
                                                         {{item.name}}</div>
@@ -3098,7 +3121,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CalncallShoppingMaster_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  CalncallShoppingMaster_Right" cdkDrag>
                                                         {{item.name}}
@@ -3133,7 +3156,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ResellerShoppingMaster_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  ResellerShoppingMaster_Right" cdkDrag>
                                                         {{item.name}}
@@ -3168,7 +3191,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DocumentPreparationlist_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  DocumentPreparationlist_Right" cdkDrag>
                                                         {{item.name}}
@@ -3203,7 +3226,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="PaymentLinkAccessList_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  PaymentLinkAccessList_Right" cdkDrag>
                                                         {{item.name}}
@@ -3237,7 +3260,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DataCenterRequest_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  DataCenterRequest_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -3271,7 +3294,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DataCenterMasters_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  DataCenterMasters_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -3305,7 +3328,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DynamicExcel_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  DynamicExcel_Right"
                                                         cdkDrag>
                                                         {{item.name}}</div>
@@ -3338,7 +3361,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="PriceList_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)">
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  PriceList_Right"
                                                         cdkDrag>{{item.name}}
                                                     </div>
@@ -3371,7 +3394,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CallLogs_Right" class="example-list"
-                                                    (cdkDropListDropped)="drop($event)">
+                                                    (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box" *ngFor="let item of  CallLogs_Right"
                                                         cdkDrag>{{item.name}}
                                                     </div>
@@ -3389,7 +3412,7 @@
                 <div class="card">
                     <div class="card-header" id="faqhead6">
                         <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq6"
-                            aria-expanded="true" aria-controls="faq3">S.S.S</a>
+                            aria-expanded="true" aria-controls="faq3">Defualt Biller </a>
                     </div>
 
                     <div id="faq6" class="collapse" aria-labelledby="faqhead6" data-parent="#faq">
@@ -3466,7 +3489,7 @@
             </div>
         </div>
     </div>
-
-    <button type="submit" class="btn btn-primary" (click)="save()">Submit</button>
-
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" (click)="save()">Submit</button>
+    </div>
 </div>

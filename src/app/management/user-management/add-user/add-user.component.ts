@@ -12,6 +12,7 @@ declare var $:any;
 })
 export class AddUserComponent implements OnInit {
 //Permission -checkbox-Quotation New
+role_drop_val:any ;
 groupSelectCommonId_quotation_per: any;
 checkbox_value_quotation_per: any;
 edit_array_quotation_per: any = [];
@@ -731,6 +732,7 @@ edit_array_GuruDetails: any = [];
     role_drop_arr.push(str);
   });
 
+  this.role_drop_val=role_drop_arr;
 
   }
   checkboxList: any;
@@ -752,10 +754,17 @@ edit_array_GuruDetails: any = [];
   rowtest:any;
   BillerID:any;
   dynamicCheckboxwithKey:any;
+  HRGroupList:any;
+  file: File;
+
  //checkbox
  groupSelectCheckCommonId :any;
  Checkbox_value:any;
  edit_array_Check: any = [];
+ edit_array_Radio: any = [];
+ //file
+ signature_billerid: any = [];
+
 
   addUserForm1: FormGroup;
   addUserForm2: FormGroup;
@@ -1011,8 +1020,8 @@ edit_array_GuruDetails: any = [];
       'confirmPasswordDetails': new FormControl('', [Validators.required, Validators.minLength(6)]),
       'department': new FormControl('', [Validators.required]),
       'designation': new FormControl('', [Validators.required]),
-      'FIN': new FormControl('', [Validators.required]),
-      'bankAccountNO': new FormControl('', [Validators.required]),
+      'FIN': new FormControl,
+      'bankAccountNO': new FormControl,
       'address': new FormControl('', [Validators.required]),
       'dob': new FormControl,
       'age': new FormControl,
@@ -1092,32 +1101,7 @@ edit_array_GuruDetails: any = [];
     this.addUserForm8 = new FormGroup({
           'DashBoard': new FormControl,
     });
-    this.addUserFormTableData = new FormGroup({
-      'billerAll_Cal4CareSG': new FormControl,
-      'billerAll_MARSHAL': new FormControl,
-      'billerAll_CC': new FormControl,
-      'billerAll_DCSG': new FormControl,
-      'billerAll_DCCBE': new FormControl,
-      'billerAll_Cal4CareJB': new FormControl,
-      'billerAll_CALNCALL': new FormControl,
-      'billerAll_ITCare': new FormControl,
-      'billerAll_Seatech': new FormControl,
-      'billerAll_Cal4CareJP': new FormControl,
-      'billerAll_CCLOUD': new FormControl,
-      'billerAll_HelpDeskGuru': new FormControl,
-      'billerAll_Cal4careTH': new FormControl,
-      'billerAll_1MSBMY': new FormControl,
-      'billerAll_MRVOIP': new FormControl,
-      'billerAll_Mconnects': new FormControl,
-      'billerAll_CloudNippon': new FormControl,
-      'billerAll_CCLEAR': new FormControl,
-      'billerAll_C4TEL': new FormControl,
-      'billerAll_Cal4careUSA': new FormControl,
-      'billerAll_Virditech': new FormControl,
-      'billerAll_Cloudbharat': new FormControl,
-      'billerAll_connectviet': new FormControl,
 
-    });
     this.addressControls.controls.forEach((elt, index) => {
       this.test[index] = true;
     });
@@ -1155,6 +1139,19 @@ edit_array_GuruDetails: any = [];
       MS_contribution1: '',
       MS_contribution2: '',
     });
+
+  }
+  showPreviewImage(billerid:any,event: any) {
+    this.signature_billerid=billerid;
+    console.log("this.signature_billerid",this.signature_billerid)
+    this.file = event.target.files[0];
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
+        // this.localUrl = event.target.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
 
   }
   handleCheckboxChange(event: any) {
@@ -1878,6 +1875,8 @@ EditCHK_GuruDetails(data: any, event: any) {
         this.userDetailsList = response.user_det;
         this.billerDetailsList = response.biller_det;
         this.pettyCashColorList = response.petty_cash_color_arr;
+        this.HRGroupList=response.user_hr
+
       }
       else {
 
@@ -1900,7 +1899,7 @@ EditCHK_GuruDetails(data: any, event: any) {
     api_req.api_url = "customer/save";
     api_req.api_type = "web";
     api_req.access_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJhdWQiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJpYXQiOjE2NTQ2NjQ0MzksIm5iZiI6MTY1NDY2NDQzOSwiZXhwIjoxNjU0NjgyNDM5LCJhY2Nlc3NfZGF0YSI6eyJ0b2tlbl9hY2Nlc3NJZCI6IjIiLCJ0b2tlbl9hY2Nlc3NOYW1lIjoidGVzdGluZzA0MDYyMDIyIiwidG9rZW5fYWNjZXNzVHlwZSI6IjIifX0.NaymQDSiON2R3tKICGNpj6hsQfg9DGwEcZzrJcvsqbI";
-    addUser_req.action = "customer_save";
+    addUser_req.action = "admin/user_details_save";
     addUser_req.userId = localStorage.getItem('user_id');
     addUser_req.userName = this.addUserForm1.value.userName;
     addUser_req.password = this.addUserForm1.value.password;
@@ -2040,6 +2039,8 @@ EditCHK_GuruDetails(data: any, event: any) {
     addUser_req.carry_forward = this.addUserForm1.value.Fihytdf;
     addUser_req.is_staff = this.checkboxCB_Staff;
     addUser_req.probation = this.checkboxCB_InProbation;
+    addUser_req.role_check = this.edit_array_Radio;
+    addUser_req.role_drop = this.role_drop_val;
     // addUser_req.ind_petty_cash = this.checkboxCB_IndividualPettyCashandFromDate;
     addUser_req.ind_petty_dt = this.addUserForm7.value.IndividualPettyCashandFromDate_date;
     
