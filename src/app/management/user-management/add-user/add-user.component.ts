@@ -1914,6 +1914,7 @@ EditCHK_GuruDetails(data: any, event: any) {
   save(){
     console.log("this.files_Signature;",this.files_Signature)
     console.log("this.signature_billerid;",this.signature_billerid)
+    console.log("this.addUserForm2.value.addresses",this.addUserForm2.value.addresses)
     var data = new FormData();
    
 
@@ -1932,7 +1933,12 @@ EditCHK_GuruDetails(data: any, event: any) {
     data.append('emailNotification', this.addUserForm1.value.emailNotif);
     data.append('emailId', this.addUserForm1.value.emailID);
     data.append('signatureFilename', this.addUserForm1.value.Signature);
-    data.append('monthlySalary', this.addUserForm2.value.addresses);
+      // data.append("salaryDetails[]", this.addressControls);
+      // console.log("this.addressControls",this.addressControls)
+      
+      data.append('monthlySalary', JSON.stringify(this.addUserForm2.value.addresses));
+    
+   
     data.append('main_contactus', this.addUserForm1.value.cmsContactPhone);
     data.append('alternate_contactus', this.addUserForm1.value.cmsAlternativeContactPhone);
     data.append('alternate_support_mail', this.addUserForm1.value.cmsAlternativeSupportMail);
@@ -1942,7 +1948,7 @@ EditCHK_GuruDetails(data: any, event: any) {
     data.append('billerSignature_billerId', this.signature_billerid);
     data.append('alternate_website', this.addUserForm1.value.cmsAlternativeSupportWebsite);
     data.append('firstName_salary', this.addUserForm1.value.Fihytdf);
-    data.append('monthly_salary', this.addUserForm1.value.Fihytdf);
+
     data.append('per_day_salary', this.addUserForm1.value.Fihytdf);
     data.append('pf_status', this.addUserForm1.value.Fihytdf);
     data.append('callEmailId', this.addUserForm1.value.Fihytdf);

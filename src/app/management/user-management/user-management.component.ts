@@ -98,7 +98,7 @@ export class UserManagementComponent implements OnInit {
       console.log("qoutation list", response);
       if (response) {
         this.user_list = response.user_list;
-
+        
 
         console.log("this.user_list", this.user_list)
         this.paginationData = this.serverService.pagination({ 'offset': response.off_set, 'total': response.total_cnt, 'page_limit': this.pageLimit });
@@ -131,8 +131,59 @@ export class UserManagementComponent implements OnInit {
 
     // $('#addNewQuotationFormId').modal('hide');
   }
-  EditUserNavigation() {
+  EditUserNavigation(userid:any) {
     this.router.navigate(['/edituser']);
+
+    // console.log("e_formID",this.editNewQuotationPopUpForm.value.e_enquiryFrom_addPopUP)
+    // console.log("e_subject",this.editNewQuotationPopUpForm.value.e_enquirySubject_addPopUP)
+    // console.log("e_valid",this.editNewQuotationPopUpForm.value.e_quotationValidity_addPopUP)
+    // console.log("e_version",this.editNewQuotationPopUpForm.value.e_version_enqForm_addPopUP)
+    var userID = userid;
+    // var enq_formID = this.editNewQuotationPopUpForm.value.e_enquiryFrom_addPopUP;
+    // var enq_subject = this.editNewQuotationPopUpForm.value.e_enquirySubject_addPopUP;
+    // var enq_quotation_valid_day = this.editNewQuotationPopUpForm.value.e_quotationValidity_addPopUP;
+    // var enq_duplicate_version = this.editNewQuotationPopUpForm.value.e_version_enqForm_addPopUP;
+
+    this.router.navigate(['/edituser'], { queryParams: { e_userid: userID, 
+   } });
+  }
+  delete(userid: any){
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+  
+        let api_req: any = new Object();
+        let api_delete: any = new Object();
+        api_req.moduleType = "admin";
+        api_req.api_url = "admin/user_delete"
+        api_req.api_type = "web";
+        api_req.access_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJhdWQiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJpYXQiOjE2NTQ2NjQ0MzksIm5iZiI6MTY1NDY2NDQzOSwiZXhwIjoxNjU0NjgyNDM5LCJhY2Nlc3NfZGF0YSI6eyJ0b2tlbl9hY2Nlc3NJZCI6IjIiLCJ0b2tlbl9hY2Nlc3NOYW1lIjoidGVzdGluZzA0MDYyMDIyIiwidG9rZW5fYWNjZXNzVHlwZSI6IjIifX0.NaymQDSiON2R3tKICGNpj6hsQfg9DGwEcZzrJcvsqbI";
+        api_delete.action = "user_delete";
+        api_delete.user_id = userid;
+        api_req.element_data = api_delete;
+        this.serverService.sendServer(api_req).subscribe((response: any) => {
+          if (response.status == true) {
+    
+            iziToast.success({
+              message: "User deleted successfully",
+              position: 'topRight'
+            });
+            this.userList({});
+          }
+        }),
+          (error: any) => {
+            console.log(error);
+          };
+      }
+    })
+
   }
   userEnableDisable(userid: any) {
     let api_req: any = new Object();
