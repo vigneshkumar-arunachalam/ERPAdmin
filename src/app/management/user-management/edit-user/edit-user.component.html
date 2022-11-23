@@ -319,13 +319,15 @@
                                             <div class="col-lg-12">
 
                                                 <select id="HRGroupq" class="form-control"
-                                                    aria-label="Default select example" formControlName="HRGroup">
+                                                    aria-label="Default select example" formControlName="e_HRGroup">
+                                                    <!-- <option [ngValue]="null" selected disabled>Select HR Group </option> -->
 
                                                     <option value="0">HR Group</option>
 
-                                                    <option *ngFor="let list of HRGroupList"
-                                                        value="{{list.hr_group_id}}">
-                                                        {{list.hr_group_name}}
+                                                    <option *ngFor="let listhr of edit_userHRList"
+                                                        value="{{listhr.hr_group_id
+                                                        }}">
+                                                        {{listhr.hr_group_name}}
                                                     </option>
                                                 </select>
                                             </div>
@@ -341,13 +343,13 @@
 
                                                 <select id="pettycashcolorcodeq" class="form-control"
                                                     aria-label="Default select example"
-                                                    formControlName="pettyCashColorCode">
-
+                                                    formControlName="e_pettyCashColorCode">
+                                                    <!-- <option [ngValue]="null" selected disabled>Select Petty Cash Color </option> -->
                                                     <option value="0">Select Petty Cash Color</option>
 
-                                                    <option *ngFor="let cash of pettyCashColorList"
-                                                        value="{{cash.color_code}}">
-                                                        {{cash.color_name}}
+                                                    <option *ngFor="let cashp of edit_pettyCashColorArrList"
+                                                        value="{{cashp.color_code}}">
+                                                        {{cashp.color_name}}
                                                     </option>
                                                 </select>
                                             </div>
@@ -356,18 +358,19 @@
                                     <div class="col-lg-6">
                                         <div class="form-group row">
                                             <div class="col-lg-12">
-                                                <label for="pettycash" class="col-form-label"> Permissions As </label>
+                                                <label for="per" class="col-form-label"> Permissions As </label>
                                             </div>
                                             <div class="col-lg-12">
 
-                                                <select id="pettycash" class="form-control"
-                                                    aria-label="Default select example" formControlName="permissionAs">
+                                                <select id="per" class="form-control"
+                                                    aria-label="Default select example" formControlName="e_permissionAs">
+                                                    <!-- <option [ngValue]="null" selected disabled>Select Permissions </option> -->
 
                                                     <option value="0">All</option>
 
-                                                    <option *ngFor="let perm of userDetailsList"
-                                                        value="{{perm.userId}}">
-                                                        {{perm.firstName}}
+                                                    <option *ngFor="let perm1 of edit_userDetailsList"
+                                                        value="{{perm1.userId}}">
+                                                        {{perm1.firstName}}
                                                     </option>
                                                 </select>
                                             </div>
@@ -473,44 +476,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12">
-                                        <div class="form-group row">
-                                            <div class="col-lg-12">
-                                                <label for="signat" class="col-form-label"> Signature: </label>
-                                            </div>
-                                            <!-- <div class="row"> -->
-                                            <div class="col-lg-6" *ngFor="let flist of billerDetailsList;let j=index">
-                                                <div class="form-group row">
-
-                                                    <div class="col-lg-12">
-                                                        <label for="file_ids{{j}}" class="col-form-label"
-                                                            style="color:#c30;font-weight: 400;">
-                                                            {{flist.billerName}}</label>
-                                                    </div>
-                                                    <!-- <div>
-                                                        <input required type="file" name="uploaded-img" id="uploaded-img"
-                                                            formControlName="contract_file" 
-                                                            (change)="showPreviewImage(flist.billerId,$event)">
-                                                    </div> -->
-                                                      <div class="col-lg-12">
-                                                        <input required type="file" class="form-control" 
-                                                        name="uploaded-img" id="uploaded-img{{j}}"
-                                                            formControlName="Signature"
-                                                            (change)="showPreviewImage(flist.billerId,$event)" />
-
-                                                    </div>
-                                                    <!-- <div class="col-lg-12">
-                                                        <input required type="file" class="form-control" id="file_ids{{j}}"
-                                                            formControlName="Signature"  />
-
-                                                    </div> -->
-                                                </div>
-                                            </div>
-
-                                            <!-- </div> -->
-                                        </div>
-                                    </div>
-
+                              
                                 </div>
 
                             </form>
@@ -607,7 +573,7 @@
                                                                                             selected disabled>Select
                                                                                             Designation</option>
                                                                                         <option
-                                                                                            *ngFor="let des of designationDetailsList"
+                                                                                            *ngFor="let des of Designation_SalaryDetailsList"
                                                                                             value="{{des.designation_type_id}}">
                                                                                             {{des.designation_type_name}}
                                                                                         </option>
@@ -783,26 +749,26 @@
                     <div id="faq3" class="collapse" aria-labelledby="faqhead3" data-parent="#faq">
                         <div class="card-body">
                             <form [formGroup]="addUserForm3" class="row">
-                                <!-- <div class=""> -->
+                              
                                 <div class="col-lg-6" *ngFor="let item of dynamicCheckboxwithKey;let i=index">
                                     <div class="row">
                                         <label class="col-lg-8">{{item.name }}</label>
 
-                                        <!-- <input type="checkbox" value="{{item.inv_checked}}"
-                                        checked="{{item.inv_checked == 'true' ? 'checked' : ''}}"
-                                        (change)="InvoiceCHK(item.billId,$event)">    checked="{{item.id== 'true' ? 'checked' : ''}}" 
-                                    checked="{{permissionRole.indexOf(item.id)!=-1 ? 'checked':''}}"  -->
+                                       
                                         <div class="col-lg-4">
                                             <input class="switch" type="checkbox" formControlName="oneInputControl"
                                                 id="{{ item.id }}" [value]="item.id"
-                                               
+                                                checked="{{item.selected=='true'?'checked':''}}"
+                                                checked="{{item.selected=='true'}}" 
+                                                checked="{{item.selected=='false'}}" 
                                                 (change)="Edit_CheckboxValues(item.id,$event)"
                                                  >
 
                                         </div>
+                                        
                                     </div>
                                 </div>
-                                <!-- </div> -->
+                            
                             </form>
 
                         </div>
@@ -2109,7 +2075,7 @@
                                         <input type="checkbox" class="switch"
                                             formControlName="IndividualPettyCashFromDate_TextBox"
                                             (change)="CB_IndividualPettyCashFromDate($event)" />
-                                        <input type="date" class="form-control"
+                                        <input type="date" class="form-control col-lg-4 ml-4"
                                             formControlName="IndividualPettyCashFromDate_Date" />
 
                                     </div>
@@ -2552,13 +2518,14 @@
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
-                                                (change)="EditCHK_BillerAll(dd.billerId,$event)">
+                                                (change)="EditCHK_BillerAll(dd.billerId,$event)" 
+                                           >
                                         </span>
                                     </div>
                                 </div>
 
-
-
+<!-- 
+                                checked="{{this.checkedval(dd.billerId) == 'true' ? 'checked' : ''}}" -->
                                 <!-- -------------	Billing-starts------------------------------------------------ -->
                                 <div>
                                     <label> Billing</label>
@@ -2590,7 +2557,7 @@
 
                                 </div>
                                 <div class="col-lg-12" style="display:inline-flex;">
-                                    <label for="FromDtBilling" class="col-lg-2 col-form-label"> From Dt</label>
+                                    <label for="FromDtBilling" class="col-lg-2 col-form-label">From Dt</label>
                                     <input type="text" class="form-control" formControlName="billingFromDt"
                                         id="FromDtBilling" />
 
@@ -2600,8 +2567,7 @@
                                         id="ToDtBilling" />
 
 
-                                    <label for="FilterMonthBilling" class="col-lg-2 col-form-label"> Filter
-                                        Month</label>
+                                    <label for="FilterMonthBilling" class="col-lg-2 col-form-label"> Filter Month</label>
                                     <input type="text" class="form-control" formControlName="billingFilterMonth"
                                         id="FilterMonthBilling" />
                                 </div>
@@ -2645,7 +2611,8 @@
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
-                                                (change)="EditCHK_Quotation(dd.billerId,$event)">
+                                              formControlName="Quotation_Permission"  
+                                              value="dd.billerId" (change) ="EditCHK_Quotation(dd.billerId,$event)">
                                         </span>
                                     </div>
                                 </div>
@@ -3358,7 +3325,7 @@
                                     <label> Dashboard</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key" *ngFor="let dd of billerDetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -3372,7 +3339,7 @@
                                     <label> Product Stock Transfer Alet </label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key" *ngFor="let dd of billerDetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -3382,18 +3349,26 @@
                                 </div>
 
 
-
+                                <!-- <input class="switch" type="checkbox" formControlName="oneInputControl"
+                                id="{{item.id}}" [value]="item.id"
+                               checked="{{permissionRole.indexOf(item.id)!=-1 ? 'checked':''}}"
+                                (change)="Edit_CheckboxValues(item.id,$event)"
+                                 > -->
 
 
                                 <div>
                                     <label> Defualt Biller(Radio) </label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key" *ngFor="let dd of billerDetailsList;let i=index">
-                                        <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
-                                            <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
-                                            <input type="radio" name="billerDetailsList" [value]="dd.billerId"
-                                                (change)="handleChange(dd.billerId,$event)" />
+                                    <div class="col-lg-2 license-key" *ngFor="let dd1 of edit_billerdetailsList;let i=index">
+                                        <span class="btnalter" [ngStyle]="{'background-color': dd1.colorCodes}">
+                                            <p class="" title="{{dd1.billerCode}}"> {{ dd1.billerCode }}</p>
+                                            <input type="radio" name="edit_billerdetailsList"
+                                           
+                                            [value]="dd1.billerId"  
+                                            
+                                            checked="{{dd1.billerId==defaultBillerIDValue ? 'checked':''}}"
+                                                (change)="handleChange(dd1.billerId,$event)" />
                                         </span>
                                     </div>
                                 </div>
@@ -3424,6 +3399,6 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" (click)="save()">Submit</button>
+        <button type="submit" class="btn btn-primary" >Submit</button>
     </div>
 </div>
