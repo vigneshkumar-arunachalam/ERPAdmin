@@ -61,6 +61,7 @@ export class UserManagementComponent implements OnInit {
     if (this.checkbox_value) {
 
       this.edit_array.push(data);
+      console.log("Final Checkbox After checkbox selected list", this.edit_array);
       this.edit_array.join(',');
       console.log("Final Checkbox After checkbox selected list", this.edit_array);
     }
