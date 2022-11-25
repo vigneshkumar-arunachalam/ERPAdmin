@@ -55,15 +55,14 @@ export class UserManagementComponent implements OnInit {
 
   EditCHK(data: any, event: any) {
     console.log("List - CheckBox ID", data);
-    this.groupSelectCommonId = data;
+    // this.groupSelectCommonId = data;
     this.checkbox_value = event.target.checked;
     console.log(this.checkbox_value)
     if (this.checkbox_value) {
 
       this.edit_array.push(data);
       console.log("Final Checkbox After checkbox selected list", this.edit_array);
-      this.edit_array.join(',');
-      console.log("Final Checkbox After checkbox selected list", this.edit_array);
+     
     }
     else {
       const index = this.edit_array.findIndex((el: any) => el === data)

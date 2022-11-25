@@ -4,6 +4,7 @@ import { ServerService } from 'src/app/services/server.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import Swal from 'sweetalert2'
 declare var iziToast: any;
 declare var $: any;
 @Component({
@@ -148,7 +149,7 @@ export class EditUserComponent implements OnInit {
   groupSelectCommonId_DC: any;
   checkbox_value_DC: any;
   edit_array_DC: any = [];
-  
+
   //Permission - checkbox Group-Email Notification
   groupSelectCommonId_EmailNotification: any;
   checkbox_value_EmailNotification: any;
@@ -411,201 +412,201 @@ export class EditUserComponent implements OnInit {
   CallLogs_Left = [{ 'name': 'Add New', 'id': '4001' }, { 'name': 'Rating', 'id': '4002' }, { 'name': 'Call Assigned By Me', 'id': '4003' }, { 'name': 'Comments', 'id': '4004' }];
 
   CallLogs_Right = [];
-  Transaction_right_edit=[];
-  Transaction_left_edit=[];
+  Transaction_right_edit = [];
+  Transaction_left_edit = [];
 
-  TransactionApproval_Left_edit=[];
-  TransactionApproval_Right_edit=[];
+  TransactionApproval_Left_edit = [];
+  TransactionApproval_Right_edit = [];
 
 
-  TransactionDeposit_Left_edit=[];
-  TransactionDeposit_Right_edit=[];
+  TransactionDeposit_Left_edit = [];
+  TransactionDeposit_Right_edit = [];
 
-  TransactionCommission_Left_edit=[];
-  TransactionCommission_Right_edit=[];
+  TransactionCommission_Left_edit = [];
+  TransactionCommission_Right_edit = [];
 
 
-  TransactionWithdrawal_Left_edit=[];
-  TransactionWithdrawal_Right_edit=[];
+  TransactionWithdrawal_Left_edit = [];
+  TransactionWithdrawal_Right_edit = [];
 
 
-  TransactionPurchaseEntry_Left_edit=[];
-  TransactionPurchaseEntry_Right_edit=[];
+  TransactionPurchaseEntry_Left_edit = [];
+  TransactionPurchaseEntry_Right_edit = [];
 
-  Transactionsalary_Left_edit=[];
-  Transactionsalary_Right_edit=[];
+  Transactionsalary_Left_edit = [];
+  Transactionsalary_Right_edit = [];
 
 
-  TransactionPettyCash_Left_edit=[];
-  TransactionPettyCash_Right_edit=[];
+  TransactionPettyCash_Left_edit = [];
+  TransactionPettyCash_Right_edit = [];
 
 
-  TransactionVendorOrder_Left_edit=[];
-  TransactionVendorOrder_Right_edit=[];
+  TransactionVendorOrder_Left_edit = [];
+  TransactionVendorOrder_Right_edit = [];
 
 
-  TransactionInvoicePayment_Left_edit=[];
-  TransactionInvoicePayment_Right_edit=[];
+  TransactionInvoicePayment_Left_edit = [];
+  TransactionInvoicePayment_Right_edit = [];
 
-  TransactionOthers_Left_edit=[];
-  TransactionOthers_Right_edit=[];
+  TransactionOthers_Left_edit = [];
+  TransactionOthers_Right_edit = [];
 
-  Deposits_Left_edit=[];
-  Deposits_Right_edit=[];
+  Deposits_Left_edit = [];
+  Deposits_Right_edit = [];
 
-  Issues_Left_edit=[];
-  Issues_Right_edit=[];
+  Issues_Left_edit = [];
+  Issues_Right_edit = [];
 
-  Customer_Left_edit=[];
-  Customer_Right_edit=[];
+  Customer_Left_edit = [];
+  Customer_Right_edit = [];
 
-  CustomerContract_Left_edit=[];
-  CustomerContract_Right_edit=[];
+  CustomerContract_Left_edit = [];
+  CustomerContract_Right_edit = [];
 
-  CustomerNameMgmt_Left_edit=[];
-  CustomerNameMgmt_Right_edit=[];
-  
-  ContractClassification_Left_edit=[];
-  ContractClassification_Right_edit=[];
+  CustomerNameMgmt_Left_edit = [];
+  CustomerNameMgmt_Right_edit = [];
 
-  CustomerLeads_Left_edit=[];
-  CustomerLeads_Right_edit=[];
+  ContractClassification_Left_edit = [];
+  ContractClassification_Right_edit = [];
 
-  c3xCRMAdmin_Left_edit=[];
-  c3xCRMAdmin_Right_edit=[];
+  CustomerLeads_Left_edit = [];
+  CustomerLeads_Right_edit = [];
 
-  MrvoipPackage_Left_edit=[];
-  MrvoipPackage_Right_edit=[];
+  c3xCRMAdmin_Left_edit = [];
+  c3xCRMAdmin_Right_edit = [];
 
-  CRMEnquiry_Left_edit=[];
-  CRMEnquiry_Right_edit=[];
+  MrvoipPackage_Left_edit = [];
+  MrvoipPackage_Right_edit = [];
 
-  CalendarTemplate_Left_edit=[];
-  CalendarTemplate_Right_edit=[];
+  CRMEnquiry_Left_edit = [];
+  CRMEnquiry_Right_edit = [];
 
-  vendor_Left_edit=[];
-  vendor_Right_edit=[];
+  CalendarTemplate_Left_edit = [];
+  CalendarTemplate_Right_edit = [];
 
-  ProductCategory_Left_edit=[];
-  ProductCategory_Right_edit=[];
+  vendor_Left_edit = [];
+  vendor_Right_edit = [];
 
-  ResellerProductCategory_Left_edit=[];
-  ResellerProductCategory_Right_edit=[];
+  ProductCategory_Left_edit = [];
+  ProductCategory_Right_edit = [];
 
-  Product_Left_edit=[];
-  Product_Right_edit=[];
+  ResellerProductCategory_Left_edit = [];
+  ResellerProductCategory_Right_edit = [];
 
-  ResellerProduct_Left_edit=[];
-  ResellerProduct_Right_edit=[];
+  Product_Left_edit = [];
+  Product_Right_edit = [];
 
-  ProductStock_Left_edit=[];
-  ProductStock_Right_edit=[];
+  ResellerProduct_Left_edit = [];
+  ResellerProduct_Right_edit = [];
 
-  DIDInventory_Left_edit=[];
-  DIDInventory_Right_edit=[];
+  ProductStock_Left_edit = [];
+  ProductStock_Right_edit = [];
 
-  API3cxCreditReport_Left_edit=[];
-  API3cxCreditReport_Right_edit=[];
+  DIDInventory_Left_edit = [];
+  DIDInventory_Right_edit = [];
 
-  RecurringDateList_Left_edit=[];
-  RecurringDateList_Right_edit=[];
+  API3cxCreditReport_Left_edit = [];
+  API3cxCreditReport_Right_edit = [];
 
-  LicenseCategory_Left_edit=[];
-  LicenseCategory_Right_edit=[];
+  RecurringDateList_Left_edit = [];
+  RecurringDateList_Right_edit = [];
 
-  LicenseProduct_Left_edit=[];
-  LicenseProduct_Right_edit=[];
+  LicenseCategory_Left_edit = [];
+  LicenseCategory_Right_edit = [];
 
-  LicenseKey_Left_edit=[];
-  LicenseKey_Right_edit=[];
+  LicenseProduct_Left_edit = [];
+  LicenseProduct_Right_edit = [];
 
-  CustomerProjectsDetails_Left_edit=[];
-  CustomerProjectsDetails_Right_edit=[];
+  LicenseKey_Left_edit = [];
+  LicenseKey_Right_edit = [];
 
-  VendorProduct_Left_edit=[];
-  VendorProduct_Right_edit=[];
+  CustomerProjectsDetails_Left_edit = [];
+  CustomerProjectsDetails_Right_edit = [];
 
-  Courier_Left_edit=[];
-  Courier_Right_edit=[];
+  VendorProduct_Left_edit = [];
+  VendorProduct_Right_edit = [];
 
-  PasswordMgtDetails_Left_edit=[];
-  PasswordMgtDetails_Right_edit=[];
+  Courier_Left_edit = [];
+  Courier_Right_edit = [];
 
-  PurchaseEntry_Left_edit=[];
-  PurchaseEntry_Right_edit=[];
+  PasswordMgtDetails_Left_edit = [];
+  PasswordMgtDetails_Right_edit = [];
 
-  NonTradePurchaseEntry_Left_edit=[];
-  NonTradePurchaseEntry_Right_edit=[];
+  PurchaseEntry_Left_edit = [];
+  PurchaseEntry_Right_edit = [];
 
-  StockEntry_Left_edit=[];
-  StockEntry_Right_edit=[];
+  NonTradePurchaseEntry_Left_edit = [];
+  NonTradePurchaseEntry_Right_edit = [];
 
-  SalaryEntry_Left_edit=[];
-  SalaryEntry_Right_edit=[];
+  StockEntry_Left_edit = [];
+  StockEntry_Right_edit = [];
 
-  Billing_Left_edit=[];
-  Billing_Right_edit=[];
+  SalaryEntry_Left_edit = [];
+  SalaryEntry_Right_edit = [];
 
-  ProfamaInvoice_Left_edit=[];
-  ProfamaInvoice_Right_edit=[];
+  Billing_Left_edit = [];
+  Billing_Right_edit = [];
 
-  Quotation_Left_edit=[];
-  Quotation_Right_edit=[];
+  ProfamaInvoice_Left_edit = [];
+  ProfamaInvoice_Right_edit = [];
 
-  QuotationNew_Left_edit=[];
-  QuotationNew_Right_edit=[];
+  Quotation_Left_edit = [];
+  Quotation_Right_edit = [];
 
-  PurchaseOrder_Left_edit=[];
-  PurchaseOrder_Right_edit=[];
+  QuotationNew_Left_edit = [];
+  QuotationNew_Right_edit = [];
 
-  CreditNote_Left_edit=[];
-  CreditNote_Right_edit=[];
+  PurchaseOrder_Left_edit = [];
+  PurchaseOrder_Right_edit = [];
 
-  DeliveryChallan_Left_edit=[];
-  DeliveryChallan_Right_edit=[];
+  CreditNote_Left_edit = [];
+  CreditNote_Right_edit = [];
 
-  DeliveryOrder_Left_edit=[];
-  DeliveryOrder_Right_edit=[];
+  DeliveryChallan_Left_edit = [];
+  DeliveryChallan_Right_edit = [];
 
-  VSProvisioning_Left_edit=[];
-  VSProvisioning_Right_edit=[];
+  DeliveryOrder_Left_edit = [];
+  DeliveryOrder_Right_edit = [];
 
-  RateFileUpload_Left_edit=[];
-  RateFileUpload_Right_edit=[];
+  VSProvisioning_Left_edit = [];
+  VSProvisioning_Right_edit = [];
 
-  CouponDetails_Left_edit=[];
-  CouponDetails_Right_edit=[];
+  RateFileUpload_Left_edit = [];
+  RateFileUpload_Right_edit = [];
 
-  CalncallShoppingMaster_Left_edit=[];
-  CalncallShoppingMaster_Right_edit=[];
+  CouponDetails_Left_edit = [];
+  CouponDetails_Right_edit = [];
 
-  ResellerShoppingMaster_Left_edit=[];
-  ResellerShoppingMaster_Right_edit=[];
+  CalncallShoppingMaster_Left_edit = [];
+  CalncallShoppingMaster_Right_edit = [];
 
-  DocumentPreparationlist_Left_edit=[];
-  DocumentPreparationlist_Right_edit=[];
+  ResellerShoppingMaster_Left_edit = [];
+  ResellerShoppingMaster_Right_edit = [];
 
-  PaymentLinkAccessList_Left_edit=[];
-  PaymentLinkAccessList_Right_edit=[];
+  DocumentPreparationlist_Left_edit = [];
+  DocumentPreparationlist_Right_edit = [];
 
-  DataCenterRequest_Left_edit=[];
-  DataCenterRequest_Right_edit=[];
+  PaymentLinkAccessList_Left_edit = [];
+  PaymentLinkAccessList_Right_edit = [];
 
-  DataCenterMasters_Left_edit=[];
-  DataCenterMasters_Right_edit=[];
+  DataCenterRequest_Left_edit = [];
+  DataCenterRequest_Right_edit = [];
 
-  DynamicExcel_Left_edit=[];
-  DynamicExcel_Right_edit=[];
+  DataCenterMasters_Left_edit = [];
+  DataCenterMasters_Right_edit = [];
 
-  PriceList_Left_edit=[];
-  PriceList_Right_edit=[];
+  DynamicExcel_Left_edit = [];
+  DynamicExcel_Right_edit = [];
 
-  CallLogs_Left_edit=[];
-  CallLogs_Right_edit=[];
+  PriceList_Left_edit = [];
+  PriceList_Right_edit = [];
 
+  CallLogs_Left_edit = [];
+  CallLogs_Right_edit = [];
 
-  
-  
+
+
+
 
 
 
@@ -987,7 +988,7 @@ export class EditUserComponent implements OnInit {
   permissionRole: any;
   permissionRole_arr: any;
   HRGroupList: any;
-  defaultBillerIDValue:any;
+  defaultBillerIDValue: any;
   // file: File;
   file: string[] = [];
   //checkbox
@@ -1072,8 +1073,8 @@ export class EditUserComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void  {
-   // this.onLoadGet();
+  ngOnInit(): void {
+    // this.onLoadGet();
     // this.onLoadEdit();
     this.route.queryParams
       .subscribe(params => {
@@ -2276,37 +2277,6 @@ export class EditUserComponent implements OnInit {
   }
 
 
-
-
-  onLoadGet() {
-    let api_req: any = new Object();
-    let apiLoad_req: any = new Object();
-    api_req.moduleType = "quotation";
-    api_req.api_url = "admin/user_add_details";
-    api_req.api_type = "web";
-    api_req.access_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJhdWQiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJpYXQiOjE2NTQ2NjQ0MzksIm5iZiI6MTY1NDY2NDQzOSwiZXhwIjoxNjU0NjgyNDM5LCJhY2Nlc3NfZGF0YSI6eyJ0b2tlbl9hY2Nlc3NJZCI6IjIiLCJ0b2tlbl9hY2Nlc3NOYW1lIjoidGVzdGluZzA0MDYyMDIyIiwidG9rZW5fYWNjZXNzVHlwZSI6IjIifX0.NaymQDSiON2R3tKICGNpj6hsQfg9DGwEcZzrJcvsqbI";
-    apiLoad_req.action = "user_add_details";
-    api_req.element_data = apiLoad_req;
-
-    this.serverService.sendServer(api_req).subscribe((response: any) => {
-      // console.log("this.checkboxCB_TransDepositApproval",this.checkboxCB_TransDepositApproval)
-      console.log("admin/user_add_details", response)
-
-      if (response.status != '') {
-        this.designationDetailsList = response.designation_details;
-        this.userDetailsList = response.user_det;
-        this.billerDetailsList = response.biller_det;
-        this.pettyCashColorList = response.petty_cash_color_arr;
-        this.HRGroupList = response.user_hr
-
-      }
-      else {
-
-      }
-
-
-    });
-  }
   handleChange(data: any, evt: any) {
     var id = data;
     this.BillerID = id;
@@ -2339,6 +2309,9 @@ export class EditUserComponent implements OnInit {
     }
 
   }
+  functionName(flist){
+    console.log("flist",flist)
+  }
   onLoadEdit() {
     let api_req: any = new Object();
     let apiEdit_req: any = new Object();
@@ -2366,7 +2339,9 @@ export class EditUserComponent implements OnInit {
       this.edit_pettyCashColorArrList = response.user_add_details.petty_cash_color_arr;
       this.edit_userDetailsList = response.user_add_details.user_det;
       this.edit_userHRList = response.user_add_details.user_hr;
-      
+      this.billerDetailsList = response.user_signature_details;
+
+
       this.edit_billerdetailsList = response.user_add_details.biller_det;
 
       this.roles = this.permissionRole.split(',')
@@ -2624,13 +2599,13 @@ export class EditUserComponent implements OnInit {
         this.edit_array_TransactionEntry.push(parseInt(per_arr[i]));
       }
 
-       per_arr = response.user_edit_details[0].trans_app_dep.split(',');      
-          for (let i = 0; i < per_arr.length; i++) {
-            this.trans_app_dep.push(parseInt(per_arr[i]));
-            this.edit_array_TransDepositApproval.push(parseInt(per_arr[i]));
-        }
+      per_arr = response.user_edit_details[0].trans_app_dep.split(',');
+      for (let i = 0; i < per_arr.length; i++) {
+        this.trans_app_dep.push(parseInt(per_arr[i]));
+        this.edit_array_TransDepositApproval.push(parseInt(per_arr[i]));
+      }
 
-     
+
 
       // console.log("this.permissionRole", this.permissionRole)
       // console.log("admin/user_edit_details", response)
@@ -2662,7 +2637,7 @@ export class EditUserComponent implements OnInit {
           'cmsAlternativeSupportWebsite': response.user_edit_details[0].alternate_website,
           'bccEmailID': response.user_edit_details[0].callEmailId,
           'e_pettyCashColorCode': response.user_edit_details[0].petty_color_code,
-          'Signature': response.user_edit_details[0].signatureFilename,
+          'Signature': response.user_signature_details[0].user_signature_id,
 
           'Staff': response.user_edit_details[0].staffStatus,
           'ProbationIn': response.user_edit_details[0].probation,
@@ -2678,994 +2653,978 @@ export class EditUserComponent implements OnInit {
 
         });
 
-         this.edit_array_Check = response.user_edit_details[0].role.split(',');
-       
+        this.edit_array_Check = response.user_edit_details[0].role.split(',');
+
         // console.log("response.user_add_details.trans_entry_per",response.user_edit_details[0].trans_entry_per);
 
-  
-       // this.trans_entry_per_arr.push(3);
 
-      
-        let per_arr = response.user_edit_details[0].trans_entry_per.split(',');      
-          for (let i = 0; i < per_arr.length; i++) {
-            this.trans_entry_per.push(parseInt(per_arr[i]));
-            this.edit_array_TransactionEntry.push(parseInt(per_arr[i]));
-        }
-        
+        // this.trans_entry_per_arr.push(3);
 
-         per_arr = response.user_edit_details[0].trans_app_dep.split(',');      
-          for (let i = 0; i < per_arr.length; i++) {
-            this.trans_app_dep_arr.push(parseInt(per_arr[i]));
-            this.edit_array_Deposits.push(parseInt(per_arr[i]));
-            
+
+        let per_arr = response.user_edit_details[0].trans_entry_per.split(',');
+        for (let i = 0; i < per_arr.length; i++) {
+          this.trans_entry_per.push(parseInt(per_arr[i]));
+          this.edit_array_TransactionEntry.push(parseInt(per_arr[i]));
         }
 
-        let role_per_arr = this.permissionRole.split(','); 
 
-    
-        
+        per_arr = response.user_edit_details[0].trans_app_dep.split(',');
+        for (let i = 0; i < per_arr.length; i++) {
+          this.trans_app_dep_arr.push(parseInt(per_arr[i]));
+          this.edit_array_Deposits.push(parseInt(per_arr[i]));
 
-      var Transaction_right_local=[];
-      var Transaction_left_local=[];           
-      this.Transaction_left.forEach(function (bill_value) {
-           let chk_state = role_per_arr.indexOf(bill_value.id);          
-          if(chk_state==-1){
-            Transaction_left_local.push({'name':bill_value.name,'id':bill_value.id});
-          }else{
-            Transaction_right_local.push({'name':bill_value.name,'id':bill_value.id});            
+        }
+
+        let role_per_arr = this.permissionRole.split(',');
+
+
+
+
+        var Transaction_right_local = [];
+        var Transaction_left_local = [];
+        this.Transaction_left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            Transaction_left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            Transaction_right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
           }
-       }); 
-      
-       this.Transaction_right_edit = Transaction_right_local;
-       this.Transaction_left_edit = Transaction_left_local;
+        });
+
+        this.Transaction_right_edit = Transaction_right_local;
+        this.Transaction_left_edit = Transaction_left_local;
 
 
 
-      var TransactionApproval_Right_local=[];
-      var TransactionApproval_Left_local=[];           
-      this.TransactionApproval_Left.forEach(function (bill_value) {
-           let chk_state = role_per_arr.indexOf(bill_value.id);          
-          if(chk_state==-1){
-            TransactionApproval_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-          }else{
-            TransactionApproval_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
+        var TransactionApproval_Right_local = [];
+        var TransactionApproval_Left_local = [];
+        this.TransactionApproval_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            TransactionApproval_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            TransactionApproval_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
           }
-       }); 
-      
-       this.TransactionApproval_Right_edit = TransactionApproval_Right_local;
-       this.TransactionApproval_Left_edit = TransactionApproval_Left_local;
+        });
+
+        this.TransactionApproval_Right_edit = TransactionApproval_Right_local;
+        this.TransactionApproval_Left_edit = TransactionApproval_Left_local;
 
 
-      var TransactionDeposit_Right_local=[];
-      var TransactionDeposit_Left_local=[];           
-      this.TransactionDeposit_Left.forEach(function (bill_value) {
-           let chk_state = role_per_arr.indexOf(bill_value.id);          
-          if(chk_state==-1){
-            TransactionDeposit_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-          }else{
-            TransactionDeposit_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
+        var TransactionDeposit_Right_local = [];
+        var TransactionDeposit_Left_local = [];
+        this.TransactionDeposit_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            TransactionDeposit_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            TransactionDeposit_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
           }
-       }); 
-      
-       this.TransactionDeposit_Right_edit = TransactionDeposit_Right_local;
-       this.TransactionDeposit_Left_edit = TransactionDeposit_Left_local;
+        });
+
+        this.TransactionDeposit_Right_edit = TransactionDeposit_Right_local;
+        this.TransactionDeposit_Left_edit = TransactionDeposit_Left_local;
 
 
-      var TransactionCommission_Right_local=[];
-      var TransactionCommission_Left_local=[];           
-      this.TransactionCommission_Left.forEach(function (bill_value) {
-           let chk_state = role_per_arr.indexOf(bill_value.id);          
-          if(chk_state==-1){
-            TransactionCommission_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-          }else{
-            TransactionCommission_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
+        var TransactionCommission_Right_local = [];
+        var TransactionCommission_Left_local = [];
+        this.TransactionCommission_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            TransactionCommission_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            TransactionCommission_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
           }
-       }); 
-      
-       this.TransactionWithdrawal_Right_edit = TransactionWithdrawal_Right_local;
-       this.TransactionCommission_Left_edit = TransactionCommission_Left_local;
+        });
+
+        this.TransactionWithdrawal_Right_edit = TransactionWithdrawal_Right_local;
+        this.TransactionCommission_Left_edit = TransactionCommission_Left_local;
 
 
-       var TransactionWithdrawal_Right_local=[];
-       var TransactionWithdrawal_Left_local=[];           
-       this.TransactionWithdrawal_Left.forEach(function (bill_value) {
-            let chk_state = role_per_arr.indexOf(bill_value.id);          
-           if(chk_state==-1){
-             TransactionWithdrawal_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-           }else{
-             TransactionWithdrawal_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-           }
-        }); 
-       
+        var TransactionWithdrawal_Right_local = [];
+        var TransactionWithdrawal_Left_local = [];
+        this.TransactionWithdrawal_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            TransactionWithdrawal_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            TransactionWithdrawal_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
         this.TransactionWithdrawal_Right_edit = TransactionWithdrawal_Right_local;
         this.TransactionWithdrawal_Left_edit = TransactionWithdrawal_Left_local;
 
 
-        var TransactionPurchaseEntry_Right_local=[];
-        var TransactionPurchaseEntry_Left_local=[];           
+        var TransactionPurchaseEntry_Right_local = [];
+        var TransactionPurchaseEntry_Left_local = [];
         this.TransactionPurchaseEntry_Left.forEach(function (bill_value) {
-             let chk_state = role_per_arr.indexOf(bill_value.id);          
-            if(chk_state==-1){
-              TransactionPurchaseEntry_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-            }else{
-              TransactionPurchaseEntry_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-            }
-         }); 
-        
-         this.TransactionPurchaseEntry_Right_edit = TransactionPurchaseEntry_Right_local;
-         this.TransactionPurchaseEntry_Left_edit = TransactionPurchaseEntry_Left_local;
-
-
-         var Transactionsalary_Right_local=[];
-         var Transactionsalary_Left_local=[];           
-         this.Transactionsalary_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-             if(chk_state==-1){
-               Transactionsalary_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-             }else{
-               Transactionsalary_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-             }
-          }); 
-         
-          this.Transactionsalary_Right_edit = Transactionsalary_Right_local;
-          this.Transactionsalary_Left_edit = Transactionsalary_Left_local;
-
-
-
-          var TransactionPettyCash_Right_local=[];
-          var TransactionPettyCash_Left_local=[];           
-          this.TransactionPettyCash_Left.forEach(function (bill_value) {
-               let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-                TransactionPettyCash_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-                TransactionPettyCash_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-           }); 
-          
-           this.TransactionPettyCash_Right_edit = TransactionPettyCash_Right_local;
-           this.TransactionPettyCash_Left_edit = TransactionPettyCash_Left_local;
-
-
-           var TransactionVendorOrder_Right_local=[];
-           var TransactionVendorOrder_Left_local=[];           
-           this.TransactionVendorOrder_Left.forEach(function (bill_value) {
-                let chk_state = role_per_arr.indexOf(bill_value.id);          
-               if(chk_state==-1){
-                 TransactionVendorOrder_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-               }else{
-                 TransactionVendorOrder_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-               }
-            }); 
-           
-            this.TransactionVendorOrder_Right_edit = TransactionVendorOrder_Right_local;
-            this.TransactionVendorOrder_Left_edit = TransactionVendorOrder_Left_local;
-
-
-            var TransactionInvoicePayment_Right_local=[];
-            var TransactionInvoicePayment_Left_local=[];           
-            this.TransactionInvoicePayment_Left.forEach(function (bill_value) {
-                 let chk_state = role_per_arr.indexOf(bill_value.id);          
-                if(chk_state==-1){
-                  TransactionInvoicePayment_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-                }else{
-                  TransactionInvoicePayment_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-                }
-             }); 
-            
-             this.TransactionInvoicePayment_Right_edit = TransactionInvoicePayment_Right_local;
-             this.TransactionInvoicePayment_Left_edit = TransactionInvoicePayment_Left_local;     
-             
-             
-             var TransactionOthers_Right_local=[];
-             var TransactionOthers_Left_local=[];           
-             this.TransactionOthers_Left.forEach(function (bill_value) {
-                  let chk_state = role_per_arr.indexOf(bill_value.id);          
-                 if(chk_state==-1){
-                   TransactionOthers_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-                 }else{
-                   TransactionOthers_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-                 }
-              }); 
-             
-              this.TransactionOthers_Right_edit = TransactionOthers_Right_local;
-              this.TransactionOthers_Left_edit = TransactionOthers_Left_local;      
-              
-              
-              var Deposits_Right_local=[];
-              var Deposits_Left_local=[];           
-              this.Deposits_Left.forEach(function (bill_value) {
-                   let chk_state = role_per_arr.indexOf(bill_value.id);          
-                  if(chk_state==-1){
-                    Deposits_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-                  }else{
-                    Deposits_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-                  }
-               }); 
-              
-               this.Deposits_Right_edit = Deposits_Right_local;
-               this.Deposits_Left_edit = Deposits_Left_local;                
-
-
-
-              var Issues_Right_local=[];
-              var Issues_Left_local=[];           
-              this.Issues_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              Issues_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              Issues_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.Issues_Right_edit = Issues_Right_local;
-              this.Issues_Left_edit = Issues_Left_local;                
-
-
-              var Customer_Right_local=[];
-              var Customer_Left_local=[];           
-              this.Customer_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              Customer_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              Customer_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.Customer_Right_edit = Customer_Right_local;
-              this.Customer_Left_edit = Customer_Left_local;      
-              
-              
-
-              var CustomerContract_Right_local=[];
-              var CustomerContract_Left_local=[];           
-              this.CustomerContract_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              CustomerContract_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              CustomerContract_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.CustomerContract_Right_edit = CustomerContract_Right_local;
-              this.CustomerContract_Left_edit = CustomerContract_Left_local;         
-              
-              
-              var CustomerNameMgmt_Right_local=[];
-              var CustomerNameMgmt_Left_local=[];           
-              this.CustomerNameMgmt_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              CustomerNameMgmt_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              CustomerNameMgmt_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.CustomerNameMgmt_Right_edit = CustomerNameMgmt_Right_local;
-              this.CustomerNameMgmt_Left_edit = CustomerNameMgmt_Left_local;   
-              
-              
-              var ContractClassification_Right_local=[];
-              var ContractClassification_Left_local=[];           
-              this.ContractClassification_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              ContractClassification_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              ContractClassification_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.ContractClassification_Right_edit = ContractClassification_Right_local;
-              this.ContractClassification_Left_edit = ContractClassification_Left_local;   
-              
-              
-              var CustomerLeads_Right_local=[];
-              var CustomerLeads_Left_local=[];           
-              this.CustomerLeads_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              CustomerLeads_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              CustomerLeads_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.CustomerLeads_Right_edit = CustomerLeads_Right_local;
-              this.CustomerLeads_Left_edit = CustomerLeads_Left_local;   
-              
-              
-              var c3xCRMAdmin_Right_local=[];
-              var c3xCRMAdmin_Left_local=[];           
-              this.c3xCRMAdmin_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              c3xCRMAdmin_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              c3xCRMAdmin_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.c3xCRMAdmin_Right_edit = c3xCRMAdmin_Right_local;
-              this.c3xCRMAdmin_Left_edit = c3xCRMAdmin_Left_local;  
-              
-              
-              var MrvoipPackage_Right_local=[];
-              var MrvoipPackage_Left_local=[];           
-              this.MrvoipPackage_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              MrvoipPackage_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              MrvoipPackage_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.MrvoipPackage_Right_edit = MrvoipPackage_Right_local;
-              this.MrvoipPackage_Left_edit = MrvoipPackage_Left_local;   
-              
-              
-              var CRMEnquiry_Right_local=[];
-              var CRMEnquiry_Left_local=[];           
-              this.CRMEnquiry_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              CRMEnquiry_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              CRMEnquiry_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.CRMEnquiry_Right_edit = CRMEnquiry_Right_local;
-              this.CRMEnquiry_Left_edit = CRMEnquiry_Left_local;   
-              
-              
-              var CalendarTemplate_Right_local=[];
-              var CalendarTemplate_Left_local=[];           
-              this.CalendarTemplate_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              CalendarTemplate_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              CalendarTemplate_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.CalendarTemplate_Right_edit = CalendarTemplate_Right_local;
-              this.CalendarTemplate_Left_edit = CalendarTemplate_Left_local;   
-              
-              
-              var vendor_Right_local=[];
-              var vendor_Left_local=[];           
-              this.vendor_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              vendor_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              vendor_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.vendor_Right_edit = vendor_Right_local;
-              this.vendor_Left_edit = vendor_Left_local;   
-              
-              
-              var ProductCategory_Right_local=[];
-              var ProductCategory_Left_local=[];           
-              this.ProductCategory_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              ProductCategory_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              ProductCategory_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.ProductCategory_Right_edit = ProductCategory_Right_local;
-              this.ProductCategory_Left_edit = ProductCategory_Left_local;   
-              
-              
-              var ResellerProductCategory_Right_local=[];
-              var ResellerProductCategory_Left_local=[];           
-              this.ResellerProductCategory_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              ResellerProductCategory_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              ResellerProductCategory_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.ResellerProductCategory_Right_edit = ResellerProductCategory_Right_local;
-              this.ResellerProductCategory_Left_edit = ResellerProductCategory_Left_local;   
-              
-              
-              var Product_Right_local=[];
-              var Product_Left_local=[];           
-              this.Product_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              Product_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              Product_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.Product_Right_edit = Product_Right_local;
-              this.Product_Left_edit = Product_Left_local;    
-              
-              
-              var ResellerProduct_Right_local=[];
-              var ResellerProduct_Left_local=[];           
-              this.ResellerProduct_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              ResellerProduct_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              ResellerProduct_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.ResellerProduct_Right_edit = ResellerProduct_Right_local;
-              this.ResellerProduct_Left_edit = ResellerProduct_Left_local;  
-              
-              
-              var ProductStock_Right_local=[];
-              var ProductStock_Left_local=[];           
-              this.ProductStock_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              ProductStock_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              ProductStock_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.ProductStock_Right_edit = ProductStock_Right_local;
-              this.ProductStock_Left_edit = ProductStock_Left_local;    
-              
-              
-              var DIDInventory_Right_local=[];
-              var DIDInventory_Left_local=[];           
-              this.DIDInventory_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              DIDInventory_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              DIDInventory_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.DIDInventory_Right_edit = DIDInventory_Right_local;
-              this.DIDInventory_Left_edit = DIDInventory_Left_local;      
-              
-              
-              var API3cxCreditReport_Right_local=[];
-              var API3cxCreditReport_Left_local=[];           
-              this.API3cxCreditReport_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              API3cxCreditReport_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              API3cxCreditReport_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.API3cxCreditReport_Right_edit = API3cxCreditReport_Right_local;
-              this.API3cxCreditReport_Left_edit = API3cxCreditReport_Left_local;  
-              
-              
-              var RecurringDateList_Right_local=[];
-              var RecurringDateList_Left_local=[];           
-              this.RecurringDateList_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              RecurringDateList_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              RecurringDateList_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.RecurringDateList_Right_edit = RecurringDateList_Right_local;
-              this.RecurringDateList_Left_edit = RecurringDateList_Left_local;   
-              
-              
-              var LicenseCategory_Right_local=[];
-              var LicenseCategory_Left_local=[];           
-              this.LicenseCategory_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              LicenseCategory_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              LicenseCategory_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.LicenseCategory_Right_edit = LicenseCategory_Right_local;
-              this.LicenseCategory_Left_edit = LicenseCategory_Left_local;      
-              
-              
-              var LicenseProduct_Right_local=[];
-              var LicenseProduct_Left_local=[];           
-              this.LicenseProduct_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              LicenseProduct_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              LicenseProduct_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.LicenseProduct_Right_edit = LicenseProduct_Right_local;
-              this.LicenseProduct_Left_edit = LicenseProduct_Left_local;     
-              
-              
-              var LicenseKey_Right_local=[];
-              var LicenseKey_Left_local=[];           
-              this.LicenseKey_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              LicenseKey_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              LicenseKey_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.LicenseKey_Right_edit = LicenseKey_Right_local;
-              this.LicenseKey_Left_edit = LicenseKey_Left_local;      
-              
-              
-              var CustomerProjectsDetails_Right_local=[];
-              var CustomerProjectsDetails_Left_local=[];           
-              this.CustomerProjectsDetails_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              CustomerProjectsDetails_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              CustomerProjectsDetails_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.CustomerProjectsDetails_Right_edit = CustomerProjectsDetails_Right_local;
-              this.CustomerProjectsDetails_Left_edit = CustomerProjectsDetails_Left_local;       
-              
-              
-              var VendorProduct_Right_local=[];
-              var VendorProduct_Left_local=[];           
-              this.VendorProduct_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              VendorProduct_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              VendorProduct_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.VendorProduct_Right_edit = VendorProduct_Right_local;
-              this.VendorProduct_Left_edit = VendorProduct_Left_local;      
-              
-              
-              var Courier_Right_local=[];
-              var Courier_Left_local=[];           
-              this.Courier_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              Courier_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              Courier_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.Courier_Right_edit = Courier_Right_local;
-              this.Courier_Left_edit = Courier_Left_local;     
-              
-              
-              var PasswordMgtDetails_Right_local=[];
-              var PasswordMgtDetails_Left_local=[];           
-              this.PasswordMgtDetails_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              PasswordMgtDetails_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              PasswordMgtDetails_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.PasswordMgtDetails_Right_edit = PasswordMgtDetails_Right_local;
-              this.PasswordMgtDetails_Left_edit = PasswordMgtDetails_Left_local;    
-              
-              
-
-              var PurchaseEntry_Right_local=[];
-              var PurchaseEntry_Left_local=[];           
-              this.PurchaseEntry_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              PurchaseEntry_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              PurchaseEntry_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.PurchaseEntry_Right_edit = PurchaseEntry_Right_local;
-              this.PurchaseEntry_Left_edit = PurchaseEntry_Left_local;     
-              
-              
-              var NonTradePurchaseEntry_Right_local=[];
-              var NonTradePurchaseEntry_Left_local=[];           
-              this.NonTradePurchaseEntry_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              NonTradePurchaseEntry_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              NonTradePurchaseEntry_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.NonTradePurchaseEntry_Right_edit = NonTradePurchaseEntry_Right_local;
-              this.NonTradePurchaseEntry_Left_edit = NonTradePurchaseEntry_Left_local;       
-              
-              
-              var StockEntry_Right_local=[];
-              var StockEntry_Left_local=[];           
-              this.StockEntry_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              StockEntry_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              StockEntry_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.StockEntry_Right_edit = StockEntry_Right_local;
-              this.StockEntry_Left_edit = StockEntry_Left_local;      
-              
-              
-              var SalaryEntry_Right_local=[];
-              var SalaryEntry_Left_local=[];           
-              this.SalaryEntry_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              SalaryEntry_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              SalaryEntry_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.SalaryEntry_Right_edit = SalaryEntry_Right_local;
-              this.SalaryEntry_Left_edit = SalaryEntry_Left_local;      
-              
-              
-              var Billing_Right_local=[];
-              var Billing_Left_local=[];           
-              this.Billing_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              Billing_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              Billing_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.Billing_Right_edit = Billing_Right_local;
-              this.Billing_Left_edit = Billing_Left_local;     
-              
-              
-              var ProfamaInvoice_Right_local=[];
-              var ProfamaInvoice_Left_local=[];           
-              this.ProfamaInvoice_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              ProfamaInvoice_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              ProfamaInvoice_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.ProfamaInvoice_Right_edit = ProfamaInvoice_Right_local;
-              this.ProfamaInvoice_Left_edit = ProfamaInvoice_Left_local;     
-              
-              
-              var Quotation_Right_local=[];
-              var Quotation_Left_local=[];           
-              this.Quotation_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              Quotation_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              Quotation_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.Quotation_Right_edit = Quotation_Right_local;
-              this.Quotation_Left_edit = Quotation_Left_local;       
-              
-              
-              var QuotationNew_Right_local=[];
-              var QuotationNew_Left_local=[];           
-              this.QuotationNew_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              QuotationNew_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              QuotationNew_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.QuotationNew_Right_edit = QuotationNew_Right_local;
-              this.QuotationNew_Left_edit = QuotationNew_Left_local;      
-              
-              
-              var PurchaseOrder_Right_local=[];
-              var PurchaseOrder_Left_local=[];           
-              this.PurchaseOrder_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              PurchaseOrder_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              PurchaseOrder_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.PurchaseOrder_Right_edit = PurchaseOrder_Right_local;
-              this.PurchaseOrder_Left_edit = PurchaseOrder_Left_local;   
-              
-
-              
-              var CreditNote_Right_local=[];
-              var CreditNote_Left_local=[];           
-              this.CreditNote_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              CreditNote_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              CreditNote_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.CreditNote_Right_edit = CreditNote_Right_local;
-              this.CreditNote_Left_edit = CreditNote_Left_local;  
-              
-              
-              var DeliveryChallan_Right_local=[];
-              var DeliveryChallan_Left_local=[];           
-              this.DeliveryChallan_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              DeliveryChallan_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              DeliveryChallan_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.DeliveryChallan_Right_edit = DeliveryChallan_Right_local;
-              this.DeliveryChallan_Left_edit = DeliveryChallan_Left_local;  
-              
-              
-              var DeliveryOrder_Right_local=[];
-              var DeliveryOrder_Left_local=[];           
-              this.DeliveryOrder_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              DeliveryOrder_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              DeliveryOrder_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.DeliveryOrder_Right_edit = DeliveryOrder_Right_local;
-              this.DeliveryOrder_Left_edit = DeliveryOrder_Left_local;  
-              
-              
-              var VSProvisioning_Right_local=[];
-              var VSProvisioning_Left_local=[];           
-              this.VSProvisioning_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              VSProvisioning_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              VSProvisioning_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.VSProvisioning_Right_edit = VSProvisioning_Right_local;
-              this.VSProvisioning_Left_edit = VSProvisioning_Left_local;    
-              
-              
-              var RateFileUpload_Right_local=[];
-              var RateFileUpload_Left_local=[];           
-              this.RateFileUpload_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              RateFileUpload_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              RateFileUpload_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.RateFileUpload_Right_edit = RateFileUpload_Right_local;
-              this.RateFileUpload_Left_edit = RateFileUpload_Left_local;   
-              
-              
-              var CouponDetails_Right_local=[];
-              var CouponDetails_Left_local=[];           
-              this.CouponDetails_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              CouponDetails_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              CouponDetails_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.CouponDetails_Right_edit = CouponDetails_Right_local;
-              this.CouponDetails_Left_edit = CouponDetails_Left_local;   
-              
-              
-              var CalncallShoppingMaster_Right_local=[];
-              var CalncallShoppingMaster_Left_local=[];           
-              this.CalncallShoppingMaster_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              CalncallShoppingMaster_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              CalncallShoppingMaster_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.CalncallShoppingMaster_Right_edit = CalncallShoppingMaster_Right_local;
-              this.CalncallShoppingMaster_Left_edit = CalncallShoppingMaster_Left_local;   
-              
-              
-              var ResellerShoppingMaster_Right_local=[];
-              var ResellerShoppingMaster_Left_local=[];           
-              this.ResellerShoppingMaster_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              ResellerShoppingMaster_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              ResellerShoppingMaster_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.ResellerShoppingMaster_Right_edit = ResellerShoppingMaster_Right_local;
-              this.ResellerShoppingMaster_Left_edit = ResellerShoppingMaster_Left_local;     
-              
-              
-              var DocumentPreparationlist_Right_local=[];
-              var DocumentPreparationlist_Left_local=[];           
-              this.DocumentPreparationlist_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              DocumentPreparationlist_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              DocumentPreparationlist_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.DocumentPreparationlist_Right_edit = DocumentPreparationlist_Right_local;
-              this.DocumentPreparationlist_Left_edit = DocumentPreparationlist_Left_local;    
-              
-              
-              var PaymentLinkAccessList_Right_local=[];
-              var PaymentLinkAccessList_Left_local=[];           
-              this.PaymentLinkAccessList_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              PaymentLinkAccessList_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              PaymentLinkAccessList_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.PaymentLinkAccessList_Right_edit = PaymentLinkAccessList_Right_local;
-              this.PaymentLinkAccessList_Left_edit = PaymentLinkAccessList_Left_local;   
-              
-              
-              var DataCenterRequest_Right_local=[];
-              var DataCenterRequest_Left_local=[];           
-              this.DataCenterRequest_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              DataCenterRequest_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              DataCenterRequest_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.DataCenterRequest_Right_edit = DataCenterRequest_Right_local;
-              this.DataCenterRequest_Left_edit = DataCenterRequest_Left_local;   
-              
-              
-              var DataCenterMasters_Right_local=[];
-              var DataCenterMasters_Left_local=[];           
-              this.DataCenterMasters_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              DataCenterMasters_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              DataCenterMasters_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.DataCenterMasters_Right_edit = DataCenterMasters_Right_local;
-              this.DataCenterMasters_Left_edit = DataCenterMasters_Left_local;   
-              
-              
-              var DynamicExcel_Right_local=[];
-              var DynamicExcel_Left_local=[];           
-              this.DynamicExcel_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              DynamicExcel_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              DynamicExcel_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.DynamicExcel_Right_edit = DynamicExcel_Right_local;
-              this.DynamicExcel_Left_edit = DynamicExcel_Left_local;               
-              
-              
-              var PriceList_Right_local=[];
-              var PriceList_Left_local=[];           
-              this.PriceList_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              PriceList_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              PriceList_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.PriceList_Right_edit = PriceList_Right_local;
-              this.PriceList_Left_edit = PriceList_Left_local;     
-              
-              
-
-              var CallLogs_Right_local=[];
-              var CallLogs_Left_local=[];           
-              this.CallLogs_Left.forEach(function (bill_value) {
-              let chk_state = role_per_arr.indexOf(bill_value.id);          
-              if(chk_state==-1){
-              CallLogs_Left_local.push({'name':bill_value.name,'id':bill_value.id});
-              }else{
-              CallLogs_Right_local.push({'name':bill_value.name,'id':bill_value.id});            
-              }
-              }); 
-
-              this.CallLogs_Right_edit = CallLogs_Right_local;
-              this.CallLogs_Left_edit = CallLogs_Left_local;                   
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
-
-
-
-
-
-
-
-
-       
-      
-        
-
-
-        
-        
-       
-       
-
-      //
-       //  console.log("this.trans_entry_per_arr",this.trans_entry_per_arr);
-       // let chk_state = this.trans_entry_per_arr.indexOf('7')!=-1;
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            TransactionPurchaseEntry_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            TransactionPurchaseEntry_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.TransactionPurchaseEntry_Right_edit = TransactionPurchaseEntry_Right_local;
+        this.TransactionPurchaseEntry_Left_edit = TransactionPurchaseEntry_Left_local;
+
+
+        var Transactionsalary_Right_local = [];
+        var Transactionsalary_Left_local = [];
+        this.Transactionsalary_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            Transactionsalary_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            Transactionsalary_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.Transactionsalary_Right_edit = Transactionsalary_Right_local;
+        this.Transactionsalary_Left_edit = Transactionsalary_Left_local;
+
+
+
+        var TransactionPettyCash_Right_local = [];
+        var TransactionPettyCash_Left_local = [];
+        this.TransactionPettyCash_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            TransactionPettyCash_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            TransactionPettyCash_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.TransactionPettyCash_Right_edit = TransactionPettyCash_Right_local;
+        this.TransactionPettyCash_Left_edit = TransactionPettyCash_Left_local;
+
+
+        var TransactionVendorOrder_Right_local = [];
+        var TransactionVendorOrder_Left_local = [];
+        this.TransactionVendorOrder_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            TransactionVendorOrder_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            TransactionVendorOrder_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.TransactionVendorOrder_Right_edit = TransactionVendorOrder_Right_local;
+        this.TransactionVendorOrder_Left_edit = TransactionVendorOrder_Left_local;
+
+
+        var TransactionInvoicePayment_Right_local = [];
+        var TransactionInvoicePayment_Left_local = [];
+        this.TransactionInvoicePayment_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            TransactionInvoicePayment_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            TransactionInvoicePayment_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.TransactionInvoicePayment_Right_edit = TransactionInvoicePayment_Right_local;
+        this.TransactionInvoicePayment_Left_edit = TransactionInvoicePayment_Left_local;
+
+
+        var TransactionOthers_Right_local = [];
+        var TransactionOthers_Left_local = [];
+        this.TransactionOthers_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            TransactionOthers_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            TransactionOthers_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.TransactionOthers_Right_edit = TransactionOthers_Right_local;
+        this.TransactionOthers_Left_edit = TransactionOthers_Left_local;
+
+
+        var Deposits_Right_local = [];
+        var Deposits_Left_local = [];
+        this.Deposits_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            Deposits_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            Deposits_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.Deposits_Right_edit = Deposits_Right_local;
+        this.Deposits_Left_edit = Deposits_Left_local;
+
+
+
+        var Issues_Right_local = [];
+        var Issues_Left_local = [];
+        this.Issues_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            Issues_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            Issues_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.Issues_Right_edit = Issues_Right_local;
+        this.Issues_Left_edit = Issues_Left_local;
+
+
+        var Customer_Right_local = [];
+        var Customer_Left_local = [];
+        this.Customer_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            Customer_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            Customer_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.Customer_Right_edit = Customer_Right_local;
+        this.Customer_Left_edit = Customer_Left_local;
+
+
+
+        var CustomerContract_Right_local = [];
+        var CustomerContract_Left_local = [];
+        this.CustomerContract_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            CustomerContract_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            CustomerContract_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.CustomerContract_Right_edit = CustomerContract_Right_local;
+        this.CustomerContract_Left_edit = CustomerContract_Left_local;
+
+
+        var CustomerNameMgmt_Right_local = [];
+        var CustomerNameMgmt_Left_local = [];
+        this.CustomerNameMgmt_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            CustomerNameMgmt_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            CustomerNameMgmt_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.CustomerNameMgmt_Right_edit = CustomerNameMgmt_Right_local;
+        this.CustomerNameMgmt_Left_edit = CustomerNameMgmt_Left_local;
+
+
+        var ContractClassification_Right_local = [];
+        var ContractClassification_Left_local = [];
+        this.ContractClassification_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            ContractClassification_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            ContractClassification_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.ContractClassification_Right_edit = ContractClassification_Right_local;
+        this.ContractClassification_Left_edit = ContractClassification_Left_local;
+
+
+        var CustomerLeads_Right_local = [];
+        var CustomerLeads_Left_local = [];
+        this.CustomerLeads_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            CustomerLeads_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            CustomerLeads_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.CustomerLeads_Right_edit = CustomerLeads_Right_local;
+        this.CustomerLeads_Left_edit = CustomerLeads_Left_local;
+
+
+        var c3xCRMAdmin_Right_local = [];
+        var c3xCRMAdmin_Left_local = [];
+        this.c3xCRMAdmin_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            c3xCRMAdmin_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            c3xCRMAdmin_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.c3xCRMAdmin_Right_edit = c3xCRMAdmin_Right_local;
+        this.c3xCRMAdmin_Left_edit = c3xCRMAdmin_Left_local;
+
+
+        var MrvoipPackage_Right_local = [];
+        var MrvoipPackage_Left_local = [];
+        this.MrvoipPackage_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            MrvoipPackage_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            MrvoipPackage_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.MrvoipPackage_Right_edit = MrvoipPackage_Right_local;
+        this.MrvoipPackage_Left_edit = MrvoipPackage_Left_local;
+
+
+        var CRMEnquiry_Right_local = [];
+        var CRMEnquiry_Left_local = [];
+        this.CRMEnquiry_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            CRMEnquiry_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            CRMEnquiry_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.CRMEnquiry_Right_edit = CRMEnquiry_Right_local;
+        this.CRMEnquiry_Left_edit = CRMEnquiry_Left_local;
+
+
+        var CalendarTemplate_Right_local = [];
+        var CalendarTemplate_Left_local = [];
+        this.CalendarTemplate_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            CalendarTemplate_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            CalendarTemplate_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.CalendarTemplate_Right_edit = CalendarTemplate_Right_local;
+        this.CalendarTemplate_Left_edit = CalendarTemplate_Left_local;
+
+
+        var vendor_Right_local = [];
+        var vendor_Left_local = [];
+        this.vendor_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            vendor_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            vendor_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.vendor_Right_edit = vendor_Right_local;
+        this.vendor_Left_edit = vendor_Left_local;
+
+
+        var ProductCategory_Right_local = [];
+        var ProductCategory_Left_local = [];
+        this.ProductCategory_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            ProductCategory_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            ProductCategory_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.ProductCategory_Right_edit = ProductCategory_Right_local;
+        this.ProductCategory_Left_edit = ProductCategory_Left_local;
+
+
+        var ResellerProductCategory_Right_local = [];
+        var ResellerProductCategory_Left_local = [];
+        this.ResellerProductCategory_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            ResellerProductCategory_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            ResellerProductCategory_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.ResellerProductCategory_Right_edit = ResellerProductCategory_Right_local;
+        this.ResellerProductCategory_Left_edit = ResellerProductCategory_Left_local;
+
+
+        var Product_Right_local = [];
+        var Product_Left_local = [];
+        this.Product_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            Product_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            Product_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.Product_Right_edit = Product_Right_local;
+        this.Product_Left_edit = Product_Left_local;
+
+
+        var ResellerProduct_Right_local = [];
+        var ResellerProduct_Left_local = [];
+        this.ResellerProduct_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            ResellerProduct_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            ResellerProduct_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.ResellerProduct_Right_edit = ResellerProduct_Right_local;
+        this.ResellerProduct_Left_edit = ResellerProduct_Left_local;
+
+
+        var ProductStock_Right_local = [];
+        var ProductStock_Left_local = [];
+        this.ProductStock_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            ProductStock_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            ProductStock_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.ProductStock_Right_edit = ProductStock_Right_local;
+        this.ProductStock_Left_edit = ProductStock_Left_local;
+
+
+        var DIDInventory_Right_local = [];
+        var DIDInventory_Left_local = [];
+        this.DIDInventory_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            DIDInventory_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            DIDInventory_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.DIDInventory_Right_edit = DIDInventory_Right_local;
+        this.DIDInventory_Left_edit = DIDInventory_Left_local;
+
+
+        var API3cxCreditReport_Right_local = [];
+        var API3cxCreditReport_Left_local = [];
+        this.API3cxCreditReport_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            API3cxCreditReport_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            API3cxCreditReport_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.API3cxCreditReport_Right_edit = API3cxCreditReport_Right_local;
+        this.API3cxCreditReport_Left_edit = API3cxCreditReport_Left_local;
+
+
+        var RecurringDateList_Right_local = [];
+        var RecurringDateList_Left_local = [];
+        this.RecurringDateList_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            RecurringDateList_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            RecurringDateList_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.RecurringDateList_Right_edit = RecurringDateList_Right_local;
+        this.RecurringDateList_Left_edit = RecurringDateList_Left_local;
+
+
+        var LicenseCategory_Right_local = [];
+        var LicenseCategory_Left_local = [];
+        this.LicenseCategory_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            LicenseCategory_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            LicenseCategory_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.LicenseCategory_Right_edit = LicenseCategory_Right_local;
+        this.LicenseCategory_Left_edit = LicenseCategory_Left_local;
+
+
+        var LicenseProduct_Right_local = [];
+        var LicenseProduct_Left_local = [];
+        this.LicenseProduct_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            LicenseProduct_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            LicenseProduct_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.LicenseProduct_Right_edit = LicenseProduct_Right_local;
+        this.LicenseProduct_Left_edit = LicenseProduct_Left_local;
+
+
+        var LicenseKey_Right_local = [];
+        var LicenseKey_Left_local = [];
+        this.LicenseKey_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            LicenseKey_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            LicenseKey_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.LicenseKey_Right_edit = LicenseKey_Right_local;
+        this.LicenseKey_Left_edit = LicenseKey_Left_local;
+
+
+        var CustomerProjectsDetails_Right_local = [];
+        var CustomerProjectsDetails_Left_local = [];
+        this.CustomerProjectsDetails_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            CustomerProjectsDetails_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            CustomerProjectsDetails_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.CustomerProjectsDetails_Right_edit = CustomerProjectsDetails_Right_local;
+        this.CustomerProjectsDetails_Left_edit = CustomerProjectsDetails_Left_local;
+
+
+        var VendorProduct_Right_local = [];
+        var VendorProduct_Left_local = [];
+        this.VendorProduct_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            VendorProduct_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            VendorProduct_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.VendorProduct_Right_edit = VendorProduct_Right_local;
+        this.VendorProduct_Left_edit = VendorProduct_Left_local;
+
+
+        var Courier_Right_local = [];
+        var Courier_Left_local = [];
+        this.Courier_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            Courier_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            Courier_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.Courier_Right_edit = Courier_Right_local;
+        this.Courier_Left_edit = Courier_Left_local;
+
+
+        var PasswordMgtDetails_Right_local = [];
+        var PasswordMgtDetails_Left_local = [];
+        this.PasswordMgtDetails_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            PasswordMgtDetails_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            PasswordMgtDetails_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.PasswordMgtDetails_Right_edit = PasswordMgtDetails_Right_local;
+        this.PasswordMgtDetails_Left_edit = PasswordMgtDetails_Left_local;
+
+
+
+        var PurchaseEntry_Right_local = [];
+        var PurchaseEntry_Left_local = [];
+        this.PurchaseEntry_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            PurchaseEntry_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            PurchaseEntry_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.PurchaseEntry_Right_edit = PurchaseEntry_Right_local;
+        this.PurchaseEntry_Left_edit = PurchaseEntry_Left_local;
+
+
+        var NonTradePurchaseEntry_Right_local = [];
+        var NonTradePurchaseEntry_Left_local = [];
+        this.NonTradePurchaseEntry_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            NonTradePurchaseEntry_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            NonTradePurchaseEntry_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.NonTradePurchaseEntry_Right_edit = NonTradePurchaseEntry_Right_local;
+        this.NonTradePurchaseEntry_Left_edit = NonTradePurchaseEntry_Left_local;
+
+
+        var StockEntry_Right_local = [];
+        var StockEntry_Left_local = [];
+        this.StockEntry_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            StockEntry_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            StockEntry_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.StockEntry_Right_edit = StockEntry_Right_local;
+        this.StockEntry_Left_edit = StockEntry_Left_local;
+
+
+        var SalaryEntry_Right_local = [];
+        var SalaryEntry_Left_local = [];
+        this.SalaryEntry_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            SalaryEntry_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            SalaryEntry_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.SalaryEntry_Right_edit = SalaryEntry_Right_local;
+        this.SalaryEntry_Left_edit = SalaryEntry_Left_local;
+
+
+        var Billing_Right_local = [];
+        var Billing_Left_local = [];
+        this.Billing_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            Billing_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            Billing_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.Billing_Right_edit = Billing_Right_local;
+        this.Billing_Left_edit = Billing_Left_local;
+
+
+        var ProfamaInvoice_Right_local = [];
+        var ProfamaInvoice_Left_local = [];
+        this.ProfamaInvoice_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            ProfamaInvoice_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            ProfamaInvoice_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.ProfamaInvoice_Right_edit = ProfamaInvoice_Right_local;
+        this.ProfamaInvoice_Left_edit = ProfamaInvoice_Left_local;
+
+
+        var Quotation_Right_local = [];
+        var Quotation_Left_local = [];
+        this.Quotation_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            Quotation_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            Quotation_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.Quotation_Right_edit = Quotation_Right_local;
+        this.Quotation_Left_edit = Quotation_Left_local;
+
+
+        var QuotationNew_Right_local = [];
+        var QuotationNew_Left_local = [];
+        this.QuotationNew_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            QuotationNew_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            QuotationNew_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.QuotationNew_Right_edit = QuotationNew_Right_local;
+        this.QuotationNew_Left_edit = QuotationNew_Left_local;
+
+
+        var PurchaseOrder_Right_local = [];
+        var PurchaseOrder_Left_local = [];
+        this.PurchaseOrder_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            PurchaseOrder_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            PurchaseOrder_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.PurchaseOrder_Right_edit = PurchaseOrder_Right_local;
+        this.PurchaseOrder_Left_edit = PurchaseOrder_Left_local;
+
+
+
+        var CreditNote_Right_local = [];
+        var CreditNote_Left_local = [];
+        this.CreditNote_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            CreditNote_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            CreditNote_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.CreditNote_Right_edit = CreditNote_Right_local;
+        this.CreditNote_Left_edit = CreditNote_Left_local;
+
+
+        var DeliveryChallan_Right_local = [];
+        var DeliveryChallan_Left_local = [];
+        this.DeliveryChallan_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            DeliveryChallan_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            DeliveryChallan_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.DeliveryChallan_Right_edit = DeliveryChallan_Right_local;
+        this.DeliveryChallan_Left_edit = DeliveryChallan_Left_local;
+
+
+        var DeliveryOrder_Right_local = [];
+        var DeliveryOrder_Left_local = [];
+        this.DeliveryOrder_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            DeliveryOrder_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            DeliveryOrder_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.DeliveryOrder_Right_edit = DeliveryOrder_Right_local;
+        this.DeliveryOrder_Left_edit = DeliveryOrder_Left_local;
+
+
+        var VSProvisioning_Right_local = [];
+        var VSProvisioning_Left_local = [];
+        this.VSProvisioning_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            VSProvisioning_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            VSProvisioning_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.VSProvisioning_Right_edit = VSProvisioning_Right_local;
+        this.VSProvisioning_Left_edit = VSProvisioning_Left_local;
+
+
+        var RateFileUpload_Right_local = [];
+        var RateFileUpload_Left_local = [];
+        this.RateFileUpload_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            RateFileUpload_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            RateFileUpload_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.RateFileUpload_Right_edit = RateFileUpload_Right_local;
+        this.RateFileUpload_Left_edit = RateFileUpload_Left_local;
+
+
+        var CouponDetails_Right_local = [];
+        var CouponDetails_Left_local = [];
+        this.CouponDetails_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            CouponDetails_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            CouponDetails_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.CouponDetails_Right_edit = CouponDetails_Right_local;
+        this.CouponDetails_Left_edit = CouponDetails_Left_local;
+
+
+        var CalncallShoppingMaster_Right_local = [];
+        var CalncallShoppingMaster_Left_local = [];
+        this.CalncallShoppingMaster_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            CalncallShoppingMaster_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            CalncallShoppingMaster_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.CalncallShoppingMaster_Right_edit = CalncallShoppingMaster_Right_local;
+        this.CalncallShoppingMaster_Left_edit = CalncallShoppingMaster_Left_local;
+
+
+        var ResellerShoppingMaster_Right_local = [];
+        var ResellerShoppingMaster_Left_local = [];
+        this.ResellerShoppingMaster_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            ResellerShoppingMaster_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            ResellerShoppingMaster_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.ResellerShoppingMaster_Right_edit = ResellerShoppingMaster_Right_local;
+        this.ResellerShoppingMaster_Left_edit = ResellerShoppingMaster_Left_local;
+
+
+        var DocumentPreparationlist_Right_local = [];
+        var DocumentPreparationlist_Left_local = [];
+        this.DocumentPreparationlist_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            DocumentPreparationlist_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            DocumentPreparationlist_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.DocumentPreparationlist_Right_edit = DocumentPreparationlist_Right_local;
+        this.DocumentPreparationlist_Left_edit = DocumentPreparationlist_Left_local;
+
+
+        var PaymentLinkAccessList_Right_local = [];
+        var PaymentLinkAccessList_Left_local = [];
+        this.PaymentLinkAccessList_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            PaymentLinkAccessList_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            PaymentLinkAccessList_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.PaymentLinkAccessList_Right_edit = PaymentLinkAccessList_Right_local;
+        this.PaymentLinkAccessList_Left_edit = PaymentLinkAccessList_Left_local;
+
+
+        var DataCenterRequest_Right_local = [];
+        var DataCenterRequest_Left_local = [];
+        this.DataCenterRequest_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            DataCenterRequest_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            DataCenterRequest_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.DataCenterRequest_Right_edit = DataCenterRequest_Right_local;
+        this.DataCenterRequest_Left_edit = DataCenterRequest_Left_local;
+
+
+        var DataCenterMasters_Right_local = [];
+        var DataCenterMasters_Left_local = [];
+        this.DataCenterMasters_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            DataCenterMasters_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            DataCenterMasters_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.DataCenterMasters_Right_edit = DataCenterMasters_Right_local;
+        this.DataCenterMasters_Left_edit = DataCenterMasters_Left_local;
+
+
+        var DynamicExcel_Right_local = [];
+        var DynamicExcel_Left_local = [];
+        this.DynamicExcel_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            DynamicExcel_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            DynamicExcel_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.DynamicExcel_Right_edit = DynamicExcel_Right_local;
+        this.DynamicExcel_Left_edit = DynamicExcel_Left_local;
+
+
+        var PriceList_Right_local = [];
+        var PriceList_Left_local = [];
+        this.PriceList_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            PriceList_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            PriceList_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.PriceList_Right_edit = PriceList_Right_local;
+        this.PriceList_Left_edit = PriceList_Left_local;
+
+
+
+        var CallLogs_Right_local = [];
+        var CallLogs_Left_local = [];
+        this.CallLogs_Left.forEach(function (bill_value) {
+          let chk_state = role_per_arr.indexOf(bill_value.id);
+          if (chk_state == -1) {
+            CallLogs_Left_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          } else {
+            CallLogs_Right_local.push({ 'name': bill_value.name, 'id': bill_value.id });
+          }
+        });
+
+        this.CallLogs_Right_edit = CallLogs_Right_local;
+        this.CallLogs_Left_edit = CallLogs_Left_local;
+
+
+
+        //
+        //  console.log("this.trans_entry_per_arr",this.trans_entry_per_arr);
+        // let chk_state = this.trans_entry_per_arr.indexOf('7')!=-1;
         // console.log("chk_state",chk_state);
 
 
-        
+
         this.addUserForm7.patchValue({
 
           'Quotation_Permission': response.user_edit_details[0].quotation_per,
@@ -3703,6 +3662,47 @@ export class EditUserComponent implements OnInit {
 
 
     });
+  }
+  signatureAttachmentDelete(id: any) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+
+        let api_req: any = new Object();
+        let delete_signatureAttach_req: any = new Object();
+        api_req.moduleType = "customer_contract";
+        api_req.api_url = "customer_contract/customer_contract_attachment_delete";
+        api_req.api_type = "web";
+        api_req.access_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJhdWQiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJpYXQiOjE2NTQ2NjQ0MzksIm5iZiI6MTY1NDY2NDQzOSwiZXhwIjoxNjU0NjgyNDM5LCJhY2Nlc3NfZGF0YSI6eyJ0b2tlbl9hY2Nlc3NJZCI6IjIiLCJ0b2tlbl9hY2Nlc3NOYW1lIjoidGVzdGluZzA0MDYyMDIyIiwidG9rZW5fYWNjZXNzVHlwZSI6IjIifX0.NaymQDSiON2R3tKICGNpj6hsQfg9DGwEcZzrJcvsqbI";
+        delete_signatureAttach_req.action = "customer_contract_attachment_delete";
+        delete_signatureAttach_req.contract_attachment_file_id = id;
+        delete_signatureAttach_req.user_id = localStorage.getItem('user_id');
+        api_req.element_data = delete_signatureAttach_req;
+        this.serverService.sendServer(api_req).subscribe((response: any) => {
+          if (response.status == true) {
+            // $("#fileAttachmentCustomerContractId").modal("hide");
+            iziToast.success({
+              message: "Signature attachment deleted successfully",
+              position: 'topRight'
+            });
+            // this.contractfileAttachment(this.fileAttachContractID, this.fileAttachCustomerID);
+          }
+        }),
+          (error: any) => {
+            console.log(error);
+          };
+      }
+    })
+
+
+
   }
   update() {
 
@@ -3783,18 +3783,18 @@ export class EditUserComponent implements OnInit {
     data.append('customer_projects_per', this.edit_array_CustomerProject);
     data.append('recurring_date_per', this.edit_array_RecurringCheckerList);
     data.append('customer_mst_per', this.edit_array_CustomerMaster);
-    data.append('calendar_template_per',this.edit_array_CalendarTemplate );
-    data.append('guru_details_biller',this.edit_array_GuruDetails );
-    data.append('call_log_per',this.edit_array_CallLog);
-    data.append('dc_per',this.edit_array_DC);
-    data.append('emailNotification_per',this.edit_array_EmailNotification);
-    data.append('time_booking_per',this.edit_array_TimeBooking );
+    data.append('calendar_template_per', this.edit_array_CalendarTemplate);
+    data.append('guru_details_biller', this.edit_array_GuruDetails);
+    data.append('call_log_per', this.edit_array_CallLog);
+    data.append('dc_per', this.edit_array_DC);
+    data.append('emailNotification_per', this.edit_array_EmailNotification);
+    data.append('time_booking_per', this.edit_array_TimeBooking);
     data.append('trans_app_dep', this.edit_array_TransDepositApproval);
- // data.append('erp_app_per', );
+    // data.append('erp_app_per', );
 
     $.ajax({
       type: 'POST',
-      url: 'admin/user_details_update',
+      url: 'http://127.0.0.1:8000/api/admin/user_details_update',
       cache: false,
       contentType: false,
       processData: false,

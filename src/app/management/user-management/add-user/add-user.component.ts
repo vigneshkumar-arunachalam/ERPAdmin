@@ -2066,7 +2066,7 @@ EditCHK_GuruDetails(data: any, event: any) {
    
     $.ajax({
       type: 'POST',
-      url: 'admin/user_details_save',
+      url: 'http://127.0.0.1:8000/api/admin/user_details_save',
       cache: false,
       contentType: false,
       processData: false,
