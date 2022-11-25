@@ -20,6 +20,7 @@
                                             <div class="col-lg-12">
                                                 <input type="text" class="form-control" formControlName="displayName"
                                                     id="display" />
+                                                    <input type="hidden" name="current_user_id" formControlName="curr_user_id"  />
                                                 <div *ngIf="addUserForm1.controls['displayName'].invalid && (addUserForm1.controls['displayName'].dirty || addUserForm1.controls['displayName'].touched)"
                                                     class="mt-2 alert alert-danger">
                                                     Display Name is Required
@@ -279,8 +280,8 @@
                                                 </label>
                                             </div>
                                             <div class="col-lg-12">
-                                                <input type="text" class="form-control"
-                                                    formControlName="ExtensionNumber" id="t1" />
+                                                <input type="text" class="form-control" formControlName="ExtensionNumber"
+                                                    id="t1" />
 
                                             </div>
                                         </div>
@@ -324,7 +325,8 @@
 
                                                     <option value="0">HR Group</option>
 
-                                                    <option *ngFor="let listhr of edit_userHRList" value="{{listhr.hr_group_id
+                                                    <option *ngFor="let listhr of edit_userHRList"
+                                                        value="{{listhr.hr_group_id
                                                         }}">
                                                         {{listhr.hr_group_name}}
                                                     </option>
@@ -362,8 +364,7 @@
                                             <div class="col-lg-12">
 
                                                 <select id="per" class="form-control"
-                                                    aria-label="Default select example"
-                                                    formControlName="e_permissionAs">
+                                                    aria-label="Default select example" formControlName="e_permissionAs">
                                                     <!-- <option [ngValue]="null" selected disabled>Select Permissions </option> -->
 
                                                     <option value="0">All</option>
@@ -382,8 +383,8 @@
                                         <div class="form-group row" style="align-items: center;">
 
                                             <div class="col-lg-6">
-                                                <label for="epfcpf" class="col-form-label" style="margin-bottom: 0;">
-                                                    EPF/ CPF Add Status* </label>
+                                                <label for="epfcpf" class="col-form-label"
+                                                    style="margin-bottom: 0;"> EPF/ CPF Add Status* </label>
                                             </div>
                                             <div class="col-lg-6">
                                                 <input class="switch" type="checkbox" formControlName="epfcpfStatus"
@@ -395,8 +396,8 @@
                                     <div class="col-lg-6">
                                         <div class="form-group row" style="align-items: center;">
                                             <div class="col-lg-6">
-                                                <label for="SINDA" class="col-form-label" style="margin-bottom: 0;">
-                                                    Contribution 1/ SINDA* </label>
+                                                <label for="SINDA" class="col-form-label"
+                                                    style="margin-bottom: 0;"> Contribution 1/ SINDA* </label>
                                             </div>
                                             <div class="col-lg-6">
                                                 <input class="switch" type="checkbox" formControlName="sinda" id="SINDA"
@@ -408,8 +409,8 @@
                                     <div class="col-lg-6">
                                         <div class="form-group row" style="align-items: center;">
                                             <div class="col-lg-6">
-                                                <label for="SOCSO" class="col-form-label" style="margin-bottom: 0;">
-                                                    Contribution 2/ SOCSO* </label>
+                                                <label for="SOCSO" class="col-form-label"
+                                                    style="margin-bottom: 0;"> Contribution 2/ SOCSO* </label>
                                             </div>
                                             <div class="col-lg-6">
                                                 <input class="switch" type="checkbox" formControlName="socso" id="SOCSO"
@@ -421,8 +422,8 @@
                                     <div class="col-lg-6">
                                         <div class="form-group row" style="align-items: center;">
                                             <div class="col-lg-6">
-                                                <label for="smsnotif" class="col-form-label" style="margin-bottom: 0;">
-                                                    SMS Notification </label>
+                                                <label for="smsnotif" class="col-form-label"
+                                                    style="margin-bottom: 0;"> SMS Notification </label>
                                             </div>
                                             <div class="col-lg-6">
                                                 <input class="switch" type="checkbox" formControlName="smsNotif"
@@ -489,7 +490,7 @@
                                             
                                             </div> -->
 
-                                            <div class="col-lg-12" *ngFor="let flist of billerDetailsList;let j=index">
+                                            <!-- <div class="col-lg-12" *ngFor="let flist of billerDetailsList;let j=index">
                                                 <div (click)="{{this.functionName(flist)}}">
                                                     
                                                     <div class="form-group row">
@@ -522,7 +523,7 @@
 
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
                                         </div>
                                     </div>
@@ -839,14 +840,14 @@
                                 </div>
 
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let show of edit_billerdetailsList;let i=index">
-                                        <span class="btnalter" [ngStyle]="{'background-color': show.colorCodes}">
+                                    <div class="col-lg-2 license-key" *ngFor="let show of edit_billerdetailsList;let i=index">
+                                        <span class="btnalter" [ngStyle]="{'background-color': show.colorCodes}" >
                                             <p class="" title="{{show.billerCode}}"> {{show.billerName}}</p>
-                                            <input class="switch ml-4" type="checkbox" id="{{ show.billerId }}"
-                                                [value]="show.billerId"
-                                                checked="{{trans_entry_per.indexOf(show.billerId)!='-1' ? 'checked':''}}"
-                                                (change)="EditCHK_TransactionEntry(show.billerId,$event)">
+                                            <input class="switch ml-4" type="checkbox"
+                                            id="{{ show.billerId }}" [value]="show.billerId"
+                                            checked="{{trans_entry_per.indexOf(show.billerId)!='-1' ? 'checked':''}}"
+                                         
+                                            (change)="EditCHK_TransactionEntry(show.billerId,$event)">
                                         </span>
                                     </div>
                                 </div>
@@ -883,10 +884,9 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass">Selected Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="Transaction_right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box" *ngFor="let item of Transaction_right_edit"
+                                                <div cdkDropList [cdkDropListData]="Transaction_Right_edit"
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    <div class="example-box" *ngFor="let item of Transaction_Right_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
@@ -899,8 +899,7 @@
                                 </div>
 
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -923,7 +922,7 @@
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
                                                     <div class="example-box"
-                                                        *ngFor="let item of TransactionApproval_Left" cdkDrag>
+                                                        *ngFor="let item of TransactionApproval_Left_edit" cdkDrag>
                                                         {{item.name}}
                                                     </div>
                                                 </div>
@@ -933,10 +932,9 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionApproval_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
-                                                        *ngFor="let item of TransactionApproval_Right" cdkDrag>
+                                                        *ngFor="let item of TransactionApproval_Right_edit" cdkDrag>
                                                         {{item.name}}
                                                     </div>
                                                 </div>
@@ -949,8 +947,7 @@
                                     <label> Deposits(Transaction)</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -984,8 +981,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionDeposit_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of TransactionDeposit_Right_edit" cdkDrag>
                                                         {{item.name}}
@@ -1021,8 +1017,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionCommission_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of TransactionCommission_Right_edit" cdkDrag>
                                                         {{item.name}}
@@ -1037,8 +1032,7 @@
                                     <label> Withdrawal(Transaction)</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -1072,8 +1066,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionWithdrawal_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of TransactionWithdrawal_Right_edit" cdkDrag>
                                                         {{item.name}}
@@ -1098,8 +1091,7 @@
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
                                                     <div class="example-box"
-                                                        *ngFor="let item of  TransactionPurchaseEntry_Left_edit"
-                                                        cdkDrag>
+                                                        *ngFor="let item of  TransactionPurchaseEntry_Left_edit" cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -1108,11 +1100,9 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionPurchaseEntry_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
-                                                        *ngFor="let item of  TransactionPurchaseEntry_Right_edit"
-                                                        cdkDrag>
+                                                        *ngFor="let item of  TransactionPurchaseEntry_Right_edit" cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -1125,12 +1115,11 @@
                                 </div>
 
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
-                                                checked="{{salary_per.indexOf(dd.billerId)!='-1' ? 'checked':''}}"
+                                            checked="{{salary_per.indexOf(dd.billerId)!='-1' ? 'checked':''}}"
                                                 (change)="EditCHK_TransactionSalary(dd.billerId,$event)">
                                         </span>
                                     </div>
@@ -1159,8 +1148,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Transactionsalary_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of Transactionsalary_Right_edit" cdkDrag>
                                                         {{item.name}}
@@ -1176,8 +1164,7 @@
                                 </div>
 
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -1210,11 +1197,9 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionPettyCash_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
-                                                        *ngFor="let item of TransactionPettyCash_Right_edit" cdkDrag>
-                                                        {{item.name}}
+                                                        *ngFor="let item of TransactionPettyCash_Right_edit" cdkDrag>{{item.name}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -1246,8 +1231,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionVendorOrder_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  TransactionVendorOrder_Right_edit" cdkDrag>
                                                         {{item.name}}
@@ -1272,8 +1256,7 @@
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
                                                     <div class="example-box"
-                                                        *ngFor="let item of   TransactionInvoicePayment_Left_edit"
-                                                        cdkDrag>
+                                                        *ngFor="let item of   TransactionInvoicePayment_Left_edit" cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -1281,13 +1264,10 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass">Selected Permission</h4>
 
-                                                <div cdkDropList
-                                                    [cdkDropListData]="TransactionInvoicePayment_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                <div cdkDropList [cdkDropListData]="TransactionInvoicePayment_Right_edit"
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
-                                                        *ngFor="let item of  TransactionInvoicePayment_Right_edit"
-                                                        cdkDrag>
+                                                        *ngFor="let item of  TransactionInvoicePayment_Right_edit" cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -1318,8 +1298,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionOthers_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  TransactionOthers_Right_edit" cdkDrag>
                                                         {{item.name}}
@@ -1349,8 +1328,7 @@
                                         Center</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -1372,9 +1350,8 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Available Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="Deposits_Left_edit "
-                                                    class="example-list" cdkDropListSortingDisabled
-                                                    (cdkDropListDropped)="drop($event)">
+                                                <div cdkDropList [cdkDropListData]="Deposits_Left_edit " class="example-list"
+                                                    cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
                                                     <div class="example-box" *ngFor="let item of  Deposits_Left_edit "
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1383,9 +1360,8 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="Deposits_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                <div cdkDropList [cdkDropListData]="Deposits_Right_edit" class="example-list"
+                                                    (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box" *ngFor="let item of  Deposits_Right_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1404,11 +1380,9 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Available Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="Issues_Left_edit"
-                                                    class="example-list" cdkDropListSortingDisabled
-                                                    (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box" *ngFor="let item of  Issues_Left_edit "
-                                                        cdkDrag>
+                                                <div cdkDropList [cdkDropListData]="Issues_Left_edit" class="example-list"
+                                                    cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
+                                                    <div class="example-box" *ngFor="let item of  Issues_Left_edit " cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -1416,11 +1390,9 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass">Selected Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="Issues_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box" *ngFor="let item of  Issues_Right_edit"
-                                                        cdkDrag>
+                                                <div cdkDropList [cdkDropListData]="Issues_Right_edit" class="example-list"
+                                                    (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  Issues_Right_edit" cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -1432,8 +1404,7 @@
                                     <label> Customer(Customer Master)</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -1454,9 +1425,8 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Available Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="Customer_Left_edit"
-                                                    class="example-list" cdkDropListSortingDisabled
-                                                    (cdkDropListDropped)="drop($event)">
+                                                <div cdkDropList [cdkDropListData]="Customer_Left_edit" class="example-list"
+                                                    cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
                                                     <div class="example-box" *ngFor="let item of  Customer_Left_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1465,9 +1435,8 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="Customer_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                <div cdkDropList [cdkDropListData]="Customer_Right_edit" class="example-list"
+                                                    (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box" *ngFor="let item of  Customer_Right_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1480,8 +1449,7 @@
                                     <label> Customer Contract(Contract Biller)</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -1504,9 +1472,8 @@
                                                 <div cdkDropList [cdkDropListData]="CustomerContract_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  CustomerContract_Left_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    <div class="example-box" *ngFor="let item of  CustomerContract_Left_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
 
@@ -1514,8 +1481,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CustomerContract_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  CustomerContract_Right_edit" cdkDrag>
                                                         {{item.name}}</div>
@@ -1538,9 +1504,8 @@
                                                 <div cdkDropList [cdkDropListData]="CustomerNameMgmt_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  CustomerNameMgmt_Left_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    <div class="example-box" *ngFor="let item of  CustomerNameMgmt_Left_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
 
@@ -1548,8 +1513,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CustomerNameMgmt_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  CustomerNameMgmt_Right_edit" cdkDrag>
                                                         {{item.name}}</div>
@@ -1583,8 +1547,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ContractClassification_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  ContractClassification_Right_edit" cdkDrag>
                                                         {{item.name}}
@@ -1600,8 +1563,7 @@
                                     <label> Customer Leads</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -1624,9 +1586,8 @@
                                                 <div cdkDropList [cdkDropListData]="CustomerLeads_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  CustomerLeads_Left_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    <div class="example-box" *ngFor="let item of  CustomerLeads_Left_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
 
@@ -1634,11 +1595,9 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CustomerLeads_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  CustomerLeads_Right_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  CustomerLeads_Right_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1658,9 +1617,8 @@
                                                 <div cdkDropList [cdkDropListData]="c3xCRMAdmin_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of    c3xCRMAdmin_Left_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    <div class="example-box" *ngFor="let item of    c3xCRMAdmin_Left_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
 
@@ -1668,8 +1626,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="c3xCRMAdmin_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box" *ngFor="let item of c3xCRMAdmin_Right_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1691,9 +1648,8 @@
                                                 <div cdkDropList [cdkDropListData]="MrvoipPackage_Left_edit "
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  MrvoipPackage_Left_edit " cdkDrag>
-                                                        {{item.name}}</div>
+                                                    <div class="example-box" *ngFor="let item of  MrvoipPackage_Left_edit "
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
 
@@ -1701,11 +1657,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="MrvoipPackage_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  MrvoipPackage_Right_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  MrvoipPackage_Right_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1717,8 +1671,7 @@
                                     <label> CRM Enquiry</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -1749,8 +1702,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CRMEnquiry_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:900px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:900px'>
                                                     <div class="example-box" *ngFor="let item of  CRMEnquiry_Right_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1769,11 +1721,11 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Available Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="TransactionOthers_Left_edit"
+                                                <div cdkDropList [cdkDropListData]="CRMTemplate_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
                                                     <div class="example-box"
-                                                        *ngFor="let item of  TransactionOthers_Left_edit" cdkDrag>
+                                                        *ngFor="let item of  CRMTemplate_Left_edit" cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -1781,11 +1733,10 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="TransactionOthers_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                <div cdkDropList [cdkDropListData]="CRMTemplate_Right_edit"
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
-                                                        *ngFor="let item of  TransactionOthers_Right_edit" cdkDrag>
+                                                        *ngFor="let item of  CRMTemplate_Right_edit" cdkDrag>
                                                         {{item.name}}
                                                     </div>
                                                 </div>
@@ -1798,8 +1749,7 @@
                                     <label> Calendar Template</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -1832,8 +1782,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CalendarTemplate_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  CalendarTemplate_Right_edit" cdkDrag>
                                                         {{item.name}}
@@ -1857,8 +1806,8 @@
                                                 <div cdkDropList [cdkDropListData]="vendor_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box" *ngFor="let item of  vendor_Left_edit"
-                                                        cdkDrag>
+                                                    <div class="example-box"
+                                                        *ngFor="let item of  vendor_Left_edit" cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -1867,10 +1816,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="vendor_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box" *ngFor="let item of  vendor_Right_edit"
-                                                        cdkDrag>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box"
+                                                        *ngFor="let item of  vendor_Right_edit" cdkDrag>
                                                         {{item.name}}
                                                     </div>
                                                 </div>
@@ -1893,9 +1841,8 @@
                                                 <div cdkDropList [cdkDropListData]="ProductCategory_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of   ProductCategory_Left_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    <div class="example-box" *ngFor="let item of   ProductCategory_Left_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
 
@@ -1903,8 +1850,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ProductCategory_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of    ProductCategory_Right_edit" cdkDrag>
                                                         {{item.name}}
@@ -1929,8 +1875,7 @@
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
                                                     <div class="example-box"
-                                                        *ngFor="let item of   ResellerProductCategory_Left_edit"
-                                                        cdkDrag>
+                                                        *ngFor="let item of   ResellerProductCategory_Left_edit" cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -1939,11 +1884,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ResellerProductCategory_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
-                                                        *ngFor="let item of   ResellerProductCategory_Right_edit"
-                                                        cdkDrag>
+                                                        *ngFor="let item of   ResellerProductCategory_Right_edit" cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -1961,11 +1904,9 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Available Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="Product_Left_edit"
-                                                    class="example-list" cdkDropListSortingDisabled
-                                                    (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box" *ngFor="let item of  Product_Left_edit"
-                                                        cdkDrag>
+                                                <div cdkDropList [cdkDropListData]="Product_Left_edit" class="example-list"
+                                                    cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
+                                                    <div class="example-box" *ngFor="let item of  Product_Left_edit" cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -1973,9 +1914,8 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="Product_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                <div cdkDropList [cdkDropListData]="Product_Right_edit" class="example-list"
+                                                    (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box" *ngFor="let item of  Product_Right_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1988,12 +1928,11 @@
                                     <label> Reseller Product Price</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
-                                                checked="{{reseller_prod_price_per.indexOf(dd.billerId)!='-1' ? 'checked':''}}"
+                                            checked="{{reseller_prod_price_per.indexOf(dd.billerId)!='-1' ? 'checked':''}}"
                                                 (change)="EditCHK_ResellerProduct(dd.billerId,$event)">
                                         </span>
                                     </div>
@@ -2012,9 +1951,8 @@
                                                 <div cdkDropList [cdkDropListData]="ResellerProduct_Left_edit "
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  ResellerProduct_Left_edit " cdkDrag>
-                                                        {{item.name}}</div>
+                                                    <div class="example-box" *ngFor="let item of  ResellerProduct_Left_edit "
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
 
@@ -2022,11 +1960,9 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ResellerProduct_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  ResellerProduct_Right_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  ResellerProduct_Right_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2037,8 +1973,7 @@
                                     <label> Product Stock</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -2061,9 +1996,8 @@
                                                 <div cdkDropList [cdkDropListData]="ProductStock_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  ProductStock_Left_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    <div class="example-box" *ngFor="let item of  ProductStock_Left_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
 
@@ -2071,11 +2005,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ProductStock_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of   ProductStock_Right_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of   ProductStock_Right_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2086,8 +2018,7 @@
                                     <label> DID Inventory(Product)</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -2110,9 +2041,8 @@
                                                 <div cdkDropList [cdkDropListData]="DIDInventory_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of   DIDInventory_Left_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    <div class="example-box" *ngFor="let item of   DIDInventory_Left_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
 
@@ -2120,11 +2050,9 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DIDInventory_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  DIDInventory_Right_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  DIDInventory_Right_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2169,8 +2097,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="API3cxCreditReport_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of API3cxCreditReport_Right_edit" cdkDrag>
                                                         {{item.name}}</div>
@@ -2204,8 +2131,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="RecurringDateList_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of RecurringDateList_Right_edit" cdkDrag>
                                                         {{item.name}}</div>
@@ -2257,11 +2183,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="LicenseCategory_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  LicenseCategory_Right_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  LicenseCategory_Right_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2282,9 +2206,8 @@
                                                 <div cdkDropList [cdkDropListData]="LicenseProduct_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of   LicenseProduct_Left_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    <div class="example-box" *ngFor="let item of   LicenseProduct_Left_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
 
@@ -2292,11 +2215,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="LicenseProduct_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  LicenseProduct_Right_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  LicenseProduct_Right_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2308,8 +2229,7 @@
                                     <label> License Key</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}">{{dd.billerCode}}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -2341,8 +2261,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="LicenseKey_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:800px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:800px'>
                                                     <div class="example-box" *ngFor="let item of  LicenseKey_Right_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2355,8 +2274,7 @@
                                     <label> Customer(Customer Projects Details)</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -2381,8 +2299,7 @@
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
                                                     <div class="example-box"
-                                                        *ngFor="let item of   CustomerProjectsDetails_Left_edit"
-                                                        cdkDrag>
+                                                        *ngFor="let item of   CustomerProjectsDetails_Left_edit" cdkDrag>
                                                         {{item.name}}
                                                     </div>
                                                 </div>
@@ -2392,10 +2309,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]=" CustomerProjectsDetails_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:400px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:400px'>
                                                     <div class="example-box"
-                                                        *ngFor="let item of   CustomerProjectsDetails_Right" cdkDrag>
+                                                        *ngFor="let item of   CustomerProjectsDetails_Right_edit" cdkDrag>
                                                         {{item.name}}
                                                     </div>
                                                 </div>
@@ -2418,9 +2334,8 @@
                                                 <div cdkDropList [cdkDropListData]="VendorProduct_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of   VendorProduct_Left_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    <div class="example-box" *ngFor="let item of   VendorProduct_Left_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
 
@@ -2428,11 +2343,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="VendorProduct_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  VendorProduct_Right_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  VendorProduct_Right_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2450,9 +2363,8 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Available Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="Courier_Left_edit"
-                                                    class="example-list" cdkDropListSortingDisabled
-                                                    (cdkDropListDropped)="drop($event)">
+                                                <div cdkDropList [cdkDropListData]="Courier_Left_edit" class="example-list"
+                                                    cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
                                                     <div class="example-box" *ngFor="let item of   Courier_Left_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2461,9 +2373,8 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="Courier_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                <div cdkDropList [cdkDropListData]="Courier_Right_edit" class="example-list"
+                                                    (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box" *ngFor="let item of  Courier_Right_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2477,12 +2388,11 @@
                                     <label>Guru Details(Password Mgt Details)</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
-                                                checked="{{guru_details_biller.indexOf(dd.billerId)!='-1' ? 'checked':''}}"
+                                             checked="{{guru_details_biller.indexOf(dd.billerId)!='-1' ? 'checked':''}}"
                                                 (change)="EditCHK_GuruDetails(dd.billerId,$event)">
                                         </span>
                                     </div>
@@ -2511,8 +2421,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="PasswordMgtDetails_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  PasswordMgtDetails_Right_edit" cdkDrag>
                                                         {{item.name}}</div>
@@ -2526,8 +2435,7 @@
                                     <label> Purchase Entry</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -2551,9 +2459,8 @@
                                                 <div cdkDropList [cdkDropListData]="PurchaseEntry_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of   PurchaseEntry_Left_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    <div class="example-box" *ngFor="let item of   PurchaseEntry_Left_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
 
@@ -2561,11 +2468,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="PurchaseEntry_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  PurchaseEntry_Right_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  PurchaseEntry_Right_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2576,8 +2481,7 @@
                                     <label> Non Trade Purchase Entry</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -2612,8 +2516,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="NonTradePurchaseEntry_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  NonTradePurchaseEntry_Right_edit" cdkDrag>
                                                         {{item.name}}
@@ -2647,8 +2550,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="StockEntry_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box" *ngFor="let item of  StockEntry_Right_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2671,9 +2573,8 @@
                                                 <div cdkDropList [cdkDropListData]="SalaryEntry_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of   SalaryEntry_Left_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    <div class="example-box" *ngFor="let item of   SalaryEntry_Left_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
 
@@ -2681,11 +2582,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="SalaryEntry_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  SalaryEntry_Right_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  SalaryEntry_Right_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2697,13 +2596,13 @@
                                     <label> Biller(Invoice)</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
-                                                checked="{{biller_per.indexOf(dd.billerId)!='-1' ? 'checked':''}}"
-                                                (change)="EditCHK_BillerAll(dd.billerId,$event)">
+                                         checked="{{biller_per.indexOf(dd.billerId)!='-1' ? 'checked':''}}"
+                                                (change)="EditCHK_BillerAll(dd.billerId,$event)" 
+                                           >
                                         </span>
                                     </div>
                                 </div>
@@ -2720,9 +2619,8 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Available Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="Billing_Left_edit"
-                                                    class="example-list" cdkDropListSortingDisabled
-                                                    (cdkDropListDropped)="drop($event)">
+                                                <div cdkDropList [cdkDropListData]="Billing_Left_edit" class="example-list"
+                                                    cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
                                                     <div class="example-box" *ngFor="let item of   Billing_Left_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2731,9 +2629,8 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="Billing_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:1600px'>
+                                                <div cdkDropList [cdkDropListData]="Billing_Right_edit" class="example-list"
+                                                    (cdkDropListDropped)="drop($event)"  style='height:1600px'>
                                                     <div class="example-box" *ngFor="let item of  Billing_Right_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2753,8 +2650,7 @@
                                         id="ToDtBilling" />
 
 
-                                    <label for="FilterMonthBilling" class="col-lg-2 col-form-label"> Filter
-                                        Month</label>
+                                    <label for="FilterMonthBilling" class="col-lg-2 col-form-label"> Filter Month</label>
                                     <input type="text" class="form-control" formControlName="billingFilterMonth"
                                         id="FilterMonthBilling" />
                                 </div>
@@ -2772,9 +2668,8 @@
                                                 <div cdkDropList [cdkDropListData]="ProfamaInvoice_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of   ProfamaInvoice_Left_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    <div class="example-box" *ngFor="let item of   ProfamaInvoice_Left_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
 
@@ -2782,11 +2677,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ProfamaInvoice_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:800px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  ProfamaInvoice_Right_edit" cdkDrag>
-                                                        {{item.name}}</div>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:800px'>
+                                                    <div class="example-box" *ngFor="let item of  ProfamaInvoice_Right_edit"
+                                                        cdkDrag>{{item.name}}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2797,13 +2690,14 @@
                                     <label> Quotation </label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
-                                            <input class="switch ml-4" type="checkbox" value="dd.billerId"
-                                                checked="{{quotation_per_old.indexOf(dd.billerId)!='-1' ? 'checked':''}}"
-                                                (change)="EditCHK_Quotation(dd.billerId,$event)">
+                                            <input class="switch ml-4" type="checkbox"
+                                              
+                                              value="dd.billerId" 
+                                              checked="{{quotation_per_old.indexOf(dd.billerId)!='-1' ? 'checked':''}}"
+                                              (change) ="EditCHK_Quotation(dd.billerId,$event)">
                                         </span>
                                     </div>
                                 </div>
@@ -2819,9 +2713,8 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Available Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="Quotation_Left_edit"
-                                                    class="example-list" cdkDropListSortingDisabled
-                                                    (cdkDropListDropped)="drop($event)">
+                                                <div cdkDropList [cdkDropListData]="Quotation_Left_edit" class="example-list"
+                                                    cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
                                                     <div class="example-box" *ngFor="let item of   Quotation_Left_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2831,8 +2724,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Quotation_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box" *ngFor="let item of  Quotation_Right_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2859,8 +2751,7 @@
                                     <label> Quotation New Permission</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -2884,8 +2775,8 @@
                                                 <div cdkDropList [cdkDropListData]="QuotationNew_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of    QuotationNew_Left_edit" cdkDrag>
+                                                    <div class="example-box" *ngFor="let item of    QuotationNew_Left_edit"
+                                                        cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -2894,10 +2785,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="QuotationNew_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:500px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  QuotationNew_Right_edit" cdkDrag>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:500px'>
+                                                    <div class="example-box" *ngFor="let item of  QuotationNew_Right_edit"
+                                                        cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -2910,8 +2800,7 @@
                                     <label> Purchase Order</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -2936,9 +2825,8 @@
                                                 <div cdkDropList [cdkDropListData]="PurchaseOrder_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of   PurchaseOrder_Left_edit" cdkDrag>
-                                                        {{item.name}}
+                                                    <div class="example-box" *ngFor="let item of   PurchaseOrder_Left_edit"
+                                                        cdkDrag>{{item.name}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -2947,11 +2835,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="PurchaseOrder_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  PurchaseOrder_Right_edit" cdkDrag>
-                                                        {{item.name}}
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  PurchaseOrder_Right_edit"
+                                                        cdkDrag>{{item.name}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -2963,8 +2849,7 @@
                                     <label> Credit Note</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -2997,8 +2882,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CreditNote_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box" *ngFor="let item of  CreditNote_Right_edit"
                                                         cdkDrag>{{item.name}}
                                                     </div>
@@ -3021,8 +2905,8 @@
                                                 <div cdkDropList [cdkDropListData]="DeliveryChallan_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of   DeliveryChallan_Left_edit" cdkDrag>
+                                                    <div class="example-box" *ngFor="let item of   DeliveryChallan_Left_edit"
+                                                        cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -3031,10 +2915,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DeliveryChallan_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  DeliveryChallan_Right_edit" cdkDrag>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  DeliveryChallan_Right_edit"
+                                                        cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -3047,8 +2930,7 @@
                                     <label> Delivery Challan(Delivery Order)</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -3072,8 +2954,8 @@
                                                 <div cdkDropList [cdkDropListData]="DeliveryOrder_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of   DeliveryOrder_Left_edit" cdkDrag>
+                                                    <div class="example-box" *ngFor="let item of   DeliveryOrder_Left_edit"
+                                                        cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -3082,10 +2964,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DeliveryOrder_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  DeliveryOrder_Right_edit" cdkDrag>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  DeliveryOrder_Right_edit"
+                                                        cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -3097,8 +2978,7 @@
                                     <label> VS Provisioning</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -3121,8 +3001,8 @@
                                                 <div cdkDropList [cdkDropListData]="VSProvisioning_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of   VSProvisioning_Left_edit" cdkDrag>
+                                                    <div class="example-box" *ngFor="let item of   VSProvisioning_Left_edit"
+                                                        cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -3131,10 +3011,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="VSProvisioning_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  VSProvisioning_Right_edit" cdkDrag>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  VSProvisioning_Right_edit"
+                                                        cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -3155,8 +3034,8 @@
                                                 <div cdkDropList [cdkDropListData]="RateFileUpload_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of   RateFileUpload_Left_edit" cdkDrag>
+                                                    <div class="example-box" *ngFor="let item of   RateFileUpload_Left_edit"
+                                                        cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -3165,10 +3044,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="RateFileUpload_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  RateFileUpload_Right_edit" cdkDrag>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  RateFileUpload_Right_edit"
+                                                        cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -3189,8 +3067,8 @@
                                                 <div cdkDropList [cdkDropListData]="CouponDetails_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of   CouponDetails_Left_edit" cdkDrag>
+                                                    <div class="example-box" *ngFor="let item of   CouponDetails_Left_edit"
+                                                        cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -3199,10 +3077,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CouponDetails_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  CouponDetails_Right_edit" cdkDrag>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  CouponDetails_Right_edit"
+                                                        cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -3235,8 +3112,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CalncallShoppingMaster_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  CalncallShoppingMaster_Right_edit" cdkDrag>
                                                         {{item.name}}
@@ -3271,8 +3147,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ResellerShoppingMaster_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  ResellerShoppingMaster_Right_edit" cdkDrag>
                                                         {{item.name}}
@@ -3297,8 +3172,7 @@
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
                                                     <div class="example-box"
-                                                        *ngFor="let item of   DocumentPreparationlist_Left_edit"
-                                                        cdkDrag>
+                                                        *ngFor="let item of   DocumentPreparationlist_Left_edit" cdkDrag>
                                                         {{item.name}}
                                                     </div>
                                                 </div>
@@ -3308,11 +3182,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DocumentPreparationlist_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
-                                                        *ngFor="let item of  DocumentPreparationlist_Right_edit"
-                                                        cdkDrag>
+                                                        *ngFor="let item of  DocumentPreparationlist_Right_edit" cdkDrag>
                                                         {{item.name}}
                                                     </div>
                                                 </div>
@@ -3345,8 +3217,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="PaymentLinkAccessList_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  PaymentLinkAccessList_Right_edit" cdkDrag>
                                                         {{item.name}}
@@ -3380,8 +3251,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DataCenterRequest_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  DataCenterRequest_Right_edit" cdkDrag>
                                                         {{item.name}}</div>
@@ -3415,8 +3285,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DataCenterMasters_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  DataCenterMasters_Right_edit" cdkDrag>
                                                         {{item.name}}</div>
@@ -3440,8 +3309,8 @@
                                                 <div cdkDropList [cdkDropListData]="DynamicExcel_Left_edit"
                                                     class="example-list" cdkDropListSortingDisabled
                                                     (cdkDropListDropped)="drop($event)">
-                                                    <div class="example-box"
-                                                        *ngFor="let item of   DynamicExcel_Left_edit" cdkDrag>
+                                                    <div class="example-box" *ngFor="let item of   DynamicExcel_Left_edit"
+                                                        cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -3450,10 +3319,9 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DynamicExcel_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
-                                                    <div class="example-box"
-                                                        *ngFor="let item of  DynamicExcel_Right_edit" cdkDrag>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
+                                                    <div class="example-box" *ngFor="let item of  DynamicExcel_Right_edit"
+                                                        cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
                                             </div>
@@ -3472,9 +3340,8 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Available Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="PriceList_Left_edit"
-                                                    class="example-list" cdkDropListSortingDisabled
-                                                    (cdkDropListDropped)="drop($event)">
+                                                <div cdkDropList [cdkDropListData]="PriceList_Left_edit" class="example-list"
+                                                    cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
                                                     <div class="example-box" *ngFor="let item of   PriceList_Left_edit"
                                                         cdkDrag>{{item.name}}
                                                     </div>
@@ -3485,8 +3352,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="PriceList_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box" *ngFor="let item of  PriceList_Right_edit"
                                                         cdkDrag>{{item.name}}
                                                     </div>
@@ -3507,9 +3373,8 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Available Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="CallLogs_Left_edit"
-                                                    class="example-list" cdkDropListSortingDisabled
-                                                    (cdkDropListDropped)="drop($event)">
+                                                <div cdkDropList [cdkDropListData]="CallLogs_Left_edit" class="example-list"
+                                                    cdkDropListSortingDisabled (cdkDropListDropped)="drop($event)">
                                                     <div class="example-box" *ngFor="let item of   CallLogs_Left_edit"
                                                         cdkDrag>{{item.name}}
                                                     </div>
@@ -3519,9 +3384,8 @@
                                             <div class="example-container">
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
-                                                <div cdkDropList [cdkDropListData]="CallLogs_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"
-                                                    style='height:200px'>
+                                                <div cdkDropList [cdkDropListData]="CallLogs_Right_edit" class="example-list"
+                                                    (cdkDropListDropped)="drop($event)"  style='height:300px'>
                                                     <div class="example-box" *ngFor="let item of  CallLogs_Right_edit"
                                                         cdkDrag>{{item.name}}
                                                     </div>
@@ -3551,8 +3415,7 @@
                                     <label> Dashboard</label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -3567,8 +3430,7 @@
                                     <label> Product Stock Transfer Alet </label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -3582,8 +3444,7 @@
                                     <label> Call Log Permission </label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -3597,8 +3458,7 @@
                                     <label> DC(Delivery Chellan) Permission </label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -3612,8 +3472,7 @@
                                     <label> Email Notification Permission </label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -3627,8 +3486,7 @@
                                     <label> Time Booking Permission </label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -3641,8 +3499,7 @@
                                     <label> Trans Deposit Approval Permission </label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
                                             <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
                                             <input class="switch ml-4" type="checkbox"
@@ -3664,12 +3521,14 @@
                                     <label> Defualt Biller(Radio) </label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
-                                    <div class="col-lg-2 license-key"
-                                        *ngFor="let dd1 of edit_billerdetailsList;let i=index">
+                                    <div class="col-lg-2 license-key" *ngFor="let dd1 of edit_billerdetailsList;let i=index">
                                         <span class="btnalter" [ngStyle]="{'background-color': dd1.colorCodes}">
                                             <p class="" title="{{dd1.billerCode}}"> {{ dd1.billerCode }}</p>
-                                            <input type="radio" name="edit_billerdetailsList" [value]="dd1.billerId"
-                                                checked="{{dd1.billerId==defaultBillerIDValue ? 'checked':''}}"
+                                            <input type="radio" name="edit_billerdetailsList"
+                                           
+                                            [value]="dd1.billerId"  
+                                            
+                                            checked="{{dd1.billerId==defaultBillerIDValue ? 'checked':''}}"
                                                 (change)="handleChange(dd1.billerId,$event)" />
                                         </span>
                                     </div>
