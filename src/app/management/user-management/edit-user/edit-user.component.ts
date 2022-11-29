@@ -4,9 +4,9 @@ import { ServerService } from 'src/app/services/server.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import Swal from 'sweetalert2'
 declare var iziToast: any;
 declare var $: any;
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
@@ -16,6 +16,7 @@ export class EditUserComponent implements OnInit {
   //Permission -checkbox-Quotation New
   role_drop_left_val: any;
   role_drop_right_val: any;
+  user_signature_list: any;
   groupSelectCommonId_quotation_per: any;
   checkbox_value_quotation_per: any;
   edit_array_quotation_per: any = [];
@@ -1411,6 +1412,7 @@ export class EditUserComponent implements OnInit {
   call_log_per: any = [];
   guru_details_biller: any = [];
   trans_app_dep: any = [];
+  
 
 
   constructor(private serverService: ServerService, private fb: FormBuilder, private router: Router, private route: ActivatedRoute) {
@@ -1422,6 +1424,7 @@ export class EditUserComponent implements OnInit {
   ngOnInit(): void  {
    // this.onLoadGet();
     // this.onLoadEdit();
+
     this.route.queryParams
       .subscribe(params => {
         console.log("params output value", params);
@@ -2687,9 +2690,6 @@ export class EditUserComponent implements OnInit {
     }
 
   }
-  functionName(flist){
-    console.log("flist",flist)
-  }
   onLoadEdit() {
     let api_req: any = new Object();
     let apiEdit_req: any = new Object();
@@ -2717,9 +2717,7 @@ export class EditUserComponent implements OnInit {
       this.edit_pettyCashColorArrList = response.user_add_details.petty_cash_color_arr;
       this.edit_userDetailsList = response.user_add_details.user_det;
       this.edit_userHRList = response.user_add_details.user_hr;
-      this.billerDetailsList = response.user_signature_details;
-
-
+      
       this.edit_billerdetailsList = response.user_add_details.biller_det;
 
       this.roles = this.permissionRole.split(',')
@@ -2729,6 +2727,10 @@ export class EditUserComponent implements OnInit {
           x.selected = true;
         }
       })
+
+
+      // user_signature_details
+
 
       // this.roles_trans_entry_per = this.permissionRole_trans_entry_per
       // console.log("this.roles_trans_entry_per-after split", this.roles_trans_entry_per)
@@ -3056,7 +3058,7 @@ export class EditUserComponent implements OnInit {
           'cmsAlternativeSupportWebsite': response.user_edit_details[0].alternate_website,
           'bccEmailID': response.user_edit_details[0].callEmailId,
           'e_pettyCashColorCode': response.user_edit_details[0].petty_color_code,
-          'Signature': response.user_signature_details[0].user_signature_id,
+          'Signature': response.user_edit_details[0].signatureFilename,
 
           'Staff': response.user_edit_details[0].staffStatus,
           'ProbationIn': response.user_edit_details[0].probation,
@@ -3072,7 +3074,9 @@ export class EditUserComponent implements OnInit {
 
         });
 
-         this.edit_array_Check = response.user_edit_details[0].role.split(',');
+         this.user_signature_list = response.user_signature_details;    
+
+          this.edit_array_Check = response.user_edit_details[0].role.split(',');
        
         // console.log("response.user_add_details.trans_entry_per",response.user_edit_details[0].trans_entry_per);
 
@@ -4122,44 +4126,60 @@ export class EditUserComponent implements OnInit {
 
     });
   }
-  signatureAttachmentDelete(id: any) {
+  delete_sign(id:any){
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      title: 'Do you want to Delete?',
+      showDenyButton: true,
+      // showCancelButton: true,
+      confirmButtonText: 'Yes',
+      denyButtonText: `No`,
     }).then((result) => {
-      if (result.value) {
-
-        let api_req: any = new Object();
-        let delete_signatureAttach_req: any = new Object();
-        api_req.moduleType = "customer_contract";
-        api_req.api_url = "customer_contract/customer_contract_attachment_delete";
-        api_req.api_type = "web";
-        api_req.access_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJhdWQiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJpYXQiOjE2NTQ2NjQ0MzksIm5iZiI6MTY1NDY2NDQzOSwiZXhwIjoxNjU0NjgyNDM5LCJhY2Nlc3NfZGF0YSI6eyJ0b2tlbl9hY2Nlc3NJZCI6IjIiLCJ0b2tlbl9hY2Nlc3NOYW1lIjoidGVzdGluZzA0MDYyMDIyIiwidG9rZW5fYWNjZXNzVHlwZSI6IjIifX0.NaymQDSiON2R3tKICGNpj6hsQfg9DGwEcZzrJcvsqbI";
-        delete_signatureAttach_req.action = "customer_contract_attachment_delete";
-        delete_signatureAttach_req.contract_attachment_file_id = id;
-        delete_signatureAttach_req.user_id = localStorage.getItem('user_id');
-        api_req.element_data = delete_signatureAttach_req;
-        this.serverService.sendServer(api_req).subscribe((response: any) => {
-          if (response.status == true) {
-            // $("#fileAttachmentCustomerContractId").modal("hide");
-            iziToast.success({
-              message: "Signature attachment deleted successfully",
-              position: 'topRight'
-            });
-            // this.contractfileAttachment(this.fileAttachContractID, this.fileAttachCustomerID);
-          }
-        }),
-          (error: any) => {
-            console.log(error);
-          };
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.delete_data(id);
+      } else if (result.isDenied) {
+        Swal.fire('No Changes');
       }
     })
+  }
 
+  delete_data(sign_id:any){
+    let api_req: any = new Object();
+    let api_enableDisable: any = new Object();
+    api_req.moduleType = "admin";
+    api_req.api_url = "admin/user_signature_deleted"
+    api_req.api_type = "web";
+    api_req.access_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJhdWQiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJpYXQiOjE2NTQ2NjQ0MzksIm5iZiI6MTY1NDY2NDQzOSwiZXhwIjoxNjU0NjgyNDM5LCJhY2Nlc3NfZGF0YSI6eyJ0b2tlbl9hY2Nlc3NJZCI6IjIiLCJ0b2tlbl9hY2Nlc3NOYW1lIjoidGVzdGluZzA0MDYyMDIyIiwidG9rZW5fYWNjZXNzVHlwZSI6IjIifX0.NaymQDSiON2R3tKICGNpj6hsQfg9DGwEcZzrJcvsqbI";
+    api_enableDisable.action = "user_signature_deleted";
+    api_enableDisable.user_signature_id = sign_id;
+    api_req.element_data = api_enableDisable;
+
+
+    this.serverService.sendServer(api_req).subscribe((response: any) => {
+      if (response.status == true) {
+        
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Signature deleted successful',
+          showConfirmButton: false,
+          timer: 1500
+        })
+       // this.router.navigate(['/edituser']);
+       // this.router.navigate(['/edituser'], { queryParams: { e_userid: 2, } });
+         this.editUserID=2;
+         this.onLoadEdit();
+      }
+      else {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'warning',
+          title: 'Password Reset not Success',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    });
 
 
   }
@@ -4192,8 +4212,13 @@ export class EditUserComponent implements OnInit {
     data.append('alternate_website', this.addUserForm1.value.cmsAlternativeSupportWebsite);
     data.append('callEmailId', this.addUserForm1.value.bccEmailID);
     data.append('petty_color_code', this.addUserForm1.value.e_pettyCashColorCode);
+    data.append('signatureFilename', this.addUserForm1.value.Signature);
 
-    //    data.append('signatureFilename', this.addUserForm1.value.Signature);
+    let signature_billerid_arr = this.signature_billerid; 
+
+    signature_billerid_arr.forEach(function (bill_value) {
+     data.append('signatureFilename'+bill_value, $("#uploaded-img"+bill_value)[0].files[0]);    
+    }); 
 
     data.append('staffStatus', this.addUserForm1.value.Staff);
     data.append('probation', this.addUserForm1.value.ProbationIn);
@@ -4204,7 +4229,7 @@ export class EditUserComponent implements OnInit {
     data.append('hr_group_id', this.addUserForm1.value.e_HRGroup);
 
     data.append('monthlySalary', JSON.stringify(this.addUserForm2.value.addresses));
-
+    data.append('billerSignature_billerId', this.signature_billerid);
     data.append('from_dt_bill', this.addUserForm7.value.billingFromDt);
     data.append('to_dt_bill', this.addUserForm7.value.billingToDt);
     data.append('filter_month_val', this.addUserForm7.value.billingFilterMonth);
@@ -4255,9 +4280,11 @@ export class EditUserComponent implements OnInit {
     data.append('role_drop_left', this.role_drop_left_val);
  // data.append('erp_app_per', );
 
+ // url: 'http://127.0.0.1:8000/api/admin/user_details_update',
+
     $.ajax({
       type: 'POST',
-      url: 'http://127.0.0.1:8000/api/admin/user_details_update',
+      url: 'https://erp1.cal4care.com/api/admin/user_details_update',
       cache: false,
       contentType: false,
       processData: false,

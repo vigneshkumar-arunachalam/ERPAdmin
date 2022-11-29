@@ -390,7 +390,7 @@
                                             </div>
                                             <div class="col-lg-12">
 
-                                                <select id="HRGroupq" class="form-control"
+                                                <select id="HRGroupq" class="form-control" 
                                                     aria-label="Default select example" formControlName="HRGroup">
 
                                                     <option value="0">HR Group</option>
@@ -566,7 +566,7 @@
                                                     </div> -->
                                                       <div class="col-lg-12">
                                                         <input required type="file" class="form-control" 
-                                                        name="uploaded-img" id="uploaded-img{{j}}"
+                                                        name="uploaded-img" id="uploaded-img{{flist.billerId}}"
                                                             formControlName="Signature"
                                                             (change)="showPreviewImage(flist.billerId,$event)" />
 
@@ -922,7 +922,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Transaction_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of Transaction_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -968,7 +968,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionApproval_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of TransactionApproval_Right" cdkDrag>
                                                         {{item.name}}
@@ -1016,7 +1016,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionDeposit_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of TransactionDeposit_Right" cdkDrag>
                                                         {{item.name}}
@@ -1052,7 +1052,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionCommission_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of TransactionCommission_Right" cdkDrag>
                                                         {{item.name}}
@@ -1100,7 +1100,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionWithdrawal_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of TransactionWithdrawal_Right" cdkDrag>
                                                         {{item.name}}
@@ -1134,7 +1134,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionPurchaseEntry_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  TransactionPurchaseEntry_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -1181,7 +1181,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Transactionsalary_Right "
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of Transactionsalary_Right " cdkDrag>
                                                         {{item.name}}
@@ -1229,7 +1229,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionPettyCash_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of TransactionPettyCash_Right" cdkDrag>{{item.name}}
                                                     </div>
@@ -1263,7 +1263,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionVendorOrder_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  TransactionVendorOrder_Right" cdkDrag>
                                                         {{item.name}}
@@ -1297,7 +1297,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionInvoicePayment_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  TransactionInvoicePayment_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -1330,7 +1330,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionOthers_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  TransactionOthers_Right" cdkDrag>
                                                         {{item.name}}
@@ -1392,7 +1392,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Deposits_Right" class="example-list"
-                                                    (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  Deposits_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1422,7 +1422,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Issues_Right" class="example-list"
-                                                    (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  Issues_Right" cdkDrag>
                                                         {{item.name}}</div>
                                                 </div>
@@ -1466,7 +1466,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Customer_Right" class="example-list"
-                                                    (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  Customer_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1510,7 +1510,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CustomerContract_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  CustomerContract_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -1542,7 +1542,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CustomerNameMgmt_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  CustomerNameMgmt_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -1576,7 +1576,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ContractClassification_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  ContractClassification_Right" cdkDrag>
                                                         {{item.name}}
@@ -1623,7 +1623,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CustomerLeads_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  CustomerLeads_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1654,7 +1654,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="c3xCRMAdmin_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of c3xCRMAdmin_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1685,7 +1685,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="MrvoipPackage_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  MrvoipPackage_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1729,7 +1729,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CRMEnquiry_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:900px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:900px'>
                                                     <div class="example-box" *ngFor="let item of  CRMEnquiry_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1761,7 +1761,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionOthers_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  TransactionOthers_Right" cdkDrag>
                                                         {{item.name}}
@@ -1808,7 +1808,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionOthers_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  TransactionOthers_Right" cdkDrag>
                                                         {{item.name}}
@@ -1842,7 +1842,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="TransactionOthers_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  TransactionOthers_Right" cdkDrag>
                                                         {{item.name}}
@@ -1876,7 +1876,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ProductCategory_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of    ProductCategory_Right" cdkDrag>
                                                         {{item.name}}
@@ -1910,7 +1910,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ResellerProductCategory_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of   ResellerProductCategory_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -1941,7 +1941,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Product_Right" class="example-list"
-                                                    (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  Product_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -1985,7 +1985,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ResellerProduct_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  ResellerProduct_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2029,7 +2029,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ProductStock_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of   ProductStock_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2073,7 +2073,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DIDInventory_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  DIDInventory_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2120,7 +2120,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="API3cxCreditReport_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of API3cxCreditReport_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -2154,7 +2154,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="RecurringDateList_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of RecurringDateList_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -2206,7 +2206,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="LicenseCategory_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  LicenseCategory_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2238,7 +2238,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DIDInventory_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  DIDInventory_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2283,7 +2283,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="LicenseKey_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:800px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:800px'>
                                                     <div class="example-box" *ngFor="let item of  LicenseKey_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2330,7 +2330,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]=" CustomerProjectsDetails_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:400px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:400px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of   CustomerProjectsDetails_Right" cdkDrag>
                                                         {{item.name}}
@@ -2364,7 +2364,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="VendorProduct_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  VendorProduct_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2395,7 +2395,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Courier_Right" class="example-list"
-                                                    (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  Courier_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2441,7 +2441,7 @@
                                                 <h4 class="clorClass">Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="PasswordMgtDetails_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  PasswordMgtDetails_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -2487,7 +2487,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="PurchaseEntry_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  PurchaseEntry_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2534,7 +2534,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="NonTradePurchaseEntry_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  NonTradePurchaseEntry_Right" cdkDrag>
                                                         {{item.name}}
@@ -2568,7 +2568,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="StockEntry_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  StockEntry_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2600,7 +2600,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="SalaryEntry_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  SalaryEntry_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2694,7 +2694,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ProfamaInvoice_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:800px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:800px'>
                                                     <div class="example-box" *ngFor="let item of  ProfamaInvoice_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2738,7 +2738,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="Quotation_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  Quotation_Right"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2798,7 +2798,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="QuotationNew_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:500px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:500px'>
                                                     <div class="example-box" *ngFor="let item of  QuotationNew_Right"
                                                         cdkDrag>
                                                         {{item.name}}</div>
@@ -2847,7 +2847,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="PurchaseOrder_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  PurchaseOrder_Right"
                                                         cdkDrag>{{item.name}}
                                                     </div>
@@ -2893,7 +2893,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CreditNote_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  CreditNote_Right"
                                                         cdkDrag>{{item.name}}
                                                     </div>
@@ -2926,7 +2926,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DeliveryChallan_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  DeliveryChallan_Right"
                                                         cdkDrag>
                                                         {{item.name}}</div>
@@ -2974,7 +2974,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DeliveryOrder_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  DeliveryOrder_Right"
                                                         cdkDrag>
                                                         {{item.name}}</div>
@@ -3020,7 +3020,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="VSProvisioning_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  VSProvisioning_Right"
                                                         cdkDrag>
                                                         {{item.name}}</div>
@@ -3053,7 +3053,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="RateFileUpload_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  RateFileUpload_Right"
                                                         cdkDrag>
                                                         {{item.name}}</div>
@@ -3086,7 +3086,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CouponDetails_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  CouponDetails_Right"
                                                         cdkDrag>
                                                         {{item.name}}</div>
@@ -3121,7 +3121,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CalncallShoppingMaster_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  CalncallShoppingMaster_Right" cdkDrag>
                                                         {{item.name}}
@@ -3156,7 +3156,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="ResellerShoppingMaster_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  ResellerShoppingMaster_Right" cdkDrag>
                                                         {{item.name}}
@@ -3191,7 +3191,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DocumentPreparationlist_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  DocumentPreparationlist_Right" cdkDrag>
                                                         {{item.name}}
@@ -3226,7 +3226,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="PaymentLinkAccessList_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  PaymentLinkAccessList_Right" cdkDrag>
                                                         {{item.name}}
@@ -3260,7 +3260,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DataCenterRequest_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  DataCenterRequest_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -3294,7 +3294,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DataCenterMasters_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of  DataCenterMasters_Right" cdkDrag>
                                                         {{item.name}}</div>
@@ -3328,7 +3328,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="DynamicExcel_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  DynamicExcel_Right"
                                                         cdkDrag>
                                                         {{item.name}}</div>
@@ -3361,7 +3361,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="PriceList_Right"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  PriceList_Right"
                                                         cdkDrag>{{item.name}}
                                                     </div>
@@ -3394,7 +3394,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="CallLogs_Right" class="example-list"
-                                                    (cdkDropListDropped)="drop($event)"  style='height:200px'>
+                                                    (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  CallLogs_Right"
                                                         cdkDrag>{{item.name}}
                                                     </div>
@@ -3412,7 +3412,7 @@
                 <div class="card">
                     <div class="card-header" id="faqhead6">
                         <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq6"
-                            aria-expanded="true" aria-controls="faq3">Defualt Biller </a>
+                            aria-expanded="true" aria-controls="faq3">Default Biller </a>
                     </div>
 
                     <div id="faq6" class="collapse" aria-labelledby="faqhead6" data-parent="#faq">
@@ -3452,7 +3452,7 @@
 
 
                                 <div>
-                                    <label> Defualt Biller(Radio) </label>
+                                    <label> Default Biller(Radio) </label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
                                     <div class="col-lg-2 license-key" *ngFor="let dd of billerDetailsList;let i=index">

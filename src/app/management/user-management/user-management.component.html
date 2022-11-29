@@ -98,13 +98,13 @@
                         <span>{{ list.designation }}</span>
                       </td>
                       <td>
-                        <span>{{ list.smsNotification }}</span>
+                        <span>{{ list.smsNotification ? 'yes' : 'no' }}</span>
                       </td>
                       <td>
                         <span>{{ list.phonenumber}}</span>
                       </td>
                       <td>
-                        <span> {{ list.emailNotification }}</span>
+                        <span> {{ list.emailNotification? 'yes' : 'no' }}</span>
                       </td>
                       <td>
                         <span>{{ list.emailId }}</span>
