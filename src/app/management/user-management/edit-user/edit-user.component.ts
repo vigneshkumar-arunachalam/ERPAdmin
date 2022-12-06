@@ -3,6 +3,7 @@ import { FormGroup, FormControl, FormBuilder, FormArray, Validators, ValidatorFn
 import { ServerService } from 'src/app/services/server.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 declare var iziToast: any;
 declare var $: any;
@@ -13,6 +14,8 @@ import Swal from 'sweetalert2'
   styleUrls: ['./edit-user.component.css']
 })
 export class EditUserComponent implements OnInit {
+  public birthdate: any;
+  public age: number;
   //Permission -checkbox-Quotation New
   role_drop_left_val: any;
   role_drop_right_val: any;
@@ -1311,6 +1314,7 @@ export class EditUserComponent implements OnInit {
   edit_userHRList: any;
 
   //others
+  ageValue:false;
   editUserID: any;
   checkboxList: any;
   fileList: any;
@@ -1558,7 +1562,7 @@ export class EditUserComponent implements OnInit {
     { name: '3cx Assigned Enquiry ', selected: false, id: 1164},
     { name: 'Cal4care (Thailand) Co., Ltd. Overdue ', selected: false, id: 1166},
     { name: 'Custom Search Icon show', selected: false, id:1148  },
-    { name: 'Customer Serach', selected: false, id:1141  },
+    { name: 'Customer Search', selected: false, id:1141  },
     { name: 'Invoice', selected: false, id: 1144 },
     { name: 'License Key', selected: false, id: 1147 },
     { name: 'Vs Provisioning', selected: false, id: 1151 },
@@ -1689,7 +1693,7 @@ export class EditUserComponent implements OnInit {
       'sinda': new FormControl,
       'socso': new FormControl,
       'smsNotif': new FormControl,
-      'phoneNumber': new FormControl,
+      'phoneNumber':new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
       'emailNotif': new FormControl,
       'emailID': new FormControl,
       'cmsContactPhone': new FormControl,
@@ -1748,6 +1752,18 @@ export class EditUserComponent implements OnInit {
       this.test[index] = true;
     });
 
+
+  }
+  blurEvent(event: any){
+    this.birthdate = event.target.value;
+    console.log("this.birthdate",this.birthdate)
+    if(this.birthdate){
+   
+      const bdate = new Date(this.birthdate);
+      const timeDiff = Math.abs(Date.now() - bdate.getTime() );
+      this.age = Math.floor((timeDiff / (1000 * 3600 * 24)) / 365);
+      console.log("this.age",this.age )
+  }
 
   }
   get addressControls() {
@@ -4281,7 +4297,7 @@ export class EditUserComponent implements OnInit {
  // data.append('erp_app_per', );
 
  // url: 'http://127.0.0.1:8000/api/admin/user_details_update',
-
+ var self = this;
     $.ajax({
       type: 'POST',
       url: 'https://erp1.cal4care.com/api/admin/user_details_update',
@@ -4291,7 +4307,18 @@ export class EditUserComponent implements OnInit {
       data: data,
       success: function (result: any) {
         if (result.status == true) {
-          console.log("success")
+          self.router.navigate(['/usermanagement']);
+          iziToast.success({
+            message: " Updated successfully",
+            position: 'topRight'
+          },5000);
+         
+        }
+        else{
+          iziToast.warning({
+            message: "Not Updated. Check the Input",
+            position: 'topRight'
+          });
         }
       },
       error: function (err: any) {

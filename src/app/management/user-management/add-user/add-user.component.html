@@ -231,8 +231,10 @@
                                                 <label for="dob" class="col-form-label">DOB</label>
                                             </div>
                                             <div class="col-lg-12">
-                                                <input type="date" class="form-control" formControlName="dob"
-                                                    id="dob" />
+                                                <input type="date" class="form-control" 
+                                                [(ngModel)]="birthdate" formControlName="dob"
+                                                (blur)="blurEvent($event)"
+                                                     />
 
 
                                             </div>
@@ -244,8 +246,9 @@
                                                 <label for="age" class="col-form-label"> Age</label>
                                             </div>
                                             <div class="col-lg-12">
-                                                <input type="text" class="form-control" formControlName="age"
-                                                    id="age" />
+                                                <input type="text" class="form-control" 
+                                                [(ngModel)]="age" formControlName="age" [readonly]="!ageValue"
+                                                     />
 
                                             </div>
                                         </div>
@@ -260,6 +263,10 @@
                                             <div class="col-lg-12">
                                                 <input type="text" class="form-control" formControlName="phoneNumber"
                                                     id="phonenum" />
+                                                    <div *ngIf="addUserForm1.controls['phoneNumber'].invalid && (addUserForm1.controls['phoneNumber'].dirty || addUserForm1.controls['phoneNumber'].touched)"
+                                                    class="mt-2 alert alert-danger">
+                                                    Enter Number Only 
+                                                </div>
 
                                             </div>
                                         </div>
@@ -732,6 +739,10 @@
                                                                                     <input type="text"
                                                                                         class="form-control"
                                                                                         formControlName="MS_salaryAmt" />
+                                                                                         <div *ngIf="addUserForm1.controls['phoneNumber'].invalid && (addUserForm1.controls['phoneNumber'].dirty || addUserForm1.controls['phoneNumber'].touched)"
+                                                    class="mt-2 alert alert-danger">
+                                                    Enter Number Only 
+                                                </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>

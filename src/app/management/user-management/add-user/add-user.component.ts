@@ -12,7 +12,9 @@ declare var $:any;
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-  
+  public birthdate: any;
+  public age: number;
+
 //Permission -checkbox-Quotation New
 role_drop_val:any ;
 groupSelectCommonId_quotation_per: any;
@@ -737,6 +739,7 @@ edit_array_GuruDetails: any = [];
   this.role_drop_val=role_drop_arr;
 
   }
+  ageValue:false;
   checkboxList: any;
   fileList: any;
   middlecheckboxList: any;
@@ -801,6 +804,7 @@ edit_array_GuruDetails: any = [];
 
   ngOnInit(): void {
     this.onLoadGet();
+
     this.dynamicCheckboxwithKey = [
 
       { name: 'Trans Deposit Approval', selected: false, id: 2011 },
@@ -926,7 +930,7 @@ edit_array_GuruDetails: any = [];
   { name: '3cx Assigned Enquiry ', selected: false, id: 1164},
   { name: 'Cal4care (Thailand) Co., Ltd. Overdue ', selected: false, id: 1166},
   { name: 'Custom Search Icon show', selected: false, id:1148  },
-  { name: 'Customer Serach', selected: false, id:1141  },
+  { name: 'Customer Search', selected: false, id:1141  },
   { name: 'Invoice', selected: false, id: 1144 },
   { name: 'License Key', selected: false, id: 1147 },
   { name: 'Vs Provisioning', selected: false, id: 1151 },
@@ -1042,7 +1046,7 @@ edit_array_GuruDetails: any = [];
       'sinda':new FormControl(null),
       'socso':new FormControl(null),
       'smsNotif':new FormControl(null),
-      'phoneNumber':new FormControl(null),
+      'phoneNumber':new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
       'emailNotif':new FormControl(null),
       'emailID':new FormControl(null),
       'cmsContactPhone':new FormControl(null),
@@ -1121,6 +1125,21 @@ edit_array_GuruDetails: any = [];
 
 
   }
+  blurEvent(event: any){
+    this.birthdate = event.target.value;
+    console.log("this.birthdate",this.birthdate)
+    if(this.birthdate){
+   
+      const bdate = new Date(this.birthdate);
+      const timeDiff = Math.abs(Date.now() - bdate.getTime() );
+      this.age = Math.floor((timeDiff / (1000 * 3600 * 24)) / 365);
+      console.log("this.age",this.age )
+  }
+
+  }
+
+  
+  
   get addressControls() {
     return this.addUserForm2.get('addresses') as FormArray
   }
@@ -1355,6 +1374,8 @@ edit_array_GuruDetails: any = [];
 
     }
   }
+   
+ 
   EditCHK_PurchaseOrder(data: any, event: any) {
     console.log("List - CheckBox ID", data);
     this.groupSelectCommonId_PurchaseOrder = data;
@@ -2066,18 +2087,21 @@ console.log($("#HRGroupq").val())
       data: data,
       success: function (result: any) {
         if (result.status == true) {
+          self.router.navigate(['/usermanagement']);
           iziToast.success({
-            message: "Saved Successfully ",
+            message: "User insert successfully",
             position: 'topRight'
-          });
+          },5000);
+         
         }
+      
         else{
           iziToast.warning({
             message: "Not Saved. Check the Input",
             position: 'topRight'
           });
         }
-        self.onLoadGet();
+        // self.onLoadGet();
       },
       error: function (err: any) {
         console.log(err);
@@ -2111,6 +2135,7 @@ console.log($("#HRGroupq").val())
  
 
 }
+
 export const passwordMatchingValidatior: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
   const password = control.get('password');
   const confirmPassword = control.get('confirmPassword');
