@@ -3,6 +3,7 @@ import { FormGroup, FormControl, FormBuilder, FormArray, Validators, ValidatorFn
 import { ServerService } from 'src/app/services/server.service';
 import { Router } from '@angular/router';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import Swal from 'sweetalert2';
 declare var iziToast: any;
 declare var $:any;
 @Component({
@@ -11,6 +12,7 @@ declare var $:any;
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
+  
 //Permission -checkbox-Quotation New
 role_drop_val:any ;
 groupSelectCommonId_quotation_per: any;
@@ -787,7 +789,7 @@ edit_array_GuruDetails: any = [];
   checkboxCB_EmailNotifications:boolean=false;
   checkboxCB_Staff:boolean=false;
   checkboxCB_IndividualPettyCashFromDate:boolean=false;
-
+  HRValidation:boolean=false;
 
 
 
@@ -809,8 +811,8 @@ edit_array_GuruDetails: any = [];
   { name: 'Trans Vendor Approval', selected: false, id: 2016 },
   { name: 'Trans Invoice Approval', selected: false, id:  2017},
   { name: 'Trans Quotation Filter Approval', selected: false, id:2018  },
-  { name: 'Invoice individual filter', selected: false, id: 2019 },
-  { name: 'Approval filter', selected: false, id: 2020 },
+  { name: 'Invoice Individual Filter', selected: false, id: 2019 },
+  { name: 'Approval Filter', selected: false, id: 2020 },
   { name: 'Trans Approval Main', selected: false, id: 2021 },
   { name: 'Trans Approval Product', selected: false, id:2022  },
   { name: 'Trans Approval DID Number', selected: false, id: 2023 },
@@ -825,7 +827,7 @@ edit_array_GuruDetails: any = [];
   { name: 'Quotation Sent App Name', selected: false, id:2032  },
   { name: 'Transaction Approval Share', selected: false, id: 2033 },
   { name: 'Transaction Approval Individual filter', selected: false, id: 2034 },
-  { name: 'Customer Master Apptoval', selected: false, id: 2035 },
+  { name: 'Customer Master Approval', selected: false, id: 2035 },
   { name: 'DID Invoice', selected: false, id: 2036 },
   { name: 'Write Off Invoice', selected: false, id:2037  },
   { name: 'CMS Login', selected: false, id:2038  },
@@ -833,47 +835,47 @@ edit_array_GuruDetails: any = [];
   { name: 'Reseller Management', selected: false, id:2040  },
   { name: 'Call logs', selected: false, id:2041  },
   { name: 'Picture gallery', selected: false, id: 2042 },
-  { name: 'Internal tickets', selected: false, id:2043  },
-  { name: 'Petty cash report', selected: false, id:2044  },
-  { name: 'Widthdrawl report', selected: false, id:2045  },
-  { name: 'Price category', selected: false, id: 2046 },
-  { name: 'Enquiry form', selected: false, id: 2047 },
-  { name: 'CMS country', selected: false, id: 2048 },
-  { name: 'DID number catalog', selected: false, id:2049  },
-  { name: 'DID provider', selected: false, id:2050  },
-  { name: 'DID trunk name', selected: false, id:2051  },
-  { name: 'Deposit mgt', selected: false, id: 2052  },
-  { name: 'Small task', selected: false, id:2053   },
-  { name: 'Product category', selected: false, id:2054   },
-  { name: 'Product quotation', selected: false, id: 2055  },
-  { name: 'Stock inventory report', selected: false, id:2056   },
-  { name: 'Rate catelog', selected: false, id:2057   },
-  { name: 'Stock inventory Entry', selected: false, id: 2058  },
-  { name: 'DID inventory entry', selected: false, id:2059   },
-  { name: 'Sucuri ip Access', selected: false, id:2060  },
-  { name: 'Mrvoip license key', selected: false, id: 2061 },
+  { name: 'Internal Tickets', selected: false, id:2043  },
+  { name: 'Petty Cash Report', selected: false, id:2044  },
+  { name: 'Withdrawal Report', selected: false, id:2045  },
+  { name: 'Price Category', selected: false, id: 2046 },
+  { name: 'Enquiry Form', selected: false, id: 2047 },
+  { name: 'Cms Country', selected: false, id: 2048 },
+  { name: 'DID Number Catalog', selected: false, id:2049  },
+  { name: 'DID Provider', selected: false, id:2050  },
+  { name: 'DID Trunk Name', selected: false, id:2051  },
+  { name: 'Deposit Mgt', selected: false, id: 2052  },
+  { name: 'Small Task', selected: false, id:2053   },
+  { name: 'Product Category', selected: false, id:2054   },
+  { name: 'Product Quotation', selected: false, id: 2055  },
+  { name: 'Stock Inventory Report', selected: false, id:2056   },
+  { name: 'Rate Catelog', selected: false, id:2057   },
+  { name: 'Stock Inventory Entry', selected: false, id: 2058  },
+  { name: 'DID Inventory Entry', selected: false, id:2059   },
+  { name: 'Sucuri Ip Access', selected: false, id:2060  },
+  { name: 'Mrvoip License Key', selected: false, id: 2061 },
   { name: 'Soft Phone License', selected: false, id:2062  },
-  { name: 'API token', selected: false, id:2063  },
-  { name: 'Purchase entry', selected: false, id:2064  },
-  { name: 'Purchase entry yearly', selected: false, id: 2065 },
-  { name: 'Purchase entry yearly-Edit', selected: false, id: 2094},
-  { name: 'Purchase entry - Voip Trend Chart', selected: false, id: 2076 },
-  { name: 'Purchase entry - Mrvoip Trend Entry', selected: false, id: 2095 },
-  { name: 'Purchase entry - Mrvoip Trend Chart', selected: false, id:2096  },
-  { name: 'Purchase entry - Call4tel Trend Entry', selected: false, id: 2103 },
-  { name: 'Purchase entry - Call4tel Trend Chart', selected: false, id:2104  },
+  { name: 'API Token', selected: false, id:2063  },
+  { name: 'Purchase Entry', selected: false, id:2064  },
+  { name: 'Purchase Entry Yearly', selected: false, id: 2065 },
+  { name: 'Purchase Entry Yearly-Edit', selected: false, id: 2094},
+  { name: 'Purchase Entry - Voip Trend Chart', selected: false, id: 2076 },
+  { name: 'Purchase Entry - Mrvoip Trend Entry', selected: false, id: 2095 },
+  { name: 'Purchase Entry - Mrvoip Trend Chart', selected: false, id:2096  },
+  { name: 'Purchase Entry - Call4tel Trend Entry', selected: false, id: 2103 },
+  { name: 'Purchase Entry - Call4tel Trend Chart', selected: false, id:2104  },
   
-  { name: 'Purchase entry waiting', selected: false, id:2066  },
-  { name: 'Non trade Purchase Entry', selected: false, id: 2067 },
+  { name: 'Purchase Entry Waiting', selected: false, id:2066  },
+  { name: 'Non Trade Purchase Entry', selected: false, id: 2067 },
   { name: 'New Customer Approval', selected: false, id: 2068 },
   { name: 'Reseller Payment Menu', selected: false, id: 2077 },
   { name: 'Reseller Payment All', selected: false, id: 2078 },
   { name: 'Mrvoip calncall_callacloud Menu', selected: false, id: 2075 },
-  { name: 'Mrvoip package price', selected: false, id: 2069 },
-  { name: 'Mrvoip left product menu', selected: false, id: 2071 },
+  { name: 'Mrvoip Package Price', selected: false, id: 2069 },
+  { name: 'Mrvoip left Product Menu', selected: false, id: 2071 },
   { name: 'Mrvoip Industries', selected: false, id:  2072},
-  { name: 'Mrvoip case studies', selected: false, id: 2073 },
-  { name: 'Mrvoip contact details', selected: false, id: 2074 },
+  { name: 'Mrvoip Case Studies', selected: false, id: 2073 },
+  { name: 'Mrvoip contact Details', selected: false, id: 2074 },
   { name: 'ERP - User Mgt', selected: false, id: 2079 },
   { name: 'External Blog', selected: false, id: 2070 },
   { name: 'Internal Blog', selected: false, id:2080  },
@@ -883,7 +885,7 @@ edit_array_GuruDetails: any = [];
   { name: 'Revenue Report', selected: false, id:2084  },
   { name: 'MG Order List', selected: false, id:  2085},
   { name: 'YG Order List', selected: false, id: 2086 },
-  { name: 'Customer invoice share', selected: false, id:2087  },
+  { name: 'Customer Invoice Share', selected: false, id:2087  },
   { name: 'IP-Allowed Rule', selected: false, id: 2088 },
   { name: 'Renewal Reminder', selected: false, id: 2089 },
   { name: 'Webrtc-IP', selected: false, id:  2090},
@@ -892,10 +894,10 @@ edit_array_GuruDetails: any = [];
   { name: 'CPF Contribution', selected: false, id:2093  },
   { name: 'Website Subscribe Email', selected: false, id: 2097 },
   { name: '3cx Buy License Page', selected: false, id:  2098},
-  { name: '3cx Buy permis for user', selected: false, id: 2099 },
-  { name: 'Call4tel Address and Logo show in partner', selected: false, id:2100  },
-  { name: 'Mrvoip Address and Logo show in partner', selected: false, id:2101  },
-  { name: 'Mconnect Address and Logo show in partner', selected: false, id:2102  },
+  { name: '3cx Buy Permis For User', selected: false, id: 2099 },
+  { name: 'Call4tel Address and Logo Show In Partner', selected: false, id:2100  },
+  { name: 'Mrvoip Address and Logo Show In Partner', selected: false, id:2101  },
+  { name: 'Mconnect Address and Logo Show In Partner', selected: false, id:2102  },
   { name: 'Recurring Checker List ', selected: false, id: 1121},
   { name: 'Enquiry Details ', selected: false, id: 1124},
   { name: 'Overdue Payments Notification ', selected: false, id:1127 },
@@ -928,7 +930,7 @@ edit_array_GuruDetails: any = [];
   { name: 'Invoice', selected: false, id: 1144 },
   { name: 'License Key', selected: false, id: 1147 },
   { name: 'Vs Provisioning', selected: false, id: 1151 },
-  { name: 'Quotation Serach', selected: false, id: 1142 },
+  { name: 'Quotation Search', selected: false, id: 1142 },
   { name: 'Credit Note', selected: false, id:1145  },
   { name: 'DID Number', selected: false, id:1149  },
   { name: 'All Page', selected: false, id:  1152},
@@ -939,7 +941,7 @@ edit_array_GuruDetails: any = [];
   { name: 'VOIP Suspend Account', selected: false, id: 6124 },
   { name: 'VOIP Gateway Settings', selected: false, id:6134  },
   { name: 'Product Stock Report (Update)', selected: false, id:8008  },
-  { name: 'Currenct Stock Show', selected: false, id: 7006 },
+  { name: 'Current Stock Show', selected: false, id: 7006 },
   { name: 'Rate Catelog Show', selected: false, id: 7007 },
   { name: 'Act Purchase Price Show', selected: false, id:7008  },
   { name: 'Default Menu Show', selected: false, id: 7009 },
@@ -1011,42 +1013,52 @@ edit_array_GuruDetails: any = [];
 
 
     this.addUserForm1 = new FormGroup({
-      'displayName': new FormControl('', [Validators.required, Validators.maxLength(30)]),
-      'firstName': new FormControl('', [Validators.required]),
-      'lastName': new FormControl('', [Validators.required]),
-      'userName': new FormControl('', [Validators.required]),
-      'password': new FormControl('', [Validators.required, Validators.minLength(6)]),
-      'confirmPassword': new FormControl('', [Validators.required, Validators.minLength(6)]),
-      'passwordDetails': new FormControl('', [Validators.required, Validators.minLength(6)]),
-      'confirmPasswordDetails': new FormControl('', [Validators.required, Validators.minLength(6)]),
-      'department': new FormControl('', [Validators.required]),
-      'designation': new FormControl('', [Validators.required]),
-      'FIN': new FormControl,
-      'bankAccountNO': new FormControl,
-      'address': new FormControl('', [Validators.required]),
-      'dob': new FormControl,
-      'age': new FormControl,
-      'epfcpfStatus': new FormControl,
-      'sinda': new FormControl,
-      'socso': new FormControl,
-      'smsNotif': new FormControl,
-      'phoneNumber': new FormControl,
-      'emailNotif': new FormControl,
-      'emailID': new FormControl,
-      'cmsContactPhone': new FormControl,
-      'cmsAlternativeContactPhone': new FormControl,
-      'cmsAlternativeSupportMail': new FormControl,
-      'cmsAlternativeSupportWebsite': new FormControl,
-      'bccEmailID': new FormControl,
-      'pettyCashColorCode': new FormControl,
-      'Signature': new FormControl,
-      'Staff': new FormControl,
-      'ProbationIn': new FormControl,
-      'permissionAs': new FormControl,
-      'ExtensionNumber': new FormControl,
-      'ShortName': new FormControl,
-      'FriendlyName': new FormControl,
-      'HRGroup': new FormControl,
+      'displayName': new FormControl('', [Validators.required, Validators.maxLength(45)]),
+      'firstName': new FormControl('', [Validators.required,Validators.maxLength(30)]),
+      'lastName': new FormControl('', [Validators.required,Validators.maxLength(30)]),
+      'userName':new FormControl(null),
+      // 'password': new FormControl(null),
+      // 'confirmPassword': new FormControl(null),
+      // 'passwordDetails':new FormControl(null),
+      // 'confirmPasswordDetails':new FormControl(null),
+
+      // 'userName': new FormControl('', [Validators.required,Validators.maxLength(30)]),
+       'password': new FormControl('', [Validators.required, Validators.minLength(2)]),
+      'confirmPassword': new FormControl('', [Validators.required, Validators.minLength(2)]),
+      'passwordDetails': new FormControl('', [Validators.required, Validators.minLength(2)]),
+      'confirmPasswordDetails': new FormControl('', [Validators.required, Validators.minLength(2)]),
+
+      'department':new FormControl(null),
+      'designation':new FormControl(null),
+      // 'department': new FormControl('', [Validators.required]),
+      // 'designation': new FormControl('', [Validators.required]),
+      'FIN':new FormControl(null),
+      'bankAccountNO':new FormControl(null),
+      'address':new FormControl(null),
+      // 'address': new FormControl('', [Validators.required]),
+      'dob':new FormControl(null),
+      'age':new FormControl(null),
+      'epfcpfStatus':new FormControl(null),
+      'sinda':new FormControl(null),
+      'socso':new FormControl(null),
+      'smsNotif':new FormControl(null),
+      'phoneNumber':new FormControl(null),
+      'emailNotif':new FormControl(null),
+      'emailID':new FormControl(null),
+      'cmsContactPhone':new FormControl(null),
+      'cmsAlternativeContactPhone':new FormControl(null),
+      'cmsAlternativeSupportMail':new FormControl(null),
+      'cmsAlternativeSupportWebsite':new FormControl(null),
+      'bccEmailID':new FormControl(null),
+      'pettyCashColorCode':new FormControl(null),
+      'Signature':new FormControl(null),
+      'Staff':new FormControl(null),
+      'ProbationIn':new FormControl(null),
+      'permissionAs':new FormControl(null),
+      'ExtensionNumber':new FormControl(null),
+      'ShortName':new FormControl(null),
+      'FriendlyName':new FormControl(null),
+      'HRGroup':new FormControl(null),
  
     },
       { validators: [passwordMatchingValidatior, passwordMatchingValidatior123] }
@@ -1054,7 +1066,7 @@ edit_array_GuruDetails: any = [];
 
     this.addUserForm3 = new FormGroup({
    
-      'oneInputControl': new FormControl,
+      'oneInputControl':new FormControl(null),
     
 
     });
@@ -1065,42 +1077,42 @@ edit_array_GuruDetails: any = [];
     });
    
     this.addUserForm5 = new FormGroup({
-      'RecurringCheckerList': new FormControl,
-       'StockPreApproval': new FormControl,
+      'RecurringCheckerList':new FormControl(null),
+       'StockPreApproval':new FormControl(null),
 
     });
 
     this.addUserForm7 = new FormGroup({
-      'VOIPCreditManager': new FormControl,
-      'VOIPSuspendAccount': new FormControl,
-      'ProductStockReportUpdate': new FormControl,
-      'CurrenctStockShow': new FormControl,
-      'RateCatelogShow': new FormControl,
-      'ActPurchasePriceShow': new FormControl,
-      'DefaultMenuShow': new FormControl,
-      'DefaultMenuShowLowLevel': new FormControl,
-      'CalncallMenuShow': new FormControl,
-      'ResellerShoppingMenu': new FormControl,
-      'PublicTaskManager': new FormControl,
-      'PersonalTaskManager': new FormControl,
-      'DailyWorkReport': new FormControl,
-      'Mailer': new FormControl,
-      'HelpDesk': new FormControl,
-      'C4CTurnOverMap': new FormControl,
-      'SpecialLogin': new FormControl,
-      'LeftSideTurnOverChart': new FormControl,
-      'IndividualPettyCashCreditPersonSelect': new FormControl,
-      'IndividualPettyCashandFromDate_cb': new FormControl,
-      'IndividualPettyCashandFromDate_date': new FormControl,
-      'ApprovalDelete': new FormControl,
-      'billingFromDt': new FormControl,
-      'billingToDt': new FormControl,
-      'billingFilterMonth': new FormControl,
-      'IndividualPettyCashFromDate_TextBox': new FormControl,
-      'IndividualPettyCashFromDate_Date': new FormControl,
+      'VOIPCreditManager':new FormControl(null),
+      'VOIPSuspendAccount':new FormControl(null),
+      'ProductStockReportUpdate':new FormControl(null),
+      'CurrenctStockShow':new FormControl(null),
+      'RateCatelogShow':new FormControl(null),
+      'ActPurchasePriceShow':new FormControl(null),
+      'DefaultMenuShow':new FormControl(null),
+      'DefaultMenuShowLowLevel':new FormControl(null),
+      'CalncallMenuShow':new FormControl(null),
+      'ResellerShoppingMenu':new FormControl(null),
+      'PublicTaskManager':new FormControl(null),
+      'PersonalTaskManager':new FormControl(null),
+      'DailyWorkReport':new FormControl(null),
+      'Mailer':new FormControl(null),
+      'HelpDesk':new FormControl(null),
+      'C4CTurnOverMap':new FormControl(null),
+      'SpecialLogin':new FormControl(null),
+      'LeftSideTurnOverChart':new FormControl(null),
+      'IndividualPettyCashCreditPersonSelect':new FormControl(null),
+      'IndividualPettyCashandFromDate_cb':new FormControl(null),
+      'IndividualPettyCashandFromDate_date':new FormControl(null),
+      'ApprovalDelete':new FormControl(null),
+      'billingFromDt':new FormControl(null),
+      'billingToDt':new FormControl(null),
+      'billingFilterMonth':new FormControl(null),
+      'IndividualPettyCashFromDate_TextBox':new FormControl(null),
+      'IndividualPettyCashFromDate_Date':new FormControl(null),
     });
     this.addUserForm8 = new FormGroup({
-          'DashBoard': new FormControl,
+          'DashBoard':new FormControl(null),
     });
 
     this.addressControls.controls.forEach((elt, index) => {
@@ -1123,9 +1135,33 @@ edit_array_GuruDetails: any = [];
 
     });
   }
+
   removeAddress(i: number) {
-    this.addresses.removeAt(i);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+      this.addresses.removeAt(i);
+      }
+    })
+
+
+
   }
+
+  // removeAddress(i: number) {
+  //   iziToast.warning({
+  //     message: "Deleted ",
+  //     position: 'topRight'
+  //   });
+  //   this.addresses.removeAt(i);
+  // }
 
   createAddress(): FormGroup {
     return this.fb.group({
@@ -1911,7 +1947,18 @@ EditCHK_GuruDetails(data: any, event: any) {
     var xyz = evt.target.id;
     console.log(xyz, "target");
   }
+  mouse(){
+    iziToast.warning({
+      message: "Check all the mandatory Input Fields before clicking Submit Option",
+      position: 'topRight'
+    });
+  }
   save(){
+//     if($("#HRGroupq").val()==''){
+// this.HRValidation=true;
+// return false;
+//     }
+console.log($("#HRGroupq").val())
     console.log("this.files_Signature;",this.files_Signature)
     console.log("this.signature_billerid;",this.signature_billerid)
     console.log("this.addUserForm2.value.addresses",this.addUserForm2.value.addresses)
@@ -1957,7 +2004,7 @@ EditCHK_GuruDetails(data: any, event: any) {
     data.append('short_name', this.addUserForm1.value.ShortName);
     data.append('friendly_name', this.addUserForm1.value.FriendlyName);
     data.append('hr_group_id', this.addUserForm1.value.HRGroup);
-    
+    data.append('billerSignature_billerId', this.signature_billerid);
     data.append('from_dt_bill', this.addUserForm7.value.billingFromDt);
     data.append('to_dt_bill', this.addUserForm7.value.billingToDt);
     data.append('filter_month_val', this.addUserForm7.value.billingFilterMonth);
@@ -2009,7 +2056,7 @@ EditCHK_GuruDetails(data: any, event: any) {
     data.append('role_check', this.edit_array_Check);
     data.append('role_drop', this.role_drop_val);
     data.append('ind_petty_dt', this.addUserForm7.value.IndividualPettyCashandFromDate_date);
-  
+    var self = this;
     $.ajax({
       type: 'POST',
       url: 'https://erp1.cal4care.com/api/admin/user_details_save',
@@ -2019,8 +2066,18 @@ EditCHK_GuruDetails(data: any, event: any) {
       data: data,
       success: function (result: any) {
         if (result.status == true) {
-         console.log("success")
+          iziToast.success({
+            message: "Saved Successfully ",
+            position: 'topRight'
+          });
         }
+        else{
+          iziToast.warning({
+            message: "Not Saved. Check the Input",
+            position: 'topRight'
+          });
+        }
+        self.onLoadGet();
       },
       error: function (err: any) {
         console.log(err);

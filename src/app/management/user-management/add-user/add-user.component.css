@@ -124,6 +124,12 @@ color: rgb(33, 110, 116);
 /* font-style: oblique; */
 font-weight: 600;
 }
+.star{
+  color:red;
+  font-size: larger;
+  font-weight: 900;
+  padding-left: 3px;
+}
 
 .btnalter{
 border-radius: 20px !important;
