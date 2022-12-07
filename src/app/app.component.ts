@@ -15,7 +15,7 @@ export class AppComponent {
   onActivate(event:any) {
       this.file_path=this.router.url;
       console.log(this.router.url);
-      if (localStorage.getItem('access_token')) {
+      if (sessionStorage.getItem('access_token')) {
           this.templateAuthView=false;
           } 
           // else if(this.router.url == '/forgot-pwd'){
