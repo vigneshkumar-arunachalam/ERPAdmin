@@ -1,0 +1,65 @@
+<div class="contents">
+
+
+<div class="page-container login-container">
+
+    <!-- Page content -->
+    <div class="page-content" >
+        <div class="content main-bg "  style="background-image: url('assets/images/login-pg.jpg');">
+            <div class="login-form-section">
+                <!-- Advanced login -->
+                <form method="POST" [formGroup]="loginForm">
+                    <div class="panel panel-body login-form panel-form">
+                        <div class="text-center">
+                            <div class="icon-object border-warning-400 text-warning-400">
+                                <img src="assets/images/logo.jpg" alt="">
+                                <!-- <i class="icon-people"></i> -->
+                            </div>
+                            <h5 class="content-group-lg">Login to your account <small class="display-block">Enter your credentials</small></h5>
+                        </div>
+
+                        <div class="form-group has-feedback has-feedback-left">
+                            <input type="text" class="form-control" placeholder="Username" formControlName="username" id="username">
+                            <div class="form-control-feedback">
+                                <i class="icon-user text-muted"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback has-feedback-left">
+                            <input type="password" class="form-control" placeholder="Password" formControlName="password" id="password">
+                            <div class="form-control-feedback">
+                                <i class="icon-lock2 text-muted"></i>
+                            </div>
+                        </div>
+
+                        <!-- <div class="form-group login-options">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" class="styled" checked="checked">
+                                        Remember
+                                    </label>
+                                </div>
+
+                                <div class="col-sm-6 text-right">
+                                    <a  (click)="forgot()">Forgot password?</a>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="form-group">
+                            <button type="submit" class="btn bg-blue btn-block" (click)="userLogin()">Login <i class="icon-circle-right2 position-right"></i></button>
+                        </div>
+
+                        <span class="help-block text-center no-margin">© 2022 AATROX COMMUNICATIONS All Rights Reserved</span>
+                    </div>
+                </form>
+                <!-- /advanced login -->
+            </div>
+        </div>
+    </div>
+    <!-- /page content -->
+
+</div>
+
+</div>
