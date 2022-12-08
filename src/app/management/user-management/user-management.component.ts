@@ -196,14 +196,13 @@ export class UserManagementComponent implements OnInit {
     api_enableDisable.user_id = userid;
     api_req.element_data = api_enableDisable;
 
-
     this.serverService.sendServer(api_req).subscribe((response: any) => {
       this.userEnableDisableStatus = response[1].staff_status;
       console.log("response status", response[0].status);
       console.log("response staff status", response[1].staff_status);
 
-      if (response[0].status == true) {
-        this.userEnableDisableStatus = response[1].staff_status;
+      if (response[1].staff_status == 1) {
+       // this.userEnableDisableStatus = response[1].staff_status;
         Swal.fire({
           position: 'top-end',
           icon: 'success',
@@ -211,6 +210,8 @@ export class UserManagementComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         })
+        this.userList({})
+
       }
       else {
         Swal.fire({
@@ -220,8 +221,10 @@ export class UserManagementComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         })
+        this.userList({})
       }
     });
+
 
   }
   passwordReset(userId:any){
