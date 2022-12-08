@@ -2099,7 +2099,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="API3cxCreditReport_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:300px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:140px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of API3cxCreditReport_Right_edit" cdkDrag>
                                                         {{item.name}}</div>
@@ -2133,7 +2133,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="RecurringDateList_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:300px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:90px'>
                                                     <div class="example-box"
                                                         *ngFor="let item of RecurringDateList_Right_edit" cdkDrag>
                                                         {{item.name}}</div>
@@ -2185,7 +2185,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="LicenseCategory_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:300px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  LicenseCategory_Right_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -2217,7 +2217,7 @@
                                                 <h4 class="clorClass"> Selected Permission</h4>
 
                                                 <div cdkDropList [cdkDropListData]="LicenseProduct_Right_edit"
-                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:300px'>
+                                                    class="example-list" (cdkDropListDropped)="drop($event)"  style='min-height:200px'>
                                                     <div class="example-box" *ngFor="let item of  LicenseProduct_Right_edit"
                                                         cdkDrag>{{item.name}}</div>
                                                 </div>
@@ -3429,7 +3429,7 @@
 
 
                                 <div>
-                                    <label> Product Stock Transfer Alet </label>
+                                    <label> Product Stock Transfer Alert </label>
                                 </div>
                                 <div class="row no-gutters license-key-list">
                                     <div class="col-lg-2 license-key" *ngFor="let dd of edit_billerdetailsList;let i=index">
@@ -3563,6 +3563,7 @@
     </div>
     <div class="modal-footer">
        
-        <button type="submit" class="btn btn-primary" (click)="update()">Submit</button>
+        <button type="submit" class="btn btn-primary" (click)="update()">Update</button>
+        <button type="submit" class="btn btn-dark" (click)="cancel()">Cancel</button>
     </div>
 </div>

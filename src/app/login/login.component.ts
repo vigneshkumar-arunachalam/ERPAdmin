@@ -70,12 +70,12 @@ export class LoginComponent implements OnInit {
     let api_req: any = new Object();
     let loginFormapi_req: any = new Object();
     api_req.moduleType = 'login';
-    api_req.api_url = 'login';
+    api_req.api_url = 'admin_login';
 
     api_req.api_type = "web";
     api_req.access_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJhdWQiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJpYXQiOjE2NTQ2NjQ0MzksIm5iZiI6MTY1NDY2NDQzOSwiZXhwIjoxNjU0NjgyNDM5LCJhY2Nlc3NfZGF0YSI6eyJ0b2tlbl9hY2Nlc3NJZCI6IjIiLCJ0b2tlbl9hY2Nlc3NOYW1lIjoidGVzdGluZzA0MDYyMDIyIiwidG9rZW5fYWNjZXNzVHlwZSI6IjIifX0.NaymQDSiON2R3tKICGNpj6hsQfg9DGwEcZzrJcvsqbI";
 
-    loginFormapi_req.action = 'admin_login';
+    loginFormapi_req.action = 'login';
     loginFormapi_req.username = this.loginForm.value.username;
     loginFormapi_req.password = this.loginForm.value.password;
     api_req.element_data = loginFormapi_req;
@@ -93,12 +93,12 @@ export class LoginComponent implements OnInit {
         this.role=response.role;
 
 
-        sessionStorage.setItem('access_token','test')
-        sessionStorage.setItem('login_status','1')
-        sessionStorage.setItem('user_id',response.userId)
-        sessionStorage.setItem('user_name',response.firstName)
-        sessionStorage.setItem('role',response.role)
-        sessionStorage.setItem('profile_image',response.profile_image)
+        localStorage.setItem('access_token','test')
+        localStorage.setItem('login_status','1')
+        localStorage.setItem('user_id',response.userId)
+        localStorage.setItem('user_name',response.firstName)
+        localStorage.setItem('role',response.role)
+        localStorage.setItem('profile_image',response.profile_image)
 
         console.log("user id display",response.userId)
         console.log("user id display", this.userID)

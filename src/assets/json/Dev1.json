@@ -584,5 +584,18 @@
     ],
     "isVisible": true,
     "value": "/crm"
+ },
+ {
+    "name": "Logout",
+    "icon": "log-out",
+    "isActive": false,
+    "menuId":13,
+    "IDs": [5501],
+    "Type": "Main Menu",
+    "children": [
+
+    ],
+    "isVisible": true,
+    "value": "/logout"
  }
 ]
