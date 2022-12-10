@@ -1371,6 +1371,7 @@ export class EditUserComponent implements OnInit {
 
 
   checkboxCB_InProbation: boolean = false;
+  checkboxCB_verification2D: boolean = false;
   checkboxCB_EPFCPFStatus: boolean = false;
   checkboxCB_Sinda: boolean = false;
   checkboxCB_Socso: boolean = false;
@@ -1549,7 +1550,7 @@ export class EditUserComponent implements OnInit {
       { name: 'Cal4care Sdn. Bhd Overdue ', selected: false, id: 1131 },
       { name: 'Marshal System Consultancy Overdue ', selected: false, id: 1134 },
       { name: 'Purchase Entry-Trend', selected: false, id: 1137 },
-      { name: '2ds Verfication ', selected: false, id: 1 },
+      // { name: '2ds Verfication ', selected: false, id: 1 },
       { name: '3cx Enquiry', selected: false, id: 1163 },
       { name: 'Cal4care Sdn Bhd GST Rpt ', selected: false, id: 1135 },
       { name: 'All Payment Follow Invoice ', selected: false, id: 1123 },
@@ -1705,6 +1706,7 @@ export class EditUserComponent implements OnInit {
       'Signature': new FormControl,
       'Staff': new FormControl,
       'ProbationIn': new FormControl,
+      'verification2D': new FormControl,
       'e_permissionAs': new FormControl,
       'ExtensionNumber': new FormControl,
       'ShortName': new FormControl,
@@ -1781,14 +1783,73 @@ export class EditUserComponent implements OnInit {
     });
   }
   removeAddress(i: number) {
-    console.log(i)
-    console.log(this.addresses)
+   // console.log(i)
+   // console.log(this.addresses)
+   // let i_val = i-1;
+   //alert('iii'+i+'i_val'+i_val);
+
+   
+
+   Swal.fire({
+    title: 'Do you want to Delete?',
+    showDenyButton: true,   
+    confirmButtonText: 'Yes',
+    denyButtonText: `No`,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      
+
+      let api_req: any = new Object();
+    let api_sal_det: any = new Object();
+    api_req.moduleType = "admin";
+    api_req.api_url = "admin/user_salary_delete";
+    api_req.api_type = "web";
+    api_req.access_token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJhdWQiOiJ1cGRhdGVzLm1jb25uZWN0YXBwcy5jb20iLCJpYXQiOjE2NTQ2NjQ0MzksIm5iZiI6MTY1NDY2NDQzOSwiZXhwIjoxNjU0NjgyNDM5LCJhY2Nlc3NfZGF0YSI6eyJ0b2tlbl9hY2Nlc3NJZCI6IjIiLCJ0b2tlbl9hY2Nlc3NOYW1lIjoidGVzdGluZzA0MDYyMDIyIiwidG9rZW5fYWNjZXNzVHlwZSI6IjIifX0.NaymQDSiON2R3tKICGNpj6hsQfg9DGwEcZzrJcvsqbI";
+    api_sal_det.action = "user_salary_delete";
+    api_sal_det.user_salary_id = this.addUserForm2.value.addresses[i].user_salary_id_hd;    
+    api_req.element_data = api_sal_det;
+
+    this.serverService.sendServer(api_req).subscribe((response: any) => {
+      
+      if (response.status== 'true') {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Salary deleted successful',
+          showConfirmButton: false,
+          timer: 1500
+        })
+
+      }
+      else {
+
+      }
+
+
+    });
+
     this.addresses.removeAt(i);
+
+
+    } else if (result.isDenied) {
+      Swal.fire('No Changes');
+    }
+  })
+
+
+
+    console.log(this.addUserForm2.value.addresses[i].user_salary_id_hd);
+    
+
+
+    
+
   }
 
   createAddress(): FormGroup {
     return this.fb.group({
-
+      user_salary_id_hd: '',
       MS_designation: '',
       MS_FromDate: '',
       MS_ToDate: '',
@@ -1841,6 +1902,10 @@ export class EditUserComponent implements OnInit {
   CB_InProbation(event: any) {
     this.checkboxCB_InProbation = event.target.checked;
     console.log(" this.checkboxCB_InProbation", this.checkboxCB_InProbation)
+  }
+  CB_verification2D(event: any) {
+    this.checkboxCB_verification2D = event.target.checked;
+    console.log(" this.checkboxCB_verification2D", this.checkboxCB_verification2D)
   }
 
   CB_EPFCPFStatus(event: any) {
@@ -2728,6 +2793,7 @@ export class EditUserComponent implements OnInit {
       console.log("response.trans_entry_per", response.user_edit_details[0].trans_entry_per)
 
       this.defaultBillerIDValue = response.user_edit_details[0].defaults_biller_id
+      this.BillerID = response.user_edit_details[0].defaults_biller_id
       console.log("response.user_edit_details.role", response.user_edit_details[0].role)
       this.Designation_SalaryDetailsList = response.user_add_details.designation_details;
       this.edit_billerdetailsList = response.user_add_details.biller_det;
@@ -3080,6 +3146,7 @@ export class EditUserComponent implements OnInit {
 
           'Staff': response.user_edit_details[0].staffStatus,
           'ProbationIn': response.user_edit_details[0].probation,
+          'verification2D': response.user_edit_details[0].user_auth,
           'e_permissionAs': response.user_edit_details[0].perm_userId,
           'ExtensionNumber': response.user_edit_details[0].ext_no,
           'ShortName': response.user_edit_details[0].short_name,
@@ -3093,13 +3160,13 @@ export class EditUserComponent implements OnInit {
         this.edit_array_Check = response.user_edit_details[0].role.split(',');
 
 
-        let per_arr = response.user_edit_details[0].trans_entry_per.split(',');
-        for (let i = 0; i < per_arr.length; i++) {
-          if (per_arr[i] != '') {
-            this.trans_entry_per.push(parseInt(per_arr[i]));
-            this.edit_array_TransactionEntry.push(parseInt(per_arr[i]));
-          }
-        }
+        // let per_arr = response.user_edit_details[0].trans_entry_per.split(',');
+        // for (let i = 0; i < per_arr.length; i++) {
+        //   if (per_arr[i] != '') {
+        //     this.trans_entry_per.push(parseInt(per_arr[i]));
+        //     this.edit_array_TransactionEntry.push(parseInt(per_arr[i]));
+        //   }
+        // }
 
 
         per_arr = response.user_edit_details[0].trans_app_dep.split(',');
@@ -4085,6 +4152,7 @@ export class EditUserComponent implements OnInit {
           console.log(response.user_salary_details);
           console.log(index);
           formArray.push(this.fb.group({
+            "user_salary_id_hd": response.user_salary_details[index].user_salary_id,
             "MS_designation": response.user_salary_details[index].designation_type_id,
             "MS_FromDate": response.user_salary_details[index].from_dt,
             "MS_ToDate": response.user_salary_details[index].to_dt,
@@ -4160,7 +4228,7 @@ export class EditUserComponent implements OnInit {
         })
         // this.router.navigate(['/edituser']);
         // this.router.navigate(['/edituser'], { queryParams: { e_userid: 2, } });
-        this.editUserID = 2;
+        this.editUserID = response.user_id;
         this.onLoadEdit();
       }
       else {
@@ -4215,6 +4283,7 @@ export class EditUserComponent implements OnInit {
 
     data.append('staffStatus', this.addUserForm1.value.Staff);
     data.append('probation', this.addUserForm1.value.ProbationIn);
+    data.append('user_auth', this.addUserForm1.value.verification2D);
     data.append('perm_userId', this.addUserForm1.value.e_permissionAs);
     data.append('ext_no', this.addUserForm1.value.ExtensionNumber);
     data.append('short_name', this.addUserForm1.value.ShortName);
@@ -4271,8 +4340,8 @@ export class EditUserComponent implements OnInit {
     data.append('role_check', this.edit_array_Check);
     data.append('role_drop_right', this.role_drop_right_val);
     data.append('role_drop_left', this.role_drop_left_val);
+    data.append('defaults_biller_id', this.BillerID);
     // data.append('erp_app_per', );
-
     // url: 'http://127.0.0.1:8000/api/admin/user_details_update',
     var self = this;
     $.ajax({

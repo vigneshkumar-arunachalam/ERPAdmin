@@ -104,3 +104,15 @@ border-radius: 50%;
 tr:nth-child(even) {background: rgb(239, 241, 238)}
 tr:nth-child(odd) {background: #FFF}
 
+.userDatatable.list-userDatatable .userDatatable-header th{padding: 10px 0;}
+.userDatatable.list-userDatatable .userDatatable-header th:first-child{
+  width: 60px;
+}
+.userDatatable.list-userDatatable .userDatatable-header th:nth-child(2), .userDatatable.list-userDatatable td:nth-child(2){
+  width: 60px;
+}
+
+.userDatatable.list-userDatatable td:nth-child(2) span, .userDatatable.list-userDatatable td:nth-child(7) span,
+.userDatatable.list-userDatatable td:nth-child(9) span{
+  width: 60px!important;
+}

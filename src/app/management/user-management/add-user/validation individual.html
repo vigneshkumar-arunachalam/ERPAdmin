@@ -1,0 +1,165 @@
+<form [formGroup]="addUserFormValidation"  id="ngForm" (ngSubmit)="save()">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group row">
+                <div class="col-lg-12">
+                    <label for="display" class="col-form-label"> Display Name<span class="star">*</span></label>
+                </div>
+                <div class="col-lg-12">
+                    <input type="text" class="form-control" formControlName="displayName"
+                        id="display" />
+                    <div *ngIf="addUserFormValidation.controls['displayName'].invalid && (addUserFormValidation.controls['displayName'].dirty || addUserFormValidation.controls['displayName'].touched)"
+                        class="mt-2 alert alert-danger">
+                        Display Name is Required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group row">
+                <div class="col-lg-12">
+                    <label for="first" class="col-form-label"> First Name<span class="star">*</span></label>
+                </div>
+                <div class="col-lg-12">
+                    <input type="text" class="form-control" formControlName="firstName"
+                        id="first" />
+                    <div *ngIf="addUserFormValidation.controls['firstName'].invalid &&  (addUserFormValidation.controls['firstName'].dirty || addUserFormValidation.controls['firstName'].touched)"
+                        class="mt-2 alert alert-danger">
+                        First Name is Required
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group row">
+                <div class="col-lg-12">
+                    <label for="last" class="col-form-label"> Last Name<span class="star">*</span></label>
+                </div>
+                <div class="col-lg-12">
+                    <input type="text" class="form-control" formControlName="lastName"
+                        id="last" />
+                        <div *ngIf="addUserFormValidation.controls['lastName'].invalid &&  (addUserFormValidation.controls['lastName'].dirty || addUserFormValidation.controls['lastName'].touched)"
+                        class="mt-2 alert alert-danger">
+                        First Name is Required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group row">
+                <div class="col-lg-12">
+                    <label for="pwd" class="col-form-label"> Password<span class="star">*</span></label>
+                </div>
+                <div class="col-lg-12">
+                    <input type="password" class="form-control" formControlName="password"
+                        id="pwd" />
+                    <div *ngIf="addUserFormValidation.controls['password'].invalid && (addUserFormValidation.controls['password'].dirty || addUserFormValidation.controls['password'].touched)"
+                        class="mt-2 alert alert-danger">
+                        Password is Required(Min 6 Character)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group row">
+                <div class="col-lg-12">
+                    <label for="confPwd" class="col-form-label"> Confirm Password<span class="star">*</span></label>
+                </div>
+                <div class="col-lg-12">
+                    <input type="password" class="form-control"
+                        formControlName="confirmPassword" id="confPwd" />
+                    <!-- <div *ngIf="addUserFormValidation.controls['confirmPassword'].invalid && (addUserFormValidation.controls['confirmPassword'].dirty || addUserFormValidation.controls['confirmPassword'].touched)"
+                    class="mt-2 alert alert-danger">
+                    Confirm Password is Required
+                    </div> -->
+                    <div *ngIf="addUserFormValidation.errors?.['notmatched'] && (addUserFormValidation.touched || addUserFormValidation.dirty)"
+                        class="cross-validation-error-message alert alert-danger">
+                        Password and Confirm Password Mismatch
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group row">
+                <div class="col-lg-12">
+                    <label for="pwddet" class="col-form-label"> Password (Password
+                        Details)<span class="star">*</span></label>
+                </div>
+                <div class="col-lg-12">
+                    <input type="password" class="form-control"
+                        formControlName="passwordDetails" id="pwddet" />
+                    <div *ngIf="addUserFormValidation.controls['passwordDetails'].invalid && (addUserFormValidation.controls['passwordDetails'].dirty || addUserFormValidation.controls['passwordDetails'].touched)"
+                        class="mt-2 alert alert-danger">
+                        Password (Password Details) is Required(Min 6 Character))
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group row">
+                <div class="col-lg-12">
+                    <label for="confpwddet" class="col-form-label"> Confirm
+                        Password(Password
+                        Details)<span class="star">*</span></label>
+                </div>
+                <div class="col-lg-12">
+                    <input type="password" class="form-control"
+                        formControlName="confirmPasswordDetails" id="confpwddet" />
+                    <!-- <div *ngIf="addUserFormValidation.controls['confirmPasswordDetails'].invalid && (addUserFormValidation.controls['confirmPasswordDetails'].dirty || addUserFormValidation.controls['confirmPasswordDetails'].touched)"
+                        class="mt-2 alert alert-danger">
+                        Confirm Password (Password Details) is Required
+                        </div> -->
+                    <div *ngIf="addUserFormValidation.errors?.['notmatched1'] && (addUserFormValidation.touched || addUserFormValidation.dirty)"
+                        class="cross-validation-error-message alert alert-danger">
+                        Password Details and Confirm Password Details Mismatch
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <label class="col-form-label ml-4"> Default Biller<span class="star">*</span> </label>
+        </div>
+        <div class="row no-gutters license-key-list">
+            <div class="col-lg-2 license-key" *ngFor="let dd of billerDetailsList;let i=index">
+                <span class="btnalter" [ngStyle]="{'background-color': dd.colorCodes}">
+                    <p class="" title="{{dd.billerCode}}"> {{ dd.billerCode }}</p>
+                    <input type="radio" name="defaultBillerRadio" [value]="dd.billerId"
+                    formControlName="defaultBillerRadio"  (change)="handleChange(dd.billerId,$event)" />
+                </span>
+            </div>
+            <div *ngIf="addUserFormValidation.controls['defaultBillerRadio'].invalid && (addUserFormValidation.controls['defaultBillerRadio'].dirty || addUserFormValidation.controls['defaultBillerRadio'].touched)"
+                            class="mt-2 alert alert-danger">
+                            Default Biller is Required
+            </div>
+
+           
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group row">
+                <div class="col-lg-12">
+                    <label for="HRGroupq" class="col-form-label"> HR Group<span class="star">*</span> </label>
+                </div>
+                <div class="col-lg-12">
+
+                    <select id="HRGroupq" class="form-control" 
+                        aria-label="Default select example" formControlName="HRGroup">
+
+                        <option value="0">HR Group</option>
+
+                        <option *ngFor="let list of HRGroupList"
+                            value="{{list.hr_group_id}}">
+                            {{list.hr_group_name}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</form>

@@ -13,7 +13,7 @@
           <div class="card-body">
 
 
-            <div class="userDatatable global-shadow border-0 bg-white w-100">
+            <div class="userDatatable global-shadow border-0 bg-white w-100 list-userDatatable">
               <div class="table-responsive">
                 <table class="table mb-0 table-borderless">
                   <thead>
@@ -28,13 +28,15 @@
                           </div>
                         </div>
                       </th>
-                      <th style="display:none;">
-                        <span class="userDatatable-title">User Name</span>
-                      </th>
+                     
                       <th>
                         <span class="userDatatable-title">S.No</span>
                       </th>
-                      <th>
+                      
+                        <th>
+                          <span class="userDatatable-title">User Name</span>
+                        </th>
+                        <th>
                         <span class="userDatatable-title">Display Name</span>
                       </th>
                       <th>
@@ -81,11 +83,12 @@
                         </div>
                       </td>
 
-                      <td style="display:none;">
-                        {{ list.userName }}
-                      </td>
+                      
                       <td>
-                        <span>{{ i+1}}</span>
+                        <span>{{i+1}}</span>
+                      </td>
+                      <td >
+                        {{ list.userName }}
                       </td>
                       <td>
                         <span>{{ list.firstName }}</span>
@@ -98,13 +101,13 @@
                         <span>{{ list.designation }}</span>
                       </td>
                       <td>
-                        <span>{{ list.smsNotification ? 'yes' : 'no' }}</span>
+                        <span>{{ list.smsNotification ? 'Yes' : 'No' }}</span>
                       </td>
                       <td>
                         <span>{{ list.phonenumber}}</span>
                       </td>
                       <td>
-                        <span> {{ list.emailNotification? 'yes' : 'no' }}</span>
+                        <span> {{ list.emailNotification? 'Yes' : 'No' }}</span>
                       </td>
                       <td>
                         <span>{{ list.emailId }}</span>
@@ -181,30 +184,41 @@
               </div>
             </div>
             <nav class="atbd-page">
-              <ul class="atbd-pagination d-flex">
-                <li class="atbd-pagination__item">
-                  <a href="#" class="atbd-pagination__link pagination-control"><span
-                      class="la la-angle-left"></span></a>
-                  <a href="#" class="atbd-pagination__link"><span class="page-number">1</span></a>
-                  <a href="#" class="atbd-pagination__link active"><span class="page-number">2</span></a>
-                  <a href="#" class="atbd-pagination__link"><span class="page-number">3</span></a>
-                  <a href="#" class="atbd-pagination__link pagination-control"><span class="page-number">...</span></a>
-                  <a href="#" class="atbd-pagination__link"><span class="page-number">12</span></a>
-                  <a href="#" class="atbd-pagination__link pagination-control"><span
-                      class="la la-angle-right"></span></a>
-                  <a href="#" class="atbd-pagination__option"> </a>
-                </li>
-                <li class="atbd-pagination__item">
-                  <div class="paging-option">
-                    <select name="page-number" class="page-selection">
-                      <option value="20">20/page</option>
-                      <option value="40">40/page</option>
-                      <option value="60">60/page</option>
-                    </select>
-                  </div>
-                </li>
+              <ul class="pagination mb-0" *ngIf="paginationData.info == 'show'">
+
+                  <li class="page-item">
+                      <a [class]="paginationData.backtab=='show' ? 'page-link' :'page-link disabled'"
+                          href="javascript:void(0)"
+                          (click)="paginationData.backtab=='show' ? userList({'offset':paginationData.start}) : false"><i
+                              class="fas fa-angle-left"></i></a>
+                  </li>
+                  <li class="page-item" *ngIf="paginationData.backtab =='show'">
+                      <a class="page-link" href="javascript:void(0)"
+                          (click)="userList({'offset':paginationData.back})"><i
+                              class="fas fa-angle-double-left"></i></a>
+                  </li>
+                  <li [class]="pagination.load ==false ? 'page-item active' :'page-item'"
+                      *ngFor="let pagination of paginationData.data;let i=index">
+                      <a class="page-link" href="javascript:void(0)"
+                          (click)=" pagination.load ==true ? userList({'offset':pagination.offset_count}) : false">{{pagination.btn_length}}
+                          <span class="sr-only" *ngIf="pagination.load ==false">(current)</span></a>
+                  </li>
+
+                  <li class="page-item" *ngIf="paginationData.nexttab =='show'">
+                      <a class="page-link" href="javascript:void(0)"
+                          (click)="userList({'offset':paginationData.next})"><i
+                              class="fas fa-angle-double-right"></i></a>
+                  </li>
+
+                  <li class="page-item">
+                      <a [class]="paginationData.nexttab =='show' ? 'page-link' : 'page-link disabled'"
+                          href="javascript:void(0)"
+                          (click)="paginationData.nexttab =='show' ? userList({'offset':paginationData.end}) : false"><i
+                              class="fas fa-angle-right"></i></a>
+                  </li>
               </ul>
-            </nav>
+
+          </nav>
           </div>
         </div>
       </div>

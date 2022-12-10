@@ -807,10 +807,12 @@ export class AddUserComponent implements OnInit {
   addUserForm7: FormGroup;
   addUserForm8: FormGroup;
   addUserFormTableData: FormGroup;
+  addUserFormValidation: FormGroup;
   //checkbox declarartion
 
 
   checkboxCB_InProbation: boolean = false;
+  checkboxCB_verification2D: boolean = false;
   checkboxCB_EPFCPFStatus: boolean = false;
   checkboxCB_Sinda: boolean = false;
   checkboxCB_Socso: boolean = false;
@@ -943,7 +945,7 @@ export class AddUserComponent implements OnInit {
       { name: 'Cal4care Sdn. Bhd Overdue ', selected: false, id: 1131 },
       { name: 'Marshal System Consultancy Overdue ', selected: false, id: 1134 },
       { name: 'Purchase Entry-Trend', selected: false, id: 1137 },
-      { name: '2ds Verfication ', selected: false, id: 1 },
+      // { name: '2ds Verfication ', selected: false, id: 1 },
       { name: '3cx Enquiry', selected: false, id: 1163 },
       { name: 'Cal4care Sdn Bhd GST Rpt ', selected: false, id: 1135 },
       { name: 'All Payment Follow Invoice ', selected: false, id: 1123 },
@@ -1041,31 +1043,21 @@ export class AddUserComponent implements OnInit {
     this.rowtest = ['{"a1","b1","c1"},{"a1","b1","c1"}'];
 
 
-
+    this.addUserFormValidation = new FormGroup({});
     this.addUserForm1 = new FormGroup({
       'displayName': new FormControl('', [Validators.required, Validators.maxLength(45)]),
       'firstName': new FormControl('', [Validators.required, Validators.maxLength(30)]),
       'lastName': new FormControl('', [Validators.required, Validators.maxLength(30)]),
       'userName': new FormControl(null),
-      // 'password': new FormControl(null),
-      // 'confirmPassword': new FormControl(null),
-      // 'passwordDetails':new FormControl(null),
-      // 'confirmPasswordDetails':new FormControl(null),
-
-      // 'userName': new FormControl('', [Validators.required,Validators.maxLength(30)]),
       'password': new FormControl('', [Validators.required, Validators.minLength(2)]),
       'confirmPassword': new FormControl('', [Validators.required, Validators.minLength(2)]),
       'passwordDetails': new FormControl('', [Validators.required, Validators.minLength(2)]),
       'confirmPasswordDetails': new FormControl('', [Validators.required, Validators.minLength(2)]),
-
       'department': new FormControl(null),
       'designation': new FormControl(null),
-      // 'department': new FormControl('', [Validators.required]),
-      // 'designation': new FormControl('', [Validators.required]),
       'FIN': new FormControl(null),
       'bankAccountNO': new FormControl(null),
       'address': new FormControl(null),
-      // 'address': new FormControl('', [Validators.required]),
       'dob': new FormControl(null),
       'age': new FormControl(null),
       'epfcpfStatus': new FormControl(null),
@@ -1089,9 +1081,11 @@ export class AddUserComponent implements OnInit {
       'ShortName': new FormControl(null),
       'FriendlyName': new FormControl(null),
       'HRGroup': new FormControl(null),
+      'verification2D': new FormControl(null),
+      'defaultBillerRadio': new FormControl('', [Validators.required]),
 
     },
-      { validators: [passwordMatchingValidatior, passwordMatchingValidatior123] }
+      { validators: [passwordMatchingValidatior, passwordMatchingValidatior123,  identityRevealedValidator] }
     );
 
     this.addUserForm3 = new FormGroup({
@@ -1143,7 +1137,10 @@ export class AddUserComponent implements OnInit {
     });
     this.addUserForm8 = new FormGroup({
       'DashBoard': new FormControl(null),
+      'defaultBillerRadio': new FormControl('', [Validators.required]),
+
     });
+    
 
     this.addressControls.controls.forEach((elt, index) => {
       this.test[index] = true;
@@ -1263,6 +1260,10 @@ export class AddUserComponent implements OnInit {
   CB_InProbation(event: any) {
     this.checkboxCB_InProbation = event.target.checked;
     console.log(" this.checkboxCB_InProbation", this.checkboxCB_InProbation)
+  }
+  CB_verification2D(event: any) {
+    this.checkboxCB_verification2D = event.target.checked;
+    console.log(" this.checkboxCB_verification2D", this.checkboxCB_verification2D)
   }
 
   CB_EPFCPFStatus(event: any) {
@@ -2156,6 +2157,7 @@ export class AddUserComponent implements OnInit {
 
     data.append('staffStatus', this.addUserForm1.value.Staff);
     data.append('probation', this.addUserForm1.value.ProbationIn);
+    data.append('user_auth', this.addUserForm1.value.verification2D);
     data.append('ext_no', this.addUserForm1.value.ExtensionNumber);
     data.append('short_name', this.addUserForm1.value.ShortName);
     data.append('friendly_name', this.addUserForm1.value.FriendlyName);
@@ -2203,13 +2205,7 @@ export class AddUserComponent implements OnInit {
 
 
     data.append('defaults_biller_id', this.BillerID);
-    // data.append('fin_chk_auth', this.addUserForm1.value.fin_chk_auth);
-    // data.append('qr_chk_auth', this.addUserForm1.value.qr_chk_auth);
-    // data.append('otp', this.addUserForm1.value.otp);
-    // data.append('omni_login_token', this.addUserForm1.value.omni_login_token);
-    // data.append('carry_forward', this.addUserForm1.value.carry_forward);
     data.append('probation', this.addUserForm1.value.ProbationIn);
-
     data.append('role_check', this.edit_array_Check);
     data.append('role_drop', this.role_drop_val);
     data.append('ind_petty_dt', this.addUserForm7.value.IndividualPettyCashandFromDate_date);
@@ -2241,6 +2237,10 @@ export class AddUserComponent implements OnInit {
       },
       error: function (err: any) {
         console.log(err);
+        iziToast.error({
+          message:"Check the Input Give Input for all mandatory fields like Display Name, First Name,Last Name,User Name, Password, HR Group, Default Biller",
+          position: 'topRight'
+        });
       }
     })
 
@@ -2285,6 +2285,24 @@ export const passwordMatchingValidatior123: ValidatorFn = (control: AbstractCont
 
   return passwordDetails?.value === confirmPasswordDetails?.value ? null : { notmatched1: true };
 
+};
+
+// export const identityRevealedValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+//   const displayName = control.get('displayName');
+//   const firstName = control.get('firstName');
+ 
+
+//   return displayName && firstName && displayName.value === firstName.value ? { identityRevealed: true } : null;
+
+//   // return passwordDetails?.value === confirmPasswordDetails?.value ? null : { notmatched1: true };
+
+// };
+
+export const identityRevealedValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+  const displayName = control.get('displayName');
+  const firstName = control.get('firstName');
+
+  return displayName && firstName && displayName.value === firstName.value ? { identityRevealed: true } : null;
 };
 
 
