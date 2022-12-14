@@ -50,7 +50,7 @@ export class TestComponent implements OnInit {
     this.serverService.sendServer(data).subscribe((response:any)=>{
       if(response.status == true ){
         this.router.navigate(['/admin-management']);
-        sessionStorage.setItem('at', response.access_token);
+        localStorage.setItem('at', response.access_token);
       }
       else{
         Swal.fire("invalid Login");
@@ -75,17 +75,17 @@ export class TestComponent implements OnInit {
     //     this.serverService.sendServer(api_req).subscribe((response:any) => {
     //     if (response.status=="true") {
           
-    //       sessionStorage.setItem('customer_per',response.result_data.customer_details.cus_permission);
-    //       sessionStorage.setItem('at', response.auth_token);
-    //       sessionStorage.setItem('profile_image','');
-    //       sessionStorage.setItem(
+    //       localStorage.setItem('customer_per',response.result_data.customer_details.cus_permission);
+    //       localStorage.setItem('at', response.auth_token);
+    //       localStorage.setItem('profile_image','');
+    //       localStorage.setItem(
     //         'cn',
     //         response.result_data.customer_details.cust_username
     //       );
-    //       sessionStorage.setItem('en', response.customer_id_encode);
-    //       sessionStorage.setItem('blg', '1');
-    //       sessionStorage.setItem('cuscode',response.result_data.customer_details.customerCode);
-    //       sessionStorage.setItem('enable', '1');
+    //       localStorage.setItem('en', response.customer_id_encode);
+    //       localStorage.setItem('blg', '1');
+    //       localStorage.setItem('cuscode',response.result_data.customer_details.customerCode);
+    //       localStorage.setItem('enable', '1');
 
     //       this.userperms = response.result_data.customer_details.cus_permission.split(',');
 
@@ -94,7 +94,7 @@ export class TestComponent implements OnInit {
     //         this.pn = btoa(this.userperms[i]);
     //       }
 
-    //       sessionStorage.setItem('pn', this.pn);
+    //       localStorage.setItem('pn', this.pn);
 
     //       // this.serverService.cn = response.result_data.customer_details.cust_username;
     //       // this.serverService.ci = response.result_data.customer_details.customerId;
@@ -104,7 +104,7 @@ export class TestComponent implements OnInit {
           
     //       // this.gooldcms(response.result.data.customer_id_encode);  --- old cms php redirection
     //       this.router.navigate(['/dashboard']);
-    //       sessionStorage.setItem("reload","1");
+    //       localStorage.setItem("reload","1");
     //     } else {
     //       Swal.fire('Invalid Login Details');
     //     }

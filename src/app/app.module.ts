@@ -46,6 +46,7 @@ import { UserManagementComponent } from './management/user-management/user-manag
 import { AddUserComponent } from './management/user-management/add-user/add-user.component';
 import { EditUserComponent } from './management/user-management/edit-user/edit-user.component';
 import { TestComponent } from './test/test.component';
+import { TimeoutComponent } from './timeout/timeout.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { TestComponent } from './test/test.component';
      AddUserComponent,
      EditUserComponent,
      TestComponent,
+     TimeoutComponent,
    
     
   ],

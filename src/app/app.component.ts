@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { BnNgIdleService } from 'bn-ng-idle';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,12 +11,21 @@ export class AppComponent {
  
   public file_path: string = "";
   templateAuthView = false;
-  constructor(private router:Router) { }
-  
+  constructor(private router: Router, private bnIdle: BnNgIdleService) { }
+  ngOnInit(): void {
+    //60 = 1 minute
+    this.bnIdle.startWatching(180).subscribe((res) => {
+      if (res) {
+        console.log('session expired after 180 seconds');
+        this.router.navigateByUrl('/timeout');
+      }
+    });
+
+  }
   onActivate(event:any) {
       this.file_path=this.router.url;
       console.log(this.router.url);
-      if (sessionStorage.getItem('access_token')) {
+      if (localStorage.getItem('access_token')) {
           this.templateAuthView=false;
           } 
           // else if(this.router.url == '/forgot-pwd'){

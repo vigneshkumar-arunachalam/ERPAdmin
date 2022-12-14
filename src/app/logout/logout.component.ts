@@ -11,7 +11,7 @@ export class LogoutComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    // sessionStorage.removeItem('user_id');
+    // localStorage.removeItem('user_id');
 
 
     Swal.fire({
@@ -24,7 +24,7 @@ export class LogoutComponent implements OnInit {
       confirmButtonText: 'Yes, Logout!'
     }).then((result) => {
       if (result.value) {
-        sessionStorage.clear();
+        localStorage.clear();
         this.router.navigate(['/login']);
       }
       else{
