@@ -48,7 +48,7 @@ import { EditUserComponent } from './management/user-management/edit-user/edit-u
 import { TestComponent } from './test/test.component';
 import { TimeoutComponent } from './timeout/timeout.component';
 
-
+import {Keepalive, NgIdleKeepaliveModule} from '@ng-idle/keepalive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,7 +88,7 @@ import { TimeoutComponent } from './timeout/timeout.component';
     AppRoutingModule,MatChipsModule,EditorModule, DragDropModule,
     HttpClientModule,MatIconModule, NgMultiSelectDropDownModule.forRoot(),
     BrowserAnimationsModule,MatFormFieldModule,MatAutocompleteModule,MatInputModule,MatSliderModule,
-    AutocompleteLibModule,PdfViewerModule
+    AutocompleteLibModule,PdfViewerModule,NgIdleKeepaliveModule.forRoot()
   ],
   providers: [   [BnNgIdleService], { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }
 ],

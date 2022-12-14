@@ -21,30 +21,8 @@
   border-radius: 8px;
   /* overflow: hidden; */
 }
-/* .box::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 380px;
-  height: 420px;
-  background: linear-gradient(0deg, transparent,#009688,#009688 );
-  transform-origin: bottom right;
-  animation: animate 6s linear infinite;
-}
-.box::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 380px;
-  height: 420px;
-  background: linear-gradient(0deg, transparent, #009688,#009688);
-  transform-origin: bottom right;
-  animation: animate 6s linear infinite;
-  animation-delay: -3s;
-}
- */
+
+
  @keyframes animate {
   0% {
     transform: rotate(0deg);
@@ -56,10 +34,10 @@
 .form {
   /* position: absolute; */
   inset: 2px;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   background: #2c3247;
   z-index: 10;
-  padding: 50px 40px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -71,8 +49,7 @@
 }
 .inputBox {
   position: relative;
-  width: 300px;
-  margin-top: 35px;
+  margin-top: 20px;
 }
 .inputBox input {
   position: relative;
@@ -90,8 +67,8 @@
   margin: 10px 0px;
 }
 .inputBox span {
-  position: absolute;
-  left: 0;
+  /* position: absolute;
+  left: 0; */
   padding: 20px 0px 10px;
   font-size: 1em;
   color: #8f8f8f;
@@ -138,8 +115,10 @@ input[type="submit"] {
   border: none;
   outline: none;
   background: #009688;
-  padding: 11px 25px;
+  /* padding: 10px 25px; */
   width: 100px;
+  height: 40px;
+  text-align: center;
   margin-top: 10px;
   border-radius: 4px;
   font-weight: 600;
@@ -156,4 +135,68 @@ input[type="submit"]:active {
   align-items: center;
   padding-left: 45px;
   align-items: center;
+}
+
+
+
+
+
+
+.icon-object.border-warning-400.text-warning-400 {
+  padding: 20px 0px;
+}
+
+.login-container .content{padding: 0;}
+.login-form-section form{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+
+.main-bg {
+    height: -webkit-fill-available;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    margin: 0;
+    padding: 0
+}
+.login-form-section{
+    height: 100%;
+    width: 350px;
+    position: absolute;
+    right: 0;
+    padding: 0px;
+    border-radius: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.login-container .login-form{
+    width: 100%;
+}
+.panel.panel-body.login-form{border:none;}
+.login-container .login-form{margin: 0 0 0 0;width: 100%;}
+.form-control-feedback{height: 42px;line-height: 42px;}
+.form-control{height: 42px;}
+@media only screen and (max-width: 992px){
+    .login-form-section {
+    position: unset;
+    margin: 0 auto;
+}
+}
+span.help-block.text-center.no-margin {
+  color: #fff;
+  display: block;
+  margin: 40px 0px;
+}
+form .otp {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  margin-right: 4px;
+  text-align: center;
 }

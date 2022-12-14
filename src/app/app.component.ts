@@ -13,10 +13,10 @@ export class AppComponent {
   templateAuthView = false;
   constructor(private router: Router, private bnIdle: BnNgIdleService) { }
   ngOnInit(): void {
-    //60 = 1 minute
-    this.bnIdle.startWatching(180).subscribe((res) => {
+    
+    this.bnIdle.startWatching(600).subscribe((res) => {
       if (res) {
-        console.log('session expired after 180 seconds');
+        console.log('session expired after 600 seconds');
         this.router.navigateByUrl('/timeout');
       }
     });
@@ -27,10 +27,11 @@ export class AppComponent {
       console.log(this.router.url);
       if (localStorage.getItem('access_token')) {
           this.templateAuthView=false;
+          if(this.router.url!=''){
+            this.router.navigate([this.router.url]);
+          }
           } 
-          // else if(this.router.url == '/forgot-pwd'){
-          //     this.router.navigate(['/forgot-pwd']);
-          // }
+         
       else{
           this.templateAuthView=true;
           this.router.navigate(['/login']);
